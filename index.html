@@ -1,11 +1,594 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>SS Residency – Live Test</title>
-  </head>
-  <body>
-    <h1>SS Residency</h1>
-    <p>If you see this as a webpage, GitHub Pages is working.</p>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SS Residency – KPHB, Hyderabad | Clean Comfortable Stays</title>
+  <meta name="description" content="SS Residency in KPHB, Hyderabad. Clean comfortable stays with easy access to Kukatpally, KPHB Metro & key business hubs. Call or WhatsApp to book." />
+  <meta name="theme-color" content="#0b4aa2" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="SS Residency – KPHB, Hyderabad" />
+  <meta property="og:description" content="Clean Comfortable Stays. Call or WhatsApp to book your stay in KPHB, Hyderabad." />
+  <meta property="og:type" content="website" />
+
+  <!-- Basic Schema (edit phone, price range, URL) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Hotel",
+    "name": "SS Residency",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "MIG-30, Dharma Reddy Colony Phase 1, KPHB Colony",
+      "addressLocality": "Hyderabad",
+      "addressRegion": "Telangana",
+      "postalCode": "500072",
+      "addressCountry": "IN"
+    },
+    "telephone": "+91XXXXXXXXXX",
+    "priceRange": "₹₹",
+    "amenityFeature": [
+      {"@type":"LocationFeatureSpecification","name":"Wi-Fi","value":true},
+      {"@type":"LocationFeatureSpecification","name":"Air Conditioning","value":true},
+      {"@type":"LocationFeatureSpecification","name":"24-hour Front Desk","value":true}
+    ]
+  }
+  </script>
+
+  <style>
+    :root{
+      --primary:#0b4aa2;
+      --primary2:#083a80;
+      --bg:#f6f8fb;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
+      --border:#e2e8f0;
+      --shadow: 0 10px 25px rgba(2, 8, 23, .08);
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;color:var(--text);background:var(--bg)}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:0 18px}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(255,255,255,.25);border-radius:999px;background:rgba(255,255,255,.08);color:#fff;font-weight:600;font-size:13px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px 14px;border-radius:12px;border:1px solid transparent;font-weight:700;cursor:pointer;transition:transform .08s ease, opacity .15s ease}
+    .btn:active{transform:translateY(1px)}
+    .btn.primary{background:linear-gradient(135deg,var(--primary), #0a6bd6);color:#fff}
+    .btn.ghost{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.25);color:#fff}
+    .btn.light{background:#fff;border-color:var(--border);color:var(--text)}
+    .grid{display:grid;gap:16px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .card.pad{padding:18px}
+    .muted{color:var(--muted)}
+    .section{padding:42px 0}
+    h1,h2,h3{margin:0 0 10px 0;line-height:1.15}
+    h1{font-size:38px}
+    h2{font-size:26px}
+    h3{font-size:18px}
+    p{margin:0 0 12px 0;line-height:1.6}
+
+    /* Top bar */
+    .topbar{
+      position:sticky;top:0;z-index:50;
+      background:rgba(6, 18, 45, .70);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.10);
+    }
+    .topbar-inner{display:flex;align-items:center;justify-content:space-between;padding:10px 0}
+    .brand{display:flex;align-items:center;gap:10px;color:#fff}
+    .logo{
+      width:40px;height:40px;border-radius:12px;
+      background:linear-gradient(135deg,#ffffff,#dbeafe);
+      display:grid;place-items:center;
+      color:var(--primary2);font-weight:900
+    }
+    .nav{display:flex;gap:10px;flex-wrap:wrap}
+    .nav a{color:#fff;opacity:.9;font-weight:650;font-size:14px;padding:8px 10px;border-radius:12px}
+    .nav a:hover{background:rgba(255,255,255,.10)}
+    .top-cta{display:flex;gap:10px}
+
+    /* Hero */
+    .hero{
+      background:
+        radial-gradient(1200px 500px at 20% 0%, rgba(10,107,214,.45), transparent 55%),
+        radial-gradient(900px 400px at 80% 10%, rgba(11,74,162,.55), transparent 60%),
+        linear-gradient(180deg, #06122d 0%, #0a1d46 65%, #071635 100%);
+      color:#fff;
+      padding:38px 0 18px 0;
+    }
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:stretch}
+    .hero-card{
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);
+      border-radius:18px;
+      padding:18px;
+      box-shadow:none;
+    }
+    .hero h1{margin-bottom:10px}
+    .hero .sub{font-size:16px;color:rgba(255,255,255,.85)}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+    .quickfacts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px}
+    .fact{padding:12px;border-radius:14px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.07)}
+    .fact b{display:block}
+    .hero-media{
+      border-radius:18px;overflow:hidden;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      min-height:260px;
+      display:grid;
+      grid-template-rows:1fr;
+    }
+    .hero-media .img{
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.20), rgba(0,0,0,.55)),
+        url("https://images.unsplash.com/photo-1551887373-6f5bd802d0d4?auto=format&fit=crop&w=1400&q=70");
+      background-size:cover;background-position:center;
+      display:flex;align-items:flex-end;padding:14px
+    }
+    .badge{display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.20);padding:10px 12px;border-radius:999px;font-weight:700}
+    .badge small{opacity:.85;font-weight:650}
+
+    /* Sections */
+    .two-col{grid-template-columns:1fr 1fr}
+    .three-col{grid-template-columns:repeat(3,1fr)}
+    .four-col{grid-template-columns:repeat(4,1fr)}
+    .list{margin:0;padding-left:18px;color:var(--muted);line-height:1.7}
+
+    /* Rooms */
+    .room{padding:16px}
+    .room .price{font-weight:900}
+    .room .tag{display:inline-block;font-size:12px;font-weight:750;padding:6px 10px;border-radius:999px;background:#eff6ff;color:#1d4ed8;border:1px solid #dbeafe}
+    .room .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .chip{font-size:12px;padding:6px 10px;border-radius:999px;border:1px solid var(--border);background:#fff}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:10px}
+    .g{border-radius:16px;overflow:hidden;border:1px solid var(--border);background:#e5e7eb;min-height:120px}
+    .g img{width:100%;height:100%;object-fit:cover;display:block}
+    .g.w6{grid-column:span 6}
+    .g.w4{grid-column:span 4}
+    .g.w3{grid-column:span 3}
+
+    /* Footer */
+    footer{padding:22px 0 90px 0;color:var(--muted)}
+    .footer-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}
+
+    /* Floating WhatsApp */
+    .wa-float{
+      position:fixed;right:16px;bottom:16px;z-index:60;
+      display:flex;align-items:center;gap:10px;
+      background:#25D366;color:#fff;border-radius:999px;
+      padding:12px 14px;font-weight:900;
+      box-shadow: 0 18px 30px rgba(0,0,0,.18);
+    }
+    .wa-float span{font-weight:800}
+    .wa-dot{width:12px;height:12px;border-radius:999px;background:rgba(255,255,255,.8)}
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero-grid{grid-template-columns:1fr}
+      .three-col{grid-template-columns:1fr}
+      .four-col{grid-template-columns:repeat(2,1fr)}
+      .two-col{grid-template-columns:1fr}
+      h1{font-size:32px}
+      .nav{display:none}
+    }
+    @media (max-width: 520px){
+      .top-cta{display:none}
+      .four-col{grid-template-columns:1fr}
+      .quickfacts{grid-template-columns:1fr}
+      .g.w6,.g.w4,.g.w3{grid-column:span 12}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Sticky Topbar -->
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-inner">
+        <div class="brand">
+          <div class="logo">SS</div>
+          <div>
+            <div style="font-weight:900;letter-spacing:.2px;">SS Residency</div>
+            <div style="font-size:12px;opacity:.85;">KPHB Colony, Hyderabad • Clean Comfortable Stays</div>
+          </div>
+        </div>
+
+        <div class="nav">
+          <a href="#rooms">Rooms</a>
+          <a href="#amenities">Amenities</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#location">Location</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div class="top-cta">
+          <a class="btn ghost" id="callTop" href="tel:+91XXXXXXXXXX">Call</a>
+          <a class="btn primary" id="bookTop" href="#contact">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-card">
+          <span class="pill">📍 KPHB Colony • Kukatpally</span>
+          <h1>Clean, Comfortable Stays in KPHB, Hyderabad</h1>
+          <p class="sub">
+            SS Residency offers a convenient stay for business and family travelers with easy access to Kukatpally, KPHB Metro, malls, and key city hubs.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn primary" id="waHero" href="#" role="button">WhatsApp to Book</a>
+            <a class="btn ghost" id="callHero" href="tel:+91XXXXXXXXXX" role="button">Call Now</a>
+            <a class="btn light" href="#rooms" role="button">View Rooms</a>
+          </div>
+
+          <div class="quickfacts">
+            <div class="fact">
+              <b>✔️ Quick Check-in</b>
+              <span class="muted" style="color:rgba(255,255,255,.82)">Friendly front desk support</span>
+            </div>
+            <div class="fact">
+              <b>🧼 Clean Rooms</b>
+              <span class="muted" style="color:rgba(255,255,255,.82)">Hygiene-first housekeeping</span>
+            </div>
+            <div class="fact">
+              <b>📶 Wi-Fi</b>
+              <span class="muted" style="color:rgba(255,255,255,.82)">Stay connected</span>
+            </div>
+            <div class="fact">
+              <b>📍 Great Location</b>
+              <span class="muted" style="color:rgba(255,255,255,.82)">KPHB Colony, Hyderabad</span>
+            </div>
+          </div>
+
+          <p style="margin-top:12px;opacity:.9;font-size:13px">
+            Address: MIG-30, Dharma Reddy Colony Phase 1, KPHB Colony, Hyderabad, Telangana 500072
+          </p>
+        </div>
+
+        <div class="hero-media">
+          <div class="img">
+            <div class="badge">
+              ⭐ <span>Direct Booking</span>
+              <small>Best price via WhatsApp</small>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Rooms -->
+  <section class="section" id="rooms">
+    <div class="container">
+      <h2>Rooms & Pricing</h2>
+      <p class="muted">Replace prices/room types with your exact details. “Book” buttons open WhatsApp with the selected room.</p>
+
+      <div class="grid three-col" style="margin-top:14px;">
+        <div class="card room">
+          <div class="tag">Popular</div>
+          <h3>Standard Room</h3>
+          <p class="muted">Ideal for solo / short stays</p>
+          <p class="price">From ₹1,499 / night</p>
+          <div class="meta">
+            <span class="chip">AC</span><span class="chip">Wi-Fi</span><span class="chip">TV</span><span class="chip">Attached Bath</span>
+          </div>
+          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;">
+            <a class="btn primary" href="#" data-room="Standard Room">Book on WhatsApp</a>
+            <a class="btn light" href="#contact">Enquire</a>
+          </div>
+        </div>
+
+        <div class="card room">
+          <div class="tag">Best Value</div>
+          <h3>Deluxe Room</h3>
+          <p class="muted">More space and comfort</p>
+          <p class="price">From ₹1,999 / night</p>
+          <div class="meta">
+            <span class="chip">AC</span><span class="chip">Wi-Fi</span><span class="chip">Desk</span><span class="chip">Hot Water</span>
+          </div>
+          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;">
+            <a class="btn primary" href="#" data-room="Deluxe Room">Book on WhatsApp</a>
+            <a class="btn light" href="#contact">Enquire</a>
+          </div>
+        </div>
+
+        <div class="card room">
+          <div class="tag">Family</div>
+          <h3>Family Room</h3>
+          <p class="muted">Comfort for 3–4 guests</p>
+          <p class="price">From ₹2,499 / night</p>
+          <div class="meta">
+            <span class="chip">AC</span><span class="chip">Wi-Fi</span><span class="chip">Extra Bed</span><span class="chip">Spacious</span>
+          </div>
+          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;">
+            <a class="btn primary" href="#" data-room="Family Room">Book on WhatsApp</a>
+            <a class="btn light" href="#contact">Enquire</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Amenities -->
+  <section class="section" id="amenities">
+    <div class="container">
+      <div class="grid two-col">
+        <div class="card pad">
+          <h2>Amenities</h2>
+          <ul class="list">
+            <li>Free Wi-Fi</li>
+            <li>Air-conditioned rooms</li>
+            <li>Attached bathrooms</li>
+            <li>24-hour front desk</li>
+            <li>Daily housekeeping</li>
+            <li>Family-friendly stay</li>
+          </ul>
+          <p class="muted" style="margin-top:10px;">Add more: parking, elevator, breakfast, power backup, etc.</p>
+        </div>
+
+        <div class="card pad">
+          <h2>Why guests choose us</h2>
+          <p><b>Location:</b> KPHB Colony, near Kukatpally & major transit routes.</p>
+          <p><b>Cleanliness:</b> Clean rooms, fresh linen, hygiene-focused service.</p>
+          <p><b>Value:</b> Comfortable stay at a budget-friendly price.</p>
+          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;">
+            <a class="btn primary" id="waAmenities" href="#">WhatsApp to Book</a>
+            <a class="btn light" href="#gallery">View Gallery</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="section" id="gallery">
+    <div class="container">
+      <h2>Gallery</h2>
+      <p class="muted">Replace these images with your real photos (rooms, reception, washrooms, building front).</p>
+
+      <div class="gallery" style="margin-top:12px;">
+        <!-- Replace src with your uploaded image URLs or local images -->
+        <div class="g w6"><img src="https://images.unsplash.com/photo-1501117716987-c8e1ecb21000?auto=format&fit=crop&w=1400&q=70" alt="Room" /></div>
+        <div class="g w6"><img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1400&q=70" alt="Reception" /></div>
+        <div class="g w4"><img src="https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=1200&q=70" alt="Bed" /></div>
+        <div class="g w4"><img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=70" alt="Workspace" /></div>
+        <div class="g w4"><img src="https://images.unsplash.com/photo-1551887373-6f5bd802d0d4?auto=format&fit=crop&w=1200&q=70" alt="Hotel" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location -->
+  <section class="section" id="location">
+    <div class="container">
+      <div class="grid two-col">
+        <div class="card pad">
+          <h2>Location</h2>
+          <p><b>Address:</b> MIG-30, Dharma Reddy Colony Phase 1, KPHB Colony, Hyderabad, Telangana 500072</p>
+          <p class="muted">Tip: Add landmarks like “near KPHB Metro / Kukatpally” once you confirm the nearest one.</p>
+
+          <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;">
+            <a class="btn primary" id="directionsBtn" href="#" target="_blank" rel="noopener">Get Directions</a>
+            <a class="btn light" id="callLocation" href="tel:+91XXXXXXXXXX">Call</a>
+          </div>
+
+          <div class="card" style="margin-top:14px;padding:14px;border-radius:14px;">
+            <h3 style="margin-bottom:6px;">Nearby (example)</h3>
+            <ul class="list" style="margin:0;">
+              <li>Kukatpally / KPHB shopping areas</li>
+              <li>Metro access (update exact station)</li>
+              <li>Business hubs and hospitals (add your top 3)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card" style="overflow:hidden;">
+          <!-- Replace map query if needed -->
+          <iframe
+            title="SS Residency Map"
+            src="https://www.google.com/maps?q=MIG-30%20Dharma%20Reddy%20Colony%20Phase%201%20KPHB%20Colony%20Hyderabad%20500072&output=embed"
+            width="100%" height="360" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Policies -->
+  <section class="section" id="policies">
+    <div class="container">
+      <h2>Policies</h2>
+      <div class="grid three-col" style="margin-top:12px;">
+        <div class="card pad">
+          <h3>Check-in / Check-out</h3>
+          <p class="muted">Check-in: 12:00 PM (edit)</p>
+          <p class="muted">Check-out: 11:00 AM (edit)</p>
+        </div>
+        <div class="card pad">
+          <h3>ID Proof</h3>
+          <p class="muted">Valid govt. ID required at check-in.</p>
+        </div>
+        <div class="card pad">
+          <h3>House Rules</h3>
+          <p class="muted">No loud music/parties. Respect other guests.</p>
+        </div>
+      </div>
+      <p class="muted" style="margin-top:10px;">If you want, I can add a clean “Cancellation Policy” section too.</p>
+    </div>
+  </section>
+
+  <!-- Contact / Booking -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="grid two-col">
+        <div class="card pad">
+          <h2>Book Now</h2>
+          <p class="muted">Send a quick enquiry — it opens WhatsApp with your message ready.</p>
+
+          <form id="bookingForm">
+            <div class="grid" style="grid-template-columns:1fr 1fr;gap:12px">
+              <div>
+                <label style="font-weight:700;font-size:13px">Name</label>
+                <input required name="name" placeholder="Your name" style="width:100%;margin-top:6px;padding:12px;border-radius:12px;border:1px solid var(--border)" />
+              </div>
+              <div>
+                <label style="font-weight:700;font-size:13px">Phone</label>
+                <input required name="phone" placeholder="Your phone number" style="width:100%;margin-top:6px;padding:12px;border-radius:12px;border:1px solid var(--border)" />
+              </div>
+              <div>
+                <label style="font-weight:700;font-size:13px">Check-in</label>
+                <input required type="date" name="checkin" style="width:100%;margin-top:6px;padding:12px;border-radius:12px;border:1px solid var(--border)" />
+              </div>
+              <div>
+                <label style="font-weight:700;font-size:13px">Nights</label>
+                <input required type="number" min="1" name="nights" value="1" style="width:100%;margin-top:6px;padding:12px;border-radius:12px;border:1px solid var(--border)" />
+              </div>
+              <div style="grid-column:1/-1">
+                <label style="font-weight:700;font-size:13px">Room Type</label>
+                <select name="room" style="width:100%;margin-top:6px;padding:12px;border-radius:12px;border:1px solid var(--border)">
+                  <option>Standard Room</option>
+                  <option>Deluxe Room</option>
+                  <option>Family Room</option>
+                  <option>Other / Not sure</option>
+                </select>
+              </div>
+              <div style="grid-column:1/-1">
+                <label style="font-weight:700;font-size:13px">Message</label>
+                <textarea name="message" rows="3" placeholder="Any requests (late check-in, extra bed, etc.)"
+                  style="width:100%;margin-top:6px;padding:12px;border-radius:12px;border:1px solid var(--border)"></textarea>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+              <button class="btn primary" type="submit">Send on WhatsApp</button>
+              <a class="btn light" id="callBottom" href="tel:+91XXXXXXXXXX">Call to Book</a>
+            </div>
+          </form>
+        </div>
+
+        <div class="card pad">
+          <h2>Contact</h2>
+          <p><b>Phone:</b> <a id="phoneText" href="tel:+91XXXXXXXXXX">+91 XXXXXXXXXX</a></p>
+          <p><b>WhatsApp:</b> <a id="waText" href="#">Chat on WhatsApp</a></p>
+          <p><b>Address:</b> MIG-30, Dharma Reddy Colony Phase 1, KPHB Colony, Hyderabad, Telangana 500072</p>
+
+          <div class="card" style="margin-top:14px;padding:14px;border-radius:14px;">
+            <h3 style="margin-bottom:6px;">For better OTA bookings</h3>
+            <ul class="list" style="margin:0;">
+              <li>Upload 25+ real photos (rooms, washrooms, frontage)</li>
+              <li>Reply to reviews within 24 hours</li>
+              <li>Keep room names & amenities consistent everywhere</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <b>SS Residency</b>
+          <p class="muted">Clean Comfortable Stays • KPHB Colony, Hyderabad</p>
+          <p class="muted" style="font-size:13px">© <span id="yr"></span> SS Residency. All rights reserved.</p>
+        </div>
+        <div style="text-align:right">
+          <p class="muted" style="margin:0">Made for direct bookings (WhatsApp + Call)</p>
+          <p class="muted" style="margin:0;font-size:13px">Tip: connect this domain to Google Business Profile.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a class="wa-float" id="waFloat" href="#" aria-label="WhatsApp to book">
+    <span class="wa-dot"></span>
+    <span>WhatsApp to Book</span>
+  </a>
+
+  <script>
+    // ========= EDIT THESE 2 VALUES =========
+    const HOTEL_NAME = "SS Residency";
+    const PHONE_NUMBER = "+91XXXXXXXXXX";     // e.g. +919876543210
+    const WHATSAPP_NUMBER = "91XXXXXXXXXX";   // digits only, e.g. 919876543210
+    // ======================================
+
+    // Helpers
+    const waLink = (text) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+    const telLink = `tel:${PHONE_NUMBER}`;
+
+    // Set year
+    document.getElementById("yr").textContent = new Date().getFullYear();
+
+    // Set phone links
+    ["callTop","callHero","callLocation","callBottom"].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.setAttribute("href", telLink);
+    });
+    const phoneText = document.getElementById("phoneText");
+    phoneText.textContent = PHONE_NUMBER;
+    phoneText.setAttribute("href", telLink);
+
+    // Set directions link
+    const directions = document.getElementById("directionsBtn");
+    directions.href = "https://www.google.com/maps?q=" + encodeURIComponent("MIG-30 Dharma Reddy Colony Phase 1 KPHB Colony Hyderabad Telangana 500072");
+
+    // WhatsApp CTAs
+    const defaultMsg = `Hi ${HOTEL_NAME}, I’d like to book a room. Please share availability & best price.`;
+    const waCtas = ["waHero","waAmenities","waFloat","waText"];
+    waCtas.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.setAttribute("href", waLink(defaultMsg));
+      if (el) el.setAttribute("target","_blank");
+      if (el) el.setAttribute("rel","noopener");
+    });
+
+    // Room buttons -> WhatsApp with room type
+    document.querySelectorAll('[data-room]').forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const room = btn.getAttribute("data-room");
+        const msg = `Hi ${HOTEL_NAME}, I want to book: ${room}. Please share availability, check-in time & best price.`;
+        window.open(waLink(msg), "_blank", "noopener");
+      });
+    });
+
+    // Booking form -> WhatsApp message
+    document.getElementById("bookingForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const fd = new FormData(e.target);
+      const name = fd.get("name");
+      const phone = fd.get("phone");
+      const checkin = fd.get("checkin");
+      const nights = fd.get("nights");
+      const room = fd.get("room");
+      const message = fd.get("message") || "";
+
+      const msg =
+`Hi ${HOTEL_NAME}, I’d like to book a stay.
+Name: ${name}
+Phone: ${phone}
+Check-in: ${checkin}
+Nights: ${nights}
+Room: ${room}
+Message: ${message}`.trim();
+
+      window.open(waLink(msg), "_blank", "noopener");
+    });
+  </script>
+
+</body>
 </html>
