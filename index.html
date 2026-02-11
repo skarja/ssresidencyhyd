@@ -5,7 +5,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>SS Residency Grand | KPHB Colony, Hyderabad</title>
-  <meta name="description" content="SS Residency Grand – Clean & comfortable stays in KPHB Colony, Hyderabad. AC & Non-AC rooms. WhatsApp 7842421143 to book." />
+  <meta name="description" content="SS Residency Grand in KPHB Colony, Hyderabad — clean, comfortable stays with easy booking on WhatsApp.">
+  <meta property="og:title" content="SS Residency Grand | KPHB Colony, Hyderabad">
+  <meta property="og:description" content="Clean, comfortable stays in KPHB Colony, Hyderabad. Book quickly via WhatsApp.">
+
 
   <style>
     :root{
@@ -806,10 +809,10 @@ header.shrink .brand h1{
   box-shadow:0 6px 18px rgba(0,0,0,.06);
 }
 .hyatt-main-inner{
-  display:grid;
-  grid-template-columns: 44px 1fr auto;
+  display:flex;
   align-items:center;
-  gap:12px;
+  justify-content:space-between;
+  gap:18px;
   padding:14px 0;
 }
 .hyatt-menu{
@@ -836,11 +839,14 @@ header.shrink .brand h1{
   display:flex;
   align-items:center;
   gap:18px;
+  flex-wrap:nowrap;
 }
 .hyatt-nav{
   display:flex;
   align-items:center;
   gap:18px;
+  flex-wrap:nowrap;
+  white-space:nowrap;
 }
 .hyatt-nav a{
   text-decoration:none;
@@ -921,6 +927,365 @@ header.shrink .brand h1{
   .hyatt-book{ padding:10px 12px; }
 }
 
+
+/* Hyatt-like utility casing */
+.util-link{
+  text-transform:uppercase;
+  font-size:11px;
+  letter-spacing:1px;
+}
+
+
+/* ===== HYATT LUXURY MAP SECTION ===== */
+.map-wrap{
+  margin-top:14px;
+  border-radius:22px;
+  overflow:hidden;
+  border:1px solid #e5e7eb;
+  box-shadow:0 18px 48px rgba(2,8,23,.14);
+  position:relative;
+  background:#fff;
+}
+.map-wrap::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(180deg, rgba(2,8,23,.18) 0%, rgba(2,8,23,0) 22%, rgba(2,8,23,0) 78%, rgba(2,8,23,.14) 100%);
+}
+.map-iframe{ display:block; width:100%; height:min(54vh, 520px); border:0; }
+.map-cta{
+  position:absolute;
+  top:14px;
+  right:14px;
+  z-index:3;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 14px;
+  border-radius:4px; /* Hyatt-like squared */
+  background:#0b3c5d;
+  color:#fff;
+  text-decoration:none;
+  font-weight:1000;
+  letter-spacing:1.4px;
+  text-transform:uppercase;
+  box-shadow:0 14px 26px rgba(2,8,23,.22);
+  border:1px solid rgba(255,255,255,.18);
+}
+.map-cta:hover{ filter:brightness(1.03); transform:translateY(-1px); }
+.map-cta:active{ transform:translateY(0); }
+.map-cta svg{ width:18px; height:18px; }
+
+/* Full-bleed option (Hyatt style) */
+.map-fullbleed{
+  margin-left:calc(50% - 50vw);
+  margin-right:calc(50% - 50vw);
+  width:100vw;
+  border-radius:0;
+}
+@media (max-width:720px){
+  .map-iframe{ display:block; width:100%; height:min(54vh, 520px); border:0; }
+  .map-cta{ top:12px; right:12px; padding:10px 12px; letter-spacing:1.1px; }
+}
+
+
+/* Hyatt-style map link */
+.hyatt-locline{ margin:8px 0 14px 0; }
+.hyatt-maplink{
+  color:#0b3c5d;
+  font-weight:1000;
+  text-decoration:none;
+  letter-spacing:.6px;
+  text-transform:uppercase;
+  font-size:12px;
+}
+.hyatt-maplink:hover{ opacity:.7; }
+
+
+/* ===== HYATT PREMIUM LOCATION SECTION ===== */
+.loc-premium{
+  margin-top:6px;
+}
+.loc-label{
+  display:inline-block;
+  font-size:12px;
+  font-weight:1000;
+  letter-spacing:2.2px;
+  color:#475569;
+  text-transform:uppercase;
+}
+.loc-title{
+  margin:10px 0 6px 0;
+  font-size:28px;
+  font-weight:1000;
+  letter-spacing:.6px;
+  color:#0f172a;
+}
+.loc-divider{
+  width:72px;
+  height:3px;
+  background:linear-gradient(90deg,#caa64b 0%,#f5e6a1 40%,#b8932c 75%,#f5e6a1 100%);
+  border-radius:999px;
+  margin:10px 0 14px 0;
+}
+.loc-grid{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:14px;
+}
+.loc-card{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:18px;
+  padding:14px 14px;
+  box-shadow:0 14px 34px rgba(2,8,23,.10);
+}
+.loc-card .loc-name{
+  font-weight:1000;
+  letter-spacing:.6px;
+  text-transform:uppercase;
+  font-size: 18px;
+  color:#111827;
+}
+.loc-card .loc-addr{
+  margin-top:8px;
+  font-size:14px;
+  line-height:1.6;
+  color:#334155;
+  font-weight:700;
+}
+.loc-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+.loc-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:11px 14px;
+  border-radius:4px; /* Hyatt-like */
+  border:1px solid #e5e7eb;
+  background:#fff;
+  color:#0b3c5d;
+  font-weight:1000;
+  letter-spacing:1.2px;
+  text-transform:uppercase;
+  font-size:12px;
+  text-decoration:none;
+  box-shadow:0 10px 18px rgba(2,8,23,.08);
+  cursor:pointer;
+}
+.loc-btn.primary{
+  background:#0b3c5d;
+  color:#fff;
+  border-color:rgba(11,60,93,.22);
+}
+.loc-btn:hover{ filter:brightness(1.02); transform:translateY(-1px); }
+.loc-btn:active{ transform:translateY(0); }
+.loc-btn svg{ width:18px; height:18px; }
+.loc-hint{
+  margin-top:10px;
+  font-size:12px;
+  color:#64748b;
+  font-weight:700;
+}
+@media (min-width: 900px){
+  .loc-grid{ grid-template-columns: 420px 1fr; align-items:start; }
+  .loc-card{ position:sticky; top:92px; }
+}
+
+
+/* ===== MAP LOCK FIX (inside Location grid) ===== */
+.map-locked{
+  width:100%;
+  margin:0;
+  border-radius:22px;
+}
+.loc-grid > div:last-child{
+  min-width:0;
+}
+
+
+/* ===== HEADER LEFT ALIGN + SUBTITLE ===== */
+.hyatt-title-block{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:center;
+}
+.hyatt-title-main{
+  font-size:28px;
+  font-weight:1000;
+  letter-spacing:6px;
+  color:#111827;
+}
+.hyatt-title-sub{
+  margin-top:4px;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:1.6px;
+  color:#64748b;
+  text-transform:uppercase;
+}
+
+
+/* ===== HYATT LEFT TITLE FIX ===== */
+.hyatt-left{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:center;
+  min-width:320px;
+}
+.hyatt-title-main{
+  font-size:24px;
+  font-weight:1000;
+  letter-spacing:4px;
+  color:#111827;
+  line-height:1.05;
+  white-space:nowrap;
+}
+.hyatt-title-sub{
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:1.4px;
+  color:#64748b;
+  text-transform:uppercase;
+  margin-top:6px;
+  white-space:nowrap;
+}
+
+
+
+@media (max-width: 900px){
+  .hyatt-title-main{ font-size:18px; letter-spacing:2px; white-space:normal; }
+  .hyatt-title-sub{ font-size:11px; letter-spacing:1px; white-space:normal; }
+  .hyatt-left{ min-width:0; }
+}
+@media (max-width: 640px){
+  .hyatt-nav{ display:none; }
+}
+
+
+/* ===== HYATT LUXURY LOCATION TITLE ===== */
+.loc-card .loc-name{
+  font-size:20px !important;
+  font-weight:1000;
+  letter-spacing:2.4px;
+  text-transform:uppercase;
+  position:relative;
+  display:inline-block;
+  padding-bottom:8px;
+}
+
+/* Gold accent divider like Hyatt */
+.loc-card .loc-name::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:68px;
+  height:3px;
+  border-radius:999px;
+  background:linear-gradient(90deg,#caa64b 0%,#f5e6a1 40%,#b8932c 75%,#f5e6a1 100%);
+}
+
+/* Soft luxury fade-in */
+.loc-card{
+  animation:locFadeUp .7s ease-out both;
+}
+
+@keyframes locFadeUp{
+  from{opacity:0; transform:translateY(14px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+
+/* ===== LOCATION ULTRA-LUXURY HYATT PRO ===== */
+#location .loc-grid{
+  gap:18px;
+}
+#location .map-wrap{
+  border-radius:26px;
+  box-shadow:0 24px 70px rgba(2,8,23,.18);
+}
+#location .map-wrap::after{
+  background:linear-gradient(180deg, rgba(2,8,23,.22) 0%, rgba(2,8,23,0) 24%, rgba(2,8,23,0) 76%, rgba(2,8,23,.18) 100%);
+}
+
+/* Float the location card over the map on desktop */
+@media (min-width: 980px){
+  #location .loc-grid{
+    grid-template-columns: 1fr;
+    position:relative;
+  }
+  #location .loc-grid > div:first-child{
+    position:absolute;
+    left:0;
+    top:28px;
+    z-index:5;
+    width:min(420px, 38vw);
+  }
+  #location .loc-grid > div:last-child{
+    padding-left:min(460px, 42vw);
+  }
+  #location .loc-card{
+    border-radius:22px;
+    box-shadow:0 28px 80px rgba(2,8,23,.20);
+    border:1px solid rgba(229,231,235,.9);
+  }
+}
+
+/* Add a soft gold edge glow to the card (very subtle) */
+#location .loc-card{
+  position:relative;
+}
+#location .loc-card::before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border-radius:22px;
+  pointer-events:none;
+  background:linear-gradient(135deg, rgba(245,230,161,.22), rgba(202,166,75,.12), rgba(245,230,161,.20));
+  opacity:.55;
+  mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  padding:1px;
+  box-sizing:border-box;
+}
+
+/* Add gold sheen sweep on the location title */
+.loc-card .loc-name{
+  overflow:hidden;
+}
+.loc-card .loc-name::before{
+  content:"";
+  position:absolute;
+  inset:-50% -40%;
+  background:linear-gradient(120deg, rgba(255,255,255,0) 40%, rgba(245,230,161,.45) 50%, rgba(255,255,255,0) 60%);
+  transform:translateX(-140%) rotate(8deg);
+  opacity:.0;
+  pointer-events:none;
+}
+.loc-card:hover .loc-name::before{
+  opacity:1;
+  animation:locGoldSweep 1.8s ease forwards;
+}
+@keyframes locGoldSweep{
+  0%{ transform:translateX(-140%) rotate(8deg); }
+  100%{ transform:translateX(140%) rotate(8deg); }
+}
+
+/* Luxury spacing in Location section */
+#location .loc-title{
+  font-size:30px;
+  letter-spacing:.8px;
+}
+#location .loc-divider{ width:84px; }
+
 </style>
 </head>
 
@@ -930,8 +1295,7 @@ header.shrink .brand h1{
   <div class="hyatt-utility">
     <div class="container hyatt-utility-inner">
       <div class="util-left">
-        <span class="util-item">SS Residency Grand</span>
-        <span class="util-sep">•</span>
+        <span class="util-item">SS Residency Grand <span class="util-sep">•</span>
         <span class="util-item">KPHB Colony, Hyderabad</span>
       </div>
       <div class="util-right">
@@ -949,6 +1313,13 @@ header.shrink .brand h1{
           </svg>
           WhatsApp
         </a>
+        <a class="util-link" href="https://www.google.com/maps/place/SS+RESIDENCY+GRAND/@17.4949886,78.3965019,21z/data=!4m17!1m7!3m6!1s0x3bcb99daeaebd2c7:0x94ea9fb0ba260caa!2sF9WW%2B2H,+Hyderabad,+Telangana!3b1!8m2!3d17.4950625!4d78.3964375!3m8!1s0x3bcb91e74cbe9327:0xbb2d05ef68022276!5m2!4m1!1i2!8m2!3d17.4950638!4d78.3964849!16s%2Fg%2F11gy880hm2?entry=ttu&g_ep=EgoyMDI2MDIwOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" aria-label="Directions">
+          <svg class="util-ic" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 21s7-4.6 7-11a7 7 0 1 0-14 0c0 6.4 7 11 7 11Z" fill="none" stroke="currentColor" stroke-width="2"/>
+            <circle cx="12" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          Directions
+        </a>
       </div>
     </div>
   </div>
@@ -956,11 +1327,14 @@ header.shrink .brand h1{
   <!-- Main header row -->
   <div class="hyatt-main">
     <div class="container hyatt-main-inner">
-      <button class="hyatt-menu" type="button" aria-label="Menu" onclick="toggleHyattMenu()">☰</button>
+      
 
-      <div class="hyatt-center">
-        <span class="hyatt-wordmark">SS RESIDENCY GRAND</span>
-      </div>
+      
+<div class="hyatt-left">
+  <div class="hyatt-title-main">SS RESIDENCY GRAND</div>
+  <div class="hyatt-title-sub">A Unit of SS Hospitality Group</div>
+</div>
+
 
       <div class="hyatt-right">
         <nav class="hyatt-nav" aria-label="Primary">
@@ -969,19 +1343,6 @@ header.shrink .brand h1{
           <a href="#location">Location</a>
         </nav>
         <button class="hyatt-book" type="button" onclick="openBooking('Deluxe AC Room')">BOOK</button>
-      </div>
-    </div>
-
-    <!-- Mobile dropdown -->
-    <div class="hyatt-mobile" id="hyattMobile" hidden>
-      <div class="container hyatt-mobile-inner">
-        <a href="#rooms" onclick="closeHyattMenu()">Rooms</a>
-        <a href="#amenities" onclick="closeHyattMenu()">Amenities</a>
-        <a href="#location" onclick="closeHyattMenu()">Location</a>
-        <div class="hyatt-mobile-cta">
-          <a class="mbtn" href="https://wa.me/917842421143" onclick="closeHyattMenu()">WhatsApp</a>
-          <a class="mbtn" href="tel:7842072724" onclick="closeHyattMenu()">Call</a>
-        </div>
       </div>
     </div>
   </div>
@@ -1197,36 +1558,67 @@ header.shrink .brand h1{
 
 <!-- LOCATION -->
 <section class="section" id="location">
-  <div class="container">
-    <h3>Location</h3>
-    <div class="sub">Easy access to KPHB, Kukatpally & Hitech City routes.</div>
+  <div class="container loc-premium">
+    <span class="loc-label">Hotel location</span>
+    <h2 class="loc-title">Find Us</h2>
+    <div class="loc-divider"></div>
 
-    <div class="loc-card">
-      <b>SS Residency Grand</b>
-      <div class="muted" style="margin-top:6px">
-        Plus Code: <b>F9WW+2H</b>, Hyderabad, Telangana
+    <div class="loc-grid">
+      <div class="loc-card">
+        <div class="loc-name">SS Residency Grand</div>
+        <div class="loc-addr" id="hotelAddress">PLOT 30 DHARMA REDDY COLONY, Kukatpally Housing Board Colony, Phase 1, Hyderabad, Telangana 500072</div>
+
+        <div class="loc-actions">
+          <a class="loc-btn primary" href="https://www.google.com/maps/place/SS+RESIDENCY+GRAND/@17.4949886,78.3965019,21z/data=!4m17!1m7!3m6!1s0x3bcb99daeaebd2c7:0x94ea9fb0ba260caa!2sF9WW%2B2H,+Hyderabad,+Telangana!3b1!8m2!3d17.4950625!4d78.3964375!3m8!1s0x3bcb91e74cbe9327:0xbb2d05ef68022276!5m2!4m1!1i2!8m2!3d17.4950638!4d78.3964849!16s%2Fg%2F11gy880hm2?entry=ttu&g_ep=EgoyMDI2MDIwOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" aria-label="Get directions">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 21s7-4.6 7-11a7 7 0 1 0-14 0c0 6.4 7 11 7 11Z" fill="none" stroke="currentColor" stroke-width="2"/>
+              <circle cx="12" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            Directions
+          </a>
+
+          <button class="loc-btn" type="button" onclick="copyAddress()" aria-label="Copy address">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 9h10v10H9z" fill="none" stroke="currentColor" stroke-width="2"/>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" fill="none" stroke="currentColor" stroke-width="2"/>
+            </svg>
+            Copy
+          </button>
+
+          <a class="loc-btn" href="https://wa.me/917842421143" target="_blank" rel="noopener" aria-label="Share location on WhatsApp">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.5 11.9a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 20.5 11.9Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M9.3 8.8c.2-.5.5-.5.7-.5h.6c.2 0 .4.1.5.4l.5 1.2c.1.3.1.6-.1.8l-.4.4c-.2.2-.2.4-.1.6.3.6 1 1.6 2 2.2.3.2.5.2.7 0l.5-.6c.2-.2.5-.3.8-.2l1.3.5c.3.1.4.3.4.6 0 .7-.3 1.2-.8 1.5-.6.4-1.4.6-2.4.3-2.1-.7-4.2-2.9-5-5.1-.3-1-.1-1.8.3-2.3.3-.5.6-.8.9-.9Z" fill="currentColor"/>
+            </svg>
+            WhatsApp
+          </a>
+        </div>
+
+        <div class="loc-hint">Tip: Tap “Directions” for the exact Google Maps pin and live navigation.</div>
       </div>
 
-      <div class="loc-actions">
-        <a class="btn primary" id="mapsBtn" href="#" target="_blank" rel="noopener">Open in Google Maps</a>
-        <button class="btn wa" onclick="openBooking('Deluxe AC Room')">Book Now</button>
-        <a class="btn call" href="tel:7842072724">Call</a>
-      </div>
+      <div>
+        <div class="map-wrap map-locked" id="hyattMap">
+  <a class="map-cta" href="https://www.google.com/maps/place/SS+RESIDENCY+GRAND/@17.4949886,78.3965019,21z/data=!4m17!1m7!3m6!1s0x3bcb99daeaebd2c7:0x94ea9fb0ba260caa!2sF9WW%2B2H,+Hyderabad,+Telangana!3b1!8m2!3d17.4950625!4d78.3964375!3m8!1s0x3bcb91e74cbe9327:0xbb2d05ef68022276!5m2!4m1!1i2!8m2!3d17.4950638!4d78.3964849!16s%2Fg%2F11gy880hm2?entry=ttu&g_ep=EgoyMDI2MDIwOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" aria-label="Get Directions">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 21s7-4.6 7-11a7 7 0 1 0-14 0c0 6.4 7 11 7 11Z" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M12 10l4 2-4 2-4-2 4-2Z" fill="currentColor"/>
+    </svg>
+    Directions
+  </a>
+  <iframe class="map-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d237.82889280674294!2d78.39650187303829!3d17.494988633930305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91e74cbe9327%3A0xbb2d05ef68022276!2sSS%20RESIDENCY%20GRAND!5e0!3m2!1sen!2sin!4v1770789306035!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
 
-      <div class="map-frame" aria-label="Map">
-        <iframe id="mapFrame" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src=""></iframe>
-      </div>
 
-      <p class="muted small" style="margin-top:12px">
-        Tip: Keep this Plus Code in your Google Business Profile and listings for accurate directions.
-      </p>
+      
+      </div>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="container">
-    <p><b>SS Residency Grand</b> · KPHB Colony, Hyderabad</p>
+    <p><b>SS Residency Grand · KPHB Colony, Hyderabad</p>
     <p>WhatsApp: <a href="https://wa.me/917842421143" style="text-decoration:underline">7842421143</a> · Call: <a href="tel:7842072724" style="text-decoration:underline">7842072724</a></p>
   </div>
 </footer>
@@ -1663,6 +2055,33 @@ header.shrink .brand h1{
     closeQuickView();
     openBooking(qvRoom);
   }
+
+
+/* ===== Copy Address ===== */
+function copyAddress(){
+  const el = document.getElementById('hotelAddress');
+  const txt = el ? el.textContent.trim() : '';
+  if(!txt) return;
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt);
+  }else{
+    const ta = document.createElement('textarea');
+    ta.value = txt;
+    document.body.appendChild(ta);
+    ta.select();
+    try{ document.execCommand('copy'); }catch(e){}
+    ta.remove();
+  }
+  // lightweight feedback
+  const btns = document.querySelectorAll('.loc-btn');
+  btns.forEach(b=>{
+    if(b.textContent.trim().toUpperCase() === 'COPY'){
+      const old = b.innerHTML;
+      b.innerHTML = 'Copied ✓';
+      setTimeout(()=>{ b.innerHTML = old; }, 900);
+    }
+  });
+}
 
 </script>
 
