@@ -314,12 +314,35 @@
 
 <body>
 <header>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>📍 Plus Code: <b>F9WW+2H</b> Hyderabad</span>
+      <span class="topbar-dot"></span>
+      <span>🕑 Check-in: <b>12:00 PM</b></span>
+      <span class="topbar-dot"></span>
+      <span>💸 <b>₹50</b> Online Booking Discount</span>
+    </div>
+  </div>
+
   <div class="container">
     <div class="header-inner">
       <div class="brand">
         <h1>SS Residency Grand</h1>
-        <small>KPHB Colony, Hyderabad</small>
+        <div class="meta">
+          <span>📍 KPHB Colony, Hyderabad</span>
+          <span class="dot"></span>
+          <span>⭐ Clean Comfortable Stays</span>
+          <span class="dot"></span>
+          <span class="meta-green">Online ₹50 OFF</span>
+        </div>
       </div>
+
+      <nav class="header-links" aria-label="Quick navigation">
+        <a href="#rooms">Rooms</a>
+        <a href="#amenities">Amenities</a>
+        <a href="#location">Location</a>
+      </nav>
+
       <div class="cta">
         <a class="btn wa" href="https://wa.me/917842421143" aria-label="WhatsApp SS Residency Grand">WhatsApp</a>
         <a class="btn call" href="tel:7842072724" aria-label="Call SS Residency Grand">Call</a>
@@ -624,7 +647,7 @@
 
           <div class="field">
             <label for="checkin">Check-in Date</label>
-            <input id="checkin" name="checkin" type="date" required onchange="syncFromForm()" />
+            <input id="checkin" name="checkin" type="date" required onchange="enforceDateRules(); syncFromForm()" />
           </div>
 
           <div class="field">
@@ -744,6 +767,7 @@
     roomTypeEl.value = roomName;
     if (!checkinEl.value || !checkoutEl.value) fillTomorrowNext();
     if (!checkinTimeEl.value) checkinTimeEl.value = "12:00";
+    enforceDateRules();
     syncFromForm();
   }
 
@@ -764,12 +788,35 @@
     return `${yyyy}-${mm}-${dd}`;
   }
 
+  function addDays(ymd, days){
+    const d = new Date(ymd + "T00:00:00");
+    d.setDate(d.getDate() + days);
+    const yyyy = d.getFullYear();
+    const mm = String(d.getMonth() + 1).padStart(2, "0");
+    const dd = String(d.getDate()).padStart(2, "0");
+    return `${yyyy}-${mm}-${dd}`;
+  }
+
+  function enforceDateRules(){
+    if(!checkinEl.value) return;
+
+    // Minimum 1 night stay => checkout must be at least next day
+    const minCheckout = addDays(checkinEl.value, 1);
+    checkoutEl.min = minCheckout;
+
+    // If checkout empty or invalid, auto set to next day
+    if(!checkoutEl.value || checkoutEl.value < minCheckout){
+      checkoutEl.value = minCheckout;
+    }
+  }
+
   function fillTodayTomorrow(){
     const now = new Date();
     const tomorrow = new Date(now); tomorrow.setDate(now.getDate()+1);
     checkinEl.value = dateToYMD(now);
     checkoutEl.value = dateToYMD(tomorrow);
     if (!checkinTimeEl.value) checkinTimeEl.value = "12:00";
+    enforceDateRules();
     syncFromForm();
   }
 
@@ -780,6 +827,7 @@
     checkinEl.value = dateToYMD(in1);
     checkoutEl.value = dateToYMD(in2);
     if (!checkinTimeEl.value) checkinTimeEl.value = "12:00";
+    enforceDateRules();
     syncFromForm();
   }
 
