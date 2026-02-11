@@ -93,14 +93,63 @@
     .chip{font-size:12px;padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:#fff;color:#334155}
 
     
-    
-    
-    .wa-book span{display:flex;flex-direction:column;align-items:flex-start;line-height:1.05}
-    
-    
-    
+    /* Room-tile primary CTA (match Book Now FAB styling) */
+    .wa-book{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      padding:14px 18px;
+      border-radius:16px;
+      text-decoration:none;
+      color:#ffffff !important;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight:900;
+      letter-spacing:1.1px;
+      text-transform:uppercase;
+      font-size:12.5px;
+
+      background:#0b1220;
+      border:1px solid rgba(202,166,75,.55);
+      box-shadow:0 18px 42px rgba(2,8,23,.22);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
+      transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
+    }
+    .wa-book:hover{
+      transform: translateY(-2px);
+      box-shadow:0 26px 66px rgba(2,8,23,.28);
+      filter:brightness(1.02);
+    }
+    .wa-book:active{
+      transform: translateY(-1px) scale(.99);
+    }
+    .wa-book .ic{
+      width:36px;
+      height:36px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(145deg, rgba(202,166,75,.22), rgba(255,255,255,.06));
+      border:1px solid rgba(202,166,75,.35);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.12);
+      flex:0 0 36px;
+    }
+    .wa-book svg{
+      width:18px;
+      height:18px;
+      stroke:#ffffff;
+      stroke-width:2;
+      fill:none;
+      opacity:.95;
+    }
+
+.wa-book:active{transform:translateY(1px)}
     .wa-ic{width:22px;height:22px;display:inline-block;flex:0 0 22px}
-    
+    .wa-sub{display:block;font-size:12px;font-weight:900;opacity:.92;margin-top:2px}
 
     /* Premium Room Badges (Animated, Subtle) */
     .room-badge{
@@ -318,7 +367,25 @@
       border:1px solid rgba(184,147,44,.45);
     }
 
-    /* Photo  Modal */
+    /* Quick view button */
+    .quickview{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.92);
+      font-weight:1000;
+      cursor:pointer;
+      box-shadow:0 10px 18px rgba(2,8,23,.06);
+    }
+    .quickview:hover{ filter:brightness(.99); }
+    .quickview:active{ transform:translateY(1px); }
+    .quickview-ic{ width:18px;height:18px; stroke:var(--brand); stroke-width:2; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+
+    /* Photo Quick View Modal */
     .photo-backdrop{
       position:fixed; inset:0;
       background:rgba(2,8,23,.70);
@@ -1658,349 +1725,11 @@ header.shrink .brand h1{
   text-transform: none !important;
 }
 
-
-100%{transform:translateX(140%) rotate(12deg);}
-}
-.wa-sub{
-  font-size:11px;
-  font-weight:700;
-  opacity:.9;
-  letter-spacing:.2px;
-  margin-top:3px;
-}
-
-
-
-
-
-
-
-
-/* ===== Executive Deep Navy CTA (Polished) ===== */
-
-/* ===== Neutral Luxury CTA (Lighter Executive Tone) ===== */
-
-
-/* ===== Check Availability (Exact Book Now Twin) ===== */
-
-
-
-
-
-
-
-
-
-  100%{ transform:translateX(140%) rotate(10deg); }
-}
-
-
-
-
-
-
-
-
-
-
-@keyframes waSheenPolished{
-  0%{ transform:translateX(-140%) rotate(10deg); }
-  100%{ transform:translateX(140%) rotate(10deg); }
-}
-
-.wa-book:active{
-  transform:translateY(-1px) scale(.99);
-}
-
-/* Optional compact on mobile */
-@media(max-width:560px){
-  
-} 
-/* ===== Center CTA Button ===== */
-.cta-center{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  margin-top:40px;   /* more breathing space above */
-  margin-bottom:20px; /* space below */
-}
-
-
-/* ===== Check Availability (Clean Exact Twin of Book Now) ===== */
-.wa-book{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-  padding:18px 36px;
-  border-radius:18px;
-  font-weight:600;
-  font-size:15px;
-  letter-spacing:.7px;
-  text-transform:uppercase;
-  text-decoration:none;
-  color:#ffffff;
-
-  background:linear-gradient(135deg,#0f1a2c 0%, #223655 55%, #0f1a2c 100%);
-  border:1px solid rgba(202,166,75,.55);
-
-  box-shadow:
-    0 26px 70px rgba(0,0,0,.50),
-    inset 0 1px 0 rgba(255,255,255,.15);
-
-  transition:transform .25s ease, box-shadow .25s ease;
-  position:relative;
-  overflow:hidden;
-}
-
-.wa-book:hover{
-  transform:translateY(-4px);
-  box-shadow:
-    0 34px 90px rgba(0,0,0,.60),
-    inset 0 1px 0 rgba(255,255,255,.18);
-}
-
-.wa-book svg{
-  stroke:#ffffff;
-  stroke-width:1.8;
-}
-
 </style>
 
 </head>
 
 <body>
-
-<style>
-/* ===== SS Fixed Action Stack (Viewport-Fixed) ===== */
-#ssFixedActions{
-  position:fixed !important;
-  right:20px !important;
-  bottom:20px !important;
-  left:auto !important;
-  top:auto !important;
-  z-index:2147483647 !important;
-  display:flex !important;
-  flex-direction:column !important;
-  gap:14px !important;
-  pointer-events:none;
-}
-#ssFixedActions a{
-  pointer-events:auto;
-}
-
-.ssfa{
-  display:flex !important;
-  align-items:center !important;
-  gap:12px !important;
-  padding:14px 18px !important;
-  min-width:172px !important;
-  border-radius:14px !important;
-  text-decoration:none !important;
-  font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif !important;
-  font-weight:650 !important;
-  font-size:13px !important;
-  letter-spacing:.4px !important;
-  color:#ffffff !important;
-  box-shadow:0 18px 46px rgba(2,8,23,.25) !important;
-  transition:transform .18s ease, box-shadow .18s ease, filter .18s ease !important;
-  border:1px solid rgba(255,255,255,.14) !important;
-  background:#0b1220 !important;
-  -webkit-tap-highlight-color: transparent;
-  user-select:none;
-  position:relative;
-  overflow:hidden;
-}
-
-.ssfa:hover{
-  transform:translateY(-2px) !important;
-  box-shadow:0 26px 70px rgba(2,8,23,.32) !important;
-  filter:saturate(1.03);
-}
-.ssfa:active{
-  transform:translateY(-1px) scale(.99) !important;
-}
-
-.ssfa::after{
-  content:"";
-  position:absolute;
-  inset:-60%;
-  background:linear-gradient(120deg,
-    rgba(255,255,255,0) 46%,
-    rgba(255,255,255,.22) 50%,
-    rgba(255,255,255,0) 54%);
-  transform:translateX(-140%) rotate(12deg);
-  opacity:0;
-  pointer-events:none;
-}
-.ssfa:hover::after{
-  opacity:1;
-  animation:ssfaSheen 1.6s ease forwards;
-}
-@keyframes ssfaSheen{
-  0%{transform:translateX(-140%) rotate(12deg);}
-  100%{transform:translateX(140%) rotate(12deg);}
-}
-
-.ssfa-ic{
-  width:36px !important;
-  height:36px !important;
-  border-radius:10px !important;
-  display:grid !important;
-  place-items:center !important;
-  background:rgba(255,255,255,.12) !important;
-  border:1px solid rgba(255,255,255,.18) !important;
-}
-
-.ssfa svg{
-  width:18px; height:18px;
-  stroke:#fff; stroke-width:2;
-  fill:none; stroke-linecap:round; stroke-linejoin:round;
-}
-
-.ssfa-book{
-  background:linear-gradient(135deg,#0e1625 0%,#182338 55%,#0e1625 100%) !important;
-  border-color:rgba(202,166,75,.38) !important;
-}
-.ssfa-book .ssfa-ic{
-  background:rgba(202,166,75,.20) !important;
-  border-color:rgba(202,166,75,.34) !important;
-}
-
-.ssfa-call{
-  background:linear-gradient(135deg,#0b3c5d 0%,#0d4d75 60%,#0b3c5d 100%) !important;
-}
-
-.ssfa-chat{
-  background:linear-gradient(135deg,#0e7c55 0%,#0b5e41 60%,#0e7c55 100%) !important;
-}
-
-@media(max-width:560px){
-  #ssFixedActions{ right:14px !important; bottom:14px !important; gap:10px !important; }
-  .ssfa{
-    width:60px !important;
-    height:60px !important;
-    min-width:auto !important;
-    padding:0 !important;
-    justify-content:center !important;
-  }
-  .ssfa span{ display:none !important; }
-  .ssfa-ic{ width:44px !important; height:44px !important; border-radius:16px !important; }
-}
-
-100%{transform:translateX(140%) rotate(12deg);}
-}
-.wa-sub{
-  font-size:11px;
-  font-weight:700;
-  opacity:.9;
-  letter-spacing:.2px;
-  margin-top:3px;
-}
-
-
-
-
-
-
-
-
-/* ===== Executive Deep Navy CTA (Polished) ===== */
-
-
-
-
-
-
-
-@keyframes waSheenPolished{
-  0%{ transform:translateX(-140%) rotate(10deg); }
-  100%{ transform:translateX(140%) rotate(10deg); }
-}
-
-.wa-book:active{
-  transform:translateY(-1px) scale(.99);
-}
-
-/* Optional compact on mobile */
-@media(max-width:560px){
-  
-} 
-/* ===== Center CTA Button ===== */
-.cta-center{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  margin-top:40px;   /* more breathing space above */
-  margin-bottom:20px; /* space below */
-}
-
-
-/* ===== Check Availability (Clean Exact Twin of Book Now) ===== */
-.wa-book{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-  padding:18px 36px;
-  border-radius:18px;
-  font-weight:600;
-  font-size:15px;
-  letter-spacing:.7px;
-  text-transform:uppercase;
-  text-decoration:none;
-  color:#ffffff;
-
-  background:linear-gradient(135deg,#0f1a2c 0%, #223655 55%, #0f1a2c 100%);
-  border:1px solid rgba(202,166,75,.55);
-
-  box-shadow:
-    0 26px 70px rgba(0,0,0,.50),
-    inset 0 1px 0 rgba(255,255,255,.15);
-
-  transition:transform .25s ease, box-shadow .25s ease;
-  position:relative;
-  overflow:hidden;
-}
-
-.wa-book:hover{
-  transform:translateY(-4px);
-  box-shadow:
-    0 34px 90px rgba(0,0,0,.60),
-    inset 0 1px 0 rgba(255,255,255,.18);
-}
-
-.wa-book svg{
-  stroke:#ffffff;
-  stroke-width:1.8;
-}
-
-</style>
-
-<div id="ssFixedActions" aria-label="Quick actions">
-  <a class="ssfa ssfa-book" href="#rooms" aria-label="Book Now" title="Book Now">
-    <div class="ssfa-ic" aria-hidden="true">
-      <svg viewBox="0 0 24 24"><path d="M7 3v3M17 3v3M4 8h16M6 5h12a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg>
-    </div>
-    <span>Book Now</span>
-  </a>
-
-  <a class="ssfa ssfa-call" href="tel:7842421143" aria-label="Call" title="Call">
-    <div class="ssfa-ic" aria-hidden="true">
-      <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.86.32 1.7.6 2.5a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.58-1.12a2 2 0 0 1 2.11-.45c.8.28 1.64.48 2.5.6A2 2 0 0 1 22 16.92z"/></svg>
-    </div>
-    <span>Call</span>
-  </a>
-
-  <a class="ssfa ssfa-chat" href="https://wa.me/917842421143" target="_blank" rel="noopener" aria-label="Chat" title="Chat">
-    <div class="ssfa-ic" aria-hidden="true">
-      <svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.9 7.3L3 20l1.3-5.1A8.5 8.5 0 1 1 21 11.5z"/></svg>
-    </div>
-    <span>Chat</span>
-  </a>
-</div>
-
-
 <header class="hyatt-pro">
   <!-- Top utility row -->
   <div class="hyatt-utility">
@@ -2100,9 +1829,17 @@ header.shrink .brand h1{
               <svg class="wa-ic" viewBox="0 0 32 32" aria-hidden="true">
                 <path fill="#fff" d="M19.11 17.46c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.64 1.11 2.82.14.18 1.93 2.95 4.67 4.13.65.28 1.15.45 1.54.58.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32Z"/>
               </svg>
-              <span>Check Availability</span>
+              <span>Book on WhatsApp<span class="wa-sub">Fill details & send</span></span>
             </button>
-            </div>
+            <button class="quickview" type="button" onclick="openQuickView('Deluxe AC Room')">
+              <svg class="quickview-ic" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+              Quick View
+            </button>
+            <button class="btn ghost" onclick="openBooking('Deluxe AC Room', true)">Enquire</button>
+          </div>
         </div>
       </div>
 
@@ -2132,9 +1869,9 @@ header.shrink .brand h1{
               <svg class="wa-ic" viewBox="0 0 32 32" aria-hidden="true">
                 <path fill="#fff" d="M19.11 17.46c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34 -.02 -.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.64 1.11 2.82.14.18 1.93 2.95 4.67 4.13.65.28 1.15.45 1.54.58.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32Z"/>
               </svg>
-              <span>Check Availability</span>
+              <span>Book on WhatsApp<span class="wa-sub">Fill details & send</span></span>
             </button>
-            
+            <button class="btn ghost" onclick="openBooking('Standard AC Room', true)">Enquire</button>
           </div>
         </div>
       </div>
@@ -2165,9 +1902,9 @@ header.shrink .brand h1{
               <svg class="wa-ic" viewBox="0 0 32 32" aria-hidden="true">
                 <path fill="#fff" d="M19.11 17.46c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34 -.02 -.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.64 1.11 2.82.14.18 1.93 2.95 4.67 4.13.65.28 1.15.45 1.54.58.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18 -.52 -.32Z"/>
               </svg>
-              <span>Check Availability</span>
+              <span>Book on WhatsApp<span class="wa-sub">Fill details & send</span></span>
             </button>
-            
+            <button class="btn ghost" onclick="openBooking('Deluxe Non-AC Room', true)">Enquire</button>
           </div>
         </div>
       </div>
@@ -2198,9 +1935,9 @@ header.shrink .brand h1{
               <svg class="wa-ic" viewBox="0 0 32 32" aria-hidden="true">
                 <path fill="#fff" d="M19.11 17.46c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34 -.02 -.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73 .34-.25.27-.95.93-.95 2.27 0 1.34.98 2.64 1.11 2.82.14.18 1.93 2.95 4.67 4.13.65.28 1.15.45 1.54.58.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32Z"/>
               </svg>
-              <span>Check Availability</span>
+              <span>Book on WhatsApp<span class="wa-sub">Fill details & send</span></span>
             </button>
-            
+            <button class="btn ghost" onclick="openBooking('Standard Non-AC Room', true)">Enquire</button>
           </div>
         </div>
       </div>
@@ -2347,7 +2084,7 @@ header.shrink .brand h1{
   <div class="modal" role="dialog" aria-modal="true" aria-label="Booking Form">
     <div class="modal-head">
       <div class="modal-title">
-        <b>Check Availability</b>
+        <b>Book on WhatsApp</b>
         <small class="muted">Fill details — we’ll confirm availability</small>
       </div>
       <button class="close" onclick="closeModal()" aria-label="Close">✕</button>
@@ -2359,9 +2096,10 @@ header.shrink .brand h1{
         <div class="info">
           <div class="rp-name" id="rpName">Deluxe AC Room</div>
           <div class="rp-price" id="rpPrice">₹0 / night</div>
-          <div class="rp-total" id="rpTotal">Estimated total: ₹0</div>
+          <div class="rp-total" id="rpTotal">
           <div class="discount-line" id="rpDiscount">Online Booking Discount: -₹50</div>
           <div class="hint">Total updates automatically based on nights, guests, extras.</div>
+        </div>
       </div>
 
       <form id="bookingForm" onsubmit="event.preventDefault(); sendWhatsApp();">
@@ -2604,84 +2342,41 @@ header.shrink .brand h1{
     return { room, occ, nights, rate, guests, extraBed, extraPersonsCount, extraPersonFee, extraBedFee, roomCost, subtotal, discount, total };
   }
 
-  
-function syncFromForm(){
-  const p = getPricing();
-
-  // preview image + name
-  const img = (RATES[p.room] && RATES[p.room].img) ? RATES[p.room].img : "images/deluxe-ac-1.jpg";
-  rpImg.src = img;
-  rpName.textContent = p.room;
-
-  // per-night + nights
-  rpPrice.textContent = `${formatINR(p.rate)} / night · ${p.nights} night(s)`;
-
-  // totals
-  rpTotal.textContent = `Estimated total: ${formatINR(p.total)}`;
-
-  // discount line
-  if(p.discount > 0){
-    rpDiscount.style.display = "block";
-    rpDiscount.textContent = `Online Booking Discount: -${formatINR(p.discount)}`;
-  }else{
-    rpDiscount.style.display = "none";
-  }
-}
-
-function sendWhatsApp(){
-  try{
-    // Basic validation
-    if(!nameEl.value.trim()){
-      nameEl.focus(); return;
-    }
-    const phone = (phoneEl.value||"").replace(/\\D/g,'');
-    if(phone.length < 10){
-      phoneEl.focus(); return;
-    }
-
-    enforceDateRules();
+  function syncFromForm(){
     const p = getPricing();
-
-    const checkinDate = checkinEl.value || "";
-    const checkoutDate = checkoutEl.value || "";
-    const checkinTime = checkinTimeEl.value || "12:00";
-
-    const extraBedYes = (p.extraBed > 0) ? "Yes" : "No";
-    const occLabel = (p.occ === "single") ? "Single" : "Double";
-
-    const lines = [
-      "Booking Request — SS Residency Grand",
-      "",
-      `Room: ${p.room}`,
-      `Occupancy: ${occLabel}`,
-      `Check-in: ${checkinDate} at ${checkinTime}`,
-      `Check-out: ${checkoutDate}`,
-      `Nights: ${p.nights}`,
-      `Guests: ${p.guests}`,
-      `Extra Bed: ${extraBedYes}`,
-      (p.extraPersonsCount>0 ? `Extra Persons: ${p.extraPersonsCount} (₹100/person/night)` : null),
-      "",
-      `Rate: ${formatINR(p.rate)} / night`,
-      (p.extraPersonFee>0 ? `Extra Person Fee: ${formatINR(p.extraPersonFee)}` : null),
-      (p.extraBedFee>0 ? `Extra Bed Fee: ${formatINR(p.extraBedFee)}` : null),
-      (p.discount>0 ? `Online Discount: -${formatINR(p.discount)}` : null),
-      `Total: ${formatINR(p.total)}`,
-      "",
-      `Guest Name: ${nameEl.value.trim()}`,
-      `Mobile: ${phoneEl.value.trim()}`,
-      (notesEl.value.trim() ? `Notes: ${notesEl.value.trim()}` : null),
-      "",
-      "Please confirm availability."
-    ].filter(Boolean);
-
-    const text = encodeURIComponent(lines.join("\\n"));
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
-    window.open(url, "_blank");
-  }catch(e){
-    console.error(e);
+    const img = (RATES[p.room] && RATES[p.room].img) ? RATES[p.room].img : "images/deluxe-ac-1.jpg";
+    rpImg.src = img;
+    rpName.textContent = p.room;
+    rpPrice.textContent = `${formatINR(p.rate)} / night · ${p.nights} night(s)`;
+    rpTotal.textContent = ``
+    )).join("");
   }
-}
 
+  function setPhoto(i){
+    const arr = PHOTO_SETS[qvRoom] || [];
+    if(!arr.length) return;
+    qvIndex = Math.max(0, Math.min(i, arr.length-1));
+    renderQuickView(arr);
+  }
+
+  function prevPhoto(){
+    const arr = PHOTO_SETS[qvRoom] || [];
+    if(!arr.length) return;
+    qvIndex = (qvIndex - 1 + arr.length) % arr.length;
+    renderQuickView(arr);
+  }
+
+  function nextPhoto(){
+    const arr = PHOTO_SETS[qvRoom] || [];
+    if(!arr.length) return;
+    qvIndex = (qvIndex + 1) % arr.length;
+    renderQuickView(arr);
+  }
+
+  function bookFromQuickView(){
+    closeQuickView();
+    openBooking(qvRoom);
+  }
 
 /* ===== Copy Address ===== */
 function copyAddress(){
@@ -2809,7 +2504,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 </script>
 
-  <!-- Photo  Modal -->
+  <!-- Photo Quick View Modal -->
   <div class="photo-backdrop" id="photoBackdrop" aria-hidden="true">
     <div class="photo-modal" role="dialog" aria-modal="true" aria-label="Room photos">
       <div class="photo-head">
@@ -2817,7 +2512,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
           <b id="photoTitle">Rooms & Photos</b><br>
           <small class="muted" id="photoSub">Tap thumbnails to switch</small>
         </div>
-        <button class="close" type="button" onclick="close()" aria-label="Close">✕</button>
+        <button class="close" type="button" onclick="closeQuickView()" aria-label="Close">✕</button>
       </div>
       <div class="photo-body">
         <div class="photo-stage">
@@ -2827,8 +2522,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
         </div>
         <div class="thumbs" id="photoThumbs"></div>
         <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px">
-          <button class="btn wa" type="button" onclick="bookFrom()">Book this Room</button>
-          <a class="btn ghost" href="#gallery" onclick="close()">View Full Gallery</a>
+          <button class="btn wa" type="button" onclick="bookFromQuickView()">Book this Room</button>
+          <a class="btn ghost" href="#gallery" onclick="closeQuickView()">View Full Gallery</a>
         </div>
       </div>
     </div>
@@ -2858,7 +2553,65 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 
 <style>
-<span>Book Now</span>
+/* ===== SS FAB Stack (Isolated, Conflict-Free) ===== */
+.ssfab-stack{
+  position:fixed;
+  right:16px;
+  bottom:16px;
+  z-index:2147483647; /* above everything */
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.ssfab{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 14px;
+  border-radius:16px;
+  text-decoration:none;
+  color:#ffffff !important;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight:800;
+  letter-spacing:1.3px;
+  text-transform:uppercase;
+  font-size:12px;
+  box-shadow:0 18px 42px rgba(2,8,23,.22);
+  border:1px solid rgba(255,255,255,.16);
+  background:#0b1220;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  user-select:none;
+  -webkit-tap-highlight-color: transparent;
+}
+.ssfab:hover{ transform: translateY(-2px); box-shadow:0 26px 66px rgba(2,8,23,.28); }
+.ssfab:active{ transform: translateY(-1px) scale(.99); }
+.ssfab .ic{
+  width:38px; height:38px;
+  border-radius:14px;
+  display:grid; place-items:center;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.18);
+}
+.ssfab svg{ width:18px; height:18px; stroke:#fff; stroke-width:2; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+.ssfab-book{ border-color:rgba(202,166,75,.35); background:linear-gradient(135deg,#0b1220,#111b2e,#0b1220); }
+.ssfab-book .ic{ background:rgba(202,166,75,.22); border-color:rgba(202,166,75,.35); }
+.ssfab-call{ background:linear-gradient(135deg,#0b3c5d,#0a2b44,#0b3c5d); }
+.ssfab-chat{ background:linear-gradient(135deg,#0f6a4b,#0b4e38,#0f6a4b); }
+
+@media (max-width:560px){
+  .ssfab{ width:58px; height:58px; padding:0; justify-content:center; }
+  .ssfab span{ display:none; }
+  .ssfab .ic{ width:44px; height:44px; }
+}
+</style>
+
+<div class="ssfab-stack" aria-label="Quick actions">
+  <a class="ssfab ssfab-book" href="#rooms" aria-label="Book Now" title="Book Now">
+    <div class="ic" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M7 3v3M17 3v3M4 8h16M6 5h12a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg>
+    </div>
+    <span>Book Now</span>
   </a>
 
   <a class="ssfab ssfab-call" href="tel:7842421143" aria-label="Call" title="Call">
@@ -2870,25 +2623,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
   <a class="ssfab ssfab-chat" href="https://wa.me/917842421143" target="_blank" rel="noopener" aria-label="Chat" title="Chat">
     <div class="ic" aria-hidden="true">
-      <svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.9 7.3L3 20l1.3-5.1A8.5 8.5 0 1 1 21 11.5z"/></svg>
-    </div>
-    <span>Chat</span>
-  </a>
-</div>
-
-
-<span>Book Now</span>
-  </a>
-
-  <a class="profab profab-call" href="tel:7842421143">
-    <div class="profab-icon">
-      <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.86.32 1.7.6 2.5a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.58-1.12a2 2 0 0 1 2.11-.45c.8.28 1.64.48 2.5.6A2 2 0 0 1 22 16.92z"/></svg>
-    </div>
-    <span>Call</span>
-  </a>
-
-  <a class="profab profab-chat" href="https://wa.me/917842421143" target="_blank">
-    <div class="profab-icon">
       <svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.9 7.3L3 20l1.3-5.1A8.5 8.5 0 1 1 21 11.5z"/></svg>
     </div>
     <span>Chat</span>
