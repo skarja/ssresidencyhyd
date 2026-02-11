@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>V.1402 - SS Residency Grand | KPHB Colony, Hyderabad</title>
+  <title>SS Residency Grand | KPHB Colony, Hyderabad</title>
   <meta name="description" content="SS Residency Grand in KPHB Colony, Hyderabad — clean, comfortable stays with easy booking on WhatsApp.">
   <meta property="og:title" content="SS Residency Grand | KPHB Colony, Hyderabad">
   <meta property="og:description" content="Clean, comfortable stays in KPHB Colony, Hyderabad. Book quickly via WhatsApp.">
@@ -1796,10 +1796,10 @@ header.shrink .brand h1{
 <div class="card-gallery" data-images="images/deluxe-ac-1.jpg,images/deluxe-ac-2.jpg,images/deluxe-ac-3.jpg">
   <div class="gal-badge">Room Photos</div>
   <img src="images/deluxe-ac-1.jpg" alt="Room photo">
-  <button class="gal-btn prev" type="button" aria-label="Previous photo">
+  <button class="gal-btn prev" type="button" onclick="galleryPrev(this,event)" aria-label="Previous photo">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </button>
-  <button class="gal-btn next" type="button" aria-label="Next photo">
+  <button class="gal-btn next" type="button" onclick="galleryNext(this,event)" aria-label="Next photo">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </button>
   <div class="gal-dots"></div>
@@ -1837,10 +1837,10 @@ header.shrink .brand h1{
 <div class="card-gallery" data-images="images/standard-ac-1.jpg">
   <div class="gal-badge">Room Photos</div>
   <img src="images/standard-ac-1.jpg" alt="Room photo">
-  <button class="gal-btn prev" type="button" aria-label="Previous photo">
+  <button class="gal-btn prev" type="button" onclick="galleryPrev(this,event)" aria-label="Previous photo">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </button>
-  <button class="gal-btn next" type="button" aria-label="Next photo">
+  <button class="gal-btn next" type="button" onclick="galleryNext(this,event)" aria-label="Next photo">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </button>
   <div class="gal-dots"></div>
@@ -1871,10 +1871,10 @@ header.shrink .brand h1{
 <div class="card-gallery" data-images="images/deluxe-nonac-1.jpg,images/deluxe-nonac-2.jpg,images/deluxe-nonac-3.jpg">
   <div class="gal-badge">Room Photos</div>
   <img src="images/deluxe-nonac-1.jpg" alt="Room photo">
-  <button class="gal-btn prev" type="button" aria-label="Previous photo">
+  <button class="gal-btn prev" type="button" onclick="galleryPrev(this,event)" aria-label="Previous photo">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </button>
-  <button class="gal-btn next" type="button" aria-label="Next photo">
+  <button class="gal-btn next" type="button" onclick="galleryNext(this,event)" aria-label="Next photo">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </button>
   <div class="gal-dots"></div>
@@ -1905,10 +1905,10 @@ header.shrink .brand h1{
 <div class="card-gallery" data-images="images/standard-nonac-1.jpg,images/standard-nonac-2.jpg">
   <div class="gal-badge">Room Photos</div>
   <img src="images/standard-nonac-1.jpg" alt="Room photo">
-  <button class="gal-btn prev" type="button" aria-label="Previous photo">
+  <button class="gal-btn prev" type="button" onclick="galleryPrev(this,event)" aria-label="Previous photo">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </button>
-  <button class="gal-btn next" type="button" aria-label="Next photo">
+  <button class="gal-btn next" type="button" onclick="galleryNext(this,event)" aria-label="Next photo">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </button>
   <div class="gal-dots"></div>
@@ -2555,82 +2555,104 @@ function copyAddress(){
 
 
 
-/* ===== Room Tile Galleries ===== */
-(function(){
-  const galleries = document.querySelectorAll('.card-gallery[data-images]');
-  galleries.forEach(g => {
-    const imgs = (g.getAttribute('data-images') || '').split(',').map(s=>s.trim()).filter(Boolean);
-    if(!imgs.length) return;
-    const imgEl = g.querySelector('img');
-    const dots = g.querySelector('.gal-dots');
-    const prev = g.querySelector('.gal-btn.prev');
-    const next = g.querySelector('.gal-btn.next');
-    let idx = 0;
 
-    function renderDots(){
+/* ===== Room Tile Galleries (Reliable) ===== */
+function galleryUpdate(g){
+  const imgs = (g.getAttribute('data-images')||'').split(',').map(s=>s.trim()).filter(Boolean);
+  if(!imgs.length) return;
+  const imgEl = g.querySelector('img');
+  const dots = g.querySelector('.gal-dots');
+  let idx = parseInt(g.getAttribute('data-idx')||'0',10);
+  if(Number.isNaN(idx)) idx = 0;
+  idx = Math.max(0, Math.min(idx, imgs.length-1));
+  g.setAttribute('data-idx', String(idx));
+  if(imgEl) imgEl.src = imgs[idx];
+
+  if(dots){
+    // build dots only once
+    if(!dots.dataset.built){
       dots.innerHTML = '';
-      imgs.forEach((_, i) => {
+      imgs.forEach((_, i)=>{
         const d = document.createElement('button');
-        d.type = 'button';
-        d.className = 'gal-dot' + (i===idx ? ' active' : '');
-        d.setAttribute('aria-label', 'Photo ' + (i+1));
-        d.addEventListener('click', () => { idx = i; update(); });
+        d.type='button';
+        d.className='gal-dot';
+        d.setAttribute('aria-label','Photo '+(i+1));
+        d.onclick = (ev)=>{ ev.stopPropagation(); g.setAttribute('data-idx', String(i)); galleryUpdate(g); };
         dots.appendChild(d);
       });
+      dots.dataset.built = '1';
     }
+    const all = dots.querySelectorAll('.gal-dot');
+    all.forEach((d,i)=>d.classList.toggle('active', i===idx));
+    const show = imgs.length > 1;
+    dots.style.display = show ? 'flex' : 'none';
+  }
 
-    function update(){
-      imgEl.src = imgs[idx];
-      const all = dots.querySelectorAll('.gal-dot');
-      all.forEach((d,i)=>d.classList.toggle('active', i===idx));
-      // hide controls if only 1 image
-      const showCtrls = imgs.length > 1;
-      prev.style.display = showCtrls ? 'grid' : 'none';
-      next.style.display = showCtrls ? 'grid' : 'none';
-      dots.style.display = showCtrls ? 'flex' : 'none';
-    }
+  const prev = g.querySelector('.gal-btn.prev');
+  const next = g.querySelector('.gal-btn.next');
+  const showCtrls = imgs.length > 1;
+  if(prev) prev.style.display = showCtrls ? 'grid' : 'none';
+  if(next) next.style.display = showCtrls ? 'grid' : 'none';
+}
 
-    prev.addEventListener('click', (e) => { e.stopPropagation(); idx = (idx - 1 + imgs.length) % imgs.length; update(); });
-    next.addEventListener('click', (e) => { e.stopPropagation(); idx = (idx + 1) % imgs.length; update(); });
+function galleryPrev(btn, ev){
+  if(ev){ ev.preventDefault(); ev.stopPropagation(); }
+  const g = btn.closest('.card-gallery');
+  if(!g) return;
+  const imgs = (g.getAttribute('data-images')||'').split(',').map(s=>s.trim()).filter(Boolean);
+  if(imgs.length < 2) return;
+  let idx = parseInt(g.getAttribute('data-idx')||'0',10) || 0;
+  idx = (idx - 1 + imgs.length) % imgs.length;
+  g.setAttribute('data-idx', String(idx));
+  galleryUpdate(g);
+}
+function galleryNext(btn, ev){
+  if(ev){ ev.preventDefault(); ev.stopPropagation(); }
+  const g = btn.closest('.card-gallery');
+  if(!g) return;
+  const imgs = (g.getAttribute('data-images')||'').split(',').map(s=>s.trim()).filter(Boolean);
+  if(imgs.length < 2) return;
+  let idx = parseInt(g.getAttribute('data-idx')||'0',10) || 0;
+  idx = (idx + 1) % imgs.length;
+  g.setAttribute('data-idx', String(idx));
+  galleryUpdate(g);
+}
 
-    // Swipe support (robust)
-    let startX = null, startY = null, swiping = false;
-    g.addEventListener('touchstart', (e)=>{
-      if(!e.touches || !e.touches[0]) return;
-      startX = e.touches[0].clientX;
-      startY = e.touches[0].clientY;
-      swiping = false;
-    }, {passive:true});
+document.addEventListener('DOMContentLoaded', ()=>{
+  document.querySelectorAll('.card-gallery[data-images]').forEach(g=>{
+    g.setAttribute('data-idx','0');
+    galleryUpdate(g);
 
-    g.addEventListener('touchmove', (e)=>{
-      if(startX===null || startY===null || !e.touches || !e.touches[0]) return;
-      const x = e.touches[0].clientX;
-      const y = e.touches[0].clientY;
-      const dx = x - startX;
-      const dy = y - startY;
-      // If horizontal intent, prevent scroll and mark swiping
-      if(Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 10){
-        swiping = true;
+    // Swipe support
+    let startX=null, startY=null, swiping=false;
+    g.addEventListener('touchstart',(e)=>{
+      if(!e.touches||!e.touches[0]) return;
+      startX=e.touches[0].clientX; startY=e.touches[0].clientY; swiping=false;
+    },{passive:true});
+    g.addEventListener('touchmove',(e)=>{
+      if(startX===null||startY===null||!e.touches||!e.touches[0]) return;
+      const dx=e.touches[0].clientX-startX;
+      const dy=e.touches[0].clientY-startY;
+      if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>10){
+        swiping=true;
         e.preventDefault();
       }
-    }, {passive:false});
-
-    g.addEventListener('touchend', (e)=>{
-      if(startX === null) return;
-      const endX = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0].clientX : startX;
-      const dx = endX - startX;
-      if(swiping && Math.abs(dx) > 35 && imgs.length > 1){
-        idx = dx > 0 ? (idx - 1 + imgs.length) % imgs.length : (idx + 1) % imgs.length;
-        update();
+    },{passive:false});
+    g.addEventListener('touchend',(e)=>{
+      if(startX===null) return;
+      const endX=(e.changedTouches&&e.changedTouches[0])?e.changedTouches[0].clientX:startX;
+      const dx=endX-startX;
+      const imgs=(g.getAttribute('data-images')||'').split(',').map(s=>s.trim()).filter(Boolean);
+      if(swiping && Math.abs(dx)>35 && imgs.length>1){
+        let idx=parseInt(g.getAttribute('data-idx')||'0',10)||0;
+        idx = dx>0 ? (idx-1+imgs.length)%imgs.length : (idx+1)%imgs.length;
+        g.setAttribute('data-idx', String(idx));
+        galleryUpdate(g);
       }
-      startX = startY = null;
-      swiping = false;
-    }, {passive:true});
-
-    renderDots();
-    update();
+      startX=startY=null; swiping=false;
+    },{passive:true});
   });
-})();
+});
 
 </script>
 
