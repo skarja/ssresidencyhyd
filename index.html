@@ -2051,6 +2051,7 @@ header.shrink .brand h1{
 <div class="rp-name" id="rpName">Deluxe AC Room</div>
 <div class="rp-price" id="rpPrice">₹0 / night</div>
 <div class="rp-total" id="rpTotal">
+<div class="rp-total-line" id="rpTotalLine">Estimated total: ₹0</div>
 <div class="discount-line" id="rpDiscount">Online Booking Discount: -₹50</div>
 <div class="hint">Total updates automatically based on nights, guests, extras.</div>
 </div>
@@ -2115,7 +2116,7 @@ header.shrink .brand h1{
 </div>
 </div>
 </form>
-</img></div>
+</div>
 <div class="modal-actions">
 <div class="actions-left">
 <button class="btn ghost" onclick="fillTodayTomorrow()">Today → Tomorrow</button>
@@ -2136,28 +2137,28 @@ header.shrink .brand h1{
 </div>
 </div>
 <script>
-  const WHATSAPP_NUMBER = "917842421143"; // 7842421143
-  const ONLINE_DISCOUNT = 50; // ₹50 off for online bookings via form
+  const WHATSAPP_NUMBER = "917842421143"; // 7842421143 (with country code)
+  const ONLINE_DISCOUNT = 50; // ₹50 off per booking via form (applied once)
+  const EXTRA_PERSON_FEE = 100; // ₹ per extra person per night
+  const EXTRA_BED_FEE = 200; // ₹ per night
 
-  // Rates (edit anytime)
+  // Rates (per night)
   const RATES = {
-    "Deluxe AC Room":   { single: 1699, double: 1799, img: "images/deluxe-ac-1.jpg" },
-    "Standard AC Room": { single: 1599, double: 1699, img: "images/standard-ac-1.jpg" },
-    "Deluxe Non-AC Room": { single: 1399, double: 1499, img: "images/deluxe-nonac-1.jpg" },
-    "Standard Non-AC Room": { single: 1299, double: 1399, img: "images/standard-nonac-1.jpg" }
+    "Deluxe AC Room":        { single: 1699, double: 1799, img: "images/deluxe-ac-1.jpg" },
+    "Standard AC Room":      { single: 1599, double: 1699, img: "images/standard-ac-1.jpg" },
+    "Deluxe Non-AC Room":    { single: 1399, double: 1499, img: "images/deluxe-nonac-1.jpg" },
+    "Standard Non-AC Room":  { single: 1299, double: 1399, img: "images/standard-nonac-1.jpg" }
   };
 
-  // Map setup (Plus Code)
-  const MAP_QUERY = encodeURIComponent("F9WW+2H Hyderabad, Telangana");
-  const MAPS_LINK = "https://www.google.com/maps/search/?api=1&query=" + MAP_QUERY;
-  const MAP_IFRAME = "https://www.google.com/maps?q=" + MAP_QUERY + "&output=embed";
-
+  // Elements
   const backdrop = document.getElementById("backdrop");
+  const form = document.getElementById("bookingForm");
+
   const roomTypeEl = document.getElementById("roomType");
   const occupancyEl = document.getElementById("occupancy");
   const checkinEl = document.getElementById("checkin");
-  const checkinTimeEl = document.getElementById("checkinTime");
   const checkoutEl = document.getElementById("checkout");
+  const checkinTimeEl = document.getElementById("checkinTime");
   const guestsEl = document.getElementById("guests");
   const extraBedEl = document.getElementById("extraBed");
   const nameEl = document.getElementById("name");
@@ -2167,121 +2168,67 @@ header.shrink .brand h1{
   const rpImg = document.getElementById("rpImg");
   const rpName = document.getElementById("rpName");
   const rpPrice = document.getElementById("rpPrice");
-  const rpTotal = document.getElementById("rpTotal");
+  const rpTotalLine = document.getElementById("rpTotalLine");
   const rpDiscount = document.getElementById("rpDiscount");
-  (function initMap(){
-    const mapsBtn = document.getElementById("mapsBtn");
-    const mapFrame = document.getElementById("mapFrame");
-    mapsBtn.href = MAPS_LINK;
-    mapFrame.src = MAP_IFRAME;
-  })();
 
-  function openBooking(roomName){
-    backdrop.style.display = "flex";
-    backdrop.setAttribute("aria-hidden","false");
-    document.body.style.overflow = "hidden";
-
-    roomTypeEl.value = roomName;
-    if (!checkinEl.value || !checkoutEl.value) fillTomorrowNext();
-    if (!checkinTimeEl.value) checkinTimeEl.value = "12:00";
-    enforceDateRules();
-    syncFromForm();
+  function formatINR(n){
+    try{ return "₹" + Number(n).toLocaleString("en-IN"); }
+    catch(e){ return "₹" + n; }
   }
 
-  function closeModal(){
-    backdrop.style.display = "none";
-    backdrop.setAttribute("aria-hidden","true");
-    document.body.style.overflow = "";
+  function parseDate(value){
+    const parts = (value||"").split("-").map(Number);
+    if(parts.length !== 3) return null;
+    const [y,m,d] = parts;
+    if(!y || !m || !d) return null;
+    return new Date(y, m-1, d);
   }
 
-  backdrop.addEventListener("click", (e)=>{
-    if (e.target === backdrop) closeModal();
-  });
-
-  function dateToYMD(d){
-    const yyyy = d.getFullYear();
-    const mm = String(d.getMonth()+1).padStart(2,"0");
-    const dd = String(d.getDate()).padStart(2,"0");
-    return `${yyyy}-${mm}-${dd}`;
+  function daysBetween(d1, d2){
+    const ms = 24*60*60*1000;
+    const a = new Date(d1.getFullYear(), d1.getMonth(), d1.getDate()).getTime();
+    const b = new Date(d2.getFullYear(), d2.getMonth(), d2.getDate()).getTime();
+    return Math.max(0, Math.round((b-a)/ms));
   }
 
-  function addDays(ymd, days){
-    const d = new Date(ymd + "T00:00:00");
-    d.setDate(d.getDate() + days);
-    const yyyy = d.getFullYear();
-    const mm = String(d.getMonth() + 1).padStart(2, "0");
-    const dd = String(d.getDate()).padStart(2, "0");
-    return `${yyyy}-${mm}-${dd}`;
+  function setDefaultDates(){
+    const today = new Date();
+    const tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate()+1);
+    if(!checkinEl.value) checkinEl.value = today.toISOString().slice(0,10);
+    if(!checkoutEl.value) checkoutEl.value = tomorrow.toISOString().slice(0,10);
   }
 
   function enforceDateRules(){
-    if(!checkinEl.value) return;
-
-    // Minimum 1 night stay => checkout must be at least next day
-    const minCheckout = addDays(checkinEl.value, 1);
-    checkoutEl.min = minCheckout;
-
-    // If checkout empty or invalid, auto set to next day
-    if(!checkoutEl.value || checkoutEl.value < minCheckout){
-      checkoutEl.value = minCheckout;
+    const ci = parseDate(checkinEl.value);
+    const co = parseDate(checkoutEl.value);
+    if(ci && (!co || co < ci)){
+      const next = new Date(ci.getFullYear(), ci.getMonth(), ci.getDate()+1);
+      checkoutEl.value = next.toISOString().slice(0,10);
     }
   }
 
-  function fillTodayTomorrow(){
-    const now = new Date();
-    const tomorrow = new Date(now); tomorrow.setDate(now.getDate()+1);
-    checkinEl.value = dateToYMD(now);
-    checkoutEl.value = dateToYMD(tomorrow);
-    if (!checkinTimeEl.value) checkinTimeEl.value = "12:00";
-    enforceDateRules();
-    syncFromForm();
-  }
-
-  function fillTomorrowNext(){
-    const now = new Date();
-    const in1 = new Date(now); in1.setDate(now.getDate()+1);
-    const in2 = new Date(now); in2.setDate(now.getDate()+2);
-    checkinEl.value = dateToYMD(in1);
-    checkoutEl.value = dateToYMD(in2);
-    if (!checkinTimeEl.value) checkinTimeEl.value = "12:00";
-    enforceDateRules();
-    syncFromForm();
-  }
-
-  function nightsBetween(ci, co){
-    if(!ci || !co) return 0;
-    const a = new Date(ci + "T00:00:00");
-    const b = new Date(co + "T00:00:00");
-    const diff = Math.round((b - a) / (1000*60*60*24));
-    return Math.max(0, diff);
-  }
-
-  function formatINR(n){
-    try{ return "₹" + Number(n || 0).toLocaleString("en-IN"); }
-    catch(e){ return "₹" + (n || 0); }
-  }
-
   function getPricing(){
-    const room = roomTypeEl.value;
-    const occ = occupancyEl.value; // single/double
-    const nights = nightsBetween(checkinEl.value, checkoutEl.value);
-    const rate = (RATES[room] ? RATES[room][occ] : 0) || 0;
-
+    const room = roomTypeEl.value || "Deluxe AC Room";
+    const occ = occupancyEl.value || "single";
     const guests = parseInt(guestsEl.value || "2", 10);
     const extraBed = parseInt(extraBedEl.value || "0", 10);
 
-    const baseGuests = (occ === "single") ? 1 : 2;
-    const extraPersonsCount = Math.max(0, guests - baseGuests);
-    const extraPersonFee = 100 * extraPersonsCount * nights;
-    const extraBedFee = 200 * extraBed * nights;
+    const rate = (RATES[room] && RATES[room][occ]) ? RATES[room][occ] : 0;
 
-    const roomCost = rate * nights;
-    const subtotal = roomCost + extraPersonFee + extraBedFee;
+    const ci = parseDate(checkinEl.value);
+    const co = parseDate(checkoutEl.value);
+    const nights = (ci && co) ? Math.max(1, daysBetween(ci, co)) : 1;
 
-    const discount = (subtotal > 0) ? ONLINE_DISCOUNT : 0;
+    const included = (occ === "single") ? 1 : 2;
+    const extraPersonsCount = Math.max(0, guests - included);
+    const extraPersonFee = extraPersonsCount * EXTRA_PERSON_FEE * nights;
+    const extraBedFee = extraBed * EXTRA_BED_FEE * nights;
+
+    const subtotal = (rate * nights) + extraPersonFee + extraBedFee;
+    const discount = ONLINE_DISCOUNT > 0 ? ONLINE_DISCOUNT : 0;
     const total = Math.max(0, subtotal - discount);
 
-    return { room, occ, nights, rate, guests, extraBed, extraPersonsCount, extraPersonFee, extraBedFee, roomCost, subtotal, discount, total };
+    return { room, occ, guests, nights, rate, extraBed, extraPersonsCount, extraPersonFee, extraBedFee, discount, subtotal, total };
   }
 
   function syncFromForm(){
@@ -2290,160 +2237,113 @@ header.shrink .brand h1{
     rpImg.src = img;
     rpName.textContent = p.room;
     rpPrice.textContent = `${formatINR(p.rate)} / night · ${p.nights} night(s)`;
-    rpTotal.textContent = ``
-    )).join("");
-  }
 
-  function setPhoto(i){
-    const arr = PHOTO_SETS[qvRoom] || [];
-    if(!arr.length) return;
-    qvIndex = Math.max(0, Math.min(i, arr.length-1));
-    renderQuickView(arr);
-  }
+    if(rpTotalLine) rpTotalLine.textContent = `Estimated total: ${formatINR(p.total)}`;
 
-  function prevPhoto(){
-    const arr = PHOTO_SETS[qvRoom] || [];
-    if(!arr.length) return;
-    qvIndex = (qvIndex - 1 + arr.length) % arr.length;
-    renderQuickView(arr);
-  }
-
-  function nextPhoto(){
-    const arr = PHOTO_SETS[qvRoom] || [];
-    if(!arr.length) return;
-    qvIndex = (qvIndex + 1) % arr.length;
-    renderQuickView(arr);
-  }
-
-  function bookFromQuickView(){
-    closeQuickView();
-    openBooking(qvRoom);
-  }
-
-/* ===== Copy Address ===== */
-function copyAddress(){
-  const el = document.getElementById('hotelAddress');
-  const txt = el ? el.textContent.trim() : '';
-  if(!txt) return;
-  if(navigator.clipboard && navigator.clipboard.writeText){
-    navigator.clipboard.writeText(txt);
-  }else{
-    const ta = document.createElement('textarea');
-    ta.value = txt;
-    document.body.appendChild(ta);
-    ta.select();
-    try{ document.execCommand('copy'); }catch(e){}
-    ta.remove();
-  }
-  // lightweight feedback
-  const btns = document.querySelectorAll('.loc-btn');
-  btns.forEach(b=>{
-    if(b.textContent.trim().toUpperCase() === 'COPY'){
-      const old = b.innerHTML;
-      b.innerHTML = 'Copied ✓';
-      setTimeout(()=>{ b.innerHTML = old; }, 900);
-    }
-  });
-}
-
-/* ===== Room Tile Galleries (Reliable) ===== */
-function galleryUpdate(g){
-  const imgs = (g.getAttribute('data-images')||'').split(',').map(s=>s.trim()).filter(Boolean);
-  if(!imgs.length) return;
-  const imgEl = g.querySelector('img');
-  const dots = g.querySelector('.gal-dots');
-  let idx = parseInt(g.getAttribute('data-idx')||'0',10);
-  if(Number.isNaN(idx)) idx = 0;
-  idx = Math.max(0, Math.min(idx, imgs.length-1));
-  g.setAttribute('data-idx', String(idx));
-  if(imgEl) imgEl.src = imgs[idx];
-
-  if(dots){
-    // build dots only once
-    if(!dots.dataset.built){
-      dots.innerHTML = '';
-      imgs.forEach((_, i)=>{
-        const d = document.createElement('button');
-        d.type='button';
-        d.className='gal-dot';
-        d.setAttribute('aria-label','Photo '+(i+1));
-        d.onclick = (ev)=>{ ev.stopPropagation(); g.setAttribute('data-idx', String(i)); galleryUpdate(g); };
-        dots.appendChild(d);
-      });
-      dots.dataset.built = '1';
-    }
-    const all = dots.querySelectorAll('.gal-dot');
-    all.forEach((d,i)=>d.classList.toggle('active', i===idx));
-    const show = imgs.length > 1;
-    dots.style.display = show ? 'flex' : 'none';
-  }
-
-  const prev = g.querySelector('.gal-btn.prev');
-  const next = g.querySelector('.gal-btn.next');
-  const showCtrls = imgs.length > 1;
-  if(prev) prev.style.display = showCtrls ? 'grid' : 'none';
-  if(next) next.style.display = showCtrls ? 'grid' : 'none';
-}
-
-function galleryPrev(btn, ev){
-  if(ev){ ev.preventDefault(); ev.stopPropagation(); }
-  const g = btn.closest('.card-gallery');
-  if(!g) return;
-  const imgs = (g.getAttribute('data-images')||'').split(',').map(s=>s.trim()).filter(Boolean);
-  if(imgs.length < 2) return;
-  let idx = parseInt(g.getAttribute('data-idx')||'0',10) || 0;
-  idx = (idx - 1 + imgs.length) % imgs.length;
-  g.setAttribute('data-idx', String(idx));
-  galleryUpdate(g);
-}
-function galleryNext(btn, ev){
-  if(ev){ ev.preventDefault(); ev.stopPropagation(); }
-  const g = btn.closest('.card-gallery');
-  if(!g) return;
-  const imgs = (g.getAttribute('data-images')||'').split(',').map(s=>s.trim()).filter(Boolean);
-  if(imgs.length < 2) return;
-  let idx = parseInt(g.getAttribute('data-idx')||'0',10) || 0;
-  idx = (idx + 1) % imgs.length;
-  g.setAttribute('data-idx', String(idx));
-  galleryUpdate(g);
-}
-
-document.addEventListener('DOMContentLoaded', ()=>{
-  document.querySelectorAll('.card-gallery[data-images]').forEach(g=>{
-    g.setAttribute('data-idx','0');
-    galleryUpdate(g);
-
-    // Swipe support
-    let startX=null, startY=null, swiping=false;
-    g.addEventListener('touchstart',(e)=>{
-      if(!e.touches||!e.touches[0]) return;
-      startX=e.touches[0].clientX; startY=e.touches[0].clientY; swiping=false;
-    },{passive:true});
-    g.addEventListener('touchmove',(e)=>{
-      if(startX===null||startY===null||!e.touches||!e.touches[0]) return;
-      const dx=e.touches[0].clientX-startX;
-      const dy=e.touches[0].clientY-startY;
-      if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>10){
-        swiping=true;
-        e.preventDefault();
+    if(rpDiscount){
+      if(p.discount > 0){
+        rpDiscount.style.display = "block";
+        rpDiscount.textContent = `Online Booking Discount: -${formatINR(p.discount)}`;
+      }else{
+        rpDiscount.style.display = "none";
       }
-    },{passive:false});
-    g.addEventListener('touchend',(e)=>{
-      if(startX===null) return;
-      const endX=(e.changedTouches&&e.changedTouches[0])?e.changedTouches[0].clientX:startX;
-      const dx=endX-startX;
-      const imgs=(g.getAttribute('data-images')||'').split(',').map(s=>s.trim()).filter(Boolean);
-      if(swiping && Math.abs(dx)>35 && imgs.length>1){
-        let idx=parseInt(g.getAttribute('data-idx')||'0',10)||0;
-        idx = dx>0 ? (idx-1+imgs.length)%imgs.length : (idx+1)%imgs.length;
-        g.setAttribute('data-idx', String(idx));
-        galleryUpdate(g);
-      }
-      startX=startY=null; swiping=false;
-    },{passive:true});
-  });
-});
+    }
+  }
 
+  function roomOptionExists(name){
+    for(const opt of roomTypeEl.options){
+      if(opt.value === name) return true;
+    }
+    return false;
+  }
+
+  function openBooking(roomName){
+    setDefaultDates();
+    enforceDateRules();
+    if(roomName && roomOptionExists(roomName)) roomTypeEl.value = roomName;
+
+    backdrop.style.display = "flex";
+    backdrop.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    syncFromForm();
+    setTimeout(()=> nameEl && nameEl.focus(), 60);
+  }
+
+  function closeModal(){
+    backdrop.style.display = "none";
+    backdrop.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  function fillTodayTomorrow(){
+    const today = new Date();
+    const tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate()+1);
+    checkinEl.value = today.toISOString().slice(0,10);
+    checkoutEl.value = tomorrow.toISOString().slice(0,10);
+    syncFromForm();
+  }
+
+  function fillTomorrowNext(){
+    const today = new Date();
+    const tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate()+1);
+    const next = new Date(today.getFullYear(), today.getMonth(), today.getDate()+2);
+    checkinEl.value = tomorrow.toISOString().slice(0,10);
+    checkoutEl.value = next.toISOString().slice(0,10);
+    syncFromForm();
+  }
+
+  function sendWhatsApp(){
+    enforceDateRules();
+
+    if(!nameEl.value.trim()){ nameEl.focus(); return; }
+    const digits = (phoneEl.value||"").replace(/\D/g,"");
+    if(digits.length < 10){ phoneEl.focus(); return; }
+
+    const p = getPricing();
+    const occLabel = (p.occ === "single") ? "Single" : "Double";
+    const lines = [
+      "Booking Request — SS Residency Grand",
+      "",
+      `Room: ${p.room}`,
+      `Occupancy: ${occLabel}`,
+      `Check-in: ${checkinEl.value} at ${checkinTimeEl.value || "12:00"}`,
+      `Check-out: ${checkoutEl.value}`,
+      `Nights: ${p.nights}`,
+      `Guests: ${p.guests}`,
+      `Extra Bed: ${p.extraBed ? "Yes (₹200/night)" : "No"}`,
+      (p.extraPersonsCount>0 ? `Extra Persons: ${p.extraPersonsCount} (₹100/person/night)` : null),
+      "",
+      `Rate: ${formatINR(p.rate)} / night`,
+      (p.extraPersonFee>0 ? `Extra Person Fee: ${formatINR(p.extraPersonFee)}` : null),
+      (p.extraBedFee>0 ? `Extra Bed Fee: ${formatINR(p.extraBedFee)}` : null),
+      (p.discount>0 ? `Online Discount: -${formatINR(p.discount)}` : null),
+      `Total: ${formatINR(p.total)}`,
+      "",
+      `Guest Name: ${nameEl.value.trim()}`,
+      `Mobile: ${phoneEl.value.trim()}`,
+      (notesEl.value.trim() ? `Notes: ${notesEl.value.trim()}` : null),
+      "",
+      "Please confirm availability."
+    ].filter(Boolean);
+
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`;
+    window.open(url, "_blank");
+  }
+
+  // Expose for inline handlers
+  window.openBooking = openBooking;
+  window.closeModal = closeModal;
+  window.syncFromForm = syncFromForm;
+  window.enforceDateRules = enforceDateRules;
+  window.fillTodayTomorrow = fillTodayTomorrow;
+  window.fillTomorrowNext = fillTomorrowNext;
+  window.sendWhatsApp = sendWhatsApp;
+
+  backdrop.addEventListener("click", (e)=>{ if(e.target === backdrop) closeModal(); });
+
+  setDefaultDates();
+  enforceDateRules();
+  syncFromForm();
 </script>
 <!-- Photo Quick View Modal -->
 
