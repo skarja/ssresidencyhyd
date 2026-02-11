@@ -1597,6 +1597,87 @@ header.shrink .brand h1{
   font-weight:800;
 }
 
+
+/* ===== ROOM TILE MULTI-PHOTO GALLERY ===== */
+.card-gallery{
+  position:relative;
+  border-radius:18px 18px 0 0;
+  overflow:hidden;
+  background:#0b1220;
+}
+.card-gallery img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  display:block;
+  transform:scale(1.001);
+}
+.gal-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:40px;
+  height:40px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.22);
+  background:rgba(15,23,42,.45);
+  color:#fff;
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  z-index:3;
+  backdrop-filter: blur(8px);
+}
+.gal-btn:hover{ background:rgba(15,23,42,.62); }
+.gal-btn:active{ transform:translateY(-50%) scale(.98); }
+.gal-btn.prev{ left:10px; }
+.gal-btn.next{ right:10px; }
+.gal-btn svg{ width:18px; height:18px; }
+
+.gal-dots{
+  position:absolute;
+  left:12px;
+  right:12px;
+  bottom:10px;
+  display:flex;
+  gap:6px;
+  justify-content:center;
+  z-index:3;
+}
+.gal-dot{
+  width:7px;
+  height:7px;
+  border-radius:999px;
+  background:rgba(255,255,255,.45);
+  border:1px solid rgba(255,255,255,.22);
+  cursor:pointer;
+}
+.gal-dot.active{
+  background:linear-gradient(90deg,#caa64b,#f5e6a1,#b8932c);
+  border-color:rgba(245,230,161,.65);
+  box-shadow:0 8px 18px rgba(2,8,23,.18);
+}
+.gal-badge{
+  position:absolute;
+  top:12px;
+  left:12px;
+  z-index:3;
+  padding:7px 10px;
+  border-radius:999px;
+  font-size:11px;
+  font-weight:1000;
+  letter-spacing:1.3px;
+  text-transform:uppercase;
+  color:#fff;
+  background:rgba(2,8,23,.52);
+  border:1px solid rgba(255,255,255,.18);
+  backdrop-filter: blur(8px);
+}
+@media (max-width:560px){
+  .card-gallery img{ height:200px; }
+  .gal-btn{ width:36px; height:36px; }
+}
+
 </style>
 
 </head>
@@ -1694,7 +1775,19 @@ header.shrink .brand h1{
         <div class="room-badge badge-premium">⭐ Most Booked</div>
         <div class="room-badge badge-available">✅ Available Today</div>
           <div class="discount-ribbon"><span class="pill">₹50 OFF</span> Online Booking</div>
-<img src="images/deluxe-ac-1.jpg" alt="Deluxe AC Room">
+
+<div class="card-gallery" data-images="images/deluxe-ac-1.jpg,images/deluxe-ac-2.jpg,images/deluxe-ac-3.jpg">
+  <div class="gal-badge">Room Photos</div>
+  <img src="images/deluxe-ac-1.jpg" alt="Room photo">
+  <button class="gal-btn prev" type="button" aria-label="Previous photo">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <button class="gal-btn next" type="button" aria-label="Next photo">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <div class="gal-dots"></div>
+</div>
+
         <div class="content">
           <h4>Deluxe AC Room</h4>
           <div class="price">₹1,699 (Single) · ₹1,799 (Double)</div>
@@ -1723,7 +1816,19 @@ header.shrink .brand h1{
       <!-- Standard AC -->
       <div class="room-card">
         <div class="room-badge badge-budget">💰 Budget Friendly</div>
-        <img src="images/standard-ac-1.jpg" alt="Standard AC Room">
+        
+<div class="card-gallery" data-images="images/standard-ac-1.jpg">
+  <div class="gal-badge">Room Photos</div>
+  <img src="images/standard-ac-1.jpg" alt="Room photo">
+  <button class="gal-btn prev" type="button" aria-label="Previous photo">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <button class="gal-btn next" type="button" aria-label="Next photo">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <div class="gal-dots"></div>
+</div>
+
         <div class="content">
           <h4>Standard AC Room</h4>
           <div class="price">₹1,599 (Single) · ₹1,699 (Double)</div>
@@ -1745,7 +1850,19 @@ header.shrink .brand h1{
       <!-- Deluxe Non-AC -->
       <div class="room-card">
         <div class="room-badge badge-premium">🔥 Value Pick</div>
-        <img src="images/deluxe-nonac-1.jpg" alt="Deluxe Non-AC Room">
+        
+<div class="card-gallery" data-images="images/deluxe-nonac-1.jpg,images/deluxe-nonac-2.jpg,images/deluxe-nonac-3.jpg">
+  <div class="gal-badge">Room Photos</div>
+  <img src="images/deluxe-nonac-1.jpg" alt="Room photo">
+  <button class="gal-btn prev" type="button" aria-label="Previous photo">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <button class="gal-btn next" type="button" aria-label="Next photo">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <div class="gal-dots"></div>
+</div>
+
         <div class="content">
           <h4>Deluxe Non-AC Room</h4>
           <div class="price">₹1,399 (Single) · ₹1,499 (Double)</div>
@@ -1767,7 +1884,19 @@ header.shrink .brand h1{
       <!-- Standard Non-AC -->
       <div class="room-card">
         <div class="room-badge badge-budget">💰 Budget Friendly</div>
-        <img src="images/standard-nonac-1.jpg" alt="Standard Non-AC Room">
+        
+<div class="card-gallery" data-images="images/standard-nonac-1.jpg,images/standard-nonac-2.jpg">
+  <div class="gal-badge">Room Photos</div>
+  <img src="images/standard-nonac-1.jpg" alt="Room photo">
+  <button class="gal-btn prev" type="button" aria-label="Previous photo">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <button class="gal-btn next" type="button" aria-label="Next photo">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <div class="gal-dots"></div>
+</div>
+
         <div class="content">
           <h4>Standard Non-AC Room</h4>
           <div class="price">₹1,299 (Single) · ₹1,399 (Double)</div>
@@ -2408,6 +2537,64 @@ function copyAddress(){
 }
 
 
+
+/* ===== Room Tile Galleries ===== */
+(function(){
+  const galleries = document.querySelectorAll('.card-gallery[data-images]');
+  galleries.forEach(g => {
+    const imgs = (g.getAttribute('data-images') || '').split(',').map(s=>s.trim()).filter(Boolean);
+    if(!imgs.length) return;
+    const imgEl = g.querySelector('img');
+    const dots = g.querySelector('.gal-dots');
+    const prev = g.querySelector('.gal-btn.prev');
+    const next = g.querySelector('.gal-btn.next');
+    let idx = 0;
+
+    function renderDots(){
+      dots.innerHTML = '';
+      imgs.forEach((_, i) => {
+        const d = document.createElement('button');
+        d.type = 'button';
+        d.className = 'gal-dot' + (i===idx ? ' active' : '');
+        d.setAttribute('aria-label', 'Photo ' + (i+1));
+        d.addEventListener('click', () => { idx = i; update(); });
+        dots.appendChild(d);
+      });
+    }
+
+    function update(){
+      imgEl.src = imgs[idx];
+      const all = dots.querySelectorAll('.gal-dot');
+      all.forEach((d,i)=>d.classList.toggle('active', i===idx));
+      // hide controls if only 1 image
+      const showCtrls = imgs.length > 1;
+      prev.style.display = showCtrls ? 'grid' : 'none';
+      next.style.display = showCtrls ? 'grid' : 'none';
+      dots.style.display = showCtrls ? 'flex' : 'none';
+    }
+
+    prev.addEventListener('click', () => { idx = (idx - 1 + imgs.length) % imgs.length; update(); });
+    next.addEventListener('click', () => { idx = (idx + 1) % imgs.length; update(); });
+
+    // Swipe support
+    let startX = null;
+    g.addEventListener('touchstart', (e)=>{ startX = e.touches[0].clientX; }, {passive:true});
+    g.addEventListener('touchend', (e)=>{
+      if(startX === null) return;
+      const endX = (e.changedTouches && e.changedTouches[0]) ? e.changedTouches[0].clientX : startX;
+      const dx = endX - startX;
+      if(Math.abs(dx) > 40 && imgs.length > 1){
+        idx = dx > 0 ? (idx - 1 + imgs.length) % imgs.length : (idx + 1) % imgs.length;
+        update();
+      }
+      startX = null;
+    }, {passive:true});
+
+    renderDots();
+    update();
+  });
+})();
+
 </script>
 
   <!-- Photo Quick View Modal -->
@@ -2437,3 +2624,4 @@ function copyAddress(){
 
 </body>
 </html>
+
