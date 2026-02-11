@@ -28,21 +28,6 @@
   .header-inner{
     max-width:1100px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:10px
   }
-
-  /* Logo block */
-  .brand-wrap{display:flex;align-items:center;gap:10px}
-  .logo-img{
-    width:42px;height:42px;border-radius:12px;object-fit:contain;
-    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);
-    padding:6px;
-  }
-  .logo-fallback{
-    width:42px;height:42px;border-radius:12px;display:none;
-    place-items:center;
-    background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.22);
-    font-weight:900;letter-spacing:.5px
-  }
-
   .brand h1{margin:0;font-size:20px;letter-spacing:.2px}
   .brand small{opacity:.9;font-size:13px}
 
@@ -76,18 +61,70 @@
   .price{font-weight:900;margin:8px 0}
   .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
   .chip{font-size:12px;padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:#fff;color:#334155}
+
+  /* WhatsApp pop button for room tiles */
+  .wa-book{
+    background: var(--wa);
+    color:#fff;
+    border:none;
+    padding:12px 14px;
+    border-radius:12px;
+    font-weight:900;
+    letter-spacing:.2px;
+    box-shadow:0 14px 30px rgba(0,0,0,.18);
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+  }
+  .wa-book:hover{filter:brightness(0.97)}
+  .wa-book:active{transform:translateY(1px)}
+  .wa-ic{width:22px;height:22px;display:inline-block;flex:0 0 22px}
+  .wa-sub{display:block;font-size:12px;font-weight:800;opacity:.9;margin-top:2px}
+
   .gallery{
     display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px
   }
   .gallery img{width:100%;height:180px;object-fit:cover;border-radius:12px;border:1px solid var(--border)}
-  .amenities{
-    background:#fff;border:1px solid var(--border);border-radius:var(--radius);
-    box-shadow:var(--shadow);padding:16px
-  }
-  .amenities ul{columns:2;padding:0;list-style:none;margin:0}
-  .amenities li{margin:6px 0;color:var(--muted)}
-  .amenities li::before{content:"✓ ";color:var(--brand);font-weight:900}
   footer{background:var(--brand);color:#fff;padding:26px 18px;text-align:center}
+
+  /* Premium Amenities with SVG icons */
+  .amenity-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+    gap:12px;
+    margin-top:12px;
+  }
+  .amenity-card{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:14px;
+    box-shadow:0 10px 24px rgba(2,8,23,.08);
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+  }
+  .amenity-ic{
+    width:44px;
+    height:44px;
+    border-radius:14px;
+    display:grid;
+    place-items:center;
+    background:rgba(11,60,93,.08);
+    border:1px solid rgba(11,60,93,.12);
+    flex:0 0 44px;
+  }
+  .amenity-ic svg{
+    width:22px;height:22px;
+    stroke:var(--brand);
+    stroke-width:2;
+    fill:none;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+  }
+  .amenity-text b{display:block;font-size:14px;letter-spacing:.1px}
+  .amenity-text small{display:block;margin-top:2px;color:var(--muted);font-size:12px}
+  .amenity-note{margin-top:12px;color:var(--muted);font-size:12px}
 
   /* Modal */
   .modal-backdrop{
@@ -154,14 +191,50 @@
   .mobile-bar .btn{flex:1;border-radius:12px;padding:12px 10px}
   .mobile-bar .btn.call{border:1px solid var(--border)}
 
-  /* Responsive tweaks */
   @media (max-width: 720px){
     .modal-grid{grid-template-columns:1fr}
     .hero h2{font-size:22px}
-    .amenities ul{columns:1}
-    .whatsapp-float{display:none} /* use bottom bar instead */
+    .whatsapp-float{display:none}
     .mobile-bar{display:block}
-    body{padding-bottom:70px} /* prevent content hidden behind bar */
+    body{padding-bottom:70px}
+  }
+
+  /* ===== iPhone/Safari modal fixes ===== */
+  .modal-backdrop{
+    align-items:flex-end;
+    padding:10px;
+  }
+  .modal{
+    max-height:92dvh;
+    height:auto;
+    overflow:hidden;
+  }
+  .modal-body{
+    max-height:calc(92dvh - 120px);
+    overflow:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  .modal-actions{
+    position:sticky;
+    bottom:0;
+    z-index:2;
+  }
+  .field input,.field select,.field textarea{
+    font-size:16px; /* prevent iOS zoom */
+  }
+  @media (max-width:720px){
+    .modal{
+      width:100%;
+      border-radius:18px 18px 0 0;
+    }
+    .room-preview{
+      flex-direction:column;
+      align-items:flex-start;
+    }
+    .room-preview img{
+      width:100%;
+      height:160px;
+    }
   }
 </style>
 </head>
@@ -170,17 +243,10 @@
 
 <header>
   <div class="header-inner">
-    <div class="brand-wrap">
-      <img class="logo-img" src="images/logo.png" alt="SS Residency Grand Logo"
-           onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='grid';">
-      <div class="logo-fallback" id="logoFallback">SS</div>
-
-      <div class="brand">
-        <h1>SS Residency Grand</h1>
-        <small>KPHB Colony, Hyderabad</small>
-      </div>
+    <div class="brand">
+      <h1>SS Residency Grand</h1>
+      <small>KPHB Colony, Hyderabad</small>
     </div>
-
     <div class="cta">
       <a class="btn wa" href="https://wa.me/917842421143">WhatsApp</a>
       <a class="btn call" href="tel:7842072724">Call</a>
@@ -190,7 +256,7 @@
 
 <section class="hero">
   <h2>Clean & Comfortable Stay in KPHB Colony</h2>
-  <p>Affordable AC & Non-AC rooms with Free Wi-Fi, Lift, Parking & Room Service. Tap “Book” to fill details and send a complete WhatsApp request.</p>
+  <p>Affordable AC & Non-AC rooms with Free Wi-Fi, Lift, Parking & Room Service. Tap “Book on WhatsApp” to fill details and send a complete request.</p>
 </section>
 
 <section class="section">
@@ -208,8 +274,14 @@
           <span class="chip">AC</span><span class="chip">Wi-Fi</span><span class="chip">TV</span><span class="chip">Toiletries</span>
         </div>
         <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-          <button class="btn primary" onclick="openBooking('Deluxe AC Room')">Book</button>
-          <button class="btn ghost" onclick="openBooking('Deluxe AC Room', true)">Quick Enquiry</button>
+          <button class="wa-book" onclick="openBooking('Deluxe AC Room')">
+            <svg class="wa-ic" viewBox="0 0 32 32" aria-hidden="true">
+              <path fill="#fff" d="M19.11 17.46c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.64 1.11 2.82.14.18 1.93 2.95 4.67 4.13.65.28 1.15.45 1.54.58.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32Z"/>
+              <path fill="#fff" d="M16.03 3C9.39 3 4 8.29 4 14.8c0 2.55.84 4.92 2.27 6.85L5 29l7.55-1.97c1.88 1.03 4.04 1.62 6.48 1.62C25.66 28.65 31 23.36 31 16.85 31 10.34 25.66 5.05 19.03 5.05c-1.08 0-2.05.16-3 .44V3Zm0 2.14c.87 0 1.74.12 2.57.35 5.23 1.45 8.17 7.09 6.55 12.18-1.07 3.34-3.86 5.92-7.36 6.68-2.36.51-4.73.2-6.8-.9l-.5-.27-4.49 1.17 1.2-4.25-.33-.49c-1.33-2-1.8-4.39-1.25-6.7 1.1-4.62 5.3-7.77 10.41-7.77Z"/>
+            </svg>
+            <span>Book on WhatsApp<span class="wa-sub">Get instant confirmation</span></span>
+          </button>
+          <button class="btn ghost" onclick="openBooking('Deluxe AC Room', true)">Enquire</button>
         </div>
       </div>
     </div>
@@ -223,8 +295,14 @@
           <span class="chip">AC</span><span class="chip">Wi-Fi</span><span class="chip">Geyser</span>
         </div>
         <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-          <button class="btn primary" onclick="openBooking('Standard AC Room')">Book</button>
-          <button class="btn ghost" onclick="openBooking('Standard AC Room', true)">Quick Enquiry</button>
+          <button class="wa-book" onclick="openBooking('Standard AC Room')">
+            <svg class="wa-ic" viewBox="0 0 32 32" aria-hidden="true">
+              <path fill="#fff" d="M19.11 17.46c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.64 1.11 2.82.14.18 1.93 2.95 4.67 4.13.65.28 1.15.45 1.54.58.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32Z"/>
+              <path fill="#fff" d="M16.03 3C9.39 3 4 8.29 4 14.8c0 2.55.84 4.92 2.27 6.85L5 29l7.55-1.97c1.88 1.03 4.04 1.62 6.48 1.62C25.66 28.65 31 23.36 31 16.85 31 10.34 25.66 5.05 19.03 5.05c-1.08 0-2.05.16-3 .44V3Zm0 2.14c.87 0 1.74.12 2.57.35 5.23 1.45 8.17 7.09 6.55 12.18-1.07 3.34-3.86 5.92-7.36 6.68-2.36.51-4.73.2-6.8-.9l-.5-.27-4.49 1.17 1.2-4.25-.33-.49c-1.33-2-1.8-4.39-1.25-6.7 1.1-4.62 5.3-7.77 10.41-7.77Z"/>
+            </svg>
+            <span>Book on WhatsApp<span class="wa-sub">Get instant confirmation</span></span>
+          </button>
+          <button class="btn ghost" onclick="openBooking('Standard AC Room', true)">Enquire</button>
         </div>
       </div>
     </div>
@@ -238,355 +316,7 @@
           <span class="chip">Non-AC</span><span class="chip">Wi-Fi</span><span class="chip">TV</span>
         </div>
         <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-          <button class="btn primary" onclick="openBooking('Deluxe Non-AC Room')">Book</button>
-          <button class="btn ghost" onclick="openBooking('Deluxe Non-AC Room', true)">Quick Enquiry</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="room-card">
-      <img src="images/standard-nonac-1.jpg" alt="Standard Non-AC Room">
-      <div class="content">
-        <h4>Standard Non-AC Room</h4>
-        <div class="price">₹1,299 (Single) · ₹1,399 (Double)</div>
-        <div class="chips">
-          <span class="chip">Non-AC</span><span class="chip">Wi-Fi</span><span class="chip">Geyser</span>
-        </div>
-        <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-          <button class="btn primary" onclick="openBooking('Standard Non-AC Room')">Book</button>
-          <button class="btn ghost" onclick="openBooking('Standard Non-AC Room', true)">Quick Enquiry</button>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section class="section">
-  <h3>Amenities</h3>
-  <div class="amenities">
-    <ul>
-      <li>Reception & Seating Area</li>
-      <li>Power Backup</li>
-      <li>Elevator / Lift</li>
-      <li>Housekeeping</li>
-      <li>Free Parking</li>
-      <li>CCTV</li>
-      <li>Free Wi-Fi</li>
-      <li>Geyser / Water Heater</li>
-      <li>Luggage Storage & Assistance</li>
-      <li>Room Service (5AM – 11PM)</li>
-      <li>Toiletries (Deluxe Rooms)</li>
-      <li>TV (Deluxe Rooms)</li>
-    </ul>
-    <p class="hint">Note: AC available in AC rooms only.</p>
-  </div>
-</section>
-
-<section class="section">
-  <h3>Gallery</h3>
-  <p class="muted">Real room photos</p>
-  <div class="gallery">
-    <img src="images/deluxe-ac-2.jpg" alt="Deluxe AC Room photo">
-    <img src="images/deluxe-ac-3.jpg" alt="Deluxe AC Room photo">
-    <img src="images/deluxe-nonac-2.jpg" alt="Deluxe Non-AC Room photo">
-    <img src="images/deluxe-nonac-3.jpg" alt="Deluxe Non-AC Room photo">
-    <img src="images/standard-nonac-2.jpg" alt="Standard Non-AC Room photo">
-    <img src="images/bathroom.jpg" alt="Bathroom photo">
-  </div>
-</section>
-
-<footer>
-  <p><b>SS Residency Grand</b></p>
-  <p>MIG-30, Dharma Reddy Colony Phase-1, KPHB Colony, Hyderabad – 500072</p>
-  <p>WhatsApp: 7842421143 · Reception: 7842072724 · Suggestions: 9652472725</p>
-</footer>
-
-<!-- Desktop floating WhatsApp -->
-<a class="whatsapp-float" href="https://wa.me/917842421143">Book on WhatsApp</a>
-
-<!-- Mobile Sticky Bar -->
-<div class="mobile-bar" role="navigation" aria-label="Quick actions">
-  <div class="mobile-bar-inner">
-    <a class="btn call" href="tel:7842072724">Call</a>
-    <a class="btn wa" href="https://wa.me/917842421143">WhatsApp</a>
-    <button class="btn primary" onclick="openBooking('Deluxe AC Room')">Book</button>
-  </div>
-</div>
-
-<!-- Modal -->
-<div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
-  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-head">
-      <div class="modal-title">
-        <b id="modalTitle">Reservation Request</b>
-        <span class="muted" style="font-size:12px">Fill details → Total estimate shows → WhatsApp opens with your booking message</span>
-      </div>
-      <button class="close" onclick="closeModal()" aria-label="Close">✕</button>
-    </div>
-
-    <div class="modal-body">
-      <div class="room-preview">
-        <img id="rpImg" src="images/deluxe-ac-1.jpg" alt="Room preview">
-        <div class="info">
-          <div class="rp-name" id="rpName">Deluxe AC Room</div>
-          <div class="rp-price" id="rpPrice">₹1,699 (Single) · ₹1,799 (Double)</div>
-          <div class="rp-total" id="rpTotal">Estimated Total: —</div>
-          <div class="hint" id="rpExtras">Extra Person ₹100/night · Extra Bed ₹200/night</div>
-        </div>
-      </div>
-
-      <form id="bookingForm">
-        <div class="modal-grid">
-          <div class="field">
-            <label>Name</label>
-            <input required name="name" placeholder="Guest name">
-          </div>
-          <div class="field">
-            <label>Mobile</label>
-            <input required name="phone" placeholder="10-digit number">
-          </div>
-
-          <div class="field">
-            <label>Check-in</label>
-            <input required type="date" name="checkin" id="checkin">
-          </div>
-          <div class="field">
-            <label>Check-out</label>
-            <input required type="date" name="checkout" id="checkout">
-          </div>
-
-          <div class="field">
-            <label>Room Type</label>
-            <select name="room" id="roomSelect"></select>
-          </div>
-
-          <div class="field">
-            <label>Occupancy</label>
-            <select name="occupancy" id="occupancy">
-              <option>Single</option>
-              <option>Double</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label>Extra Bed</label>
-            <select name="extraBed" id="extraBed">
-              <option>No</option>
-              <option>Yes</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label>Extra Persons (₹100/night each)</label>
-            <select name="extraPersons" id="extraPersons">
-              <option value="0">0</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-            </select>
-          </div>
-
-          <div class="field" style="grid-column:1/-1">
-            <label>Special Requests</label>
-            <textarea name="notes" placeholder="Late check-in, GST invoice, etc."></textarea>
-            <div class="hint">We will confirm availability on WhatsApp.</div>
-          </div>
-        </div>
-      </form>
-    </div>
-
-    <div class="modal-actions">
-      <button class="btn ghost" type="button" onclick="closeModal()">Cancel</button>
-      <button class="btn primary" type="button" onclick="submitBooking()">Send on WhatsApp</button>
-    </div>
-  </div>
-</div>
-
-<script>
-  // ====== CONFIG ======
-  const WHATSAPP_TO = "917842421143"; // WhatsApp number
-  const EXTRA_PERSON = 100; // per night
-  const EXTRA_BED = 200;    // per night
-
-  const rooms = {
-    "Deluxe AC Room": { single: 1699, double: 1799, img: "images/deluxe-ac-1.jpg" },
-    "Standard AC Room": { single: 1599, double: 1699, img: "images/standard-ac-1.jpg" },
-    "Deluxe Non-AC Room": { single: 1399, double: 1499, img: "images/deluxe-nonac-1.jpg" },
-    "Standard Non-AC Room": { single: 1299, double: 1399, img: "images/standard-nonac-1.jpg" }
-  };
-
-  // ====== MODAL STATE ======
-  let currentRoom = "Deluxe AC Room";
-  let quickMode = false;
-
-  const backdrop = document.getElementById("modalBackdrop");
-  const roomSelect = document.getElementById("roomSelect");
-  const rpImg = document.getElementById("rpImg");
-  const rpName = document.getElementById("rpName");
-  const rpPrice = document.getElementById("rpPrice");
-  const rpTotal = document.getElementById("rpTotal");
-  const bookingForm = document.getElementById("bookingForm");
-
-  const checkinEl = document.getElementById("checkin");
-  const checkoutEl = document.getElementById("checkout");
-  const occupancyEl = document.getElementById("occupancy");
-  const extraBedEl = document.getElementById("extraBed");
-  const extraPersonsEl = document.getElementById("extraPersons");
-
-  // Populate room dropdown
-  function populateRooms(){
-    roomSelect.innerHTML = "";
-    Object.keys(rooms).forEach(r => {
-      const opt = document.createElement("option");
-      opt.value = r;
-      opt.textContent = r;
-      roomSelect.appendChild(opt);
-    });
-  }
-  populateRooms();
-
-  function priceText(roomName){
-    const r = rooms[roomName];
-    return `₹${r.single.toLocaleString("en-IN")} (Single) · ₹${r.double.toLocaleString("en-IN")} (Double)`;
-  }
-
-  function nightsBetween(checkin, checkout){
-    if(!checkin || !checkout) return 0;
-    const inD = new Date(checkin + "T00:00:00");
-    const outD = new Date(checkout + "T00:00:00");
-    const diff = (outD - inD) / (1000*60*60*24);
-    return Number.isFinite(diff) ? Math.max(0, Math.round(diff)) : 0;
-  }
-
-  function calcEstimate(){
-    const room = roomSelect.value || currentRoom;
-    const occ = occupancyEl.value || "Single";
-    const nights = nightsBetween(checkinEl.value, checkoutEl.value);
-
-    if(!nights){
-      rpTotal.textContent = "Estimated Total: —";
-      return;
-    }
-
-    const rate = (occ === "Double") ? rooms[room].double : rooms[room].single;
-    const extraBed = (extraBedEl.value === "Yes") ? EXTRA_BED : 0;
-    const extraPersons = parseInt(extraPersonsEl.value || "0", 10) || 0;
-
-    const total = (rate * nights) + (extraBed * nights) + (extraPersons * EXTRA_PERSON * nights);
-
-    rpTotal.textContent = `Estimated Total: ₹${total.toLocaleString("en-IN")}  (${nights} night${nights>1?"s":""})`;
-  }
-
-  function updatePreview(){
-    const r = rooms[currentRoom];
-    rpImg.src = r.img;
-    rpName.textContent = currentRoom;
-    rpPrice.textContent = priceText(currentRoom);
-    calcEstimate();
-  }
-
-  roomSelect.addEventListener("change", () => {
-    currentRoom = roomSelect.value;
-    updatePreview();
-  });
-
-  [checkinEl, checkoutEl, occupancyEl, extraBedEl, extraPersonsEl].forEach(el => {
-    el.addEventListener("change", calcEstimate);
-    el.addEventListener("input", calcEstimate);
-  });
-
-  function openBooking(roomName, isQuick=false){
-    quickMode = !!isQuick;
-    currentRoom = roomName;
-
-    roomSelect.value = roomName;
-    updatePreview();
-
-    backdrop.style.display = "flex";
-    backdrop.setAttribute("aria-hidden","false");
-    document.body.style.overflow = "hidden";
-
-    const first = bookingForm.querySelector('input[name="name"]');
-    if(first) setTimeout(() => first.focus(), 50);
-  }
-
-  function closeModal(){
-    backdrop.style.display = "none";
-    backdrop.setAttribute("aria-hidden","true");
-    document.body.style.overflow = "";
-  }
-
-  // Close modal on backdrop click
-  backdrop.addEventListener("click", (e) => {
-    if(e.target === backdrop) closeModal();
-  });
-
-  // ESC close
-  window.addEventListener("keydown", (e) => {
-    if(e.key === "Escape" && backdrop.style.display === "flex") closeModal();
-  });
-
-  function getVal(name){
-    const el = bookingForm.querySelector(`[name="${name}"]`);
-    return el ? el.value.trim() : "";
-  }
-
-  function submitBooking(){
-    const name = getVal("name");
-    const phone = getVal("phone");
-    const checkin = getVal("checkin");
-    const checkout = getVal("checkout");
-    const room = getVal("room") || currentRoom;
-    const occupancy = getVal("occupancy") || "Single";
-    const extraBed = getVal("extraBed") || "No";
-    const extraPersons = parseInt(getVal("extraPersons") || "0", 10) || 0;
-    const notes = getVal("notes");
-
-    if(!name || !phone || !checkin || !checkout){
-      alert("Please fill Name, Mobile, Check-in and Check-out.");
-      return;
-    }
-
-    const nights = nightsBetween(checkin, checkout);
-    if(nights <= 0){
-      alert("Please select a valid Check-out date after Check-in.");
-      return;
-    }
-
-    const rate = (occupancy === "Double") ? rooms[room].double : rooms[room].single;
-    const bedCharge = (extraBed === "Yes") ? EXTRA_BED : 0;
-    const total = (rate * nights) + (bedCharge * nights) + (extraPersons * EXTRA_PERSON * nights);
-
-    const msg =
-`Reservation Request - SS Residency Grand
-Room: ${room}
-Occupancy: ${occupancy}
-Check-in: ${checkin}
-Check-out: ${checkout}
-Nights: ${nights}
-
-Rate: ₹${rate.toLocaleString("en-IN")} per night
-Extra Bed: ${extraBed} (₹${EXTRA_BED}/night)
-Extra Persons: ${extraPersons} (₹${EXTRA_PERSON}/night each)
-
-Estimated Total: ₹${total.toLocaleString("en-IN")}
-
-Guest Name: ${name}
-Mobile: ${phone}
-Special Requests: ${notes || "-"}
-
-Please confirm availability and final amount.`;
-
-    window.open(`https://wa.me/${WHATSAPP_TO}?text=${encodeURIComponent(msg)}`, "_blank", "noopener");
-
-    closeModal();
-    bookingForm.reset();
-    roomSelect.value = room;
-    currentRoom = room;
-    updatePreview();
-  }
-</script>
-
-</body>
-</html>
+          <button class="wa-book" onclick="openBooking('Deluxe Non-AC Room')">
+            <svg class="wa-ic" viewBox="0 0 32 32" aria-hidden="true">
+              <path fill="#fff" d="M19.11 17.46c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36
+::contentReference[oaicite:0]{index=0}
