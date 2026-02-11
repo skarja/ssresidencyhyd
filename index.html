@@ -10,7 +10,6 @@
   <meta property="og:title" content="SS Residency Grand | KPHB Colony, Hyderabad">
   <meta property="og:description" content="Clean, comfortable stays in KPHB Colony, Hyderabad. Book quickly via WhatsApp.">
 
-
   <style>
     :root{
       --brand:#0b3c5d;
@@ -220,29 +219,6 @@
       padding:14px 18px;border-radius:999px;font-weight:1000;box-shadow:0 16px 34px rgba(0,0,0,.22);
       z-index:120;
     }
-
-    /* Mobile sticky bar */
-    .mobile-bar{
-      position:fixed;left:0;right:0;bottom:0;z-index:150;
-      background:#fff;border-top:1px solid var(--border);
-      padding-bottom: env(safe-area-inset-bottom);
-    }
-    .mobile-bar-inner{
-      max-width:1100px;margin:auto;padding:10px 12px;
-      display:flex;gap:10px;align-items:center;
-    }
-    .total-pill{
-      flex:1;
-      border:1px solid var(--border);
-      border-radius:14px;
-      padding:10px 12px;
-      background:#fff;
-      box-shadow:0 10px 18px rgba(2,8,23,.06);
-    }
-    .total-pill b{display:block;font-size:12px;color:#334155}
-    .total-pill span{display:block;font-size:16px;font-weight:1000;margin-top:2px}
-    .mobile-bar .btn{border-radius:14px;padding:12px 10px}
-    .mobile-bar .btn.call{border:1px solid var(--border)}
 
     /* Modal */
     .modal-backdrop{
@@ -455,7 +431,6 @@
       .photo-stage img{ height:46vh; }
     }
 
-
 /* ===== LIMITED TIME (ULTRA LUXURY) ===== */
 .limited-time{
   position:relative;
@@ -509,7 +484,6 @@ header.shrink .limited-time::after{
   header.shrink .limited-time::after{ animation:none !important; }
 }
 
-
 /* ===== TAJ GOLD SHEEN EFFECT ===== */
 header::before{
   content:"";
@@ -537,7 +511,6 @@ header.shrink::before{
   0%,70%{ transform:translateX(-120%) rotate(6deg); }
   100%{ transform:translateX(120%) rotate(6deg); }
 }
-
 
 /* ===== TAJ ULTRA-PREMIUM PRO (Overrides) ===== */
 header{
@@ -614,7 +587,6 @@ header.shrink .brand h1{
   .header-inner{ transition:none !important; }
 }
 
-
 /* ===== NAV BUTTON STYLE (Rooms/Amenities/Location) ===== */
 .nav-pills{ gap:12px; }
 .pill{
@@ -631,7 +603,6 @@ header.shrink .brand h1{
 .pill:active{
   transform:translateY(0);
 }
-
 
     /* ===== Header Pro Overrides ===== */
     .site-header{ position:sticky; top:0; z-index:999; }
@@ -703,13 +674,11 @@ header.shrink .brand h1{
       .nav-pills .pill{ font-size:15px; padding:12px 18px; }
     }
 
-
 @media (max-width:820px){
   .header-pro{ flex-direction:column; align-items:flex-start; gap:10px; }
   .header-actions{ flex-direction:row; flex-wrap:wrap; }
   .hotel-title{ font-size:34px; }
 }
-
 
 /* ===== CENTER LUXURY HEADER ===== */
 .header-inner.header-pro{
@@ -764,7 +733,6 @@ header.shrink .brand h1{
     0 10px 24px rgba(0,0,0,.25),
     0 0 0 1px rgba(245,230,161,.35);
 }
-
 
 /* ===== HYATT PRO (2-ROW LUXURY HEADER) ===== */
 .hyatt-pro{
@@ -928,14 +896,12 @@ header.shrink .brand h1{
   .hyatt-book{ padding:10px 12px; }
 }
 
-
 /* Hyatt-like utility casing */
 .util-link{
   text-transform:uppercase;
   font-size:11px;
   letter-spacing:1px;
 }
-
 
 /* ===== HYATT LUXURY MAP SECTION ===== */
 .map-wrap{
@@ -990,7 +956,6 @@ header.shrink .brand h1{
   .map-cta{ top:12px; right:12px; padding:10px 12px; letter-spacing:1.1px; }
 }
 
-
 /* Hyatt-style map link */
 .hyatt-locline{ margin:8px 0 14px 0; }
 .hyatt-maplink{
@@ -1002,7 +967,6 @@ header.shrink .brand h1{
   font-size:12px;
 }
 .hyatt-maplink:hover{ opacity:.7; }
-
 
 /* ===== HYATT PREMIUM LOCATION SECTION ===== */
 .loc-premium{
@@ -1092,7 +1056,6 @@ header.shrink .brand h1{
   .loc-card{ position:sticky; top:92px; }
 }
 
-
 /* ===== MAP LOCK FIX (inside Location grid) ===== */
 .map-locked{
   width:100%;
@@ -1102,7 +1065,6 @@ header.shrink .brand h1{
 .loc-grid > div:last-child{
   min-width:0;
 }
-
 
 /* ===== HEADER LEFT ALIGN + SUBTITLE ===== */
 .hyatt-title-block{
@@ -1125,7 +1087,6 @@ header.shrink .brand h1{
   color:#64748b;
   text-transform:uppercase;
 }
-
 
 /* ===== HYATT LEFT TITLE FIX ===== */
 .hyatt-left{
@@ -1153,8 +1114,6 @@ header.shrink .brand h1{
   white-space:nowrap;
 }
 
-
-
 @media (max-width: 900px){
   .hyatt-title-main{ font-size:18px; letter-spacing:2px; white-space:normal; }
   .hyatt-title-sub{ font-size:11px; letter-spacing:1px; white-space:normal; }
@@ -1163,7 +1122,6 @@ header.shrink .brand h1{
 @media (max-width: 640px){
   .hyatt-nav{ display:none; }
 }
-
 
 /* ===== HYATT LUXURY LOCATION TITLE ===== */
 .loc-card .loc-name{
@@ -1197,7 +1155,6 @@ header.shrink .brand h1{
   from{opacity:0; transform:translateY(14px);}
   to{opacity:1; transform:translateY(0);}
 }
-
 
 /* ===== LOCATION ULTRA-LUXURY HYATT PRO ===== */
 #location .loc-grid{
@@ -1281,8 +1238,6 @@ header.shrink .brand h1{
 }
 #location 
 
-
-
 /* ===== RATE NOTE (HYATT PREMIUM) ===== */
 .rate-note{
   margin-top:12px;
@@ -1308,7 +1263,6 @@ header.shrink .brand h1{
   border-radius:999px;
   background:linear-gradient(90deg,#caa64b 0%,#f5e6a1 40%,#b8932c 75%,#f5e6a1 100%);
 }
-
 
 /* ===== AMENITIES (HYATT PREMIUM) ===== */
 #amenities h3{
@@ -1423,7 +1377,6 @@ header.shrink .brand h1{
   #amenities .amenity-card{ padding:14px; }
 }
 
-
 /* ===== HYATT GOLD SECTION DIVIDERS ===== */
 .section-premium-divider{
   width:84px;
@@ -1441,7 +1394,6 @@ header.shrink .brand h1{
   color:#64748b;
   margin-bottom:6px;
 }
-
 
 /* ===== SECTIONS ULTRA LUXURY (HYATT PRO) ===== */
 .section-head{
@@ -1499,7 +1451,6 @@ header.shrink .brand h1{
   .section-divider::after{ animation:none !important; }
 }
 
-
 /* ===== ROOMS SECTION (HYATT ULTRA LUXURY) ===== */
 #rooms{
   background:#f7f8fb;
@@ -1536,6 +1487,16 @@ header.shrink .brand h1{
 @media (max-width: 980px){
   #rooms .rooms{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
 }
+
+/* ===== Visibility / Stack Hardening ===== */
+.fab-stack{ align-items:flex-end; }
+.fab-stack .fab{
+  display:flex !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  flex:0 0 auto !important;
+}
+
 @media (max-width: 560px){
   #rooms .section-title{ font-size:32px; letter-spacing:.8px; }
   #rooms .rooms{ grid-template-columns:1fr; }
@@ -1558,7 +1519,6 @@ header.shrink .brand h1{
   object-fit:cover;
   display:block;
 }
-
 
 /* ===== ROOMS HEADER COMPAT (in case markup differs) ===== */
 #rooms h2, #rooms h3{
@@ -1591,7 +1551,6 @@ header.shrink .brand h1{
   color:#64748b;
   font-weight:800;
 }
-
 
 /* ===== ROOM TILE MULTI-PHOTO GALLERY ===== */
 .card-gallery{
@@ -1673,10 +1632,8 @@ header.shrink .brand h1{
   .gal-btn{ width:36px; height:36px; }
 }
 
-
 /* ===== Swipe Fix ===== */
 .card-gallery{ touch-action: pan-y; }
-
 
 /* ===== Gallery Click Fix (Desktop) ===== */
 .discount-ribbon, .room-badge, .gal-badge{
@@ -1690,7 +1647,6 @@ header.shrink .brand h1{
 }
 .gal-dots{ z-index:10; }
 
-
 /* ===== Gold Accent (Match Find Us) ===== */
 .gold-accent{
   width:72px;
@@ -1703,7 +1659,6 @@ header.shrink .brand h1{
   margin-top:10px;
 }
 
-
 /* ===== Consistent Section Head Spacing ===== */
 .section-head{ padding: 28px 0 18px; }
 .kicker{ margin: 0 0 10px; }
@@ -1714,7 +1669,6 @@ header.shrink .brand h1{
 .subtext,
 .helper-text{ margin: 12px 0 0; }
 .gold-accent{ margin: 12px 0 12px 0; } /* consistent under title */
-
 
 .rate-note{
   font-size: 13px;
@@ -1749,9 +1703,7 @@ header.shrink .brand h1{
           <svg class="util-ic" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M20.5 11.9a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 20.5 11.9Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
             <path d="M9.3 8.8c.2-.5.5-.5.7-.5h.6c.2 0 .4.1.5.4l.5 1.2c.1.3.1.6-.1.8l-.4.4c-.2.2-.2.4-.1.6.3.6 1 1.6 2 2.2.3.2.5.2.7 0l.5-.6c.2-.2.5-.3.8-.2l1.3.5c.3.1.4.3.4.6 0 .7-.3 1.2-.8 1.5-.6.4-1.4.6-2.4.3-2.1-.7-4.2-2.9-5-5.1-.3-1-.1-1.8.3-2.3.3-.5.6-.8.9-.9Z" fill="currentColor"/>
-          </svg>
-          WhatsApp
-        </a>
+          </svg>CHAT</a>
         <a class="util-link" href="https://www.google.com/maps/place/SS+RESIDENCY+GRAND/@17.4949886,78.3965019,21z/data=!4m17!1m7!3m6!1s0x3bcb99daeaebd2c7:0x94ea9fb0ba260caa!2sF9WW%2B2H,+Hyderabad,+Telangana!3b1!8m2!3d17.4950625!4d78.3964375!3m8!1s0x3bcb91e74cbe9327:0xbb2d05ef68022276!5m2!4m1!1i2!8m2!3d17.4950638!4d78.3964849!16s%2Fg%2F11gy880hm2?entry=ttu&g_ep=EgoyMDI2MDIwOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" aria-label="Directions">
           <svg class="util-ic" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M12 21s7-4.6 7-11a7 7 0 1 0-14 0c0 6.4 7 11 7 11Z" fill="none" stroke="currentColor" stroke-width="2"/>
@@ -1766,14 +1718,11 @@ header.shrink .brand h1{
   <!-- Main header row -->
   <div class="hyatt-main">
     <div class="container hyatt-main-inner">
-      
 
-      
 <div class="hyatt-left">
   <div class="hyatt-title-main">SS RESIDENCY GRAND</div>
   <div class="hyatt-title-sub">A Unit of SS Hospitality Group</div>
 </div>
-
 
       <div class="hyatt-right">
         <nav class="hyatt-nav" aria-label="Primary">
@@ -2050,9 +1999,7 @@ header.shrink .brand h1{
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M20.5 11.9a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 20.5 11.9Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
               <path d="M9.3 8.8c.2-.5.5-.5.7-.5h.6c.2 0 .4.1.5.4l.5 1.2c.1.3.1.6-.1.8l-.4.4c-.2.2-.2.4-.1.6.3.6 1 1.6 2 2.2.3.2.5.2.7 0l.5-.6c.2-.2.5-.3.8-.2l1.3.5c.3.1.4.3.4.6 0 .7-.3 1.2-.8 1.5-.6.4-1.4.6-2.4.3-2.1-.7-4.2-2.9-5-5.1-.3-1-.1-1.8.3-2.3.3-.5.6-.8.9-.9Z" fill="currentColor"/>
-            </svg>
-            WhatsApp
-          </a>
+            </svg>CHAT</a>
         </div>
 
         <div class="loc-hint">Tip: Tap “Directions” for the exact Google Maps pin and live navigation.</div>
@@ -2070,8 +2017,6 @@ header.shrink .brand h1{
   <iframe class="map-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d237.82889280674294!2d78.39650187303829!3d17.494988633930305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91e74cbe9327%3A0xbb2d05ef68022276!2sSS%20RESIDENCY%20GRAND!5e0!3m2!1sen!2sin!4v1770789306035!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 
-
-      
       </div>
     </div>
   </div>
@@ -2085,19 +2030,7 @@ header.shrink .brand h1{
 </footer>
 
 <!-- Floating WhatsApp -->
-<a class="whatsapp-float" href="https://wa.me/917842421143" aria-label="WhatsApp">WhatsApp</a>
-
-<!-- Mobile sticky bar -->
-<div class="mobile-bar" role="navigation" aria-label="Quick actions">
-  <div class="mobile-bar-inner">
-    <div class="total-pill">
-      <b>Estimated Total (after ₹50 OFF)</b>
-      <span id="stickyTotal">₹0</span>
-    </div>
-    <button class="btn primary" onclick="openBooking('Deluxe AC Room')">Book</button>
-    <a class="btn call" href="tel:7842072724">Call</a>
-  </div>
-</div>
+<a class="whatsapp-float" href="https://wa.me/917842421143" aria-label="WhatsApp">CHAT</a>
 
 <!-- Booking Modal -->
 <div class="modal-backdrop" id="backdrop" aria-hidden="true">
@@ -2116,7 +2049,7 @@ header.shrink .brand h1{
         <div class="info">
           <div class="rp-name" id="rpName">Deluxe AC Room</div>
           <div class="rp-price" id="rpPrice">₹0 / night</div>
-          <div class="rp-total" id="rpTotal">Estimated Total: ₹0</div>
+          <div class="rp-total" id="rpTotal">
           <div class="discount-line" id="rpDiscount">Online Booking Discount: -₹50</div>
           <div class="hint">Total updates automatically based on nights, guests, extras.</div>
         </div>
@@ -2247,8 +2180,6 @@ header.shrink .brand h1{
   const rpPrice = document.getElementById("rpPrice");
   const rpTotal = document.getElementById("rpTotal");
   const rpDiscount = document.getElementById("rpDiscount");
-  const stickyTotal = document.getElementById("stickyTotal");
-
   (function initMap(){
     const mapsBtn = document.getElementById("mapsBtn");
     const mapFrame = document.getElementById("mapFrame");
@@ -2370,124 +2301,7 @@ header.shrink .brand h1{
     rpImg.src = img;
     rpName.textContent = p.room;
     rpPrice.textContent = `${formatINR(p.rate)} / night · ${p.nights} night(s)`;
-    rpTotal.textContent = `Estimated Total: ${formatINR(p.total)}`;
-    rpDiscount.textContent = `Online Booking Discount: -${formatINR(p.discount)}`;
-    stickyTotal.textContent = formatINR(p.total);
-  }
-
-  function sendWhatsApp(){
-    const ci = checkinEl.value;
-    const co = checkoutEl.value;
-    const ct = (checkinTimeEl.value || "12:00");
-
-    if(!ci || !co){
-      alert("Please select Check-in and Check-out dates.");
-      return;
-    }
-    const n = nightsBetween(ci, co);
-    if(n <= 0){
-      alert("Check-out must be after Check-in.");
-      return;
-    }
-    if(!nameEl.value.trim()){
-      alert("Please enter your name.");
-      return;
-    }
-    if(!phoneEl.value.trim()){
-      alert("Please enter your mobile number.");
-      return;
-    }
-
-    const p = getPricing();
-    const notes = (notesEl.value || "").trim();
-
-    const msgLines = [
-      "Hello SS Residency Grand 👋",
-      "",
-      "I would like to book a room (Online Booking):",
-      `• Room: ${p.room}`,
-      `• Occupancy: ${p.occ.toUpperCase()}`,
-      `• Check-in: ${ci}`,
-      `• Check-in Time: ${ct}`,
-      `• Check-out: ${co} (${p.nights} night${p.nights>1?"s":""})`,
-      `• Guests: ${p.guests}`,
-      `• Extra Bed: ${p.extraBed ? "Yes" : "No"}`,
-      `• Subtotal: ${formatINR(p.subtotal)}`,
-      `• Online Discount: -${formatINR(p.discount)}`,
-      `• Estimated Total: ${formatINR(p.total)}`,
-      "",
-      "Guest Details:",
-      `• Name: ${nameEl.value.trim()}`,
-      `• Mobile: ${phoneEl.value.trim()}`,
-    ];
-
-    if(notes){
-      msgLines.push("", "Notes:", notes);
-    }
-
-    msgLines.push("", "Please confirm availability and final amount. धन्यवाद 🙏");
-
-    const text = encodeURIComponent(msgLines.join("\n"));
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
-    window.open(url, "_blank", "noopener");
-  }
-
-  (function initSticky(){
-    stickyTotal.textContent = "₹0";
-  })();
-
-  /* ===== Photo Quick View ===== */
-  const PHOTO_SETS = {
-    "Deluxe AC Room": ["images/deluxe-ac-1.jpg","images/deluxe-ac-2.jpg","images/deluxe-ac-3.jpg"],
-    "Standard AC Room": ["images/standard-ac-1.jpg"],
-    "Deluxe Non-AC Room": ["images/deluxe-nonac-1.jpg","images/deluxe-nonac-2.jpg","images/deluxe-nonac-3.jpg"],
-    "Standard Non-AC Room": ["images/standard-nonac-1.jpg","images/standard-nonac-2.jpg"],
-    "Bathroom": ["images/bathroom.jpg"]
-  };
-
-  let qvRoom = "Deluxe AC Room";
-  let qvIndex = 0;
-
-  const photoBackdrop = document.getElementById("photoBackdrop");
-  const photoTitle = document.getElementById("photoTitle");
-  const photoMain = document.getElementById("photoMain");
-  const photoThumbs = document.getElementById("photoThumbs");
-
-  function openQuickView(roomName){
-    qvRoom = roomName;
-    qvIndex = 0;
-
-    const arr = PHOTO_SETS[qvRoom] || [];
-    photoTitle.textContent = qvRoom + " · Photos";
-    renderQuickView(arr);
-
-    photoBackdrop.style.display = "flex";
-    photoBackdrop.setAttribute("aria-hidden","false");
-    document.body.style.overflow = "hidden";
-  }
-
-  function closeQuickView(){
-    photoBackdrop.style.display = "none";
-    photoBackdrop.setAttribute("aria-hidden","true");
-    document.body.style.overflow = "";
-  }
-
-  photoBackdrop.addEventListener("click", (e)=>{
-    if(e.target === photoBackdrop) closeQuickView();
-  });
-
-  function renderQuickView(arr){
-    if(!arr.length){
-      photoMain.src = "images/deluxe-ac-1.jpg";
-      photoThumbs.innerHTML = "";
-      return;
-    }
-    photoMain.src = arr[qvIndex];
-
-    photoThumbs.innerHTML = arr.map((src, i)=>(
-      `<div class="thumb ${i===qvIndex?'active':''}" onclick="setPhoto(${i})">
-         <img src="${src}" alt="Thumbnail ${i+1}">
-       </div>`
+    rpTotal.textContent = ``
     )).join("");
   }
 
@@ -2517,7 +2331,6 @@ header.shrink .brand h1{
     openBooking(qvRoom);
   }
 
-
 /* ===== Copy Address ===== */
 function copyAddress(){
   const el = document.getElementById('hotelAddress');
@@ -2543,9 +2356,6 @@ function copyAddress(){
     }
   });
 }
-
-
-
 
 /* ===== Room Tile Galleries (Reliable) ===== */
 function galleryUpdate(g){
@@ -2671,6 +2481,153 @@ document.addEventListener('DOMContentLoaded', ()=>{
       </div>
     </div>
   </div>
+
+
+
+
+
+<style>
+/* ===== Hyatt-style Floating Actions ===== */
+.fab-stack{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  z-index:99999;
+}
+
+.fab{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 14px;
+  border-radius:16px;
+  text-decoration:none;
+  color:#fff;
+  font-weight:800;
+  letter-spacing:1.4px;
+  text-transform:uppercase;
+  font-size:12px;
+  box-shadow:0 18px 42px rgba(2,8,23,.22);
+  border:1px solid rgba(255,255,255,.16);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transform:translateZ(0);
+  transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
+  position:relative;
+  overflow:hidden;
+  min-width:148px;
+  justify-content:flex-start;
+}
+
+.fab::after{
+  content:"";
+  position:absolute;
+  inset:-60% -60%;
+  background:linear-gradient(120deg,
+    rgba(255,255,255,0) 42%,
+    rgba(245,230,161,.28) 50%,
+    rgba(255,255,255,0) 58%);
+  transform:translateX(-140%) rotate(8deg);
+  opacity:0;
+  pointer-events:none;
+}
+
+.fab:hover{
+  transform:translateY(-2px);
+  box-shadow:0 26px 66px rgba(2,8,23,.28);
+  filter:saturate(1.03);
+}
+.fab:hover::after{
+  opacity:1;
+  animation:fabSheen 1.6s ease forwards;
+}
+@keyframes fabSheen{
+  0%{ transform:translateX(-140%) rotate(8deg); }
+  100%{ transform:translateX(140%) rotate(8deg); }
+}
+
+.fab .ic{
+  width:36px;
+  height:36px;
+  border-radius:12px;
+  display:grid;
+  place-items:center;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 12px 24px rgba(2,8,23,.18);
+}
+.fab .ic svg{
+  width:18px;
+  height:18px;
+  stroke:#fff;
+  stroke-width:2;
+  fill:none;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  opacity:.98;
+}
+.fab span{
+  display:inline-block;
+  line-height:1;
+  white-space:nowrap;
+}
+
+.fab-book{
+  background:linear-gradient(135deg,#0b1220 0%, #111b2e 55%, #0b1220 100%);
+  border-color:rgba(202,166,75,.35);
+}
+.fab-book .ic{ background:rgba(202,166,75,.22); border-color:rgba(202,166,75,.35); }
+
+.fab-call{
+  background:linear-gradient(135deg,#0b3c5d 0%, #0a2b44 60%, #0b3c5d 100%);
+}
+.fab-chat{
+  background:linear-gradient(135deg,#0f6a4b 0%, #0b4e38 60%, #0f6a4b 100%);
+}
+
+
+/* ===== Visibility / Stack Hardening ===== */
+.fab-stack{ align-items:flex-end; }
+.fab-stack .fab{
+  display:flex !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  flex:0 0 auto !important;
+}
+
+@media (max-width: 560px){
+  .fab{ min-width:auto; width:56px; height:56px; padding:0 0; border-radius:18px; justify-content:center; gap:0; }
+  .fab span{ display:none; }
+  .fab .ic{ width:42px; height:42px; border-radius:16px; }
+  .fab-stack{ right:14px; bottom:14px; }
+}
+</style>
+
+<div class="fab-stack" aria-label="Quick actions">
+  <a class="fab fab-book" href="#rooms" title="Book Now" aria-label="Book Now">
+    <div class="ic" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M7 3v3M17 3v3M4 8h16M6 5h12a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg>
+    </div>
+    <span>Book Now</span>
+  </a>
+
+  <a class="fab fab-call" href="tel:7842421143" title="Call" aria-label="Call">
+    <div class="ic" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.86.32 1.7.6 2.5a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.58-1.12a2 2 0 0 1 2.11-.45c.8.28 1.64.48 2.5.6A2 2 0 0 1 22 16.92z"/></svg>
+    </div>
+    <span>Call</span>
+  </a>
+
+  <a class="fab fab-chat" href="https://wa.me/917842421143" target="_blank" title="Chat" aria-label="Chat on WhatsApp">
+    <div class="ic" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.9 7.3L3 20l1.3-5.1A8.5 8.5 0 1 1 21 11.5z"/></svg>
+    </div>
+    <span>Chat</span>
+  </a>
+</div>
 
 </body>
 </html>
