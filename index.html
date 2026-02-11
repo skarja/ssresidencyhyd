@@ -2486,132 +2486,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 
 
-<style>
-/* ===== Hyatt-style Floating Actions ===== */
-.fab-stack{
-  position:fixed;
-  right:18px;
-  bottom:18px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  z-index:99999;
-}
-
-.fab{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:12px 14px;
-  border-radius:16px;
-  text-decoration:none;
-  color:#fff;
-  font-weight:800;
-  letter-spacing:1.4px;
-  text-transform:uppercase;
-  font-size:12px;
-  box-shadow:0 18px 42px rgba(2,8,23,.22);
-  border:1px solid rgba(255,255,255,.16);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transform:translateZ(0);
-  transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
-  position:relative;
-  overflow:hidden;
-  min-width:148px;
-  justify-content:flex-start;
-}
-
-.fab::after{
-  content:"";
-  position:absolute;
-  inset:-60% -60%;
-  background:linear-gradient(120deg,
-    rgba(255,255,255,0) 42%,
-    rgba(245,230,161,.28) 50%,
-    rgba(255,255,255,0) 58%);
-  transform:translateX(-140%) rotate(8deg);
-  opacity:0;
-  pointer-events:none;
-}
-
-.fab:hover{
-  transform:translateY(-2px);
-  box-shadow:0 26px 66px rgba(2,8,23,.28);
-  filter:saturate(1.03);
-}
-.fab:hover::after{
-  opacity:1;
-  animation:fabSheen 1.6s ease forwards;
-}
-@keyframes fabSheen{
-  0%{ transform:translateX(-140%) rotate(8deg); }
-  100%{ transform:translateX(140%) rotate(8deg); }
-}
-
-.fab .ic{
-  width:36px;
-  height:36px;
-  border-radius:12px;
-  display:grid;
-  place-items:center;
-  background:rgba(255,255,255,.12);
-  border:1px solid rgba(255,255,255,.18);
-  box-shadow:0 12px 24px rgba(2,8,23,.18);
-}
-.fab .ic svg{
-  width:18px;
-  height:18px;
-  stroke:#fff;
-  stroke-width:2;
-  fill:none;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-  opacity:.98;
-}
-.fab span{
-  display:inline-block;
-  line-height:1;
-  white-space:nowrap;
-}
-
-.fab-book{
-  background:linear-gradient(135deg,#0b1220 0%, #111b2e 55%, #0b1220 100%);
-  border-color:rgba(202,166,75,.35);
-}
-.fab-book .ic{ background:rgba(202,166,75,.22); border-color:rgba(202,166,75,.35); }
-
-.fab-call{
-  background:linear-gradient(135deg,#0b3c5d 0%, #0a2b44 60%, #0b3c5d 100%);
-}
-.fab-chat{
-  background:linear-gradient(135deg,#0f6a4b 0%, #0b4e38 60%, #0f6a4b 100%);
-}
-
-
-/* ===== Visibility / Stack Hardening ===== */
-.fab-stack{ align-items:flex-end; }
-.fab-stack .fab{
-  display:flex !important;
-  visibility:visible !important;
-  opacity:1 !important;
-  flex:0 0 auto !important;
-}
-
-@media (max-width: 560px){
-  .fab{ min-width:auto; width:56px; height:56px; padding:0 0; border-radius:18px; justify-content:center; gap:0; }
-  .fab span{ display:none; }
-  .fab .ic{ width:42px; height:42px; border-radius:16px; }
-  .fab-stack{ right:14px; bottom:14px; }
-}
-</style>
-
-<div class="fab-stack" aria-label="Quick actions">
-  <a class="fab fab-book" href="#rooms" title="Book Now" aria-label="Book Now">
-    <div class="ic" aria-hidden="true">
-      <svg viewBox="0 0 24 24"><path d="M7 3v3M17 3v3M4 8h16M6 5h12a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg>
-    </div>
-    <span>Book Now</span>
+<span>Book Now</span>
   </a>
 
   <a class="fab fab-call" href="tel:7842421143" title="Call" aria-label="Call">
@@ -2622,6 +2497,84 @@ document.addEventListener('DOMContentLoaded', ()=>{
   </a>
 
   <a class="fab fab-chat" href="https://wa.me/917842421143" target="_blank" title="Chat" aria-label="Chat on WhatsApp">
+    <div class="ic" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.9 7.3L3 20l1.3-5.1A8.5 8.5 0 1 1 21 11.5z"/></svg>
+    </div>
+    <span>Chat</span>
+  </a>
+</div>
+
+
+<style>
+/* ===== SS FAB Stack (Isolated, Conflict-Free) ===== */
+.ssfab-stack{
+  position:fixed;
+  right:16px;
+  bottom:16px;
+  z-index:2147483647; /* above everything */
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.ssfab{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 14px;
+  border-radius:16px;
+  text-decoration:none;
+  color:#ffffff !important;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight:800;
+  letter-spacing:1.3px;
+  text-transform:uppercase;
+  font-size:12px;
+  box-shadow:0 18px 42px rgba(2,8,23,.22);
+  border:1px solid rgba(255,255,255,.16);
+  background:#0b1220;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  user-select:none;
+  -webkit-tap-highlight-color: transparent;
+}
+.ssfab:hover{ transform: translateY(-2px); box-shadow:0 26px 66px rgba(2,8,23,.28); }
+.ssfab:active{ transform: translateY(-1px) scale(.99); }
+.ssfab .ic{
+  width:38px; height:38px;
+  border-radius:14px;
+  display:grid; place-items:center;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.18);
+}
+.ssfab svg{ width:18px; height:18px; stroke:#fff; stroke-width:2; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+.ssfab-book{ border-color:rgba(202,166,75,.35); background:linear-gradient(135deg,#0b1220,#111b2e,#0b1220); }
+.ssfab-book .ic{ background:rgba(202,166,75,.22); border-color:rgba(202,166,75,.35); }
+.ssfab-call{ background:linear-gradient(135deg,#0b3c5d,#0a2b44,#0b3c5d); }
+.ssfab-chat{ background:linear-gradient(135deg,#0f6a4b,#0b4e38,#0f6a4b); }
+
+@media (max-width:560px){
+  .ssfab{ width:58px; height:58px; padding:0; justify-content:center; }
+  .ssfab span{ display:none; }
+  .ssfab .ic{ width:44px; height:44px; }
+}
+</style>
+
+<div class="ssfab-stack" aria-label="Quick actions">
+  <a class="ssfab ssfab-book" href="#rooms" aria-label="Book Now" title="Book Now">
+    <div class="ic" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M7 3v3M17 3v3M4 8h16M6 5h12a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg>
+    </div>
+    <span>Book Now</span>
+  </a>
+
+  <a class="ssfab ssfab-call" href="tel:7842421143" aria-label="Call" title="Call">
+    <div class="ic" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.86.32 1.7.6 2.5a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.58-1.12a2 2 0 0 1 2.11-.45c.8.28 1.64.48 2.5.6A2 2 0 0 1 22 16.92z"/></svg>
+    </div>
+    <span>Call</span>
+  </a>
+
+  <a class="ssfab ssfab-chat" href="https://wa.me/917842421143" target="_blank" rel="noopener" aria-label="Chat" title="Chat">
     <div class="ic" aria-hidden="true">
       <svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.9 7.3L3 20l1.3-5.1A8.5 8.5 0 1 1 21 11.5z"/></svg>
     </div>
