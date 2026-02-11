@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -79,6 +80,7 @@
     .room-card{
       background:var(--card);border-radius:var(--radius);overflow:hidden;
       box-shadow:var(--shadow);border:1px solid var(--border);
+      position:relative;
     }
     .room-card img{width:100%;height:200px;object-fit:cover;display:block}
     .room-card .content{padding:14px 14px 16px 14px}
@@ -98,6 +100,73 @@
     .wa-book:active{transform:translateY(1px)}
     .wa-ic{width:22px;height:22px;display:inline-block;flex:0 0 22px}
     .wa-sub{display:block;font-size:12px;font-weight:900;opacity:.92;margin-top:2px}
+
+    /* Premium Room Badges (Animated, Subtle) */
+    .room-badge{
+      position:absolute;
+      top:12px;
+      left:12px;
+      padding:7px 12px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:1000;
+      letter-spacing:.3px;
+      color:#fff;
+      box-shadow:0 10px 22px rgba(0,0,0,.26);
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      z-index:3;
+      overflow:hidden;
+      transform: translateZ(0);
+    }
+    .badge-premium{
+      background:linear-gradient(135deg,#0b3c5d,#1d6fa5);
+    }
+    .badge-budget{
+      background:linear-gradient(135deg,#ff7a18,#ffb347);
+    }
+    .badge-available{
+      left:auto;
+      right:12px;
+      background:linear-gradient(135deg,#16a34a,#22c55e);
+    }
+    .badge-premium::after{
+      content:"";
+      position:absolute;
+      inset:-40% -30%;
+      background:linear-gradient(120deg, rgba(255,255,255,0) 35%, rgba(255,255,255,.35) 50%, rgba(255,255,255,0) 65%);
+      transform:translateX(-120%) rotate(8deg);
+      animation: shimmer 3.8s ease-in-out infinite;
+    }
+    .badge-premium,
+    .badge-available{
+      animation: floaty 2.8s ease-in-out infinite;
+    }
+    .badge-budget{
+      animation: pulse 2.6s ease-in-out infinite;
+    }
+    @keyframes shimmer{
+      0%, 55% { transform:translateX(-120%) rotate(8deg); opacity:0; }
+      60%    { opacity:1; }
+      100%   { transform:translateX(120%) rotate(8deg); opacity:0; }
+    }
+    @keyframes floaty{
+      0%,100% { transform: translateY(0); }
+      50%     { transform: translateY(-2px); }
+    }
+    @keyframes pulse{
+      0%,100% { transform: scale(1); filter: brightness(1); }
+      50%     { transform: scale(1.02); filter: brightness(1.03); }
+    }
+    @media (prefers-reduced-motion: reduce){
+      .badge-premium::after,
+      .badge-premium,
+      .badge-budget,
+      .badge-available{
+        animation:none !important;
+      }
+    }
 
     /* Amenities */
     .amenity-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:12px}
@@ -170,7 +239,6 @@
     .total-pill span{display:block;font-size:16px;font-weight:1000;margin-top:2px}
     .mobile-bar .btn{border-radius:14px;padding:12px 10px}
     .mobile-bar .btn.call{border:1px solid var(--border)}
-    .hide-on-desktop{display:none}
 
     /* Modal */
     .modal-backdrop{
@@ -197,7 +265,7 @@
     }
     .modal-body{
       padding:14px;
-      max-height:calc(92dvh - 128px);
+      max-height:calc(92dvh - 136px);
       overflow:auto;
       -webkit-overflow-scrolling:touch;
     }
@@ -224,6 +292,7 @@
       box-shadow:0 0 0 3px rgba(11,60,93,.10);
     }
     .field textarea{min-height:92px;resize:vertical}
+    .discount-line{margin-top:6px;color:#16a34a;font-weight:1000;font-size:13px}
 
     .modal-actions{
       display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between;
@@ -233,9 +302,6 @@
     .actions-left{display:flex;gap:10px;flex-wrap:wrap}
     .actions-right{display:flex;gap:10px;flex-wrap:wrap}
 
-    @media (max-width:820px){
-      .hide-on-desktop{display:flex}
-    }
     @media (max-width:720px){
       .hero h2{font-size:22px}
       .modal-grid{grid-template-columns:1fr}
@@ -265,7 +331,7 @@
 <section class="hero">
   <div class="container">
     <h2>Clean & Comfortable Stay in KPHB Colony</h2>
-    <p>AC & Non-AC rooms with Free Wi-Fi, Lift, Parking & Room Service. Tap <b>Book on WhatsApp</b> to fill details and send a complete request.</p>
+    <p>AC & Non-AC rooms with Free Wi-Fi, Lift, Parking & Room Service.<br><b>Online Booking Discount: ₹50 OFF</b> (via WhatsApp form).</p>
     <div class="hero-cta">
       <button class="btn primary" onclick="openBooking('Deluxe AC Room')">Book Now</button>
       <a class="btn ghost" href="#rooms">Rooms</a>
@@ -273,7 +339,7 @@
       <a class="btn ghost" href="#location">Location</a>
     </div>
     <p class="muted small" style="text-align:center;margin-top:10px">
-      Rates per night. Extra Person: ₹100 · Extra Bed: ₹200 · <span class="muted">Rates subject to change.</span>
+      Rates per night. Extra Person: ₹100 · Extra Bed: ₹200 · <span class="muted">Discount applies to online bookings only.</span>
     </p>
   </div>
 </section>
@@ -287,6 +353,8 @@
     <div class="rooms">
       <!-- Deluxe AC -->
       <div class="room-card">
+        <div class="room-badge badge-premium">⭐ Most Booked</div>
+        <div class="room-badge badge-available">✅ Available Today</div>
         <img src="images/deluxe-ac-1.jpg" alt="Deluxe AC Room">
         <div class="content">
           <h4>Deluxe AC Room</h4>
@@ -308,17 +376,18 @@
 
       <!-- Standard AC -->
       <div class="room-card">
+        <div class="room-badge badge-budget">💰 Budget Friendly</div>
         <img src="images/standard-ac-1.jpg" alt="Standard AC Room">
         <div class="content">
           <h4>Standard AC Room</h4>
           <div class="price">₹1,599 (Single) · ₹1,699 (Double)</div>
           <div class="chips">
-            <span class="chip">AC</span><span class="chip">Wi-Fi</span><span class="chip">Hot Water</span><span class="chip">TV</span>
+            <span class="chip">AC</span><span class="chip">Wi-Fi</span><span class="chip">Hot Water</span>
           </div>
           <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
             <button class="wa-book" onclick="openBooking('Standard AC Room')">
               <svg class="wa-ic" viewBox="0 0 32 32" aria-hidden="true">
-                <path fill="#fff" d="M19.11 17.46c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.64 1.11 2.82.14.18 1.93 2.95 4.67 4.13.65.28 1.15.45 1.54.58.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32Z"/>
+                <path fill="#fff" d="M19.11 17.46c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34 -.02 -.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.64 1.11 2.82.14.18 1.93 2.95 4.67 4.13.65.28 1.15.45 1.54.58.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32Z"/>
               </svg>
               <span>Book on WhatsApp<span class="wa-sub">Fill details & send</span></span>
             </button>
@@ -329,6 +398,7 @@
 
       <!-- Deluxe Non-AC -->
       <div class="room-card">
+        <div class="room-badge badge-premium">🔥 Value Pick</div>
         <img src="images/deluxe-nonac-1.jpg" alt="Deluxe Non-AC Room">
         <div class="content">
           <h4>Deluxe Non-AC Room</h4>
@@ -339,7 +409,7 @@
           <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
             <button class="wa-book" onclick="openBooking('Deluxe Non-AC Room')">
               <svg class="wa-ic" viewBox="0 0 32 32" aria-hidden="true">
-                <path fill="#fff" d="M19.11 17.46c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.64 1.11 2.82.14.18 1.93 2.95 4.67 4.13.65.28 1.15.45 1.54.58.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32Z"/>
+                <path fill="#fff" d="M19.11 17.46c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34 -.02 -.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.64 1.11 2.82.14.18 1.93 2.95 4.67 4.13.65.28 1.15.45 1.54.58.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18 -.52 -.32Z"/>
               </svg>
               <span>Book on WhatsApp<span class="wa-sub">Fill details & send</span></span>
             </button>
@@ -350,17 +420,18 @@
 
       <!-- Standard Non-AC -->
       <div class="room-card">
+        <div class="room-badge badge-budget">💰 Budget Friendly</div>
         <img src="images/standard-nonac-1.jpg" alt="Standard Non-AC Room">
         <div class="content">
           <h4>Standard Non-AC Room</h4>
           <div class="price">₹1,299 (Single) · ₹1,399 (Double)</div>
           <div class="chips">
-            <span class="chip">Non-AC</span><span class="chip">Wi-Fi</span><span class="chip">TV</span><span class="chip">Hot Water</span>
+            <span class="chip">Non-AC</span><span class="chip">Wi-Fi</span><span class="chip">Hot Water</span>
           </div>
           <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
             <button class="wa-book" onclick="openBooking('Standard Non-AC Room')">
               <svg class="wa-ic" viewBox="0 0 32 32" aria-hidden="true">
-                <path fill="#fff" d="M19.11 17.46c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34 -.02 -.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.64 1.11 2.82.14.18 1.93 2.95 4.67 4.13.65.28 1.15.45 1.54.58.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32Z"/>
+                <path fill="#fff" d="M19.11 17.46c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34 -.02 -.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73 .34-.25.27-.95.93-.95 2.27 0 1.34.98 2.64 1.11 2.82.14.18 1.93 2.95 4.67 4.13.65.28 1.15.45 1.54.58.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32Z"/>
               </svg>
               <span>Book on WhatsApp<span class="wa-sub">Fill details & send</span></span>
             </button>
@@ -392,13 +463,6 @@
           <svg viewBox="0 0 24 24"><path d="M5 12a7 7 0 0 1 14 0"/><path d="M8.5 12a3.5 3.5 0 0 1 7 0"/><path d="M12 12v8"/></svg>
         </div>
         <div class="amenity-text"><b>Free Wi-Fi</b><small>Work & streaming friendly</small></div>
-      </div>
-
-      <div class="amenity-card">
-        <div class="amenity-ic">
-          <svg viewBox="0 0 24 24"><path d="M7 10h10"/><path d="M7 14h10"/><path d="M5 8a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V8z"/></svg>
-        </div>
-        <div class="amenity-text"><b>TV in Rooms</b><small>Relax after travel</small></div>
       </div>
 
       <div class="amenity-card">
@@ -473,7 +537,7 @@
     <div class="loc-card">
       <b>SS Residency Grand</b>
       <div class="muted" style="margin-top:6px">
-        KPHB Colony, Hyderabad, Telangana
+        Plus Code: <b>F9WW+2H</b>, Hyderabad, Telangana
       </div>
 
       <div class="loc-actions">
@@ -487,7 +551,7 @@
       </div>
 
       <p class="muted small" style="margin-top:12px">
-        Tip: Add your exact address / Google Maps pin later for best SEO & directions.
+        Tip: Keep this Plus Code in your Google Business Profile and listings for accurate directions.
       </p>
     </div>
   </div>
@@ -507,7 +571,7 @@
 <div class="mobile-bar" role="navigation" aria-label="Quick actions">
   <div class="mobile-bar-inner">
     <div class="total-pill">
-      <b>Estimated Total</b>
+      <b>Estimated Total (after ₹50 OFF)</b>
       <span id="stickyTotal">₹0</span>
     </div>
     <button class="btn primary" onclick="openBooking('Deluxe AC Room')">Book</button>
@@ -533,6 +597,7 @@
           <div class="rp-name" id="rpName">Deluxe AC Room</div>
           <div class="rp-price" id="rpPrice">₹0 / night</div>
           <div class="rp-total" id="rpTotal">Estimated Total: ₹0</div>
+          <div class="discount-line" id="rpDiscount">Online Booking Discount: -₹50</div>
           <div class="hint">Total updates automatically based on nights, guests, extras.</div>
         </div>
       </div>
@@ -560,6 +625,11 @@
           <div class="field">
             <label for="checkin">Check-in Date</label>
             <input id="checkin" name="checkin" type="date" required onchange="syncFromForm()" />
+          </div>
+
+          <div class="field">
+            <label for="checkinTime">Check-in Time</label>
+            <input id="checkinTime" name="checkinTime" type="time" value="12:00" required onchange="syncFromForm()" />
           </div>
 
           <div class="field">
@@ -613,7 +683,7 @@
         <button class="btn wa" onclick="sendWhatsApp()">
           <span style="display:inline-flex;align-items:center;gap:8px">
             <svg class="wa-ic" viewBox="0 0 32 32" aria-hidden="true" style="width:18px;height:18px">
-              <path fill="#fff" d="M19.11 17.46c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.64 1.11 2.82.14.18 1.93 2.95 4.67 4.13.65.28 1.15.45 1.54.58.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32Z"/>
+              <path fill="#fff" d="M19.11 17.46c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34 -.02 -.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.64 1.11 2.82.14.18 1.93 2.95 4.67 4.13.65.28 1.15.45 1.54.58.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18 -.52 -.32Z"/>
             </svg>
             Send on WhatsApp
           </span>
@@ -625,7 +695,7 @@
 
 <script>
   const WHATSAPP_NUMBER = "917842421143"; // 7842421143
-  const CALL_NUMBER = "7842072724";
+  const ONLINE_DISCOUNT = 50; // ₹50 off for online bookings via form
 
   // Rates (edit anytime)
   const RATES = {
@@ -635,7 +705,7 @@
     "Standard Non-AC Room": { single: 1299, double: 1399, img: "images/standard-nonac-1.jpg" }
   };
 
-  // Map setup (query-based; replace with exact pin later)
+  // Map setup (Plus Code)
   const MAP_QUERY = encodeURIComponent("F9WW+2H Hyderabad, Telangana");
   const MAPS_LINK = "https://www.google.com/maps/search/?api=1&query=" + MAP_QUERY;
   const MAP_IFRAME = "https://www.google.com/maps?q=" + MAP_QUERY + "&output=embed";
@@ -644,6 +714,7 @@
   const roomTypeEl = document.getElementById("roomType");
   const occupancyEl = document.getElementById("occupancy");
   const checkinEl = document.getElementById("checkin");
+  const checkinTimeEl = document.getElementById("checkinTime");
   const checkoutEl = document.getElementById("checkout");
   const guestsEl = document.getElementById("guests");
   const extraBedEl = document.getElementById("extraBed");
@@ -655,9 +726,9 @@
   const rpName = document.getElementById("rpName");
   const rpPrice = document.getElementById("rpPrice");
   const rpTotal = document.getElementById("rpTotal");
+  const rpDiscount = document.getElementById("rpDiscount");
   const stickyTotal = document.getElementById("stickyTotal");
 
-  // initialize map buttons
   (function initMap(){
     const mapsBtn = document.getElementById("mapsBtn");
     const mapFrame = document.getElementById("mapFrame");
@@ -665,18 +736,15 @@
     mapFrame.src = MAP_IFRAME;
   })();
 
-  function openBooking(roomName, enquiryOnly=false){
+  function openBooking(roomName){
     backdrop.style.display = "flex";
     backdrop.setAttribute("aria-hidden","false");
     document.body.style.overflow = "hidden";
 
     roomTypeEl.value = roomName;
-    // Defaults
-    if (!checkinEl.value || !checkoutEl.value) {
-      fillTomorrowNext();
-    }
+    if (!checkinEl.value || !checkoutEl.value) fillTomorrowNext();
+    if (!checkinTimeEl.value) checkinTimeEl.value = "12:00";
     syncFromForm();
-    // If enquiryOnly, don’t force anything — same flow; user can send enquiry text.
   }
 
   function closeModal(){
@@ -685,7 +753,6 @@
     document.body.style.overflow = "";
   }
 
-  // Close on backdrop click
   backdrop.addEventListener("click", (e)=>{
     if (e.target === backdrop) closeModal();
   });
@@ -702,6 +769,7 @@
     const tomorrow = new Date(now); tomorrow.setDate(now.getDate()+1);
     checkinEl.value = dateToYMD(now);
     checkoutEl.value = dateToYMD(tomorrow);
+    if (!checkinTimeEl.value) checkinTimeEl.value = "12:00";
     syncFromForm();
   }
 
@@ -711,6 +779,7 @@
     const in2 = new Date(now); in2.setDate(now.getDate()+2);
     checkinEl.value = dateToYMD(in1);
     checkoutEl.value = dateToYMD(in2);
+    if (!checkinTimeEl.value) checkinTimeEl.value = "12:00";
     syncFromForm();
   }
 
@@ -723,11 +792,8 @@
   }
 
   function formatINR(n){
-    try{
-      return "₹" + Number(n || 0).toLocaleString("en-IN");
-    } catch(e){
-      return "₹" + (n || 0);
-    }
+    try{ return "₹" + Number(n || 0).toLocaleString("en-IN"); }
+    catch(e){ return "₹" + (n || 0); }
   }
 
   function getPricing(){
@@ -739,40 +805,36 @@
     const guests = parseInt(guestsEl.value || "2", 10);
     const extraBed = parseInt(extraBedEl.value || "0", 10);
 
-    // extra person: ₹100/day for guest count above base occupancy (1 for single, 2 for double)
     const baseGuests = (occ === "single") ? 1 : 2;
     const extraPersonsCount = Math.max(0, guests - baseGuests);
     const extraPersonFee = 100 * extraPersonsCount * nights;
-
-    // extra bed: ₹200/day if selected
     const extraBedFee = 200 * extraBed * nights;
 
     const roomCost = rate * nights;
-    const total = roomCost + extraPersonFee + extraBedFee;
+    const subtotal = roomCost + extraPersonFee + extraBedFee;
 
-    return { room, occ, nights, rate, guests, extraBed, extraPersonsCount, extraPersonFee, extraBedFee, roomCost, total };
+    const discount = (subtotal > 0) ? ONLINE_DISCOUNT : 0;
+    const total = Math.max(0, subtotal - discount);
+
+    return { room, occ, nights, rate, guests, extraBed, extraPersonsCount, extraPersonFee, extraBedFee, roomCost, subtotal, discount, total };
   }
 
   function syncFromForm(){
     const p = getPricing();
-
-    // Preview image
     const img = (RATES[p.room] && RATES[p.room].img) ? RATES[p.room].img : "images/deluxe-ac-1.jpg";
     rpImg.src = img;
     rpName.textContent = p.room;
-
-    // Price line
     rpPrice.textContent = `${formatINR(p.rate)} / night · ${p.nights} night(s)`;
-
-    // Total line
     rpTotal.textContent = `Estimated Total: ${formatINR(p.total)}`;
+    rpDiscount.textContent = `Online Booking Discount: -${formatINR(p.discount)}`;
     stickyTotal.textContent = formatINR(p.total);
   }
 
   function sendWhatsApp(){
-    // basic required checks
     const ci = checkinEl.value;
     const co = checkoutEl.value;
+    const ct = (checkinTimeEl.value || "12:00");
+
     if(!ci || !co){
       alert("Please select Check-in and Check-out dates.");
       return;
@@ -797,13 +859,16 @@
     const msgLines = [
       "Hello SS Residency Grand 👋",
       "",
-      "I would like to book a room:",
+      "I would like to book a room (Online Booking):",
       `• Room: ${p.room}`,
       `• Occupancy: ${p.occ.toUpperCase()}`,
       `• Check-in: ${ci}`,
+      `• Check-in Time: ${ct}`,
       `• Check-out: ${co} (${p.nights} night${p.nights>1?"s":""})`,
       `• Guests: ${p.guests}`,
       `• Extra Bed: ${p.extraBed ? "Yes" : "No"}`,
+      `• Subtotal: ${formatINR(p.subtotal)}`,
+      `• Online Discount: -${formatINR(p.discount)}`,
       `• Estimated Total: ${formatINR(p.total)}`,
       "",
       "Guest Details:",
@@ -820,14 +885,9 @@
     const text = encodeURIComponent(msgLines.join("\n"));
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
     window.open(url, "_blank", "noopener");
-
-    // keep modal open (some users want to adjust), but you can auto-close if you want:
-    // closeModal();
   }
 
-  // Set a sensible initial sticky total
   (function initSticky(){
-    // default for sticky preview
     stickyTotal.textContent = "₹0";
   })();
 </script>
