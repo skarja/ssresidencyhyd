@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>SS Residency Grand | KPHB Colony, Hyderabad</title>
+  <title>V.1402 - SS Residency Grand | KPHB Colony, Hyderabad</title>
   <meta name="description" content="SS Residency Grand in KPHB Colony, Hyderabad — clean, comfortable stays with easy booking on WhatsApp.">
   <meta property="og:title" content="SS Residency Grand | KPHB Colony, Hyderabad">
   <meta property="og:description" content="Clean, comfortable stays in KPHB Colony, Hyderabad. Book quickly via WhatsApp.">
@@ -1682,6 +1682,19 @@ header.shrink .brand h1{
 /* ===== Swipe Fix ===== */
 .card-gallery{ touch-action: pan-y; }
 
+
+/* ===== Gallery Click Fix (Desktop) ===== */
+.discount-ribbon, .room-badge, .gal-badge{
+  pointer-events:none;
+}
+.gal-btn, .gal-dots, .gal-dot{
+  pointer-events:auto;
+}
+.gal-btn{
+  z-index:10;
+}
+.gal-dots{ z-index:10; }
+
 </style>
 
 </head>
@@ -2577,8 +2590,8 @@ function copyAddress(){
       dots.style.display = showCtrls ? 'flex' : 'none';
     }
 
-    prev.addEventListener('click', () => { idx = (idx - 1 + imgs.length) % imgs.length; update(); });
-    next.addEventListener('click', () => { idx = (idx + 1) % imgs.length; update(); });
+    prev.addEventListener('click', (e) => { e.stopPropagation(); idx = (idx - 1 + imgs.length) % imgs.length; update(); });
+    next.addEventListener('click', (e) => { e.stopPropagation(); idx = (idx + 1) % imgs.length; update(); });
 
     // Swipe support (robust)
     let startX = null, startY = null, swiping = false;
