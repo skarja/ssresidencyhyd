@@ -1,4 +1,5 @@
 
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -1022,13 +1023,7 @@ header.shrink .brand h1{
   letter-spacing:.6px;
   color:#0f172a;
 }
-.loc-divider{
-  width:72px;
-  height:2px;
-  background:linear-gradient(90deg,#caa64b 0%,#f5e6a1 40%,#b8932c 75%,#f5e6a1 100%);
-  border-radius:999px;
-  margin:10px 0 14px 0;
-}
+
 .loc-grid{
   display:grid;
   grid-template-columns: 1fr;
@@ -1284,7 +1279,7 @@ header.shrink .brand h1{
   font-size:30px;
   letter-spacing:.8px;
 }
-#location .loc-divider{ width:84px; }
+#location 
 
 
 
@@ -1695,6 +1690,40 @@ header.shrink .brand h1{
 }
 .gal-dots{ z-index:10; }
 
+
+/* ===== Gold Accent (Match Find Us) ===== */
+.gold-accent{
+  width:72px;
+  height:2px;
+  background:linear-gradient(90deg,#caa64b 0%,#f5e6a1 40%,#b8932c 75%,#f5e6a1 100%);
+  border-radius:999px;
+  margin:10px 0 14px 0;
+}
+.section-head .section-title + .gold-accent{
+  margin-top:10px;
+}
+
+
+/* ===== Consistent Section Head Spacing ===== */
+.section-head{ padding: 28px 0 18px; }
+.kicker{ margin: 0 0 10px; }
+.section-title{ margin: 0; line-height: 1.06; }
+.section-head .section-title{ margin-bottom: 0; }
+.section-subtitle,
+.section-sub,
+.subtext,
+.helper-text{ margin: 12px 0 0; }
+.gold-accent{ margin: 12px 0 12px 0; } /* consistent under title */
+
+
+.rate-note{
+  font-size: 13px;
+  opacity: .72;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none !important;
+}
+
 </style>
 
 </head>
@@ -1772,8 +1801,10 @@ header.shrink .brand h1{
 <div class="section-head">
   <div class="section-kicker">ACCOMMODATIONS</div>
   <h3 class="section-title">Rooms & Photos</h3>
+  <div class="gold-accent"></div>
+
 </div>
-<div class="sub">Transparent pricing + quick booking through WhatsApp form.<br><span class="rate-note" style="font-size:13px; opacity:0.75; font-weight:500; display:block; margin-top:6px;">Rates per night. Extra Person: ₹100 · Extra Bed: ₹200 · Discount applies to online bookings only.</span><br><</span></div>
+<div class="sub">Transparent pricing + quick booking through WhatsApp form.<br><span class="rate-note" style="font-size:13px; opacity:0.75; font-weight:500; display:block; margin-top:6px;">Rates per night. Extra Person: ₹100 · Extra Bed: ₹200 </span><br></span></div>
 
     <div class="rooms">
       <!-- Deluxe AC -->
@@ -1991,7 +2022,7 @@ header.shrink .brand h1{
   <div class="container loc-premium">
     <span class="loc-label">Hotel location</span>
     <h2 class="loc-title">Find Us</h2>
-    <div class="loc-divider"></div>
+    <div class="gold-accent"></div>
 
     <div class="loc-grid">
       <div class="loc-card">
