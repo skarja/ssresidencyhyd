@@ -628,35 +628,360 @@ header.shrink .brand h1{
   transform:translateY(0);
 }
 
+
+    /* ===== Header Pro Overrides ===== */
+    .site-header{ position:sticky; top:0; z-index:999; }
+    .header-pro{ padding:18px 0 14px 0; align-items:flex-start; }
+    .hotel-title{ margin:0; font-size:44px; font-weight:1000; letter-spacing:.6px; line-height:1.05; }
+    .hotel-sub{ margin-top:8px; font-size:16px; font-weight:900; opacity:.92; }
+
+    .header-actions{
+      display:flex;
+      flex-direction:row;
+      align-items:center;
+      gap:16px;
+      flex-wrap:wrap;
+      padding-top:6px;
+    }
+
+    /* Bigger nav buttons */
+    .nav-pills{ display:flex; gap:12px; flex-wrap:wrap; }
+    .nav-pills .pill{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:13px 20px;
+      border-radius:16px;
+      font-size:16px;
+      font-weight:1000;
+      color:#fff;
+      background:rgba(255,255,255,.18);
+      border:1px solid rgba(255,255,255,.28);
+      box-shadow:0 14px 26px rgba(2,8,23,.18);
+      backdrop-filter: blur(8px);
+      transition:transform .15s ease, background .15s ease;
+    }
+    .nav-pills .pill:hover{ background:rgba(255,255,255,.24); transform:translateY(-2px); }
+    .nav-pills .pill:active{ transform:translateY(0); }
+
+    /* Icon buttons row below nav */
+    .icon-cta{ display:flex; gap:12px; align-items:center; }
+    .icon-btn{
+      width:46px; height:46px;
+      border-radius:16px;
+      display:grid; place-items:center;
+      border:1px solid rgba(255,255,255,.24);
+      background:rgba(255,255,255,.12);
+      color:#fff;
+      box-shadow:0 14px 26px rgba(2,8,23,.18);
+      transition:transform .15s ease, background .15s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .icon-btn svg{ width:20px; height:20px; }
+    .icon-btn:hover{ background:rgba(255,255,255,.18); transform:translateY(-2px); }
+    .icon-btn:active{ transform:translateY(0); }
+    .icon-btn.wa{ background:rgba(37,211,102,.18); border-color:rgba(37,211,102,.34); }
+    .icon-btn.wa:hover{ background:rgba(37,211,102,.24); }
+
+    /* Hide older header-links/cta if present elsewhere (safety) */
+    .header-links{ display:none !important; }
+
+    @media (max-width:820px){
+      .header-pro{ flex-direction:column; align-items:flex-start; gap:12px; }
+      .header-actions{
+      display:flex;
+      flex-direction:row;
+      align-items:center;
+      gap:16px;
+      flex-wrap:wrap;
+      padding-top:6px;
+    }
+      .hotel-title{ margin:0; font-size:44px; font-weight:1000; letter-spacing:.6px; line-height:1.05; }
+      .hotel-sub{ font-size:15px; }
+      .nav-pills .pill{ font-size:15px; padding:12px 18px; }
+    }
+
+
+@media (max-width:820px){
+  .header-pro{ flex-direction:column; align-items:flex-start; gap:10px; }
+  .header-actions{ flex-direction:row; flex-wrap:wrap; }
+  .hotel-title{ font-size:34px; }
+}
+
+
+/* ===== CENTER LUXURY HEADER ===== */
+.header-inner.header-pro{
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+}
+
+.header-actions{
+  justify-content:center;
+  width:100%;
+}
+
+.hotel-title{
+  text-align:center;
+}
+
+/* ===== GOLD HOVER EFFECT FOR BUTTONS ===== */
+.nav-pills .pill{
+  position:relative;
+  overflow:hidden;
+}
+
+.nav-pills .pill::after{
+  content:"";
+  position:absolute;
+  inset:-40% -30%;
+  background:linear-gradient(
+    120deg,
+    rgba(255,255,255,0) 40%,
+    rgba(245,230,161,.35) 50%,
+    rgba(255,255,255,0) 60%
+  );
+  transform:translateX(-120%) rotate(8deg);
+  opacity:0;
+  pointer-events:none;
+}
+
+.nav-pills .pill:hover::after{
+  opacity:1;
+  animation:goldHover 1.4s ease forwards;
+}
+
+@keyframes goldHover{
+  0%{ transform:translateX(-120%) rotate(8deg); }
+  100%{ transform:translateX(120%) rotate(8deg); }
+}
+
+/* Icon buttons gold hover */
+.icon-btn:hover{
+  box-shadow:
+    0 10px 24px rgba(0,0,0,.25),
+    0 0 0 1px rgba(245,230,161,.35);
+}
+
+
+/* ===== HYATT PRO (2-ROW LUXURY HEADER) ===== */
+.hyatt-pro{
+  position:sticky;
+  top:0;
+  z-index:999;
+  background:#fff;
+}
+.hyatt-utility{
+  background:#ffffff;
+  border-bottom:1px solid #eef2f7;
+}
+.hyatt-utility-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 0;
+  font-size:12px;
+  letter-spacing:.4px;
+  color:#475569;
+  gap:14px;
+}
+.util-left{ display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+.util-item{ font-weight:800; }
+.util-sep{ opacity:.5; }
+.util-right{ display:flex; gap:14px; align-items:center; }
+.util-link{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  text-decoration:none;
+  color:#334155;
+  font-weight:900;
+  letter-spacing:.6px;
+  opacity:.92;
+}
+.util-link:hover{ opacity:.65; }
+.util-ic{ width:16px; height:16px; }
+
+.hyatt-main{
+  background:#ffffff;
+  border-bottom:1px solid #e5e7eb;
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
+}
+.hyatt-main-inner{
+  display:grid;
+  grid-template-columns: 44px 1fr auto;
+  align-items:center;
+  gap:12px;
+  padding:14px 0;
+}
+.hyatt-menu{
+  width:44px;height:44px;
+  border:none;
+  background:transparent;
+  font-size:22px;
+  cursor:pointer;
+  color:#111827;
+}
+.hyatt-center{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  pointer-events:none;
+}
+.hyatt-wordmark{
+  font-weight:1000;
+  letter-spacing:5px;
+  color:#111827;
+  font-size:24px;
+}
+.hyatt-right{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+.hyatt-nav{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+.hyatt-nav a{
+  text-decoration:none;
+  color:#374151;
+  font-weight:900;
+  letter-spacing:.9px;
+  font-size:13px;
+  text-transform:uppercase;
+  opacity:.92;
+}
+.hyatt-nav a:hover{ opacity:.65; }
+
+.hyatt-book{
+  border:none;
+  cursor:pointer;
+  padding:12px 20px;
+  border-radius:4px;
+  background:#0b3c5d;
+  color:#fff;
+  font-weight:1000;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  box-shadow:0 10px 20px rgba(2,8,23,.14);
+  transition:transform .15s ease, box-shadow .15s ease, filter .15s ease;
+}
+.hyatt-book:hover{
+  transform:translateY(-1px);
+  box-shadow:0 16px 28px rgba(2,8,23,.18);
+  filter:brightness(1.02);
+}
+.hyatt-book:active{ transform:translateY(0); }
+
+.hyatt-mobile{
+  border-top:1px solid #eef2f7;
+  background:#ffffff;
+}
+.hyatt-mobile-inner{
+  padding:12px 0 18px 0;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.hyatt-mobile-inner a{
+  text-decoration:none;
+  font-weight:900;
+  letter-spacing:.8px;
+  text-transform:uppercase;
+  color:#111827;
+  padding:10px 12px;
+  border-radius:10px;
+  background:#f8fafc;
+  border:1px solid #e5e7eb;
+}
+.hyatt-mobile-inner a:hover{ filter:brightness(.99); }
+.hyatt-mobile-cta{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:6px;
+}
+.hyatt-mobile-cta .mbtn{
+  flex:1;
+  text-align:center;
+  background:#0b3c5d;
+  color:#fff !important;
+  border:1px solid rgba(11,60,93,.2);
+}
+
+@media (max-width: 900px){
+  .hyatt-nav{ display:none; }
+  .hyatt-main-inner{ grid-template-columns: 44px 1fr 120px; }
+  .hyatt-wordmark{ font-size:18px; letter-spacing:3px; }
+  .hyatt-book{ padding:11px 14px; letter-spacing:1.6px; }
+  .util-left{ display:none; }
+}
+@media (max-width: 520px){
+  .hyatt-main-inner{ grid-template-columns: 44px 1fr 104px; }
+  .hyatt-book{ padding:10px 12px; }
+}
+
 </style>
 </head>
 
 <body>
-<header>
-</div>
+<header class="hyatt-pro">
+  <!-- Top utility row -->
+  <div class="hyatt-utility">
+    <div class="container hyatt-utility-inner">
+      <div class="util-left">
+        <span class="util-item">SS Residency Grand</span>
+        <span class="util-sep">•</span>
+        <span class="util-item">KPHB Colony, Hyderabad</span>
+      </div>
+      <div class="util-right">
+        <a class="util-link" href="tel:7842072724" aria-label="Call">
+          <svg class="util-ic" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M22 16.9v3a2 2 0 0 1-2.2 2c-9.2-.8-16.5-8.1-17.3-17.3A2 2 0 0 1 4.5 2h3a2 2 0 0 1 2 1.7l.6 2.7a2 2 0 0 1-.6 1.8l-1.3 1.3a14.5 14.5 0 0 0 6.3 6.3l1.3-1.3a2 2 0 0 1 1.8-.6l2.7.6a2 2 0 0 1 1.7 2Z"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+          Call
+        </a>
+        <a class="util-link" href="https://wa.me/917842421143" aria-label="WhatsApp">
+          <svg class="util-ic" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.5 11.9a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 20.5 11.9Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M9.3 8.8c.2-.5.5-.5.7-.5h.6c.2 0 .4.1.5.4l.5 1.2c.1.3.1.6-.1.8l-.4.4c-.2.2-.2.4-.1.6.3.6 1 1.6 2 2.2.3.2.5.2.7 0l.5-.6c.2-.2.5-.3.8-.2l1.3.5c.3.1.4.3.4.6 0 .7-.3 1.2-.8 1.5-.6.4-1.4.6-2.4.3-2.1-.7-4.2-2.9-5-5.1-.3-1-.1-1.8.3-2.3.3-.5.6-.8.9-.9Z" fill="currentColor"/>
+          </svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
 
-  <div class="container">
-    <div class="header-inner">
-      <div class="brand">
-        <h1>SS Residency Grand</h1>
-        <div class="meta">
-          <span>📍 KPHB Colony, Hyderabad</span>
-          <span class="dot"></span>
-          <span>⭐ Clean Comfortable Stays</span>
-          <span class="dot"></span>
-          <span class="meta-green">Online ₹50 OFF</span>
-        </div>
+  <!-- Main header row -->
+  <div class="hyatt-main">
+    <div class="container hyatt-main-inner">
+      <button class="hyatt-menu" type="button" aria-label="Menu" onclick="toggleHyattMenu()">☰</button>
+
+      <div class="hyatt-center">
+        <span class="hyatt-wordmark">SS RESIDENCY GRAND</span>
       </div>
 
-      <nav class="header-links" aria-label="Quick navigation">
-        <a href="#rooms">Rooms</a>
-        <a href="#amenities">Amenities</a>
-        <a href="#location">Location</a>
-      </nav>
+      <div class="hyatt-right">
+        <nav class="hyatt-nav" aria-label="Primary">
+          <a href="#rooms">Rooms</a>
+          <a href="#amenities">Amenities</a>
+          <a href="#location">Location</a>
+        </nav>
+        <button class="hyatt-book" type="button" onclick="openBooking('Deluxe AC Room')">BOOK</button>
+      </div>
+    </div>
 
-      <div class="cta">
-        <a class="btn wa" href="https://wa.me/917842421143" aria-label="WhatsApp SS Residency Grand">WhatsApp</a>
-        <a class="btn call" href="tel:7842072724" aria-label="Call SS Residency Grand">Call</a>
+    <!-- Mobile dropdown -->
+    <div class="hyatt-mobile" id="hyattMobile" hidden>
+      <div class="container hyatt-mobile-inner">
+        <a href="#rooms" onclick="closeHyattMenu()">Rooms</a>
+        <a href="#amenities" onclick="closeHyattMenu()">Amenities</a>
+        <a href="#location" onclick="closeHyattMenu()">Location</a>
+        <div class="hyatt-mobile-cta">
+          <a class="mbtn" href="https://wa.me/917842421143" onclick="closeHyattMenu()">WhatsApp</a>
+          <a class="mbtn" href="tel:7842072724" onclick="closeHyattMenu()">Call</a>
+        </div>
       </div>
     </div>
   </div>
@@ -665,7 +990,7 @@ header.shrink .brand h1{
 <section class="hero">
   <div class="container">
     <h2>Clean & Comfortable Stay in KPHB Colony</h2>
-    <p>AC & Non-AC rooms with Free Wi-Fi, Lift, Parking & Room Service.<br><b>Only for a Limited Time - Online Booking Discount: ₹50 OFF</b> (via WhatsApp form).</p>
+    <p>AC & Non-AC rooms with Free Wi-Fi, Lift, Parking & Room Service.<br><b>Online Booking Discount: ₹50 OFF</b> (via WhatsApp form).</p>
     <div class="hero-cta">
       <button class="btn primary" onclick="openBooking('Deluxe AC Room')">Book Now</button>
       <a class="btn ghost" href="#rooms">Rooms</a>
