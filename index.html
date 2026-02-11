@@ -93,12 +93,18 @@
     .chip{font-size:12px;padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:#fff;color:#334155}
 
     .wa-book{
-      background:var(--wa);color:#fff;border:none;
-      padding:12px 14px;border-radius:14px;
-      font-weight:1000;letter-spacing:.2px;
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      padding:10px 14px;border-radius:12px;
+      font-weight:900;font-size:14px;letter-spacing:.5px;
+      border:1px solid transparent;cursor:pointer;user-select:none;
+      background:var(--wa);color:#fff;
+      transition:transform .05s ease, filter .12s ease;
       box-shadow:0 16px 34px rgba(0,0,0,.18);
-      display:inline-flex;align-items:center;gap:10px;
     }
+    .wa-book:active{transform:translateY(1px)}
+    .wa-book:hover{filter:brightness(.98)}
+    .wa-book span{display:flex;flex-direction:column;align-items:flex-start;line-height:1.05}
+    .wa-sub{font-size:11px;font-weight:700;opacity:.9;letter-spacing:.2px;margin-top:3px}
     .wa-book:hover{filter:brightness(.98)}
     .wa-book:active{transform:translateY(1px)}
     .wa-ic{width:22px;height:22px;display:inline-block;flex:0 0 22px}
@@ -320,25 +326,7 @@
       border:1px solid rgba(184,147,44,.45);
     }
 
-    /* Quick view button */
-    .quickview{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      padding:10px 12px;
-      border-radius:14px;
-      border:1px solid var(--border);
-      background:rgba(255,255,255,.92);
-      font-weight:1000;
-      cursor:pointer;
-      box-shadow:0 10px 18px rgba(2,8,23,.06);
-    }
-    .quickview:hover{ filter:brightness(.99); }
-    .quickview:active{ transform:translateY(1px); }
-    .quickview-ic{ width:18px;height:18px; stroke:var(--brand); stroke-width:2; fill:none; stroke-linecap:round; stroke-linejoin:round; }
-
-    /* Photo Quick View Modal */
+    /* Photo  Modal */
     .photo-backdrop{
       position:fixed; inset:0;
       background:rgba(2,8,23,.70);
@@ -1927,15 +1915,7 @@ header.shrink .brand h1{
               </svg>
               <span>Book on WhatsApp<span class="wa-sub">Fill details & send</span></span>
             </button>
-            <button class="quickview" type="button" onclick="openQuickView('Deluxe AC Room')">
-              <svg class="quickview-ic" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"></path>
-                <circle cx="12" cy="12" r="3"></circle>
-              </svg>
-              Quick View
-            </button>
-            
-          </div>
+            </div>
         </div>
       </div>
 
@@ -2437,41 +2417,84 @@ header.shrink .brand h1{
     return { room, occ, nights, rate, guests, extraBed, extraPersonsCount, extraPersonFee, extraBedFee, roomCost, subtotal, discount, total };
   }
 
-  function syncFromForm(){
+  
+function syncFromForm(){
+  const p = getPricing();
+
+  // preview image + name
+  const img = (RATES[p.room] && RATES[p.room].img) ? RATES[p.room].img : "images/deluxe-ac-1.jpg";
+  rpImg.src = img;
+  rpName.textContent = p.room;
+
+  // per-night + nights
+  rpPrice.textContent = `${formatINR(p.rate)} / night · ${p.nights} night(s)`;
+
+  // totals
+  rpTotal.textContent = `Estimated total: ${formatINR(p.total)}`;
+
+  // discount line
+  if(p.discount > 0){
+    rpDiscount.style.display = "block";
+    rpDiscount.textContent = `Online Booking Discount: -${formatINR(p.discount)}`;
+  }else{
+    rpDiscount.style.display = "none";
+  }
+}
+
+function sendWhatsApp(){
+  try{
+    // Basic validation
+    if(!nameEl.value.trim()){
+      nameEl.focus(); return;
+    }
+    const phone = (phoneEl.value||"").replace(/\\D/g,'');
+    if(phone.length < 10){
+      phoneEl.focus(); return;
+    }
+
+    enforceDateRules();
     const p = getPricing();
-    const img = (RATES[p.room] && RATES[p.room].img) ? RATES[p.room].img : "images/deluxe-ac-1.jpg";
-    rpImg.src = img;
-    rpName.textContent = p.room;
-    rpPrice.textContent = `${formatINR(p.rate)} / night · ${p.nights} night(s)`;
-    rpTotal.textContent = ``
-    )).join("");
-  }
 
-  function setPhoto(i){
-    const arr = PHOTO_SETS[qvRoom] || [];
-    if(!arr.length) return;
-    qvIndex = Math.max(0, Math.min(i, arr.length-1));
-    renderQuickView(arr);
-  }
+    const checkinDate = checkinEl.value || "";
+    const checkoutDate = checkoutEl.value || "";
+    const checkinTime = checkinTimeEl.value || "12:00";
 
-  function prevPhoto(){
-    const arr = PHOTO_SETS[qvRoom] || [];
-    if(!arr.length) return;
-    qvIndex = (qvIndex - 1 + arr.length) % arr.length;
-    renderQuickView(arr);
-  }
+    const extraBedYes = (p.extraBed > 0) ? "Yes" : "No";
+    const occLabel = (p.occ === "single") ? "Single" : "Double";
 
-  function nextPhoto(){
-    const arr = PHOTO_SETS[qvRoom] || [];
-    if(!arr.length) return;
-    qvIndex = (qvIndex + 1) % arr.length;
-    renderQuickView(arr);
-  }
+    const lines = [
+      "Booking Request — SS Residency Grand",
+      "",
+      `Room: ${p.room}`,
+      `Occupancy: ${occLabel}`,
+      `Check-in: ${checkinDate} at ${checkinTime}`,
+      `Check-out: ${checkoutDate}`,
+      `Nights: ${p.nights}`,
+      `Guests: ${p.guests}`,
+      `Extra Bed: ${extraBedYes}`,
+      (p.extraPersonsCount>0 ? `Extra Persons: ${p.extraPersonsCount} (₹100/person/night)` : null),
+      "",
+      `Rate: ${formatINR(p.rate)} / night`,
+      (p.extraPersonFee>0 ? `Extra Person Fee: ${formatINR(p.extraPersonFee)}` : null),
+      (p.extraBedFee>0 ? `Extra Bed Fee: ${formatINR(p.extraBedFee)}` : null),
+      (p.discount>0 ? `Online Discount: -${formatINR(p.discount)}` : null),
+      `Total: ${formatINR(p.total)}`,
+      "",
+      `Guest Name: ${nameEl.value.trim()}`,
+      `Mobile: ${phoneEl.value.trim()}`,
+      (notesEl.value.trim() ? `Notes: ${notesEl.value.trim()}` : null),
+      "",
+      "Please confirm availability."
+    ].filter(Boolean);
 
-  function bookFromQuickView(){
-    closeQuickView();
-    openBooking(qvRoom);
+    const text = encodeURIComponent(lines.join("\\n"));
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+    window.open(url, "_blank");
+  }catch(e){
+    console.error(e);
   }
+}
+
 
 /* ===== Copy Address ===== */
 function copyAddress(){
@@ -2599,7 +2622,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 </script>
 
-  <!-- Photo Quick View Modal -->
+  <!-- Photo  Modal -->
   <div class="photo-backdrop" id="photoBackdrop" aria-hidden="true">
     <div class="photo-modal" role="dialog" aria-modal="true" aria-label="Room photos">
       <div class="photo-head">
@@ -2607,7 +2630,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
           <b id="photoTitle">Rooms & Photos</b><br>
           <small class="muted" id="photoSub">Tap thumbnails to switch</small>
         </div>
-        <button class="close" type="button" onclick="closeQuickView()" aria-label="Close">✕</button>
+        <button class="close" type="button" onclick="close()" aria-label="Close">✕</button>
       </div>
       <div class="photo-body">
         <div class="photo-stage">
@@ -2617,8 +2640,8 @@ document.addEventListener('DOMContentLoaded', ()=>{
         </div>
         <div class="thumbs" id="photoThumbs"></div>
         <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px">
-          <button class="btn wa" type="button" onclick="bookFromQuickView()">Book this Room</button>
-          <a class="btn ghost" href="#gallery" onclick="closeQuickView()">View Full Gallery</a>
+          <button class="btn wa" type="button" onclick="bookFrom()">Book this Room</button>
+          <a class="btn ghost" href="#gallery" onclick="close()">View Full Gallery</a>
         </div>
       </div>
     </div>
