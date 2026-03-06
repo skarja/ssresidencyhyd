@@ -3598,5 +3598,159 @@ footer p{margin:4px 0 !important;}
 })();
 </script>
 
+
+<script>
+/* ===== ROOM GALLERY ROTATION FIX ===== */
+(function(){
+  const galleryTimers = new WeakMap();
+
+  function getImages(gallery){
+    const raw = (gallery.getAttribute("data-images") || "").split(",").map(s => s.trim()).filter(Boolean);
+    return raw;
+  }
+
+  function ensureDots(gallery, images){
+    let dotsWrap = gallery.querySelector(".gal-dots");
+    if(!dotsWrap){
+      dotsWrap = document.createElement("div");
+      dotsWrap.className = "gal-dots";
+      gallery.appendChild(dotsWrap);
+    }
+    dotsWrap.innerHTML = "";
+    images.forEach((_, idx) => {
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "gal-dot" + (idx === 0 ? " active" : "");
+      dot.setAttribute("aria-label", `Show photo ${idx + 1}`);
+      dot.addEventListener("click", (e) => {
+        e.preventDefault();
+        showImage(gallery, idx, true);
+      });
+      dotsWrap.appendChild(dot);
+    });
+  }
+
+  function updateDots(gallery, index){
+    const dots = gallery.querySelectorAll(".gal-dot");
+    dots.forEach((d, i) => d.classList.toggle("active", i === index));
+  }
+
+  function showImage(gallery, index, restart=false){
+    const images = getImages(gallery);
+    if(!images.length) return;
+    const img = gallery.querySelector("img");
+    if(!img) return;
+
+    const safeIndex = ((index % images.length) + images.length) % images.length;
+    gallery.dataset.index = String(safeIndex);
+
+    img.classList.add("is-fading");
+    const nextSrc = images[safeIndex];
+
+    const loader = new Image();
+    loader.onload = function(){
+      img.src = nextSrc;
+      img.classList.remove("is-fading");
+    };
+    loader.onerror = function(){
+      img.src = nextSrc;
+      img.classList.remove("is-fading");
+    };
+    loader.src = nextSrc;
+
+    updateDots(gallery, safeIndex);
+    if(restart) restartAuto(gallery);
+  }
+
+  function nextImage(gallery, restart=false){
+    const current = parseInt(gallery.dataset.index || "0", 10) || 0;
+    showImage(gallery, current + 1, restart);
+  }
+
+  function prevImage(gallery, restart=false){
+    const current = parseInt(gallery.dataset.index || "0", 10) || 0;
+    showImage(gallery, current - 1, restart);
+  }
+
+  function stopAuto(gallery){
+    const timer = galleryTimers.get(gallery);
+    if(timer){
+      clearInterval(timer);
+      galleryTimers.delete(gallery);
+    }
+  }
+
+  function startAuto(gallery){
+    stopAuto(gallery);
+    const images = getImages(gallery);
+    if(images.length <= 1) return;
+    const timer = setInterval(() => nextImage(gallery, false), 3500);
+    galleryTimers.set(gallery, timer);
+  }
+
+  function restartAuto(gallery){
+    startAuto(gallery);
+  }
+
+  function setupGallery(gallery){
+    const images = getImages(gallery);
+    if(!images.length) return;
+
+    const img = gallery.querySelector("img");
+    if(img && (!img.getAttribute("src") || img.getAttribute("src") !== images[0])){
+      img.setAttribute("src", images[0]);
+    }
+
+    gallery.dataset.index = "0";
+    ensureDots(gallery, images);
+    updateDots(gallery, 0);
+
+    const prevBtn = gallery.querySelector(".gal-btn.prev");
+    const nextBtn = gallery.querySelector(".gal-btn.next");
+
+    if(prevBtn && !prevBtn.dataset.bound){
+      prevBtn.dataset.bound = "1";
+      prevBtn.addEventListener("click", function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        prevImage(gallery, true);
+      });
+    }
+
+    if(nextBtn && !nextBtn.dataset.bound){
+      nextBtn.dataset.bound = "1";
+      nextBtn.addEventListener("click", function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        nextImage(gallery, true);
+      });
+    }
+
+    gallery.addEventListener("mouseenter", () => stopAuto(gallery));
+    gallery.addEventListener("mouseleave", () => startAuto(gallery));
+    gallery.addEventListener("touchstart", () => stopAuto(gallery), {passive:true});
+    gallery.addEventListener("touchend", () => startAuto(gallery), {passive:true});
+
+    startAuto(gallery);
+  }
+
+  window.galleryPrev = function(btn, event){
+    if(event){ event.preventDefault(); event.stopPropagation(); }
+    const gallery = btn.closest(".card-gallery");
+    if(gallery) prevImage(gallery, true);
+  };
+
+  window.galleryNext = function(btn, event){
+    if(event){ event.preventDefault(); event.stopPropagation(); }
+    const gallery = btn.closest(".card-gallery");
+    if(gallery) nextImage(gallery, true);
+  };
+
+  document.addEventListener("DOMContentLoaded", function(){
+    document.querySelectorAll(".card-gallery[data-images]").forEach(setupGallery);
+  });
+})();
+</script>
+
 </body>
 </html>
