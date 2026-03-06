@@ -2515,6 +2515,62 @@ footer p{margin:4px 0 !important;}
   margin-top:4px;
 }
 
+
+/* ===== V8 BEAUTIFICATION PASS ===== */
+
+/* 1) Luxury divider under hero title */
+.hero h1{
+  position:relative !important;
+  padding-bottom:14px !important;
+}
+.hero h1::after{
+  content:"";
+  display:block;
+  width:60px;
+  height:2px;
+  margin:14px auto 0;
+  background:#c8a96a;
+  border-radius:10px;
+}
+
+/* 2) Luxury room card shadows */
+#rooms .room-card{
+  box-shadow:0 22px 60px rgba(2,8,23,.12) !important;
+}
+#rooms .room-card:hover{
+  transform:translateY(-6px) !important;
+  box-shadow:0 32px 80px rgba(2,8,23,.18) !important;
+}
+
+/* 3) Smooth room image zoom */
+#rooms .card-gallery img{
+  transition:transform .6s ease, opacity .45s ease !important;
+}
+#rooms .room-card:hover .card-gallery img{
+  transform:scale(1.05) !important;
+}
+
+/* 4) Better section spacing */
+section{
+  padding:70px 0;
+}
+@media(max-width:720px){
+  section{
+    padding:48px 0;
+  }
+}
+
+/* 5) Premium WhatsApp CTA */
+.btn.wa,
+#bookingWhatsAppNativeBtn{
+  background:#25D366 !important;
+  box-shadow:0 10px 25px rgba(37,211,102,.35) !important;
+}
+.btn.wa:hover,
+#bookingWhatsAppNativeBtn:hover{
+  transform:translateY(-2px) !important;
+}
+
 </style>
   <meta name="theme-color" content="#0b3c5d"/>
   <link rel="icon" href="images/favicon.png"/>
