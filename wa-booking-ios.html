@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Connecting to WhatsApp…</title>
+<style>
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;background:#0b1220;color:#fff;text-align:center;padding:24px}
+.box{max-width:460px}
+.loader{margin:20px auto;width:38px;height:38px;border-radius:50%;border:4px solid rgba(255,255,255,.18);border-top-color:#25D366;animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.btn{display:inline-block;margin-top:18px;padding:12px 18px;border-radius:12px;background:#25D366;color:#fff;text-decoration:none;font-weight:700}
+small{display:block;opacity:.8;margin-top:10px}
+</style>
+</head>
+<body>
+<div class="box">
+  <h2>Opening WhatsApp…</h2>
+  <div class="loader"></div>
+  <p>Please wait while we connect your booking request to WhatsApp.</p>
+  <a id="fallback" class="btn" href="#">Open WhatsApp</a>
+  <small>If WhatsApp doesn’t open automatically, tap the button above.</small>
+</div>
+<script>
+(function(){
+  function fmt(n){
+    try { return "₹" + Number(n || 0).toLocaleString("en-IN"); }
+    catch(e){ return "₹" + (n || 0); }
+  }
+  let payload = {};
+  try { payload = JSON.parse(localStorage.getItem("ssr_booking_payload") || "{}"); }
+  catch(e) { payload = {}; }
+
+  const phone = payload.phone || "917842072725";
+  const lines = [
+    "Booking Request — SS Residency Grand",
+    "",
+    "Room: " + (payload.room || "Deluxe AC Room"),
+    "Guests: " + (payload.guests || "2"),
+    "Check-in: " + (payload.checkin || "") + " at " + (payload.checkinTime || "12:00"),
+    "Check-out: " + (payload.checkout || ""),
+    "Nights: " + (payload.nights || 1),
+    "Extra Bed: " + (payload.extraBed ? "Yes (₹200/night)" : "No"),
+    "",
+    "Rate: " + fmt(payload.nightlyRate || 0) + " / night",
+    "Room Subtotal: " + fmt(payload.roomSubtotal || 0),
+    payload.extraBed ? "Extra Bed Fee: " + fmt(payload.extraBedTotal || 0) : null,
+    "Online Discount: -" + fmt(payload.discount || 50),
+    "Total: " + fmt(payload.total || 0),
+    "",
+    "Guest Name: " + (payload.name || ""),
+    "Mobile: " + (payload.phoneInput || ""),
+    payload.email ? "Email: " + payload.email : null,
+    payload.notes ? "Notes: " + payload.notes : null,
+    "",
+    "Please confirm availability."
+  ].filter(Boolean).join("\n");
+
+  const deep = "whatsapp://send?phone=" + phone + "&text=" + encodeURIComponent(lines);
+  const web = "https://api.whatsapp.com/send?phone=" + phone + "&text=" + encodeURIComponent(lines);
+  document.getElementById("fallback").href = web;
+  window.location.href = deep;
+  setTimeout(function(){ window.location.href = web; }, 1200);
+})();
+</script>
+</body>
+</html>
