@@ -2271,7 +2271,105 @@ footer p{margin:4px 0 !important;}
   .form-grid{grid-template-columns:1fr !important;}
 }
 
+
+/* ===== V4 PREMIUM SAFE ENHANCEMENTS ===== */
+:root{
+  --shadow-soft:0 10px 24px rgba(2,8,23,.08);
+  --shadow-premium:0 18px 42px rgba(2,8,23,.12);
+}
+body{line-height:1.5;}
+.hero{padding:20px 0 16px 0 !important;}
+.hero h2{font-size:32px !important; margin:0 0 6px 0 !important; line-height:1.1 !important;}
+.hero p{max-width:760px !important; margin:0 auto !important;}
+.direct-benefits{
+  display:flex; gap:10px; flex-wrap:wrap; justify-content:center;
+  margin:12px auto 6px auto;
+}
+.direct-benefits span{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:8px 12px; border-radius:999px;
+  background:#fff; border:1px solid #dbe3ee; box-shadow:var(--shadow-soft);
+  font-size:12px; font-weight:900; color:#0f172a; letter-spacing:.2px;
+}
+.micro-trust{display:flex; flex-direction:column; align-items:center; gap:4px; margin-top:8px;}
+.review-snippet{font-size:13px; font-weight:900; color:#0f172a;}
+.trust-copy{font-size:12px; color:#64748b; font-weight:700;}
+
+.section{padding:22px 0 !important;}
+.section-head{padding:12px 0 10px !important; margin-bottom:8px !important;}
+#rooms .sub{margin:0 auto 12px auto !important;}
+
+#rooms .rooms{
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:18px !important;
+}
+#rooms .room-card{
+  border-radius:20px !important;
+  box-shadow:var(--shadow-premium) !important;
+  border:1px solid rgba(226,232,240,.95) !important;
+  transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease !important;
+}
+#rooms .room-card:hover{
+  transform:translateY(-4px) !important;
+  box-shadow:0 24px 56px rgba(2,8,23,.15) !important;
+  border-color:rgba(202,166,75,.38) !important;
+}
+#rooms .card-gallery img{height:280px !important;}
+#rooms .content{padding:14px 14px 16px 14px !important;}
+#rooms .content h4{font-size:18px !important; margin:0 0 6px 0 !important;}
+#rooms .price{font-size:13px !important; margin:0 0 8px 0 !important;}
+#rooms .chips{gap:6px !important; margin-top:8px !important;}
+#rooms .wa-book{width:100% !important; justify-content:center !important; margin-top:12px !important;}
+
+.modal{box-shadow:0 30px 72px rgba(2,8,23,.22) !important;}
+.modal-body{padding:14px !important;}
+.room-preview{box-shadow:var(--shadow-soft) !important;}
+.form-grid{gap:12px !important;}
+.field{margin-bottom:10px !important;}
+.field label{font-size:15px !important; margin-bottom:5px !important;}
+.field input,.field select,.field textarea{font-size:15px !important; padding:13px 14px !important;}
+.form-note{margin-top:8px !important; padding:10px 12px !important;}
+
+.distance-highlights{
+  display:flex; flex-wrap:wrap; gap:8px; margin:0 0 12px 0;
+}
+.distance-highlights span{
+  display:inline-flex; align-items:center;
+  padding:7px 10px; border-radius:999px;
+  font-size:12px; font-weight:800;
+  background:#fff; border:1px solid #dbe3ee; color:#334155;
+  box-shadow:var(--shadow-soft);
+}
+
+footer{padding:20px 0 !important;}
+footer p{margin:4px 0 !important;}
+
+@media (max-width:900px){
+  #rooms .rooms{grid-template-columns:1fr !important;}
+  #rooms .card-gallery img{height:240px !important;}
+}
+
 </style>
+  <meta name="theme-color" content="#0b3c5d"/>
+  <link rel="icon" href="images/favicon.png"/>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Hotel",
+  "name": "SS Residency Grand",
+  "description": "Clean, comfortable stays in KPHB Colony, Hyderabad with direct WhatsApp booking.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "KPHB Colony, Hyderabad",
+    "addressRegion": "Telangana",
+    "addressCountry": "IN"
+  },
+  "telephone": "+91-7842421143"
+}
+</script>
+
 </head>
 <body>
 <header class="hyatt-pro">
@@ -2317,7 +2415,7 @@ footer p{margin:4px 0 !important;}
 <a href="#amenities">Amenities</a>
 <a href="#location">Location</a>
 </nav>
-<button class="hyatt-book" onclick="openBooking('Deluxe AC Room')" type="button">BOOK</button>
+<button class="hyatt-book" onclick="openBooking('Deluxe AC Room')" type="button">CHECK AVAILABILITY</button>
 </div>
 </div>
 </div>
@@ -2326,6 +2424,16 @@ footer p{margin:4px 0 !important;}
 <div class="container">
 <h2>Clean &amp; Comfortable Stay in KPHB Colony</h2>
 <p>AC &amp; Non-AC rooms with Free Wi-Fi, Lift, Parking &amp; Room Service.<br/><b>Online Booking Discount: ₹50 OFF</b> (via WhatsApp form).</p>
+
+<div class="direct-benefits">
+  <span>₹50 Direct Booking Benefit</span>
+  <span>Instant WhatsApp Confirmation</span>
+  <span>Pay at Property</span>
+</div>
+<div class="micro-trust">
+  <div class="trust-copy">On National Highway • Walkable distance to Metro • Clean Comfortable Stays</div>
+</div>
+
 
 </div>
 </section>
@@ -2530,6 +2638,13 @@ footer p{margin:4px 0 !important;}
 <div class="loc-card">
 <div class="loc-name">SS Residency Grand</div>
 <div class="loc-addr" id="hotelAddress">PLOT 30 DHARMA REDDY COLONY, Kukatpally Housing Board Colony, Phase 1, Hyderabad, Telangana 500072</div>
+
+<div class="distance-highlights">
+  <span>📍 Near KPHB Metro</span>
+  <span>📍 Quick access to Kukatpally</span>
+  <span>📍 Easy direct booking</span>
+</div>
+
 <div class="loc-actions">
 <a aria-label="Get directions" class="loc-btn primary" href="https://www.google.com/maps/place/SS+RESIDENCY+GRAND/@17.4949886,78.3965019,21z/data=!4m17!1m7!3m6!1s0x3bcb99daeaebd2c7:0x94ea9fb0ba260caa!2sF9WW%2B2H,+Hyderabad,+Telangana!3b1!8m2!3d17.4950625!4d78.3964375!3m8!1s0x3bcb91e74cbe9327:0xbb2d05ef68022276!5m2!4m1!1i2!8m2!3d17.4950638!4d78.3964849!16s%2Fg%2F11gy880hm2?entry=ttu&amp;g_ep=EgoyMDI2MDIwOS4wIKXMDSoASAFQAw%3D%3D" rel="noopener" target="_blank">
 <svg aria-hidden="true" viewbox="0 0 24 24">
@@ -2592,7 +2707,7 @@ footer p{margin:4px 0 !important;}
     <div class="booking-roomcard">
       <div class="booking-roommedia">
         <div class="booking-badge">Most Booked</div>
-        <img alt="Room preview" id="rpImg" src="images/deluxe-ac-1.jpg"/>
+        <img loading="lazy" alt="Room preview" id="rpImg" src="images/deluxe-ac-1.jpg"/>
       </div>
       <div class="booking-roominfo">
         <div class="booking-roomtitle" id="rpName">Deluxe AC Room</div>
@@ -3519,6 +3634,7 @@ footer p{margin:4px 0 !important;}
       "",
       `Room: ${p.room}`,
       `Guests: ${p.guests}`,
+      "",
       `Check-in: ${checkinEl ? checkinEl.value : ""} at ${(checkinTimeEl && checkinTimeEl.value) ? checkinTimeEl.value : "12:00"}`,
       `Check-out: ${checkoutEl ? checkoutEl.value : ""}`,
       `Nights: ${p.nights}`,
@@ -3603,12 +3719,7 @@ footer p{margin:4px 0 !important;}
 /* ===== ROOM GALLERY ROTATION FIX ===== */
 (function(){
   const galleryTimers = new WeakMap();
-
-  function getImages(gallery){
-    const raw = (gallery.getAttribute("data-images") || "").split(",").map(s => s.trim()).filter(Boolean);
-    return raw;
-  }
-
+  function getImages(gallery){ return (gallery.getAttribute("data-images") || "").split(",").map(s => s.trim()).filter(Boolean); }
   function ensureDots(gallery, images){
     let dotsWrap = gallery.querySelector(".gal-dots");
     if(!dotsWrap){
@@ -3622,133 +3733,49 @@ footer p{margin:4px 0 !important;}
       dot.type = "button";
       dot.className = "gal-dot" + (idx === 0 ? " active" : "");
       dot.setAttribute("aria-label", `Show photo ${idx + 1}`);
-      dot.addEventListener("click", (e) => {
-        e.preventDefault();
-        showImage(gallery, idx, true);
-      });
+      dot.addEventListener("click", (e) => { e.preventDefault(); showImage(gallery, idx, true); });
       dotsWrap.appendChild(dot);
     });
   }
-
-  function updateDots(gallery, index){
-    const dots = gallery.querySelectorAll(".gal-dot");
-    dots.forEach((d, i) => d.classList.toggle("active", i === index));
-  }
-
+  function updateDots(gallery, index){ gallery.querySelectorAll(".gal-dot").forEach((d,i)=>d.classList.toggle("active", i===index)); }
   function showImage(gallery, index, restart=false){
-    const images = getImages(gallery);
-    if(!images.length) return;
-    const img = gallery.querySelector("img");
-    if(!img) return;
-
+    const images = getImages(gallery); if(!images.length) return;
+    const img = gallery.querySelector("img"); if(!img) return;
     const safeIndex = ((index % images.length) + images.length) % images.length;
     gallery.dataset.index = String(safeIndex);
-
     img.classList.add("is-fading");
     const nextSrc = images[safeIndex];
-
     const loader = new Image();
-    loader.onload = function(){
-      img.src = nextSrc;
-      img.classList.remove("is-fading");
-    };
-    loader.onerror = function(){
-      img.src = nextSrc;
-      img.classList.remove("is-fading");
-    };
+    loader.onload = function(){ img.src = nextSrc; img.classList.remove("is-fading"); };
+    loader.onerror = function(){ img.src = nextSrc; img.classList.remove("is-fading"); };
     loader.src = nextSrc;
-
     updateDots(gallery, safeIndex);
     if(restart) restartAuto(gallery);
   }
-
-  function nextImage(gallery, restart=false){
-    const current = parseInt(gallery.dataset.index || "0", 10) || 0;
-    showImage(gallery, current + 1, restart);
-  }
-
-  function prevImage(gallery, restart=false){
-    const current = parseInt(gallery.dataset.index || "0", 10) || 0;
-    showImage(gallery, current - 1, restart);
-  }
-
-  function stopAuto(gallery){
-    const timer = galleryTimers.get(gallery);
-    if(timer){
-      clearInterval(timer);
-      galleryTimers.delete(gallery);
-    }
-  }
-
-  function startAuto(gallery){
-    stopAuto(gallery);
-    const images = getImages(gallery);
-    if(images.length <= 1) return;
-    const timer = setInterval(() => nextImage(gallery, false), 3500);
-    galleryTimers.set(gallery, timer);
-  }
-
-  function restartAuto(gallery){
-    startAuto(gallery);
-  }
-
+  function nextImage(gallery, restart=false){ const current = parseInt(gallery.dataset.index || "0", 10) || 0; showImage(gallery, current + 1, restart); }
+  function prevImage(gallery, restart=false){ const current = parseInt(gallery.dataset.index || "0", 10) || 0; showImage(gallery, current - 1, restart); }
+  function stopAuto(gallery){ const timer = galleryTimers.get(gallery); if(timer){ clearInterval(timer); galleryTimers.delete(gallery); } }
+  function startAuto(gallery){ stopAuto(gallery); const images = getImages(gallery); if(images.length <= 1) return; const timer = setInterval(() => nextImage(gallery, false), 3500); galleryTimers.set(gallery, timer); }
+  function restartAuto(gallery){ startAuto(gallery); }
   function setupGallery(gallery){
-    const images = getImages(gallery);
-    if(!images.length) return;
-
+    const images = getImages(gallery); if(!images.length) return;
     const img = gallery.querySelector("img");
-    if(img && (!img.getAttribute("src") || img.getAttribute("src") !== images[0])){
-      img.setAttribute("src", images[0]);
-    }
-
+    if(img && (!img.getAttribute("src") || img.getAttribute("src") !== images[0])) img.setAttribute("src", images[0]);
     gallery.dataset.index = "0";
-    ensureDots(gallery, images);
-    updateDots(gallery, 0);
-
+    ensureDots(gallery, images); updateDots(gallery, 0);
     const prevBtn = gallery.querySelector(".gal-btn.prev");
     const nextBtn = gallery.querySelector(".gal-btn.next");
-
-    if(prevBtn && !prevBtn.dataset.bound){
-      prevBtn.dataset.bound = "1";
-      prevBtn.addEventListener("click", function(e){
-        e.preventDefault();
-        e.stopPropagation();
-        prevImage(gallery, true);
-      });
-    }
-
-    if(nextBtn && !nextBtn.dataset.bound){
-      nextBtn.dataset.bound = "1";
-      nextBtn.addEventListener("click", function(e){
-        e.preventDefault();
-        e.stopPropagation();
-        nextImage(gallery, true);
-      });
-    }
-
-    gallery.addEventListener("mouseenter", () => stopAuto(gallery));
-    gallery.addEventListener("mouseleave", () => startAuto(gallery));
-    gallery.addEventListener("touchstart", () => stopAuto(gallery), {passive:true});
-    gallery.addEventListener("touchend", () => startAuto(gallery), {passive:true});
-
+    if(prevBtn && !prevBtn.dataset.bound){ prevBtn.dataset.bound = "1"; prevBtn.addEventListener("click", e=>{ e.preventDefault(); e.stopPropagation(); prevImage(gallery, true); }); }
+    if(nextBtn && !nextBtn.dataset.bound){ nextBtn.dataset.bound = "1"; nextBtn.addEventListener("click", e=>{ e.preventDefault(); e.stopPropagation(); nextImage(gallery, true); }); }
+    gallery.addEventListener("mouseenter", ()=>stopAuto(gallery));
+    gallery.addEventListener("mouseleave", ()=>startAuto(gallery));
+    gallery.addEventListener("touchstart", ()=>stopAuto(gallery), {passive:true});
+    gallery.addEventListener("touchend", ()=>startAuto(gallery), {passive:true});
     startAuto(gallery);
   }
-
-  window.galleryPrev = function(btn, event){
-    if(event){ event.preventDefault(); event.stopPropagation(); }
-    const gallery = btn.closest(".card-gallery");
-    if(gallery) prevImage(gallery, true);
-  };
-
-  window.galleryNext = function(btn, event){
-    if(event){ event.preventDefault(); event.stopPropagation(); }
-    const gallery = btn.closest(".card-gallery");
-    if(gallery) nextImage(gallery, true);
-  };
-
-  document.addEventListener("DOMContentLoaded", function(){
-    document.querySelectorAll(".card-gallery[data-images]").forEach(setupGallery);
-  });
+  window.galleryPrev = function(btn, event){ if(event){ event.preventDefault(); event.stopPropagation(); } const gallery = btn.closest(".card-gallery"); if(gallery) prevImage(gallery, true); };
+  window.galleryNext = function(btn, event){ if(event){ event.preventDefault(); event.stopPropagation(); } const gallery = btn.closest(".card-gallery"); if(gallery) nextImage(gallery, true); };
+  document.addEventListener("DOMContentLoaded", function(){ document.querySelectorAll(".card-gallery[data-images]").forEach(setupGallery); });
 })();
 </script>
 
