@@ -2506,153 +2506,13 @@ footer p{margin:4px 0 !important;}
   margin:6px auto 0;
 }
 
-/* sticky booking button */
-.sticky-book{
-  position:fixed;
-  bottom:20px;
-  left:50%;
-  transform:translateX(-50%);
-  background:#111;
-  color:#fff;
-  padding:12px 20px;
-  border-radius:30px;
+
+/* Trust note */
+.trust-note{
+  font-size:13px;
+  color:#1f7a3f;
   font-weight:600;
-  font-size:14px;
-  box-shadow:0 10px 25px rgba(0,0,0,.25);
-  z-index:9999;
-}
-.sticky-book:hover{opacity:.9}
-
-
-/* ===== V9 iOS anchor CTA ===== */
-#bookingWhatsAppNativeBtn{
-  text-decoration:none;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-}
-
-
-/* ===== V9 clean modal action structure ===== */
-#bookingForm{
-  display:block;
-}
-#bookingForm .modal-actions{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  justify-content:space-between;
-  padding:12px 14px;
-  border-top:1px solid var(--border);
-  background:#fff;
-  position:sticky;
-  bottom:0;
-  z-index:3;
-  margin-top:12px;
-}
-#bookingForm .actions-left,
-#bookingForm .actions-right{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
-#bookingWhatsAppNativeBtn{
-  -webkit-appearance:none;
-  appearance:none;
-  border:none;
-  cursor:pointer;
-  text-decoration:none;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
-}
-
-
-/* ===== V9.1 boutique polish ===== */
-.hero h1{
-  position:relative;
-  padding-bottom:14px;
-}
-.hero h1::after{
-  content:"";
-  display:block;
-  width:64px;
-  height:2px;
-  margin:14px auto 0;
-  background:#c6a96b;
-  border-radius:999px;
-  opacity:.95;
-}
-
-
-/* ===== V10 FINAL PREMIUM POLISH ===== */
-.hero{
-  padding:28px 0 22px 0 !important;
-}
-.hero h1{
-  letter-spacing:1.2px !important;
-  font-weight:900 !important;
-  font-size:21px !important;
-  line-height:1.2 !important;
-}
-.hero p{
-  margin-top:12px !important;
-  font-size:15px !important;
-}
-.hyatt-main{
-  padding-top:14px !important;
-  padding-bottom:14px !important;
-}
-.hyatt-title-main{
-  letter-spacing:4px !important;
-  font-weight:900 !important;
-}
-.hyatt-title-sub{
-  letter-spacing:2px !important;
-}
-#rooms .room-card{
-  box-shadow:0 20px 46px rgba(2,8,23,.12) !important;
-}
-#rooms .room-card:hover{
-  box-shadow:0 30px 64px rgba(2,8,23,.16) !important;
-}
-#rooms .card-gallery img{
-  transition:opacity .45s ease, transform .55s ease !important;
-}
-#rooms .content{
-  padding:18px 18px 20px 18px !important;
-}
-#rooms .content h4{
-  font-size:20px !important;
-}
-#rooms .price{
-  font-size:14px !important;
-}
-.modal{
-  box-shadow:0 34px 80px rgba(2,8,23,.24) !important;
-}
-@media (max-width:900px){
-  .hero h1{
-    font-size:19px !important;
-    letter-spacing:.4px !important;
-  }
-}
-@media (max-width:720px){
-  .hero{
-    padding:22px 0 18px 0 !important;
-  }
-  .hero h1{
-    font-size:18px !important;
-    line-height:1.25 !important;
-  }
-  .hero p{
-    font-size:14px !important;
-  }
-  .hyatt-title-main{
-    letter-spacing:2.4px !important;
-  }
+  margin-top:4px;
 }
 
 </style>
@@ -2733,9 +2593,9 @@ footer p{margin:4px 0 !important;}
 </div>
 </div>
 </header>
-<div class="booking-strip-text"></div>
+
   </div>
-  
+  <button class="strip-btn" id="bookingStripBtn" type="button"></button>
 </div>
 
 
@@ -2765,7 +2625,7 @@ footer p{margin:4px 0 !important;}
 <div class="section-head">
 <div class="section-kicker">ACCOMMODATIONS</div>
 <h3 class="section-title">Rooms &amp; Photos</h3>
-<div class="gold-accent"></div>
+
 </div>
 <div class="sub">Transparent pricing + quick booking through WhatsApp form.<br/><span class="rate-note" style="font-size:13px; opacity:0.75; font-weight:500; display:block; margin-top:6px;">Rates per night. Extra Person: ₹100 · Extra Bed: ₹200 </span><br/></div>
 <div class="rooms">
@@ -2781,7 +2641,7 @@ footer p{margin:4px 0 !important;}
 <button aria-label="Next photo" class="gal-btn next" onclick="galleryNext(this,event)" type="button">
 <svg aria-hidden="true" viewbox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
 </button>
-<div class="gal-dots"></div>
+
 </div>
 <div class="content">
 <h4>Deluxe AC Room</h4>
@@ -2812,7 +2672,7 @@ footer p{margin:4px 0 !important;}
 <button aria-label="Next photo" class="gal-btn next" onclick="galleryNext(this,event)" type="button">
 <svg aria-hidden="true" viewbox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
 </button>
-<div class="gal-dots"></div>
+
 </div>
 <div class="content">
 <h4>Standard AC Room</h4>
@@ -2842,7 +2702,7 @@ footer p{margin:4px 0 !important;}
 <button aria-label="Next photo" class="gal-btn next" onclick="galleryNext(this,event)" type="button">
 <svg aria-hidden="true" viewbox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
 </button>
-<div class="gal-dots"></div>
+
 </div>
 <div class="content">
 <h4>Deluxe Non-AC Room</h4>
@@ -2872,7 +2732,7 @@ footer p{margin:4px 0 !important;}
 <button aria-label="Next photo" class="gal-btn next" onclick="galleryNext(this,event)" type="button">
 <svg aria-hidden="true" viewbox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
 </button>
-<div class="gal-dots"></div>
+
 </div>
 <div class="content">
 <h4>Standard Non-AC Room</h4>
@@ -2900,7 +2760,7 @@ footer p{margin:4px 0 !important;}
 <div class="section-head">
 <div class="section-kicker">HOTEL AMENITIES</div>
 <h3 class="section-title">Amenities</h3>
-<div class="gold-accent"></div>
+
 </div>
 <div class="sub">Premium essentials for a smooth stay.</div>
 <div class="amenity-grid">
@@ -2955,7 +2815,7 @@ footer p{margin:4px 0 !important;}
 <div class="container loc-premium">
 <span class="loc-label">Hotel location</span>
 <h2 class="loc-title">Find Us</h2>
-<div class="gold-accent"></div>
+
 <div class="loc-grid">
 <div class="loc-card">
 <div class="loc-name">SS Residency Grand</div>
@@ -3011,7 +2871,7 @@ footer p{margin:4px 0 !important;}
     <div class="section-head">
       <div class="section-kicker">FAQs</div>
       <h3 class="section-title">Hotel in Kukatpally – Frequently Asked Questions</h3>
-      <div class="gold-accent"></div>
+      
     </div>
     <div class="faq-grid">
       <div class="faq-item">
@@ -3036,7 +2896,7 @@ footer p{margin:4px 0 !important;}
     <div class="section-head">
       <div class="section-kicker">Location</div>
       <h3 class="section-title">Hotel in Kukatpally – KPHB Colony</h3>
-      <div class="gold-accent"></div>
+      
     </div>
     <p style="margin:0;color:#475569;line-height:1.65;">
       SS Residency Grand is located in KPHB Colony, Kukatpally, Hyderabad near JNTU Metro Station. The hotel offers clean AC and Non-AC rooms with easy access to Kukatpally, Hitech City, and other parts of Hyderabad.
@@ -3086,7 +2946,7 @@ footer p{margin:4px 0 !important;}
       </div>
     </div>
 
-    <form id="bookingForm" class="booking-form" novalidate>
+    <form id="bookingForm" onsubmit="event.preventDefault(); sendWhatsApp();" class="booking-form">
       <div class="form-section-title">Stay details</div>
       <div class="form-grid">
         <div class="field">
@@ -3120,7 +2980,7 @@ footer p{margin:4px 0 !important;}
         </div>
       </div>
 
-      <div class="form-sep"></div>
+      
       <div class="form-section-title">Guest details</div>
       <div class="form-grid">
         <div class="field">
@@ -3143,7 +3003,10 @@ footer p{margin:4px 0 !important;}
       </div>
 
       <div class="form-note">We’ll confirm availability on WhatsApp. Your number is used only for this booking.</div>
-    
+      <div class="form-note trust-note">✓ Pay at property • No advance payment required</div>
+    </form>
+  </div>
+</div>
 <div class="modal-actions">
 <div class="actions-left">
 <button class="btn ghost" onclick="fillTodayTomorrow()">Today → Tomorrow</button>
@@ -3151,20 +3014,15 @@ footer p{margin:4px 0 !important;}
 </div>
 <div class="actions-right">
 <button class="btn ghost" onclick="closeModal()">Cancel</button>
-
-<button id="bookingWhatsAppNativeBtn" class="btn wa" type="button" onclick="return goBookingWhatsApp(event)">
+<button class="btn wa" onclick="sendWhatsApp()">
 <span style="display:inline-flex;align-items:center;gap:8px">
-<svg aria-hidden="true" class="wa-ic" style="width:18px;height:18px" viewBox="0 0 32 32">
-<path d="M19.11 17.46c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.64 1.11 2.82.14.18 1.93 2.95 4.67 4.13.65.28 1.15.45 1.54.58.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32Z" fill="#fff"></path>
+<svg aria-hidden="true" class="wa-ic" style="width:18px;height:18px" viewbox="0 0 32 32">
+<path d="M19.11 17.46c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34 -.02 -.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.64 1.11 2.82.14.18 1.93 2.95 4.67 4.13.65.28 1.15.45 1.54.58.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18 -.52 -.32Z" fill="#fff"></path>
 </svg>
-Send on WhatsApp
-</span>
+            Send on WhatsApp
+          </span>
 </button>
-
 </div>
-</div>
-</form>
-  </div>
 </div>
 </div>
 </div>
@@ -3769,7 +3627,69 @@ footer p{margin:4px 0 !important;}
 
 
 
-
+<script>
+/* ===== ROOM GALLERY ROTATION FIX ===== */
+(function(){
+  const galleryTimers = new WeakMap();
+  function getImages(gallery){ return (gallery.getAttribute("data-images") || "").split(",").map(s => s.trim()).filter(Boolean); }
+  function ensureDots(gallery, images){
+    let dotsWrap = gallery.querySelector(".gal-dots");
+    if(!dotsWrap){
+      dotsWrap = document.createElement("div");
+      dotsWrap.className = "gal-dots";
+      gallery.appendChild(dotsWrap);
+    }
+    dotsWrap.innerHTML = "";
+    images.forEach((_, idx) => {
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "gal-dot" + (idx === 0 ? " active" : "");
+      dot.setAttribute("aria-label", `Show photo ${idx + 1}`);
+      dot.addEventListener("click", (e) => { e.preventDefault(); showImage(gallery, idx, true); });
+      dotsWrap.appendChild(dot);
+    });
+  }
+  function updateDots(gallery, index){ gallery.querySelectorAll(".gal-dot").forEach((d,i)=>d.classList.toggle("active", i===index)); }
+  function showImage(gallery, index, restart=false){
+    const images = getImages(gallery); if(!images.length) return;
+    const img = gallery.querySelector("img"); if(!img) return;
+    const safeIndex = ((index % images.length) + images.length) % images.length;
+    gallery.dataset.index = String(safeIndex);
+    img.classList.add("is-fading");
+    const nextSrc = images[safeIndex];
+    const loader = new Image();
+    loader.onload = function(){ img.src = nextSrc; img.classList.remove("is-fading"); };
+    loader.onerror = function(){ img.src = nextSrc; img.classList.remove("is-fading"); };
+    loader.src = nextSrc;
+    updateDots(gallery, safeIndex);
+    if(restart) restartAuto(gallery);
+  }
+  function nextImage(gallery, restart=false){ const current = parseInt(gallery.dataset.index || "0", 10) || 0; showImage(gallery, current + 1, restart); }
+  function prevImage(gallery, restart=false){ const current = parseInt(gallery.dataset.index || "0", 10) || 0; showImage(gallery, current - 1, restart); }
+  function stopAuto(gallery){ const timer = galleryTimers.get(gallery); if(timer){ clearInterval(timer); galleryTimers.delete(gallery); } }
+  function startAuto(gallery){ stopAuto(gallery); const images = getImages(gallery); if(images.length <= 1) return; const timer = setInterval(() => nextImage(gallery, false), 3500); galleryTimers.set(gallery, timer); }
+  function restartAuto(gallery){ startAuto(gallery); }
+  function setupGallery(gallery){
+    const images = getImages(gallery); if(!images.length) return;
+    const img = gallery.querySelector("img");
+    if(img && (!img.getAttribute("src") || img.getAttribute("src") !== images[0])) img.setAttribute("src", images[0]);
+    gallery.dataset.index = "0";
+    ensureDots(gallery, images); updateDots(gallery, 0);
+    const prevBtn = gallery.querySelector(".gal-btn.prev");
+    const nextBtn = gallery.querySelector(".gal-btn.next");
+    if(prevBtn && !prevBtn.dataset.bound){ prevBtn.dataset.bound = "1"; prevBtn.addEventListener("click", e=>{ e.preventDefault(); e.stopPropagation(); prevImage(gallery, true); }); }
+    if(nextBtn && !nextBtn.dataset.bound){ nextBtn.dataset.bound = "1"; nextBtn.addEventListener("click", e=>{ e.preventDefault(); e.stopPropagation(); nextImage(gallery, true); }); }
+    gallery.addEventListener("mouseenter", ()=>stopAuto(gallery));
+    gallery.addEventListener("mouseleave", ()=>startAuto(gallery));
+    gallery.addEventListener("touchstart", ()=>stopAuto(gallery), {passive:true});
+    gallery.addEventListener("touchend", ()=>startAuto(gallery), {passive:true});
+    startAuto(gallery);
+  }
+  window.galleryPrev = function(btn, event){ if(event){ event.preventDefault(); event.stopPropagation(); } const gallery = btn.closest(".card-gallery"); if(gallery) prevImage(gallery, true); };
+  window.galleryNext = function(btn, event){ if(event){ event.preventDefault(); event.stopPropagation(); } const gallery = btn.closest(".card-gallery"); if(gallery) nextImage(gallery, true); };
+  document.addEventListener("DOMContentLoaded", function(){ document.querySelectorAll(".card-gallery[data-images]").forEach(setupGallery); });
+})();
+</script>
 
 
 <script type="application/ld+json">
@@ -3808,479 +3728,190 @@ footer p{margin:4px 0 !important;}
 
 
 
-
-
-
-
-
-
-
-
-
 <script>
-/* ===== V7.1 CLEAN BOOKING SCRIPT ===== */
-(function () {
+/* ===== V7.1 AUTHORITATIVE BOOKING + iOS FIX ===== */
+(function(){
   const WHATSAPP_NUMBER = "917842072725";
   const ONLINE_DISCOUNT = 50;
   const EXTRA_BED_FEE = 200;
 
   const RATES = {
-    "Deluxe AC Room":       {1:1699, 2:1799, 3:1899, img:"images/deluxe-ac-1.jpg"},
-    "Deluxe Non-AC Room":   {1:1399, 2:1499, 3:1599, img:"images/deluxe-nonac-1.jpg"},
-    "Standard AC Room":     {1:1599, 2:1699, 3:1799, img:"images/standard-ac-1.jpg"},
-    "Standard Non-AC Room": {1:1299, 2:1399, 3:1499, img:"images/standard-nonac-1.jpg"}
+    "Deluxe AC Room":       { 1: 1699, 2: 1799, 3: 1899, img: "images/deluxe-ac-1.jpg" },
+    "Deluxe Non-AC Room":   { 1: 1399, 2: 1499, 3: 1599, img: "images/deluxe-nonac-1.jpg" },
+    "Standard AC Room":     { 1: 1599, 2: 1699, 3: 1799, img: "images/standard-ac-1.jpg" },
+    "Standard Non-AC Room": { 1: 1299, 2: 1399, 3: 1499, img: "images/standard-nonac-1.jpg" }
   };
 
   const $ = (id) => document.getElementById(id);
 
-  function parseDate(v) {
-    if (!v) return null;
-    const parts = v.split("-").map(Number);
-    if (parts.length !== 3 || !parts[0] || !parts[1] || !parts[2]) return null;
-    return new Date(parts[0], parts[1] - 1, parts[2], 12, 0, 0, 0);
+  function formatINR(n){
+    const safe = Number.isFinite(Number(n)) ? Number(n) : 0;
+    try { return "₹" + safe.toLocaleString("en-IN"); }
+    catch(e) { return "₹" + safe; }
   }
 
-  function isoDate(d) {
+  function parseDate(v){
+    if(!v) return null;
+    const parts = v.split("-").map(Number);
+    if(parts.length !== 3) return null;
+    const [y,m,d] = parts;
+    if(!y || !m || !d) return null;
+    return new Date(y, m - 1, d, 12, 0, 0, 0);
+  }
+
+  function isoDate(d){
     const y = d.getFullYear();
     const m = String(d.getMonth() + 1).padStart(2, "0");
     const day = String(d.getDate()).padStart(2, "0");
     return `${y}-${m}-${day}`;
   }
 
-  function addDays(d, days) {
+  function addDays(d, days){
     return new Date(d.getFullYear(), d.getMonth(), d.getDate() + days, 12, 0, 0, 0);
-  }
-
-  function nightsBetween(ci, co) {
-    const a = parseDate(ci), b = parseDate(co);
-    if (!a || !b) return 1;
-    const diff = Math.round((b.getTime() - a.getTime()) / 86400000);
-    return Math.max(1, diff);
-  }
-
-  function formatINR(n) {
-    const safe = Number.isFinite(Number(n)) ? Number(n) : 0;
-    try { return "₹" + safe.toLocaleString("en-IN"); }
-    catch (e) { return "₹" + safe; }
-  }
-
-  function ensureDates(forceCheckoutNextDay) {
-    const checkinEl = $("checkin");
-    const checkoutEl = $("checkout");
-    const checkinTimeEl = $("checkinTime");
-    if (!checkinEl || !checkoutEl) return;
-
-    const now = new Date();
-    if (!checkinEl.value) {
-      checkinEl.value = isoDate(new Date(now.getFullYear(), now.getMonth(), now.getDate(), 12, 0, 0, 0));
-    }
-    if (checkinTimeEl && !checkinTimeEl.value) {
-      checkinTimeEl.value = "12:00";
-    }
-
-    const ci = parseDate(checkinEl.value);
-    const minCheckout = ci ? addDays(ci, 1) : addDays(now, 1);
-    checkoutEl.min = isoDate(minCheckout);
-
-    const co = parseDate(checkoutEl.value);
-    if (forceCheckoutNextDay || !co || co < minCheckout) {
-      checkoutEl.value = isoDate(minCheckout);
-    }
-  }
-
-  function collectBookingData() {
-    ensureDates(false);
-
-    const room = $("roomType")?.value || "Deluxe AC Room";
-    const guests = Math.min(3, Math.max(1, parseInt($("guests")?.value || "2", 10) || 2));
-    const extraBed = parseInt($("extraBed")?.value || "0", 10) ? 1 : 0;
-    const checkin = $("checkin")?.value || "";
-    const checkout = $("checkout")?.value || "";
-    const checkinTime = $("checkinTime")?.value || "12:00";
-    const name = $("name")?.value?.trim() || "";
-    const phone = $("phone")?.value?.trim() || "";
-    const email = $("email")?.value?.trim() || "";
-    const notes = $("notes")?.value?.trim() || "";
-
-    const nights = nightsBetween(checkin, checkout);
-    const nightlyRate = Number((RATES[room] || RATES["Deluxe AC Room"])[guests] || 0);
-    const roomSubtotal = nightlyRate * nights;
-    const extraBedTotal = extraBed ? EXTRA_BED_FEE * nights : 0;
-    const total = Math.max(0, roomSubtotal + extraBedTotal - ONLINE_DISCOUNT);
-
-    return {
-      room, guests, extraBed, checkin, checkout, checkinTime, name, phone, email, notes,
-      nights, nightlyRate, roomSubtotal, extraBedTotal, total
-    };
-  }
-
-  function updateSummary() {
-    const d = collectBookingData();
-    if ($("rpName")) $("rpName").textContent = d.room;
-    if ($("rpPrice")) $("rpPrice").textContent = `${formatINR(d.nightlyRate)} / night · ${d.guests} guest${d.guests > 1 ? "s" : ""} · ${d.nights} night${d.nights > 1 ? "s" : ""}`;
-    if ($("rpTotalLine")) $("rpTotalLine").textContent = formatINR(d.total);
-    if ($("rpDiscount")) $("rpDiscount").textContent = `Online Booking Discount: -${formatINR(ONLINE_DISCOUNT)}`;
-    if ($("rpImg") && RATES[d.room] && RATES[d.room].img) $("rpImg").src = RATES[d.room].img;
-    return d;
-  }
-
-  function buildWhatsAppUrl() {
-    const d = collectBookingData();
-    const lines = [
-      "Booking Request — SS Residency Grand",
-      "",
-      `Room: ${d.room}`,
-      `Guests: ${d.guests}`,
-      `Check-in: ${d.checkin} at ${d.checkinTime}`,
-      `Check-out: ${d.checkout}`,
-      `Nights: ${d.nights}`,
-      `Extra Bed: ${d.extraBed ? "Yes (₹200/night)" : "No"}`,
-      "",
-      `Rate: ${formatINR(d.nightlyRate)} / night`,
-      `Room Subtotal: ${formatINR(d.roomSubtotal)}`,
-      ...(d.extraBed ? [`Extra Bed Fee: ${formatINR(d.extraBedTotal)}`] : []),
-      `Online Discount: -${formatINR(ONLINE_DISCOUNT)}`,
-      `Total: ${formatINR(d.total)}`,
-      "",
-      `Guest Name: ${d.name}`,
-      `Mobile: ${d.phone}`,
-      ...(d.email ? [`Email: ${d.email}`] : []),
-      ...(d.notes ? [`Notes: ${d.notes}`] : []),
-      "",
-      "Please confirm availability."
-    ].filter(Boolean);
-    return `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(lines.join("\n"))}`;
-  }
-
-  function validateBooking() {
-    const d = collectBookingData();
-    if (!d.name) { $("name")?.focus(); return false; }
-    const digits = d.phone.replace(/\D/g, "");
-    if (digits.length !== 10) { $("phone")?.focus(); return false; }
-    if (d.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)) { $("email")?.focus(); return false; }
-    return true;
-  }
-
-  function updateBookingHref() {
-    const btn = $("bookingWhatsAppBtn");
-    if (!btn) return;
-    btn.setAttribute("href", buildWhatsAppUrl());
-    btn.setAttribute("target", /iPad|iPhone|iPod/i.test(navigator.userAgent) ? "_self" : "_blank");
-  }
-
-  function sendWhatsApp(e) {
-    if (e) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-    if (!validateBooking()) return false;
-    const url = buildWhatsAppUrl();
-    const isiOS = /iPad|iPhone|iPod/i.test(navigator.userAgent);
-    if (isiOS) {
-      window.location.href = url;
-    } else {
-      window.open(url, "_blank");
-    }
-    return false;
-  }
-
-  function roomOptionExists(name) {
-    const rt = $("roomType");
-    return !!rt && Array.from(rt.options || []).some(opt => opt.value === name);
-  }
-
-  function openBooking(roomName) {
-    if (roomName && roomOptionExists(roomName) && $("roomType")) {
-      $("roomType").value = roomName;
-    }
-    ensureDates(false);
-    updateSummary();
-    updateBookingHref();
-    const bd = $("backdrop");
-    if (bd) {
-      bd.style.display = "flex";
-      bd.setAttribute("aria-hidden", "false");
-    }
-    document.body.style.overflow = "hidden";
-    setTimeout(() => $("name")?.focus(), 50);
-  }
-
-  function closeModal() {
-    const bd = $("backdrop");
-    if (bd) {
-      bd.style.display = "none";
-      bd.setAttribute("aria-hidden", "true");
-    }
-    document.body.style.overflow = "";
-  }
-
-  function fillTodayTomorrow() {
-    const today = new Date();
-    const ci = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 12, 0, 0, 0);
-    if ($("checkin")) $("checkin").value = isoDate(ci);
-    if ($("checkout")) $("checkout").value = isoDate(addDays(ci, 1));
-    updateSummary();
-    updateBookingHref();
-  }
-
-  function fillTomorrowNext() {
-    const today = new Date();
-    const ci = addDays(new Date(today.getFullYear(), today.getMonth(), today.getDate(), 12, 0, 0, 0), 1);
-    if ($("checkin")) $("checkin").value = isoDate(ci);
-    if ($("checkout")) $("checkout").value = isoDate(addDays(ci, 1));
-    updateSummary();
-    updateBookingHref();
-  }
-
-  function bindBookingForm() {
-    const form = $("bookingForm");
-    const cta = $("bookingWhatsAppBtn");
-
-    ["roomType","guests","extraBed","checkin","checkout","checkinTime","name","phone","email","notes"].forEach(id => {
-      const el = $(id);
-      if (!el) return;
-      el.addEventListener("change", () => {
-        ensureDates(id === "checkin");
-        updateSummary();
-        updateBookingHref();
-      });
-      el.addEventListener("input", () => {
-        updateSummary();
-        updateBookingHref();
-      });
-    });
-
-    if (form) {
-      form.onsubmit = (e) => sendWhatsApp(e);
-    }
-
-    if (cta && !cta.dataset.bound) {
-      cta.dataset.bound = "1";
-      cta.addEventListener("click", function (e) {
-        if (!validateBooking()) {
-          e.preventDefault();
-          e.stopPropagation();
-          return false;
-        }
-        updateBookingHref();
-        return true; // native anchor nav for Safari
-      }, { passive: false });
-    }
-
-    const buttons = Array.from(document.querySelectorAll(".modal-actions .btn"));
-    buttons.forEach(btn => {
-      const txt = (btn.textContent || "").replace(/\s+/g, " ").trim().toLowerCase();
-      if (txt.includes("today") && txt.includes("tomorrow")) {
-        btn.type = "button";
-        btn.onclick = fillTodayTomorrow;
-      } else if (txt.includes("tomorrow") && txt.includes("next day")) {
-        btn.type = "button";
-        btn.onclick = fillTomorrowNext;
-      }
-    });
-  }
-
-  function bindGeneralButtons() {
-    document.querySelectorAll("button, a").forEach(el => {
-      const txt = (el.textContent || "").replace(/\s+/g, " ").trim().toLowerCase();
-      const onclickText = el.getAttribute("onclick") || "";
-      const isBook = txt.includes("book on whatsapp") || txt.includes("book now") || txt === "book" || onclickText.includes("openBooking(");
-      if (!isBook || onclickText.includes("openBooking(")) return;
-      el.addEventListener("click", function (e) {
-        e.preventDefault();
-        const roomName = el.closest(".room-card")?.querySelector("h4")?.textContent?.trim() || "Deluxe AC Room";
-        openBooking(roomName);
-      });
-    });
-  }
-
-  window.openBooking = openBooking;
-  window.closeModal = closeModal;
-  window.sendWhatsApp = sendWhatsApp;
-  window.syncFromForm = function(){ updateSummary(); updateBookingHref(); };
-  window.enforceDateRules = function(){ ensureDates(false); };
-  window.fillTodayTomorrow = fillTodayTomorrow;
-  window.fillTomorrowNext = fillTomorrowNext;
-
-  document.addEventListener("DOMContentLoaded", function () {
-    ensureDates(false);
-    updateSummary();
-    updateBookingHref();
-    bindBookingForm();
-    bindGeneralButtons();
-    const bd = $("backdrop");
-    if (bd && !bd.style.display) bd.style.display = "none";
-  });
-
-  document.addEventListener("click", function (e) {
-    const bd = $("backdrop");
-    if (bd && e.target === bd) closeModal();
-  });
-
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") closeModal();
-  });
-})();
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script>
-/* ===== V8 PRODUCTION BOOKING REDIRECT ===== */
-(function(){
-  const WA_PHONE = "917842072725";
-  const ONLINE_DISCOUNT = 50;
-  const EXTRA_BED_FEE = 200;
-
-  const RATES = {
-    "Deluxe AC Room":       {1:1699,2:1799,3:1899, img:"images/deluxe-ac-1.jpg"},
-    "Deluxe Non-AC Room":   {1:1399,2:1499,3:1599, img:"images/deluxe-nonac-1.jpg"},
-    "Standard AC Room":     {1:1599,2:1699,3:1799, img:"images/standard-ac-1.jpg"},
-    "Standard Non-AC Room": {1:1299,2:1399,3:1499, img:"images/standard-nonac-1.jpg"}
-  };
-
-  const $ = (id) => document.getElementById(id);
-
-  function parseDate(v){
-    if(!v) return null;
-    const p = v.split("-").map(Number);
-    if(p.length !== 3 || !p[0] || !p[1] || !p[2]) return null;
-    return new Date(p[0], p[1]-1, p[2], 12, 0, 0, 0);
-  }
-
-  function isoDate(d){
-    const y = d.getFullYear();
-    const m = String(d.getMonth()+1).padStart(2,"0");
-    const day = String(d.getDate()).padStart(2,"0");
-    return `${y}-${m}-${day}`;
-  }
-
-  function addDays(d, n){
-    return new Date(d.getFullYear(), d.getMonth(), d.getDate()+n, 12, 0, 0, 0);
   }
 
   function nightsBetween(ci, co){
     const a = parseDate(ci), b = parseDate(co);
     if(!a || !b) return 1;
-    return Math.max(1, Math.round((b.getTime()-a.getTime())/86400000));
+    const diff = Math.round((b.getTime() - a.getTime()) / 86400000);
+    return Math.max(1, diff);
   }
 
-  function fmt(n){
-    try { return "₹" + Number(n || 0).toLocaleString("en-IN"); }
-    catch(e){ return "₹" + (n || 0); }
-  }
-
-  function ensureDates(forceNextDay){
-    const checkin = $("checkin");
-    const checkout = $("checkout");
-    const checkinTime = $("checkinTime");
-    if(!checkin || !checkout) return;
+  function ensureDates(forceCheckoutNextDay){
+    const checkinEl = $("checkin");
+    const checkoutEl = $("checkout");
+    const checkinTimeEl = $("checkinTime");
+    if(!checkinEl || !checkoutEl) return;
 
     const today = new Date();
-    if(!checkin.value){
+    if(!checkinEl.value){
       const ci = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 12, 0, 0, 0);
-      checkin.value = isoDate(ci);
+      checkinEl.value = isoDate(ci);
     }
-    if(checkinTime && !checkinTime.value) checkinTime.value = "12:00";
+    if(checkinTimeEl && !checkinTimeEl.value){
+      checkinTimeEl.value = "12:00";
+    }
 
-    const ci = parseDate(checkin.value);
+    const ci = parseDate(checkinEl.value);
     const minCo = ci ? addDays(ci, 1) : addDays(today, 1);
-    checkout.min = isoDate(minCo);
+    checkoutEl.min = isoDate(minCo);
 
-    const co = parseDate(checkout.value);
-    if(forceNextDay || !co || co < minCo){
-      checkout.value = isoDate(minCo);
+    const co = parseDate(checkoutEl.value);
+    if(forceCheckoutNextDay || !co || co < minCo){
+      checkoutEl.value = isoDate(minCo);
     }
   }
 
   function getPricing(){
-    ensureDates(false);
-    const room = ($("roomType") && $("roomType").value) || "Deluxe AC Room";
-    const guests = Math.min(3, Math.max(1, parseInt((($("guests") && $("guests").value) || "2"), 10) || 2));
-    const extraBed = ((($("extraBed") && $("extraBed").value) || "0") !== "0");
-    const nights = nightsBetween((($("checkin") && $("checkin").value) || ""), (($("checkout") && $("checkout").value) || ""));
-    const rr = RATES[room] || RATES["Deluxe AC Room"];
-    const nightlyRate = Number(rr[guests] || 0);
+    const room = ($("roomType") && $("roomType").value) ? $("roomType").value : "Deluxe AC Room";
+    const guests = Math.min(3, Math.max(1, parseInt(($("guests") && $("guests").value) || "2", 10) || 2));
+    const extraBed = parseInt(($("extraBed") && $("extraBed").value) || "0", 10) ? 1 : 0;
+    const nights = nightsBetween(($("checkin") && $("checkin").value) || "", ($("checkout") && $("checkout").value) || "");
+    const roomRates = RATES[room] || RATES["Deluxe AC Room"];
+    const nightlyRate = Number(roomRates[guests] || 0);
     const roomSubtotal = nightlyRate * nights;
     const extraBedTotal = extraBed ? (EXTRA_BED_FEE * nights) : 0;
     const total = Math.max(0, roomSubtotal + extraBedTotal - ONLINE_DISCOUNT);
-    return {room, guests, extraBed, nights, nightlyRate, roomSubtotal, extraBedTotal, total, img: rr.img};
+    return { room, guests, nights, nightlyRate, roomSubtotal, extraBed, extraBedTotal, total };
   }
 
-  function updateSummary(){
+  function syncFromForm(){
+    ensureDates(false);
     const p = getPricing();
-    if($("rpName")) $("rpName").textContent = p.room;
-    if($("rpPrice")) $("rpPrice").textContent = `${fmt(p.nightlyRate)} / night · ${p.guests} guest${p.guests > 1 ? "s" : ""} · ${p.nights} night${p.nights > 1 ? "s" : ""}`;
-    if($("rpTotalLine")) $("rpTotalLine").textContent = fmt(p.total);
-    if($("rpDiscount")) $("rpDiscount").textContent = `Online Booking Discount: -${fmt(ONLINE_DISCOUNT)}`;
-    if($("rpImg") && p.img) $("rpImg").src = p.img;
+    const rpName = $("rpName"), rpPrice = $("rpPrice"), rpTotalLine = $("rpTotalLine"), rpDiscount = $("rpDiscount"), rpImg = $("rpImg");
+    if(rpName) rpName.textContent = p.room;
+    if(rpPrice) rpPrice.textContent = `${formatINR(p.nightlyRate)} / night · ${p.guests} guest${p.guests>1?"s":""} · ${p.nights} night${p.nights>1?"s":""}`;
+    if(rpTotalLine) rpTotalLine.textContent = `Estimated total: ${formatINR(p.total)}`;
+    if(rpDiscount) rpDiscount.textContent = `Online Booking Discount: -${formatINR(ONLINE_DISCOUNT)}`;
+    if(rpImg && RATES[p.room] && RATES[p.room].img) rpImg.src = RATES[p.room].img;
   }
 
   function roomOptionExists(name){
-    const rt = $("roomType");
-    return !!rt && Array.from(rt.options || []).some(opt => opt.value === name);
+    const roomTypeEl = $("roomType");
+    if(!roomTypeEl) return false;
+    return Array.from(roomTypeEl.options || []).some(opt => opt.value === name);
   }
 
-  function validateBooking(showAlerts=true){
-    const name = ((($("name") && $("name").value) || "")).trim();
-    const phone = ((($("phone") && $("phone").value) || "")).trim();
-    const email = ((($("email") && $("email").value) || "")).trim();
+  function openBooking(roomName){
+    const bd = $("backdrop");
+    if(roomName && $("roomType") && roomOptionExists(roomName)){
+      $("roomType").value = roomName;
+    }
+    ensureDates(false);
+    syncFromForm();
+    if(bd){
+      bd.style.display = "flex";
+      bd.setAttribute("aria-hidden","false");
+    }
+    document.body.style.overflow = "hidden";
+    setTimeout(function(){ if($("name")) $("name").focus(); }, 50);
+  }
+
+  function closeModal(){
+    const bd = $("backdrop");
+    if(bd){
+      bd.style.display = "none";
+      bd.setAttribute("aria-hidden","true");
+    }
+    document.body.style.overflow = "";
+  }
+
+  function fillTodayTomorrow(){
+    const today = new Date();
+    const ci = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 12, 0, 0, 0);
+    if($("checkin")) $("checkin").value = isoDate(ci);
+    if($("checkout")) $("checkout").value = isoDate(addDays(ci, 1));
+    syncFromForm();
+  }
+
+  function fillTomorrowNext(){
+    const today = new Date();
+    const ci = addDays(new Date(today.getFullYear(), today.getMonth(), today.getDate(), 12, 0, 0, 0), 1);
+    if($("checkin")) $("checkin").value = isoDate(ci);
+    if($("checkout")) $("checkout").value = isoDate(addDays(ci, 1));
+    syncFromForm();
+  }
+
+  function sendWhatsApp(){
+    ensureDates(false);
+
+    const name = ($("name") && $("name").value || "").trim();
+    const phone = ($("phone") && $("phone").value || "").trim();
+    const email = ($("email") && $("email").value || "").trim();
+    const notes = ($("notes") && $("notes").value || "").trim();
 
     if(!name){
-      if(showAlerts) alert("Please enter your full name.");
-      setTimeout(() => { if($("name")) $("name").focus(); }, 30);
+      if($("name")) $("name").focus();
       return false;
     }
+
     const digits = phone.replace(/\D/g, "");
     if(digits.length !== 10){
-      if(showAlerts) alert("Please enter a valid 10-digit mobile number.");
-      setTimeout(() => { if($("phone")) $("phone").focus(); }, 30);
+      if($("phone")) $("phone").focus();
       return false;
     }
+
     if(email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
-      if(showAlerts) alert("Please enter a valid email address.");
-      setTimeout(() => { if($("email")) $("email").focus(); }, 30);
+      if($("email")) $("email").focus();
       return false;
     }
-    return true;
-  }
 
-  function buildMessage(){
     const p = getPricing();
-    const checkin = (($("checkin") && $("checkin").value) || "");
-    const checkout = (($("checkout") && $("checkout").value) || "");
-    const checkinTime = (($("checkinTime") && $("checkinTime").value) || "12:00");
-    const name = ((($("name") && $("name").value) || "")).trim();
-    const phone = ((($("phone") && $("phone").value) || "")).trim();
-    const email = ((($("email") && $("email").value) || "")).trim();
-    const notes = ((($("notes") && $("notes").value) || "")).trim();
-
-    return [
+    const lines = [
       "Booking Request — SS Residency Grand",
       "",
       `Room: ${p.room}`,
       `Guests: ${p.guests}`,
-      `Check-in: ${checkin} at ${checkinTime}`,
-      `Check-out: ${checkout}`,
+      `Check-in: ${($("checkin") && $("checkin").value) || ""} at ${($("checkinTime") && $("checkinTime").value) || "12:00"}`,
+      `Check-out: ${($("checkout") && $("checkout").value) || ""}`,
       `Nights: ${p.nights}`,
       `Extra Bed: ${p.extraBed ? "Yes (₹200/night)" : "No"}`,
       "",
-      `Rate: ${fmt(p.nightlyRate)} / night`,
-      `Room Subtotal: ${fmt(p.roomSubtotal)}`,
-      ...(p.extraBed ? [`Extra Bed Fee: ${fmt(p.extraBedTotal)}`] : []),
-      `Online Discount: -${fmt(ONLINE_DISCOUNT)}`,
-      `Total: ${fmt(p.total)}`,
+      `Rate: ${formatINR(p.nightlyRate)} / night`,
+      `Room Subtotal: ${formatINR(p.roomSubtotal)}`,
+      ...(p.extraBed ? [`Extra Bed Fee: ${formatINR(p.extraBedTotal)}`] : []),
+      `Online Discount: -${formatINR(ONLINE_DISCOUNT)}`,
+      `Total: ${formatINR(p.total)}`,
       "",
       `Guest Name: ${name}`,
       `Mobile: ${phone}`,
@@ -4288,55 +3919,52 @@ footer p{margin:4px 0 !important;}
       ...(notes ? [`Notes: ${notes}`] : []),
       "",
       "Please confirm availability."
-    ].filter(Boolean).join("\n");
+    ];
+
+    const url = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(lines.join("\n"))}`;
+    const isiOS = /iPad|iPhone|iPod/i.test(navigator.userAgent);
+
+    // For iOS Safari, direct navigation works more reliably than window.open.
+    if(isiOS){
+      window.location.href = url;
+    } else {
+      window.open(url, "_blank");
+    }
+    return false;
   }
 
-  window.goBookingWhatsApp = function(event){
-    if(event){
-      event.preventDefault();
-      event.stopPropagation();
-      if(typeof event.stopImmediatePropagation === "function") event.stopImmediatePropagation();
-    }
-    if(document.activeElement && typeof document.activeElement.blur === "function"){
-      document.activeElement.blur();
-    }
-    setTimeout(function(){
-      if(!validateBooking(true)) return false;
-      const msg = buildMessage();
-      // redirect page solves iOS Safari modal/focus problems
-      window.location.href = "wa-booking.html?phone=" + WA_PHONE + "&text=" + encodeURIComponent(msg);
-    }, 120);
-    return false;
-  };
+  window.sendWhatsApp = sendWhatsApp;
+  window.syncFromForm = syncFromForm;
+  window.openBooking = openBooking;
+  window.closeModal = closeModal;
+  window.fillTodayTomorrow = fillTodayTomorrow;
+  window.fillTomorrowNext = fillTomorrowNext;
+  window.enforceDateRules = function(){ ensureDates(false); };
 
-  function bindForm(){
+  document.addEventListener("DOMContentLoaded", function(){
+    ensureDates(false);
+    syncFromForm();
+
     const form = $("bookingForm");
     if(form){
-      form.setAttribute("novalidate","novalidate");
-      form.onsubmit = function(e){
-        if(e){ e.preventDefault(); e.stopPropagation(); }
-        return false;
-      };
+      form.setAttribute("onsubmit", "event.preventDefault(); return sendWhatsApp();");
+      form.addEventListener("submit", function(e){
+        e.preventDefault();
+        return sendWhatsApp();
+      }, {passive:false});
     }
 
-    const btn = $("bookingWhatsAppNativeBtn");
-    if(btn){
-      btn.type = "button";
-      btn.onclick = function(e){ return window.goBookingWhatsApp(e); };
-    }
-
-    ["roomType","guests","extraBed","checkin","checkout","checkinTime","name","phone","email","notes"].forEach(function(id){
+    ["roomType","guests","extraBed","checkin","checkout","checkinTime"].forEach(function(id){
       const el = $(id);
       if(!el) return;
       el.addEventListener("change", function(){
         ensureDates(id === "checkin");
-        updateSummary();
+        syncFromForm();
       });
-      el.addEventListener("input", updateSummary);
     });
 
     const buttons = Array.from(document.querySelectorAll(".modal-actions .btn"));
-    buttons.forEach(btn => {
+    buttons.forEach(function(btn){
       const txt = (btn.textContent || "").replace(/\s+/g, " ").trim().toLowerCase();
       if(txt.includes("today") && txt.includes("tomorrow")){
         btn.type = "button";
@@ -4346,345 +3974,47 @@ footer p{margin:4px 0 !important;}
         btn.onclick = fillTomorrowNext;
       }
     });
-  }
 
-  function fillTodayTomorrow(){
-    const today = new Date();
-    const ci = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 12, 0, 0, 0);
-    if($("checkin")) $("checkin").value = isoDate(ci);
-    if($("checkout")) $("checkout").value = isoDate(addDays(ci, 1));
-    updateSummary();
-  }
-
-  function fillTomorrowNext(){
-    const today = new Date();
-    const ci = addDays(new Date(today.getFullYear(), today.getMonth(), today.getDate(), 12, 0, 0, 0), 1);
-    if($("checkin")) $("checkin").value = isoDate(ci);
-    if($("checkout")) $("checkout").value = isoDate(addDays(ci, 1));
-    updateSummary();
-  }
-
-  function openBooking(roomName){
-    if(roomName && roomOptionExists(roomName) && $("roomType")){
-      $("roomType").value = roomName;
-    }
-    ensureDates(false);
-    updateSummary();
-    const bd = $("backdrop");
-    if(bd){
-      bd.style.display = "flex";
-      bd.setAttribute("aria-hidden", "false");
-    }
-    document.body.style.overflow = "hidden";
-    setTimeout(() => { if($("name")) $("name").focus(); }, 60);
-  }
-
-  function closeModal(){
-    const bd = $("backdrop");
-    if(bd){
-      bd.style.display = "none";
-      bd.setAttribute("aria-hidden", "true");
-    }
-    document.body.style.overflow = "";
-  }
-
-  window.openBooking = openBooking;
-  window.closeModal = closeModal;
-  window.syncFromForm = updateSummary;
-  window.enforceDateRules = function(){ ensureDates(false); };
-  window.fillTodayTomorrow = fillTodayTomorrow;
-  window.fillTomorrowNext = fillTomorrowNext;
-
-  document.addEventListener("click", function(e){
-    const bd = $("backdrop");
-    if(bd && e.target === bd) closeModal();
-  });
-  document.addEventListener("keydown", function(e){
-    if(e.key === "Escape") closeModal();
-  });
-
-  document.addEventListener("DOMContentLoaded", function(){
-    ensureDates(false);
-    updateSummary();
-    bindForm();
-    const bd = $("backdrop");
-    if(bd && !bd.style.display) bd.style.display = "none";
-  });
-})();
-</script>
-
-
-<script>
-/* ===== V9 CLEAN PRODUCTION BOOKING ===== */
-(function(){
-  const WA_PHONE = "917842072725";
-  const ONLINE_DISCOUNT = 50;
-  const EXTRA_BED_FEE = 200;
-  const $ = (id) => document.getElementById(id);
-
-  const RATES = {
-    "Deluxe AC Room":       {1:1699,2:1799,3:1899, img:"images/deluxe-ac-1.jpg"},
-    "Deluxe Non-AC Room":   {1:1399,2:1499,3:1599, img:"images/deluxe-nonac-1.jpg"},
-    "Standard AC Room":     {1:1599,2:1699,3:1799, img:"images/standard-ac-1.jpg"},
-    "Standard Non-AC Room": {1:1299,2:1399,3:1499, img:"images/standard-nonac-1.jpg"}
-  };
-
-  function parseDate(v){
-    if(!v) return null;
-    const p = v.split("-").map(Number);
-    if(p.length !== 3 || !p[0] || !p[1] || !p[2]) return null;
-    return new Date(p[0], p[1]-1, p[2], 12, 0, 0, 0);
-  }
-  function isoDate(d){
-    const y = d.getFullYear();
-    const m = String(d.getMonth()+1).padStart(2,"0");
-    const day = String(d.getDate()).padStart(2,"0");
-    return `${y}-${m}-${day}`;
-  }
-  function addDays(d, n){
-    return new Date(d.getFullYear(), d.getMonth(), d.getDate()+n, 12, 0, 0, 0);
-  }
-  function nightsBetween(ci, co){
-    const a = parseDate(ci), b = parseDate(co);
-    if(!a || !b) return 1;
-    return Math.max(1, Math.round((b.getTime()-a.getTime())/86400000));
-  }
-  function fmt(n){
-    try { return "₹" + Number(n || 0).toLocaleString("en-IN"); }
-    catch(e){ return "₹" + (n || 0); }
-  }
-
-  function ensureDates(forceNextDay){
-    const checkin = $("checkin");
-    const checkout = $("checkout");
-    const checkinTime = $("checkinTime");
-    if(!checkin || !checkout) return;
-
-    const today = new Date();
-    if(!checkin.value){
-      const ci = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 12, 0, 0, 0);
-      checkin.value = isoDate(ci);
-    }
-    if(checkinTime && !checkinTime.value) checkinTime.value = "12:00";
-
-    const ci = parseDate(checkin.value);
-    const minCo = ci ? addDays(ci, 1) : addDays(today, 1);
-    checkout.min = isoDate(minCo);
-
-    const co = parseDate(checkout.value);
-    if(forceNextDay || !co || co < minCo){
-      checkout.value = isoDate(minCo);
-    }
-  }
-
-  function getPricing(){
-    ensureDates(false);
-    const room = ($("roomType") && $("roomType").value) || "Deluxe AC Room";
-    const guests = Math.min(3, Math.max(1, parseInt((($("guests") && $("guests").value) || "2"), 10) || 2));
-    const extraBed = ((($("extraBed") && $("extraBed").value) || "0") !== "0");
-    const nights = nightsBetween((($("checkin") && $("checkin").value) || ""), (($("checkout") && $("checkout").value) || ""));
-    const rr = RATES[room] || RATES["Deluxe AC Room"];
-    const nightlyRate = Number(rr[guests] || 0);
-    const roomSubtotal = nightlyRate * nights;
-    const extraBedTotal = extraBed ? (EXTRA_BED_FEE * nights) : 0;
-    const total = Math.max(0, roomSubtotal + extraBedTotal - ONLINE_DISCOUNT);
-    return {room, guests, extraBed, nights, nightlyRate, roomSubtotal, extraBedTotal, total, img: rr.img};
-  }
-
-  function updateSummary(){
-    const p = getPricing();
-    if($("rpName")) $("rpName").textContent = p.room;
-    if($("rpPrice")) $("rpPrice").textContent = `${fmt(p.nightlyRate)} / night · ${p.guests} guest${p.guests > 1 ? "s" : ""} · ${p.nights} night${p.nights > 1 ? "s" : ""}`;
-    if($("rpTotalLine")) $("rpTotalLine").textContent = fmt(p.total);
-    if($("rpDiscount")) $("rpDiscount").textContent = `Online Booking Discount: -${fmt(ONLINE_DISCOUNT)}`;
-    if($("rpImg") && p.img) $("rpImg").src = p.img;
-  }
-
-  function roomOptionExists(name){
-    const rt = $("roomType");
-    return !!rt && Array.from(rt.options || []).some(opt => opt.value === name);
-  }
-
-  function validateBooking(){
-    const name = ((($("name") && $("name").value) || "")).trim();
-    const phone = ((($("phone") && $("phone").value) || "")).trim();
-    const email = ((($("email") && $("email").value) || "")).trim();
-
-    if(!name){
-      alert("Please enter your full name.");
-      setTimeout(() => { if($("name")) $("name").focus(); }, 50);
-      return false;
-    }
-    const digits = phone.replace(/\D/g, "");
-    if(digits.length !== 10){
-      alert("Please enter a valid 10-digit mobile number.");
-      setTimeout(() => { if($("phone")) $("phone").focus(); }, 50);
-      return false;
-    }
-    if(email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
-      alert("Please enter a valid email address.");
-      setTimeout(() => { if($("email")) $("email").focus(); }, 50);
-      return false;
-    }
-    return true;
-  }
-
-  function buildPayload(){
-    const p = getPricing();
-    return {
-      phone: WA_PHONE,
-      room: p.room,
-      guests: p.guests,
-      checkin: (($("checkin") && $("checkin").value) || ""),
-      checkout: (($("checkout") && $("checkout").value) || ""),
-      checkinTime: (($("checkinTime") && $("checkinTime").value) || "12:00"),
-      nights: p.nights,
-      extraBed: p.extraBed,
-      nightlyRate: p.nightlyRate,
-      roomSubtotal: p.roomSubtotal,
-      extraBedTotal: p.extraBedTotal,
-      discount: ONLINE_DISCOUNT,
-      total: p.total,
-      name: ((($("name") && $("name").value) || "")).trim(),
-      phoneInput: ((($("phone") && $("phone").value) || "")).trim(),
-      email: ((($("email") && $("email").value) || "")).trim(),
-      notes: ((($("notes") && $("notes").value) || "")).trim()
-    };
-  }
-
-  function savePayload(){
-    try { localStorage.setItem("ssr_booking_payload", JSON.stringify(buildPayload())); }
-    catch(e) {}
-  }
-
-  window.goBookingWhatsApp = function(event){
-    if(event){
-      event.preventDefault();
-      event.stopPropagation();
-      if(typeof event.stopImmediatePropagation === "function") event.stopImmediatePropagation();
-    }
-
-    if(document.activeElement && typeof document.activeElement.blur === "function"){
-      document.activeElement.blur();
-    }
-
-    setTimeout(function(){
-      if(!validateBooking()) return false;
-      savePayload();
-      window.location.href = "wa-booking-ios.html";
-    }, 180);
-
-    return false;
-  };
-
-  function fillTodayTomorrow(){
-    const today = new Date();
-    const ci = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 12, 0, 0, 0);
-    if($("checkin")) $("checkin").value = isoDate(ci);
-    if($("checkout")) $("checkout").value = isoDate(addDays(ci, 1));
-    updateSummary();
-    savePayload();
-  }
-
-  function fillTomorrowNext(){
-    const today = new Date();
-    const ci = addDays(new Date(today.getFullYear(), today.getMonth(), today.getDate(), 12, 0, 0, 0), 1);
-    if($("checkin")) $("checkin").value = isoDate(ci);
-    if($("checkout")) $("checkout").value = isoDate(addDays(ci, 1));
-    updateSummary();
-    savePayload();
-  }
-
-  function openBooking(roomName){
-    if(roomName && roomOptionExists(roomName) && $("roomType")){
-      $("roomType").value = roomName;
-    }
-    ensureDates(false);
-    updateSummary();
-    savePayload();
-    const bd = $("backdrop");
-    if(bd){
-      bd.style.display = "flex";
-      bd.setAttribute("aria-hidden", "false");
-    }
-    document.body.style.overflow = "hidden";
-    setTimeout(() => { if($("name")) $("name").focus(); }, 60);
-  }
-
-  function closeModal(){
-    const bd = $("backdrop");
-    if(bd){
-      bd.style.display = "none";
-      bd.setAttribute("aria-hidden", "true");
-    }
-    document.body.style.overflow = "";
-  }
-
-  function bindForm(){
-    const form = $("bookingForm");
-    if(form){
-      form.setAttribute("novalidate","novalidate");
-      form.onsubmit = function(e){
-        if(e){ e.preventDefault(); e.stopPropagation(); }
-        return false;
+    // Strong binding for iOS Safari on WhatsApp CTA
+    const ctaCandidates = Array.from(document.querySelectorAll("#bookingForm button, #bookingForm .btn, #bookingForm input[type='submit']"));
+    ctaCandidates.forEach(function(btn){
+      const txt = (btn.textContent || btn.value || "").replace(/\s+/g, " ").trim().toLowerCase();
+      if(!(txt.includes("whatsapp") || txt.includes("send") || txt.includes("check availability"))) return;
+      btn.type = "submit";
+      const handler = function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        return sendWhatsApp();
       };
-    }
+      btn.addEventListener("click", handler, {passive:false});
+      btn.addEventListener("touchend", handler, {passive:false});
+    });
 
-    const btn = $("bookingWhatsAppNativeBtn");
-    if(btn){
-      btn.type = "button";
-      btn.onclick = function(e){ return window.goBookingWhatsApp(e); };
-    }
-
-    ["roomType","guests","extraBed","checkin","checkout","checkinTime","name","phone","email","notes"].forEach(function(id){
-      const el = $(id);
-      if(!el) return;
-      el.addEventListener("change", function(){
-        ensureDates(id === "checkin");
-        updateSummary();
-        savePayload();
-      });
-      el.addEventListener("input", function(){
-        updateSummary();
-        savePayload();
+    const bookButtons = Array.from(document.querySelectorAll("button, a"));
+    bookButtons.forEach(function(el){
+      const txt = (el.textContent || "").replace(/\s+/g," ").trim().toLowerCase();
+      const onclickText = el.getAttribute("onclick") || "";
+      const isBook = txt.includes("book on whatsapp") || txt.includes("book now") || txt === "book" || onclickText.includes("openBooking(");
+      if(!isBook) return;
+      if(onclickText.includes("openBooking(")) return;
+      el.addEventListener("click", function(e){
+        e.preventDefault();
+        const roomName = (el.closest(".room-card") && el.closest(".room-card").querySelector("h4")) ? el.closest(".room-card").querySelector("h4").textContent.trim() : "Deluxe AC Room";
+        openBooking(roomName);
       });
     });
 
-    const buttons = Array.from(document.querySelectorAll(".modal-actions .btn"));
-    buttons.forEach(btn => {
-      const txt = (btn.textContent || "").replace(/\s+/g, " ").trim().toLowerCase();
-      if(txt.includes("today") && txt.includes("tomorrow")){
-        btn.type = "button";
-        btn.onclick = fillTodayTomorrow;
-      } else if(txt.includes("tomorrow") && txt.includes("next day")){
-        btn.type = "button";
-        btn.onclick = fillTomorrowNext;
-      }
-    });
-  }
-
-  window.openBooking = openBooking;
-  window.closeModal = closeModal;
-  window.syncFromForm = function(){ updateSummary(); savePayload(); };
-  window.enforceDateRules = function(){ ensureDates(false); };
-  window.fillTodayTomorrow = fillTodayTomorrow;
-  window.fillTomorrowNext = fillTomorrowNext;
+    const bd = $("backdrop");
+    if(bd && !bd.style.display) bd.style.display = "none";
+  });
 
   document.addEventListener("click", function(e){
     const bd = $("backdrop");
     if(bd && e.target === bd) closeModal();
   });
+
   document.addEventListener("keydown", function(e){
     if(e.key === "Escape") closeModal();
-  });
-
-  document.addEventListener("DOMContentLoaded", function(){
-    ensureDates(false);
-    updateSummary();
-    bindForm();
-    savePayload();
-    const bd = $("backdrop");
-    if(bd && !bd.style.display) bd.style.display = "none";
   });
 })();
 </script>
