@@ -3096,7 +3096,7 @@ body.has-booking-strip{scroll-padding-top:150px;}
 </div>
 <div class="actions-right">
 <button class="btn ghost" onclick="closeModal()">Cancel</button>
-<a id="bookingWhatsAppBtn" class="btn wa" href="https://api.whatsapp.com/send?phone=917842072725" rel="noopener">
+<a id="bookingWhatsAppBtn" class="btn wa" href="https://api.whatsapp.com/send?phone=917842072725" rel="noopener" onclick="return goBookingWhatsApp(this,event)">
 <span style="display:inline-flex;align-items:center;gap:8px">
 <svg aria-hidden="true" class="wa-ic" style="width:18px;height:18px" viewBox="0 0 32 32">
 <path d="M19.11 17.46c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.64 1.11 2.82.14.18 1.93 2.95 4.67 4.13.65.28 1.15.45 1.54.58.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32Z" fill="#fff"></path>
@@ -4162,6 +4162,184 @@ footer p{margin:4px 0 !important;}
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") closeModal();
   });
+})();
+</script>
+
+
+<script>
+/* ===== V7.1 SAFARI BOOKING CTA FINAL ===== */
+(function(){
+  function $(id){ return document.getElementById(id); }
+
+  function parseDate(v){
+    if(!v) return null;
+    var p = v.split("-").map(Number);
+    if(p.length !== 3 || !p[0] || !p[1] || !p[2]) return null;
+    return new Date(p[0], p[1]-1, p[2], 12, 0, 0, 0);
+  }
+
+  function nightsBetween(ci, co){
+    var a = parseDate(ci), b = parseDate(co);
+    if(!a || !b) return 1;
+    var diff = Math.round((b.getTime() - a.getTime()) / 86400000);
+    return Math.max(1, diff);
+  }
+
+  function fmt(n){
+    try { return "₹" + Number(n || 0).toLocaleString("en-IN"); }
+    catch(e){ return "₹" + (n || 0); }
+  }
+
+  function nightlyRate(room, guests){
+    guests = Math.min(3, Math.max(1, parseInt(guests || "2", 10) || 2));
+    var rates = {
+      "Deluxe AC Room":       {1:1699,2:1799,3:1899},
+      "Deluxe Non-AC Room":   {1:1399,2:1499,3:1599},
+      "Standard AC Room":     {1:1599,2:1699,3:1799},
+      "Standard Non-AC Room": {1:1299,2:1399,3:1499}
+    };
+    var rr = rates[room] || rates["Deluxe AC Room"];
+    return Number(rr[guests] || 0);
+  }
+
+  function buildBookingUrl(){
+    var room = ($("roomType") && $("roomType").value) || "Deluxe AC Room";
+    var guests = ($("guests") && $("guests").value) || "2";
+    var extraBed = (($("extraBed") && $("extraBed").value) || "0") !== "0";
+    var checkin = ($("checkin") && $("checkin").value) || "";
+    var checkout = ($("checkout") && $("checkout").value) || "";
+    var checkinTime = ($("checkinTime") && $("checkinTime").value) || "12:00";
+    var name = ($("name") && $("name").value || "").trim();
+    var phone = ($("phone") && $("phone").value || "").trim();
+    var email = ($("email") && $("email").value || "").trim();
+    var notes = ($("notes") && $("notes").value || "").trim();
+
+    var nights = nightsBetween(checkin, checkout);
+    var rate = nightlyRate(room, guests);
+    var roomSubtotal = rate * nights;
+    var extraBedFee = extraBed ? (200 * nights) : 0;
+    var total = Math.max(0, roomSubtotal + extraBedFee - 50);
+
+    var lines = [
+      "Booking Request — SS Residency Grand",
+      "",
+      "Room: " + room,
+      "Guests: " + guests,
+      "Check-in: " + checkin + " at " + checkinTime,
+      "Check-out: " + checkout,
+      "Nights: " + nights,
+      "Extra Bed: " + (extraBed ? "Yes (₹200/night)" : "No"),
+      "",
+      "Rate: " + fmt(rate) + " / night",
+      "Room Subtotal: " + fmt(roomSubtotal),
+      extraBed ? "Extra Bed Fee: " + fmt(extraBedFee) : null,
+      "Online Discount: -" + fmt(50),
+      "Total: " + fmt(total),
+      "",
+      "Guest Name: " + name,
+      "Mobile: " + phone,
+      email ? "Email: " + email : null,
+      notes ? "Notes: " + notes : null,
+      "",
+      "Please confirm availability."
+    ].filter(Boolean);
+
+    return "https://api.whatsapp.com/send?phone=917842072725&text=" + encodeURIComponent(lines.join("\n"));
+  }
+
+  function validateBooking(){
+    var name = ($("name") && $("name").value || "").trim();
+    var phone = ($("phone") && $("phone").value || "").trim();
+    var email = ($("email") && $("email").value || "").trim();
+
+    if(!name){
+      alert("Please enter your name.");
+      setTimeout(function(){ if($("name")) $("name").focus(); }, 50);
+      return false;
+    }
+    var digits = phone.replace(/\D/g, "");
+    if(digits.length !== 10){
+      alert("Please enter a valid 10-digit mobile number.");
+      setTimeout(function(){ if($("phone")) $("phone").focus(); }, 50);
+      return false;
+    }
+    if(email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+      alert("Please enter a valid email address.");
+      setTimeout(function(){ if($("email")) $("email").focus(); }, 50);
+      return false;
+    }
+    return true;
+  }
+
+  window.goBookingWhatsApp = function(link, event){
+    if(event){
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
+    // Dismiss iPhone keyboard first
+    if(document.activeElement && typeof document.activeElement.blur === "function"){
+      document.activeElement.blur();
+    }
+
+    if(!validateBooking()) return false;
+
+    var url = buildBookingUrl();
+    if(link) link.setAttribute("href", url);
+
+    var isiOS = /iPad|iPhone|iPod/i.test(navigator.userAgent);
+    if(isiOS){
+      // Native same-tab navigation is the most reliable on iPhone Safari
+      window.location.assign(url);
+    } else {
+      window.open(url, "_blank");
+    }
+    return false;
+  };
+
+  function refreshHref(){
+    var btn = $("bookingWhatsAppBtn");
+    if(btn) btn.setAttribute("href", buildBookingUrl());
+  }
+
+  function bind(){
+    var btn = $("bookingWhatsAppBtn");
+    if(btn && !btn.dataset.boundSafari){
+      btn.dataset.boundSafari = "1";
+      ["touchstart","pointerdown","mousedown"].forEach(function(evt){
+        btn.addEventListener(evt, function(){
+          if(document.activeElement && typeof document.activeElement.blur === "function"){
+            document.activeElement.blur();
+          }
+          refreshHref();
+        }, {passive:true});
+      });
+    }
+
+    ["roomType","guests","extraBed","checkin","checkout","checkinTime","name","phone","email","notes"].forEach(function(id){
+      var el = $(id);
+      if(!el) return;
+      el.addEventListener("change", refreshHref);
+      el.addEventListener("input", refreshHref);
+    });
+
+    refreshHref();
+  }
+
+  if(document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", bind);
+  } else {
+    bind();
+  }
+
+  var previousOpen = window.openBooking;
+  if(typeof previousOpen === "function"){
+    window.openBooking = function(){
+      var r = previousOpen.apply(this, arguments);
+      setTimeout(bind, 120);
+      return r;
+    };
+  }
 })();
 </script>
 
