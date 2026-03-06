@@ -2350,6 +2350,106 @@ footer p{margin:4px 0 !important;}
   #rooms .card-gallery img{height:240px !important;}
 }
 
+
+/* ===== V4 MICRO POLISH ===== */
+.wa-book:hover,
+.btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.18);
+}
+
+.card-gallery img{
+  transition: opacity .35s ease, transform .35s ease;
+}
+
+.card-gallery img.is-fading{
+  opacity: .6;
+}
+
+.room-card:hover .card-gallery img{
+  transform: scale(1.02);
+}
+
+
+/* ===== V5 CONVERSION BAR ===== */
+.booking-strip{
+  position:fixed;
+  left:50%;
+  transform:translateX(-50%);
+  top:86px;
+  z-index:950;
+  width:min(980px, calc(100% - 28px));
+  display:none;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:10px 12px;
+  border-radius:18px;
+  background:rgba(255,255,255,.95);
+  border:1px solid rgba(226,232,240,.95);
+  box-shadow:0 18px 42px rgba(2,8,23,.14);
+  backdrop-filter: blur(10px) saturate(1.1);
+}
+.booking-strip.show{display:flex;}
+.booking-strip-left{
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+.booking-strip-kicker{
+  font-size:11px;
+  font-weight:1000;
+  letter-spacing:1.6px;
+  text-transform:uppercase;
+  color:#64748b;
+}
+.booking-strip-text{
+  font-size:14px;
+  font-weight:900;
+  color:#0f172a;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.booking-strip .strip-btn{
+  flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:12px 16px;
+  border-radius:14px;
+  border:1px solid rgba(202,166,75,.45);
+  background:#0b1220;
+  color:#fff;
+  font-size:12px;
+  font-weight:1000;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  cursor:pointer;
+  box-shadow:0 14px 30px rgba(2,8,23,.18);
+}
+.booking-strip .strip-btn:hover{
+  transform:translateY(-1px);
+  box-shadow:0 18px 34px rgba(2,8,23,.22);
+}
+body.has-booking-strip{scroll-padding-top:150px;}
+@media (max-width:720px){
+  .booking-strip{
+    top:auto;
+    bottom:16px;
+    width:calc(100% - 24px);
+    padding:10px;
+    border-radius:16px;
+  }
+  .booking-strip-left{display:none;}
+  .booking-strip .strip-btn{
+    width:100%;
+    padding:13px 14px;
+  }
+}
+
 </style>
   <meta name="theme-color" content="#0b3c5d"/>
   <link rel="icon" href="images/favicon.png"/>
@@ -2420,6 +2520,15 @@ footer p{margin:4px 0 !important;}
 </div>
 </div>
 </header>
+
+<div class="booking-strip" id="bookingStrip" aria-hidden="true">
+  <div class="booking-strip-left">
+    <div class="booking-strip-kicker">Direct booking benefit</div>
+    <div class="booking-strip-text">₹50 off • Instant WhatsApp confirmation • Pay at property</div>
+  </div>
+  <button class="strip-btn" id="bookingStripBtn" type="button">Check Availability</button>
+</div>
+
 <section class="hero">
 <div class="container">
 <h2>Clean &amp; Comfortable Stay in KPHB Colony</h2>
@@ -3354,6 +3463,26 @@ footer p{margin:4px 0 !important;}
   .form-grid{grid-template-columns:1fr !important;}
 }
 
+
+/* ===== V4 MICRO POLISH ===== */
+.wa-book:hover,
+.btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.18);
+}
+
+.card-gallery img{
+  transition: opacity .35s ease, transform .35s ease;
+}
+
+.card-gallery img.is-fading{
+  opacity: .6;
+}
+
+.room-card:hover .card-gallery img{
+  transform: scale(1.02);
+}
+
 </style>
 <div aria-label="Quick actions" class="ssfab-stack">
 <a aria-label="Book Now" class="ssfab ssfab-book" href="#rooms" title="Book Now">
@@ -3776,6 +3905,46 @@ footer p{margin:4px 0 !important;}
   window.galleryPrev = function(btn, event){ if(event){ event.preventDefault(); event.stopPropagation(); } const gallery = btn.closest(".card-gallery"); if(gallery) prevImage(gallery, true); };
   window.galleryNext = function(btn, event){ if(event){ event.preventDefault(); event.stopPropagation(); } const gallery = btn.closest(".card-gallery"); if(gallery) nextImage(gallery, true); };
   document.addEventListener("DOMContentLoaded", function(){ document.querySelectorAll(".card-gallery[data-images]").forEach(setupGallery); });
+})();
+</script>
+
+
+<script>
+/* ===== V5 CONVERSION BAR LOGIC ===== */
+(function(){
+  function initBookingStrip(){
+    const strip = document.getElementById("bookingStrip");
+    const btn = document.getElementById("bookingStripBtn");
+    const hero = document.querySelector(".hero");
+    if(!strip || !btn || !hero) return;
+
+    btn.addEventListener("click", function(){
+      if(typeof window.openBooking === "function"){
+        window.openBooking("Deluxe AC Room");
+      }
+    });
+
+    function toggleStrip(){
+      const threshold = hero.offsetTop + hero.offsetHeight - 40;
+      if(window.scrollY > threshold){
+        strip.classList.add("show");
+        strip.setAttribute("aria-hidden", "false");
+      }else{
+        strip.classList.remove("show");
+        strip.setAttribute("aria-hidden", "true");
+      }
+    }
+
+    window.addEventListener("scroll", toggleStrip, {passive:true});
+    window.addEventListener("resize", toggleStrip);
+    toggleStrip();
+  }
+
+  if(document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", initBookingStrip);
+  }else{
+    initBookingStrip();
+  }
 })();
 </script>
 
