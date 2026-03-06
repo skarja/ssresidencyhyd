@@ -2994,13 +2994,6 @@ body.has-booking-strip{scroll-padding-top:150px;}
 </div>
 
 
-<section style="padding:30px 0;text-align:center">
-<h3 style="font-size:20px;margin-bottom:12px;">Find Us – Kukatpally</h3>
-<iframe 
-src="https://maps.google.com/maps?q=KPHB%20Colony%20Hyderabad&t=&z=15&ie=UTF8&iwloc=&output=embed"
-width="90%" height="320" style="border:0;border-radius:12px;"></iframe>
-</section>
-
 </footer>
 <!-- Floating WhatsApp -->
 <a aria-label="WhatsApp" class="whatsapp-float" href="https://api.whatsapp.com/send?phone=917842072725">CHAT</a>
@@ -3851,8 +3844,14 @@ footer p{margin:4px 0 !important;}
 </script>
 
 
+
+
+
+
+
+
 <script>
-/* ===== FINAL WHATSAPP SEND FIX ===== */
+/* ===== V7.1 AUTHORITATIVE BOOKING + iOS FIX ===== */
 (function(){
   const WHATSAPP_NUMBER = "917842072725";
   const ONLINE_DISCOUNT = 50;
@@ -4020,7 +4019,6 @@ footer p{margin:4px 0 !important;}
     }
 
     const p = getPricing();
-
     const lines = [
       "Booking Request — SS Residency Grand",
       "",
@@ -4045,9 +4043,11 @@ footer p{margin:4px 0 !important;}
       "Please confirm availability."
     ];
 
-    const url = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`;
-    var isiPhone = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-    if (isiPhone) {
+    const url = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(lines.join("\n"))}`;
+    const isiOS = /iPad|iPhone|iPod/i.test(navigator.userAgent);
+
+    // For iOS Safari, direct navigation works more reliably than window.open.
+    if(isiOS){
       window.location.href = url;
     } else {
       window.open(url, "_blank");
@@ -4072,8 +4072,8 @@ footer p{margin:4px 0 !important;}
       form.setAttribute("onsubmit", "event.preventDefault(); return sendWhatsApp();");
       form.addEventListener("submit", function(e){
         e.preventDefault();
-        sendWhatsApp();
-      });
+        return sendWhatsApp();
+      }, {passive:false});
     }
 
     ["roomType","guests","extraBed","checkin","checkout","checkinTime"].forEach(function(id){
@@ -4095,6 +4095,21 @@ footer p{margin:4px 0 !important;}
         btn.type = "button";
         btn.onclick = fillTomorrowNext;
       }
+    });
+
+    // Strong binding for iOS Safari on WhatsApp CTA
+    const ctaCandidates = Array.from(document.querySelectorAll("#bookingForm button, #bookingForm .btn, #bookingForm input[type='submit']"));
+    ctaCandidates.forEach(function(btn){
+      const txt = (btn.textContent || btn.value || "").replace(/\s+/g, " ").trim().toLowerCase();
+      if(!(txt.includes("whatsapp") || txt.includes("send") || txt.includes("check availability"))) return;
+      btn.type = "submit";
+      const handler = function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        return sendWhatsApp();
+      };
+      btn.addEventListener("click", handler, {passive:false});
+      btn.addEventListener("touchend", handler, {passive:false});
     });
 
     const bookButtons = Array.from(document.querySelectorAll("button, a"));
@@ -4123,65 +4138,6 @@ footer p{margin:4px 0 !important;}
   document.addEventListener("keydown", function(e){
     if(e.key === "Escape") closeModal();
   });
-})();
-</script>
-
-
-<script>
-/* ===== iPhone Safari CTA Fix ===== */
-(function(){
-  function bindBookingCTA(){
-    var form = document.getElementById("bookingForm");
-    if(!form || form.dataset.iosFixed === "1") return;
-    form.dataset.iosFixed = "1";
-
-    var buttons = form.querySelectorAll('button, .btn, input[type="submit"]');
-    buttons.forEach(function(btn){
-      var txt = (btn.textContent || btn.value || "").toLowerCase();
-      if(txt.indexOf("whatsapp") === -1 && txt.indexOf("check availability") === -1 && txt.indexOf("send") === -1) return;
-
-      btn.setAttribute("type", "submit");
-
-      var handler = function(e){
-        e.preventDefault();
-        e.stopPropagation();
-        if(typeof window.sendWhatsApp === "function"){
-          window.sendWhatsApp();
-        } else if(typeof sendWhatsApp === "function"){
-          sendWhatsApp();
-        }
-        return false;
-      };
-
-      btn.addEventListener("click", handler, {passive:false});
-      btn.addEventListener("touchend", handler, {passive:false});
-    });
-
-    form.addEventListener("submit", function(e){
-      e.preventDefault();
-      if(typeof window.sendWhatsApp === "function"){
-        window.sendWhatsApp();
-      } else if(typeof sendWhatsApp === "function"){
-        sendWhatsApp();
-      }
-      return false;
-    });
-  }
-
-  if(document.readyState === "loading"){
-    document.addEventListener("DOMContentLoaded", bindBookingCTA);
-  } else {
-    bindBookingCTA();
-  }
-
-  var originalOpen = window.openBooking;
-  if(typeof originalOpen === "function"){
-    window.openBooking = function(){
-      var result = originalOpen.apply(this, arguments);
-      setTimeout(bindBookingCTA, 80);
-      return result;
-    };
-  }
 })();
 </script>
 
