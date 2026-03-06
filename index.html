@@ -4287,23 +4287,25 @@ footer p{margin:4px 0 !important;}
       if(typeof event.stopImmediatePropagation === "function") event.stopImmediatePropagation();
     }
 
-    // blur active element first; helps iPhone Safari exit keyboard/focus state
+    // iPhone Safari can keep the last focused input "active" for a moment.
+    // Blur first, then validate+submit after a short delay so the value commits.
     if(document.activeElement && typeof document.activeElement.blur === "function"){
       document.activeElement.blur();
     }
 
-    if(!validateBooking()) return false;
+    window.setTimeout(function(){
+      if(!validateBooking()) return false;
 
-    var textInput = $("waNativeText");
-    var form = $("waNativeForm");
-    if(!textInput || !form) return false;
+      var textInput = $("waNativeText");
+      var form = $("waNativeForm");
+      if(!textInput || !form) return false;
 
-    textInput.value = buildMessage();
+      textInput.value = buildMessage();
 
-    // Native form submit is more reliable on iPhone Safari than JS popups/navigation
-    setTimeout(function(){
+      // Native form submit is more reliable on iPhone Safari than JS popups/navigation
       form.submit();
-    }, 60);
+      return false;
+    }, 220);
 
     return false;
   };
