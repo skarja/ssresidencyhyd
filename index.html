@@ -1529,7 +1529,7 @@ header.shrink .brand h1{
 }
 #rooms .rooms{
   display:grid;
-  grid-template-columns:repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap:18px;
 }
 @media (max-width: 980px){
@@ -2072,6 +2072,205 @@ header.shrink .brand h1{
   display:none !important;
 }
 
+
+/* ===== V3 BOUTIQUE PASS ===== */
+:root{
+  --shadow-soft:0 10px 28px rgba(2,8,23,.08);
+  --shadow-card:0 18px 42px rgba(2,8,23,.10);
+  --shadow-card-hover:0 24px 52px rgba(2,8,23,.14);
+}
+
+/* tighter overall rhythm */
+.hero{padding:24px 0 18px 0 !important;}
+.hero h2{margin:0 0 6px 0 !important; font-size:30px !important; line-height:1.12 !important;}
+.hero p{max-width:760px !important; line-height:1.5 !important;}
+.section{padding:24px 0 !important;}
+.section-head{padding:12px 0 10px !important; margin-bottom:10px !important;}
+.gold-accent{margin:8px 0 10px 0 !important;}
+#rooms .sub{margin:0 auto 12px auto !important;}
+.container{max-width:1160px !important;}
+
+/* 2x2 room grid, tighter but premium */
+#rooms .rooms{
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:18px !important;
+  align-items:stretch !important;
+}
+#rooms .room-card{
+  border-radius:20px !important;
+  border:1px solid rgba(226,232,240,.92) !important;
+  box-shadow:var(--shadow-card) !important;
+  overflow:hidden !important;
+  background:#fff !important;
+  transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease !important;
+}
+#rooms .room-card:hover{
+  transform:translateY(-3px) !important;
+  box-shadow:var(--shadow-card-hover) !important;
+  border-color:rgba(202,166,75,.36) !important;
+}
+#rooms .card-gallery img{
+  height:280px !important;
+  object-fit:cover !important;
+}
+#rooms .content{
+  padding:14px 14px 16px 14px !important;
+}
+#rooms .content h4{
+  font-size:18px !important;
+  line-height:1.18 !important;
+  margin:0 0 6px 0 !important;
+}
+#rooms .price{
+  margin:0 0 8px 0 !important;
+  font-size:13px !important;
+  line-height:1.45 !important;
+}
+#rooms .chips{
+  gap:6px !important;
+  margin-top:8px !important;
+}
+#rooms .chip{
+  font-size:11px !important;
+  padding:5px 9px !important;
+}
+#rooms .wa-book{
+  width:100% !important;
+  justify-content:center !important;
+  margin-top:12px !important;
+  padding:12px 14px !important;
+  font-size:11.5px !important;
+  border-radius:15px !important;
+  letter-spacing:.95px !important;
+}
+
+/* slightly larger scrolling controls */
+#rooms .gal-btn{
+  width:40px !important;
+  height:40px !important;
+}
+#rooms .gal-dots{bottom:10px !important;}
+
+/* premium popup, tighter and cleaner */
+.modal{
+  width:min(820px,100%) !important;
+  border-radius:24px 24px 0 0 !important;
+  box-shadow:0 30px 72px rgba(2,8,23,.22) !important;
+}
+.modal-head{
+  padding:12px 14px 10px 14px !important;
+}
+.modal-title b{
+  font-size:20px !important;
+  line-height:1.15 !important;
+}
+.modal-title small{
+  font-size:12.5px !important;
+}
+.modal-body{
+  padding:14px !important;
+  background:linear-gradient(180deg,#ffffff 0%, #fbfdff 100%) !important;
+}
+.room-preview{
+  position:sticky !important;
+  top:62px !important;
+  display:grid !important;
+  grid-template-columns:180px 1fr !important;
+  gap:14px !important;
+  align-items:center !important;
+  margin:0 0 14px 0 !important;
+  padding:14px !important;
+  border-radius:18px !important;
+  box-shadow:var(--shadow-soft) !important;
+}
+.room-preview img{
+  width:100% !important;
+  height:126px !important;
+  border-radius:16px !important;
+  object-fit:cover !important;
+}
+.rp-name{
+  font-size:19px !important;
+  font-weight:1000 !important;
+  line-height:1.14 !important;
+  margin-bottom:2px !important;
+}
+.rp-price{
+  font-size:13.5px !important;
+  margin-bottom:6px !important;
+}
+.rp-total-line{
+  margin:6px 0 8px 0 !important;
+  padding:10px 12px !important;
+  font-size:14px !important;
+}
+.form-section-title{
+  margin:6px 0 2px 0 !important;
+  letter-spacing:1.8px !important;
+}
+.form-sep{
+  margin:10px 0 8px 0 !important;
+}
+.form-grid{
+  display:grid !important;
+  grid-template-columns:1fr 1fr !important;
+  gap:12px !important;
+}
+.field{margin-bottom:10px !important;}
+.field label{
+  font-size:15px !important;
+  font-weight:900 !important;
+  margin-bottom:5px !important;
+}
+.field input,.field select,.field textarea{
+  font-size:15px !important;
+  padding:13px 14px !important;
+  border-radius:14px !important;
+  box-shadow:0 6px 14px rgba(2,8,23,.04) !important;
+}
+.field textarea{min-height:86px !important;}
+.field-note{
+  font-size:12px !important;
+  margin-top:5px !important;
+  color:#64748b !important;
+  font-weight:700 !important;
+}
+.form-note{
+  margin-top:8px !important;
+  padding:10px 12px !important;
+  font-size:12px !important;
+  line-height:1.45 !important;
+}
+.modal-actions{
+  padding:10px 14px !important;
+}
+.modal-actions .btn{
+  padding:11px 14px !important;
+  border-radius:14px !important;
+}
+
+/* location/footer tighten */
+#location .loc-title{margin:6px 0 6px 0 !important;}
+.loc-card{padding:14px !important;}
+footer{padding:22px 0 !important;}
+footer p{margin:4px 0 !important;}
+
+@media (max-width:900px){
+  #rooms .rooms{grid-template-columns:1fr !important;}
+  #rooms .card-gallery img{height:240px !important;}
+}
+@media (max-width:720px){
+  .hero{padding:20px 0 16px 0 !important;}
+  .hero h2{font-size:24px !important;}
+  .room-preview{
+    grid-template-columns:1fr !important;
+    top:0 !important;
+  }
+  .room-preview img{height:170px !important;}
+  .form-grid{grid-template-columns:1fr !important;}
+}
+
 </style>
 </head>
 <body>
@@ -2423,11 +2622,7 @@ header.shrink .brand h1{
         </div>
         <div class="field">
           <label for="guests">Guests</label>
-          <select id="guests" name="guests" onchange="syncFromForm()">
-            <option value="1">1</option>
-            <option value="2" selected>2</option>
-            <option value="3">3</option>
-          </select>
+          <select id="guests" name="guests" onchange="syncFromForm()"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option></select>
         </div>
         <div class="field">
           <label for="checkin">Check-in Date</label>
@@ -2443,10 +2638,7 @@ header.shrink .brand h1{
         </div>
         <div class="field">
           <label for="extraBed">Extra Bed</label>
-          <select id="extraBed" name="extraBed" onchange="syncFromForm()">
-            <option value="0" selected>No</option>
-            <option value="1">Yes (₹200/night)</option>
-          </select>
+          <select id="extraBed" name="extraBed" onchange="syncFromForm()"><option value="0" selected>No</option><option value="1">Yes</option></select>
         </div>
       </div>
 
@@ -2463,9 +2655,9 @@ header.shrink .brand h1{
         </div>
         <div class="field field-full">
           <label for="email">Email</label>
-          <input id="email" name="email" type="email" placeholder="guest@email.com"/>
-          <div class="field-note">Booking Confirmation will be sent to this email</div>
-        </div>
+          <input id="email" name="email" type="email" placeholder="guest@email.com">
+      <div class="field-note">Booking confirmation will be sent to this email</div>
+</div>
         <div class="field field-full">
           <label for="notes">Notes (optional)</label>
           <textarea id="notes" name="notes" placeholder="Any preference / early check-in / parking request?"></textarea>
@@ -2496,352 +2688,7 @@ header.shrink .brand h1{
 </div>
 </div>
 
-<script>
-  
-  const WHATSAPP_NUMBER = "917842421143";
-  const ONLINE_DISCOUNT = 50;
-  const EXTRA_BED_FEE = 200;
 
-  const RATES = {
-    "Deluxe AC Room":       { 1: 1699, 2: 1799, 3: 1899, img: "images/deluxe-ac-1.jpg" },
-    "Standard AC Room":     { 1: 1599, 2: 1699, 3: 1799, img: "images/standard-ac-1.jpg" },
-    "Deluxe Non-AC Room":   { 1: 1399, 2: 1499, 3: 1599, img: "images/deluxe-nonac-1.jpg" },
-    "Standard Non-AC Room": { 1: 1299, 2: 1399, 3: 1499, img: "images/standard-nonac-1.jpg" }
-  };
-
-  const backdrop = document.getElementById("backdrop");
-  const roomTypeEl = document.getElementById("roomType");
-  const checkinEl = document.getElementById("checkin");
-  const checkoutEl = document.getElementById("checkout");
-  const checkinTimeEl = document.getElementById("checkinTime");
-  const guestsEl = document.getElementById("guests");
-  const extraBedEl = document.getElementById("extraBed");
-  const nameEl = document.getElementById("name");
-  const phoneEl = document.getElementById("phone");
-  const emailEl = document.getElementById("email");
-  const notesEl = document.getElementById("notes");
-
-  const rpImg = document.getElementById("rpImg");
-  const rpName = document.getElementById("rpName");
-  const rpPrice = document.getElementById("rpPrice");
-  const rpTotalLine = document.getElementById("rpTotalLine");
-  const rpDiscount = document.getElementById("rpDiscount");
-
-  function formatINR(n){
-    const safe = Number.isFinite(Number(n)) ? Number(n) : 0;
-    try { return "₹" + safe.toLocaleString("en-IN"); }
-    catch (e) { return "₹" + safe; }
-  }
-
-  function parseDate(value){
-    const parts = (value || "").split("-").map(Number);
-    if(parts.length !== 3) return null;
-    const [y,m,d] = parts;
-    if(!y || !m || !d) return null;
-    return new Date(y, m-1, d);
-  }
-
-  function daysBetween(d1, d2){
-    const ms = 24*60*60*1000;
-    const a = new Date(d1.getFullYear(), d1.getMonth(), d1.getDate()).getTime();
-    const b = new Date(d2.getFullYear(), d2.getMonth(), d2.getDate()).getTime();
-    return Math.max(0, Math.round((b-a)/ms));
-  }
-
-  function setDefaultDates(){
-    const today = new Date();
-    const tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate()+1);
-    if(!checkinEl.value) checkinEl.value = today.toISOString().slice(0,10);
-    if(!checkoutEl.value) checkoutEl.value = tomorrow.toISOString().slice(0,10);
-    if(!checkinTimeEl.value) checkinTimeEl.value = "12:00";
-  }
-
-  function enforceDateRules(){
-    const ci = parseDate(checkinEl.value);
-    const co = parseDate(checkoutEl.value);
-    if(ci && (!co || co <= ci)){
-      const next = new Date(ci.getFullYear(), ci.getMonth(), ci.getDate()+1);
-      checkoutEl.value = next.toISOString().slice(0,10);
-    }
-  }
-
-  function getPricing(){
-    const room = roomTypeEl.value || "Deluxe AC Room";
-    const guests = Math.min(3, Math.max(1, parseInt(guestsEl.value || "2", 10) || 2));
-    const extraBed = parseInt(extraBedEl.value || "0", 10) ? 1 : 0;
-
-    const ci = parseDate(checkinEl.value);
-    const co = parseDate(checkoutEl.value);
-    const nights = (ci && co) ? Math.max(1, daysBetween(ci, co)) : 1;
-
-    const roomRates = RATES[room] || RATES["Deluxe AC Room"];
-    const rate = Number(roomRates[guests] || 0);
-    const extraBedFee = extraBed * EXTRA_BED_FEE * nights;
-    const subtotal = (rate * nights) + extraBedFee;
-    const discount = ONLINE_DISCOUNT;
-    const total = Math.max(0, subtotal - discount);
-
-    return { room, guests, nights, rate, extraBed, extraBedFee, discount, subtotal, total, img: roomRates.img };
-  }
-
-  function syncFromForm(){
-    enforceDateRules();
-    const p = getPricing();
-
-    if(rpImg) rpImg.src = p.img || "images/deluxe-ac-1.jpg";
-    if(rpName) rpName.textContent = p.room;
-    if(rpPrice) rpPrice.textContent = `${formatINR(p.rate)} / night · ${p.guests} guest${p.guests > 1 ? "s" : ""} · ${p.nights} night${p.nights > 1 ? "s" : ""}`;
-    if(rpTotalLine) rpTotalLine.textContent = formatINR(p.total);
-    if(rpDiscount) rpDiscount.textContent = `Online Booking Discount: -${formatINR(p.discount)}`;
-  }
-
-  function roomOptionExists(name){
-    for(const opt of roomTypeEl.options){
-      if(opt.value === name) return true;
-    }
-    return false;
-  }
-
-  function openBooking(roomName){
-    setDefaultDates();
-    if(roomName && roomOptionExists(roomName)) roomTypeEl.value = roomName;
-    syncFromForm();
-    backdrop.style.display = "flex";
-    backdrop.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-    setTimeout(() => nameEl && nameEl.focus(), 60);
-  }
-
-  function closeModal(){
-    backdrop.style.display = "none";
-    backdrop.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
-  }
-
-  function fillTodayTomorrow(){
-    const today = new Date();
-    const tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate()+1);
-    checkinEl.value = today.toISOString().slice(0,10);
-    checkoutEl.value = tomorrow.toISOString().slice(0,10);
-    syncFromForm();
-  }
-
-  function fillTomorrowNext(){
-    const today = new Date();
-    const tomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate()+1);
-    const next = new Date(today.getFullYear(), today.getMonth(), today.getDate()+2);
-    checkinEl.value = tomorrow.toISOString().slice(0,10);
-    checkoutEl.value = next.toISOString().slice(0,10);
-    syncFromForm();
-  }
-
-  function sendWhatsApp(){
-    enforceDateRules();
-    if(!nameEl.value.trim()){ nameEl.focus(); return; }
-
-    const digits = (phoneEl.value || "").replace(/\D/g, "");
-    if(digits.length < 10){ phoneEl.focus(); return; }
-
-    if(emailEl && emailEl.value.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailEl.value.trim())){
-      emailEl.focus();
-      return;
-    }
-
-    const p = getPricing();
-    const lines = [
-      "Booking Request — SS Residency Grand",
-      "",
-      `Room: ${p.room}`,
-      `Guests: ${p.guests}`,
-      `Check-in: ${checkinEl.value} at ${checkinTimeEl.value || "12:00"}`,
-      `Check-out: ${checkoutEl.value}`,
-      `Nights: ${p.nights}`,
-      `Extra Bed: ${p.extraBed ? "Yes (₹200/night)" : "No"}`,
-      "",
-      `Rate: ${formatINR(p.rate)} / night`,
-      (p.extraBedFee > 0 ? `Extra Bed Fee: ${formatINR(p.extraBedFee)}` : null),
-      `Online Discount: -${formatINR(p.discount)}`,
-      `Total: ${formatINR(p.total)}`,
-      "",
-      `Guest Name: ${nameEl.value.trim()}`,
-      `Mobile: ${phoneEl.value.trim()}`,
-      (emailEl && emailEl.value.trim() ? `Email: ${emailEl.value.trim()}` : null),
-      (notesEl.value.trim() ? `Notes: ${notesEl.value.trim()}` : null),
-      "",
-      "Please confirm availability."
-    ].filter(Boolean);
-
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`;
-    window.open(url, "_blank");
-  }
-
-  window.openBooking = openBooking;
-  window.closeModal = closeModal;
-  window.syncFromForm = syncFromForm;
-  window.enforceDateRules = enforceDateRules;
-  window.fillTodayTomorrow = fillTodayTomorrow;
-  window.fillTomorrowNext = fillTomorrowNext;
-  window.sendWhatsApp = sendWhatsApp;
-
-
-  backdrop.addEventListener("click", (e)=>{ if(e.target === backdrop) closeModal(); });
-
-  setDefaultDates();
-  enforceDateRules();
-  syncFromForm();
-
-  /* =========================
-     Room Tile Gallery (dots + fade + swipe + lazy)
-  ========================== */
-  function galleryList(gal){
-    return (gal.getAttribute("data-images") || "")
-      .split(",")
-      .map(s => s.trim())
-      .filter(Boolean);
-  }
-
-  function gallerySetIndex(gal, idx){
-    const imgEl = gal.querySelector("img");
-    const list = galleryList(gal);
-    if(!list.length || !imgEl) return;
-
-    const max = list.length;
-    let i = Number(idx);
-    if(Number.isNaN(i)) i = 0;
-    i = ((i % max) + max) % max;
-
-    imgEl.classList.add("is-fading");
-    setTimeout(()=> imgEl.classList.remove("is-fading"), 180);
-
-    imgEl.src = list[i];
-    imgEl.setAttribute("data-loaded","1");
-    gal.setAttribute("data-idx", String(i));
-
-    const dots = gal.querySelectorAll(".gallery-dot");
-    if(dots && dots.length){
-      dots.forEach((d, di)=> d.classList.toggle("is-active", di === i));
-    }
-  }
-
-  function galleryNext(btn, ev){
-    if(ev) ev.preventDefault();
-    const gal = btn.closest(".card-gallery");
-    if(!gal) return;
-    const i = parseInt(gal.getAttribute("data-idx") || "0", 10);
-    gallerySetIndex(gal, i + 1);
-  }
-
-  function galleryPrev(btn, ev){
-    if(ev) ev.preventDefault();
-    const gal = btn.closest(".card-gallery");
-    if(!gal) return;
-    const i = parseInt(gal.getAttribute("data-idx") || "0", 10);
-    gallerySetIndex(gal, i - 1);
-  }
-
-  window.galleryNext = galleryNext;
-  window.galleryPrev = galleryPrev;
-
-  function initGalleries(){
-    const io = ("IntersectionObserver" in window) ? new IntersectionObserver((entries)=>{
-      entries.forEach(ent=>{
-        if(ent.isIntersecting){
-          const gal = ent.target;
-          const list = galleryList(gal);
-          const imgEl = gal.querySelector("img");
-          if(imgEl && list.length && !imgEl.getAttribute("data-loaded")){
-            imgEl.setAttribute("data-loaded","1");
-            imgEl.src = list[0];
-          }
-          io.unobserve(gal);
-        }
-      });
-    }, {rootMargin:"200px 0px"}) : null;
-
-    document.querySelectorAll(".card-gallery").forEach(gal => {
-      const list = galleryList(gal);
-
-      // Dots
-      let dotsWrap = gal.querySelector(".gallery-dots");
-      if(!dotsWrap){
-        dotsWrap = document.createElement("div");
-        dotsWrap.className = "gallery-dots";
-        gal.appendChild(dotsWrap);
-      }else{
-        dotsWrap.innerHTML = "";
-      }
-
-      if(list.length > 1){
-        list.forEach((_, di)=>{
-          const b = document.createElement("button");
-          b.type = "button";
-          b.className = "gallery-dot" + (di===0 ? " is-active" : "");
-          b.addEventListener("click", (e)=>{
-            e.preventDefault();
-            gallerySetIndex(gal, di);
-          });
-          dotsWrap.appendChild(b);
-        });
-      }
-
-      gal.setAttribute("data-idx","0");
-
-      const imgEl = gal.querySelector("img");
-      if(imgEl){
-        imgEl.loading = "lazy";
-        imgEl.decoding = "async";
-        if(!io){
-          gallerySetIndex(gal, 0);
-        }else{
-          io.observe(gal);
-        }
-      }
-
-      // Swipe
-      let startX = 0, startY = 0, active = false;
-      const onStart = (x,y)=>{ startX=x; startY=y; active=true; };
-      const onMove = (x,y)=>{
-        if(!active) return;
-        const dx = x-startX, dy = y-startY;
-        if(Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)){
-          active=false;
-          const i = parseInt(gal.getAttribute("data-idx") || "0", 10);
-          gallerySetIndex(gal, i + (dx < 0 ? 1 : -1));
-        }
-      };
-      const onEnd = ()=>{ active=false; };
-
-      gal.addEventListener("touchstart", (e)=>{
-        const t = e.touches && e.touches[0];
-        if(!t) return;
-        onStart(t.clientX, t.clientY);
-      }, {passive:true});
-      gal.addEventListener("touchmove", (e)=>{
-        const t = e.touches && e.touches[0];
-        if(!t) return;
-        onMove(t.clientX, t.clientY);
-      }, {passive:true});
-      gal.addEventListener("touchend", onEnd, {passive:true});
-
-      // Desktop drag
-      gal.addEventListener("pointerdown", (e)=>{
-        if(e.target.closest("button")) return;
-        onStart(e.clientX, e.clientY);
-      });
-      gal.addEventListener("pointermove", (e)=>{ if(active) onMove(e.clientX, e.clientY); });
-      gal.addEventListener("pointerup", onEnd);
-      gal.addEventListener("pointercancel", onEnd);
-      gal.addEventListener("pointerleave", onEnd);
-    });
-  }
-
-  if(document.readyState === "loading"){
-    document.addEventListener("DOMContentLoaded", initGalleries);
-  }else{
-    initGalleries();
-  }
-
-</script>
 <!-- Photo Quick View Modal -->
 <style>
 /* ===== SS FAB Stack (Isolated, Conflict-Free) ===== */
@@ -3193,6 +3040,205 @@ header.shrink .brand h1{
   .form-grid{grid-template-columns:1fr;}
 }
 
+
+/* ===== V3 BOUTIQUE PASS ===== */
+:root{
+  --shadow-soft:0 10px 28px rgba(2,8,23,.08);
+  --shadow-card:0 18px 42px rgba(2,8,23,.10);
+  --shadow-card-hover:0 24px 52px rgba(2,8,23,.14);
+}
+
+/* tighter overall rhythm */
+.hero{padding:24px 0 18px 0 !important;}
+.hero h2{margin:0 0 6px 0 !important; font-size:30px !important; line-height:1.12 !important;}
+.hero p{max-width:760px !important; line-height:1.5 !important;}
+.section{padding:24px 0 !important;}
+.section-head{padding:12px 0 10px !important; margin-bottom:10px !important;}
+.gold-accent{margin:8px 0 10px 0 !important;}
+#rooms .sub{margin:0 auto 12px auto !important;}
+.container{max-width:1160px !important;}
+
+/* 2x2 room grid, tighter but premium */
+#rooms .rooms{
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:18px !important;
+  align-items:stretch !important;
+}
+#rooms .room-card{
+  border-radius:20px !important;
+  border:1px solid rgba(226,232,240,.92) !important;
+  box-shadow:var(--shadow-card) !important;
+  overflow:hidden !important;
+  background:#fff !important;
+  transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease !important;
+}
+#rooms .room-card:hover{
+  transform:translateY(-3px) !important;
+  box-shadow:var(--shadow-card-hover) !important;
+  border-color:rgba(202,166,75,.36) !important;
+}
+#rooms .card-gallery img{
+  height:280px !important;
+  object-fit:cover !important;
+}
+#rooms .content{
+  padding:14px 14px 16px 14px !important;
+}
+#rooms .content h4{
+  font-size:18px !important;
+  line-height:1.18 !important;
+  margin:0 0 6px 0 !important;
+}
+#rooms .price{
+  margin:0 0 8px 0 !important;
+  font-size:13px !important;
+  line-height:1.45 !important;
+}
+#rooms .chips{
+  gap:6px !important;
+  margin-top:8px !important;
+}
+#rooms .chip{
+  font-size:11px !important;
+  padding:5px 9px !important;
+}
+#rooms .wa-book{
+  width:100% !important;
+  justify-content:center !important;
+  margin-top:12px !important;
+  padding:12px 14px !important;
+  font-size:11.5px !important;
+  border-radius:15px !important;
+  letter-spacing:.95px !important;
+}
+
+/* slightly larger scrolling controls */
+#rooms .gal-btn{
+  width:40px !important;
+  height:40px !important;
+}
+#rooms .gal-dots{bottom:10px !important;}
+
+/* premium popup, tighter and cleaner */
+.modal{
+  width:min(820px,100%) !important;
+  border-radius:24px 24px 0 0 !important;
+  box-shadow:0 30px 72px rgba(2,8,23,.22) !important;
+}
+.modal-head{
+  padding:12px 14px 10px 14px !important;
+}
+.modal-title b{
+  font-size:20px !important;
+  line-height:1.15 !important;
+}
+.modal-title small{
+  font-size:12.5px !important;
+}
+.modal-body{
+  padding:14px !important;
+  background:linear-gradient(180deg,#ffffff 0%, #fbfdff 100%) !important;
+}
+.room-preview{
+  position:sticky !important;
+  top:62px !important;
+  display:grid !important;
+  grid-template-columns:180px 1fr !important;
+  gap:14px !important;
+  align-items:center !important;
+  margin:0 0 14px 0 !important;
+  padding:14px !important;
+  border-radius:18px !important;
+  box-shadow:var(--shadow-soft) !important;
+}
+.room-preview img{
+  width:100% !important;
+  height:126px !important;
+  border-radius:16px !important;
+  object-fit:cover !important;
+}
+.rp-name{
+  font-size:19px !important;
+  font-weight:1000 !important;
+  line-height:1.14 !important;
+  margin-bottom:2px !important;
+}
+.rp-price{
+  font-size:13.5px !important;
+  margin-bottom:6px !important;
+}
+.rp-total-line{
+  margin:6px 0 8px 0 !important;
+  padding:10px 12px !important;
+  font-size:14px !important;
+}
+.form-section-title{
+  margin:6px 0 2px 0 !important;
+  letter-spacing:1.8px !important;
+}
+.form-sep{
+  margin:10px 0 8px 0 !important;
+}
+.form-grid{
+  display:grid !important;
+  grid-template-columns:1fr 1fr !important;
+  gap:12px !important;
+}
+.field{margin-bottom:10px !important;}
+.field label{
+  font-size:15px !important;
+  font-weight:900 !important;
+  margin-bottom:5px !important;
+}
+.field input,.field select,.field textarea{
+  font-size:15px !important;
+  padding:13px 14px !important;
+  border-radius:14px !important;
+  box-shadow:0 6px 14px rgba(2,8,23,.04) !important;
+}
+.field textarea{min-height:86px !important;}
+.field-note{
+  font-size:12px !important;
+  margin-top:5px !important;
+  color:#64748b !important;
+  font-weight:700 !important;
+}
+.form-note{
+  margin-top:8px !important;
+  padding:10px 12px !important;
+  font-size:12px !important;
+  line-height:1.45 !important;
+}
+.modal-actions{
+  padding:10px 14px !important;
+}
+.modal-actions .btn{
+  padding:11px 14px !important;
+  border-radius:14px !important;
+}
+
+/* location/footer tighten */
+#location .loc-title{margin:6px 0 6px 0 !important;}
+.loc-card{padding:14px !important;}
+footer{padding:22px 0 !important;}
+footer p{margin:4px 0 !important;}
+
+@media (max-width:900px){
+  #rooms .rooms{grid-template-columns:1fr !important;}
+  #rooms .card-gallery img{height:240px !important;}
+}
+@media (max-width:720px){
+  .hero{padding:20px 0 16px 0 !important;}
+  .hero h2{font-size:24px !important;}
+  .room-preview{
+    grid-template-columns:1fr !important;
+    top:0 !important;
+  }
+  .room-preview img{height:170px !important;}
+  .form-grid{grid-template-columns:1fr !important;}
+}
+
 </style>
 <div aria-label="Quick actions" class="ssfab-stack">
 <a aria-label="Book Now" class="ssfab ssfab-book" href="#rooms" title="Book Now">
@@ -3215,111 +3261,340 @@ header.shrink .brand h1{
 </a>
 </div>
 
+
+
+
+
 <script>
-/* ===== Booking Popup Logic (dates + pricing + total) ===== */
+/* ===== AUTHORITATIVE BOOKING LOGIC V4 ===== */
 (function(){
-  const $ = (id) => document.getElementById(id);
+  const WHATSAPP_NUMBER = "917842421143";
+  const ONLINE_DISCOUNT = 50;
+  const EXTRA_BED_FEE = 200;
 
-  function toDate(v){
-    if(!v) return null;
-    const d = new Date(v + "T00:00:00");
-    return isNaN(d.getTime()) ? null : d;
-  }
-  function fmtINR(n){
-    if(!isFinite(n)) n = 0;
-    try{ return "₹" + Math.round(n).toLocaleString("en-IN"); }
-    catch(e){ return "₹" + Math.round(n); }
-  }
-  function nightsBetween(ci, co){
-    const d1 = toDate(ci), d2 = toDate(co);
-    if(!d1 || !d2) return 1;
-    const ms = d2.getTime() - d1.getTime();
-    const n = Math.round(ms / 86400000);
-    return Math.max(1, n);
-  }
-
-  // 1-guest base prices
-  const BASE = {
-    "Deluxe AC Room": 1699,
-    "Deluxe Non-AC Room": 1399,
-    "Standard AC Room": 1599,
-    "Standard Non-AC Room": 1299
+  const RATES = {
+    "Deluxe AC Room":       { 1: 1699, 2: 1799, 3: 1899, img: "images/deluxe-ac-1.jpg" },
+    "Deluxe Non-AC Room":   { 1: 1399, 2: 1499, 3: 1599, img: "images/deluxe-nonac-1.jpg" },
+    "Standard AC Room":     { 1: 1599, 2: 1699, 3: 1799, img: "images/standard-ac-1.jpg" },
+    "Standard Non-AC Room": { 1: 1299, 2: 1399, 3: 1499, img: "images/standard-nonac-1.jpg" }
   };
 
-  const DISCOUNT = 50;        // WhatsApp discount
-  const EXTRA_BED_FEE = 200;  // per night
+  const $ = (id) => document.getElementById(id);
 
-  function enforceDateRules(){
-    const ci = $("checkin");
-    const co = $("checkout");
-    if(!ci || !co) return;
+  function formatINR(n){
+    const safe = Number.isFinite(Number(n)) ? Number(n) : 0;
+    try { return "₹" + safe.toLocaleString("en-IN"); }
+    catch(e) { return "₹" + safe; }
+  }
 
-    if(!ci.value){
-      const today = new Date();
-      ci.value = today.toISOString().slice(0,10);
+  function parseDate(v){
+    if(!v) return null;
+    const [y,m,d] = v.split("-").map(Number);
+    if(!y || !m || !d) return null;
+    return new Date(y, m - 1, d, 12, 0, 0, 0);
+  }
+
+  function isoDate(d){
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, "0");
+    const day = String(d.getDate()).padStart(2, "0");
+    return `${y}-${m}-${day}`;
+  }
+
+  function addDays(d, days){
+    return new Date(d.getFullYear(), d.getMonth(), d.getDate() + days, 12, 0, 0, 0);
+  }
+
+  function nightsBetween(checkinValue, checkoutValue){
+    const ci = parseDate(checkinValue);
+    const co = parseDate(checkoutValue);
+    if(!ci || !co) return 1;
+    const diff = Math.round((co.getTime() - ci.getTime()) / 86400000);
+    return Math.max(1, diff);
+  }
+
+  function setDefaultDates(forceCheckout=false){
+    const checkinEl = $("checkin");
+    const checkoutEl = $("checkout");
+    const checkinTimeEl = $("checkinTime");
+
+    const today = new Date();
+    const ci = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 12, 0, 0, 0);
+    const defaultCo = addDays(ci, 1);
+
+    if(checkinEl && !checkinEl.value) checkinEl.value = isoDate(ci);
+    if(checkoutEl && (!checkoutEl.value || forceCheckout)) {
+      const source = parseDate(checkinEl ? checkinEl.value : "") || ci;
+      checkoutEl.value = isoDate(addDays(source, 1));
     }
-    const d1 = toDate(ci.value);
-    const d2 = toDate(co.value);
+    if(checkinTimeEl && !checkinTimeEl.value) checkinTimeEl.value = "12:00";
+  }
 
-    if(!d2 || (d1 && d2 <= d1)){
-      const next = new Date(d1.getTime() + 86400000);
-      co.value = next.toISOString().slice(0,10);
+  function enforceDateRules(preserveUserCheckout=true){
+    const checkinEl = $("checkin");
+    const checkoutEl = $("checkout");
+    if(!checkinEl || !checkoutEl) return;
+
+    const ci = parseDate(checkinEl.value);
+    if(!ci) return;
+
+    const minCheckout = addDays(ci, 1);
+    checkoutEl.min = isoDate(minCheckout);
+
+    const co = parseDate(checkoutEl.value);
+    if(!co || co < minCheckout || !preserveUserCheckout){
+      checkoutEl.value = isoDate(minCheckout);
     }
   }
 
-  function autoCheckout(){
-    const ci = $("checkin");
-    const co = $("checkout");
-    if(!ci || !co) return;
-    const d1 = toDate(ci.value);
-    const d2 = toDate(co.value);
-    if(!d1) return;
-    if(!d2 || d2 <= d1){
-      const next = new Date(d1.getTime() + 86400000);
-      co.value = next.toISOString().slice(0,10);
-    }
+  function getPricing(){
+    const roomTypeEl = $("roomType");
+    const guestsEl = $("guests");
+    const extraBedEl = $("extraBed");
+    const checkinEl = $("checkin");
+    const checkoutEl = $("checkout");
+
+    const room = roomTypeEl && roomTypeEl.value ? roomTypeEl.value : "Deluxe AC Room";
+    const guests = Math.min(3, Math.max(1, parseInt((guestsEl && guestsEl.value) || "2", 10) || 2));
+    const extraBed = parseInt((extraBedEl && extraBedEl.value) || "0", 10) ? 1 : 0;
+
+    const nights = nightsBetween(checkinEl ? checkinEl.value : "", checkoutEl ? checkoutEl.value : "");
+    const roomRates = RATES[room] || RATES["Deluxe AC Room"];
+    const nightlyRate = Number(roomRates[guests] || 0);
+
+    const roomSubtotal = nightlyRate * nights;
+    const extraBedTotal = extraBed ? (EXTRA_BED_FEE * nights) : 0;
+    const discount = ONLINE_DISCOUNT;
+    const total = Math.max(0, roomSubtotal + extraBedTotal - discount);
+
+    return { room, guests, nights, nightlyRate, roomSubtotal, extraBed, extraBedTotal, discount, total, img: roomRates.img };
   }
 
   function syncFromForm(){
-    const roomType = $("roomType")?.value || "Deluxe AC Room";
-    const guestsRaw = parseInt($("guests")?.value || "2", 10);
-    const guests = Math.min(3, Math.max(1, isFinite(guestsRaw) ? guestsRaw : 1));
-    const extraBed = ($("extraBed")?.value || "no") === "yes";
+    enforceDateRules(true);
+    const p = getPricing();
 
-    const ci = $("checkin")?.value || "";
-    const co = $("checkout")?.value || "";
-    const nights = nightsBetween(ci, co);
+    const rpImg = $("rpImg");
+    const rpName = $("rpName");
+    const rpPrice = $("rpPrice");
+    const rpTotalLine = $("rpTotalLine");
+    const rpDiscount = $("rpDiscount");
 
-    const base1 = (BASE[roomType] ?? 0);
-    const perNight = base1 + ((guests - 1) * 100); // 1->base, 2->+100, 3->+200
-
-    const extra = extraBed ? (EXTRA_BED_FEE * nights) : 0;
-    const subtotal = (perNight * nights) + extra;
-    const total = Math.max(0, subtotal - DISCOUNT);
-
-    if($("rpName")) $("rpName").textContent = roomType;
-    if($("rpPrice")) $("rpPrice").textContent = `${fmtINR(perNight)} / night · ${nights} night${nights>1?"s":""} · ${guests} guest${guests>1?"s":""}`;
-    const discEl = $("rpDiscount");
-    if(discEl) discEl.textContent = `Online Booking Discount: -${fmtINR(DISCOUNT)}`;
-    const amt = $("rpTotalLine")?.querySelector(".booking-total-amt");
-    if(amt) amt.textContent = fmtINR(total);
+    if(rpImg) rpImg.src = p.img || "images/deluxe-ac-1.jpg";
+    if(rpName) rpName.textContent = p.room;
+    if(rpPrice) rpPrice.textContent = `${formatINR(p.nightlyRate)} / night · ${p.guests} guest${p.guests > 1 ? "s" : ""} · ${p.nights} night${p.nights > 1 ? "s" : ""}`;
+    if(rpTotalLine) rpTotalLine.textContent = `Estimated total: ${formatINR(p.total)}`;
+    if(rpDiscount){
+      rpDiscount.style.display = "block";
+      rpDiscount.textContent = `Online Booking Discount: -${formatINR(p.discount)}`;
+    }
   }
 
-  function bind(){
-    ["roomType","checkin","checkout","guests","extraBed","checkinTime"].forEach(id=>{
-      const el = $(id);
-      if(!el) return;
-      el.addEventListener("change", ()=>{ enforceDateRules(); autoCheckout(); syncFromForm(); });
-      el.addEventListener("input",  ()=>{ enforceDateRules(); autoCheckout(); syncFromForm(); });
+  function roomOptionExists(name){
+    const roomTypeEl = $("roomType");
+    if(!roomTypeEl) return false;
+    return Array.from(roomTypeEl.options).some(opt => opt.value === name);
+  }
+
+  function openBooking(roomName){
+    const backdrop = $("backdrop");
+    const roomTypeEl = $("roomType");
+    const nameEl = $("name");
+
+    setDefaultDates(false);
+    enforceDateRules(true);
+
+    if(roomTypeEl && roomName && roomOptionExists(roomName)) roomTypeEl.value = roomName;
+    syncFromForm();
+
+    if(backdrop){
+      backdrop.style.display = "flex";
+      backdrop.setAttribute("aria-hidden","false");
+    }
+    document.body.style.overflow = "hidden";
+    setTimeout(() => { if(nameEl) nameEl.focus(); }, 60);
+  }
+
+  function closeModal(){
+    const backdrop = $("backdrop");
+    if(backdrop){
+      backdrop.style.display = "none";
+      backdrop.setAttribute("aria-hidden","true");
+    }
+    document.body.style.overflow = "";
+  }
+
+  function fillTodayTomorrow(){
+    const checkinEl = $("checkin");
+    const checkoutEl = $("checkout");
+    if(!checkinEl || !checkoutEl) return;
+    const today = new Date();
+    const ci = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 12, 0, 0, 0);
+    checkinEl.value = isoDate(ci);
+    checkoutEl.value = isoDate(addDays(ci, 1));
+    syncFromForm();
+  }
+
+  function fillTomorrowNext(){
+    const checkinEl = $("checkin");
+    const checkoutEl = $("checkout");
+    if(!checkinEl || !checkoutEl) return;
+    const today = new Date();
+    const ci = addDays(new Date(today.getFullYear(), today.getMonth(), today.getDate(), 12, 0, 0, 0), 1);
+    checkinEl.value = isoDate(ci);
+    checkoutEl.value = isoDate(addDays(ci, 1));
+    syncFromForm();
+  }
+
+  function bindQuickDateButtons(){
+    const buttons = Array.from(document.querySelectorAll('.modal-actions .btn'));
+    buttons.forEach(btn => {
+      const txt = (btn.textContent || '').replace(/\s+/g, ' ').trim().toLowerCase();
+      if(txt.includes('today') && txt.includes('tomorrow')){
+        btn.type = 'button';
+        btn.onclick = fillTodayTomorrow;
+      } else if(txt.includes('tomorrow') && txt.includes('next day')){
+        btn.type = 'button';
+        btn.onclick = fillTomorrowNext;
+      }
     });
   }
 
-  document.addEventListener("DOMContentLoaded", ()=>{
-    enforceDateRules(); autoCheckout(); bind(); syncFromForm();
+  function bindBookButtons(){
+    const candidates = Array.from(document.querySelectorAll("button, a"));
+    candidates.forEach(function(el){
+      const txt = (el.textContent || "").replace(/\s+/g, " ").trim().toLowerCase();
+      const onclickText = (el.getAttribute("onclick") || "");
+      const isBook =
+        txt.includes("book on whatsapp") ||
+        txt === "book" ||
+        txt.includes("book now") ||
+        onclickText.includes("openBooking(");
+
+      if(!isBook) return;
+      if(onclickText.includes("openBooking(")) return;
+
+      el.addEventListener("click", function(ev){
+        ev.preventDefault();
+        let roomName = "";
+        const card = el.closest(".room-card");
+        const title = card ? card.querySelector("h4") : null;
+        if(title) roomName = (title.textContent || "").trim();
+        openBooking(roomName || "Deluxe AC Room");
+      });
+    });
+  }
+
+  function sendWhatsApp(){
+    enforceDateRules(true);
+
+    const nameEl = $("name");
+    const phoneEl = $("phone");
+    const emailEl = $("email");
+    const notesEl = $("notes");
+    const checkinEl = $("checkin");
+    const checkoutEl = $("checkout");
+    const checkinTimeEl = $("checkinTime");
+
+    if(nameEl && !nameEl.value.trim()){
+      nameEl.focus();
+      return;
+    }
+
+    const digits = ((phoneEl && phoneEl.value) || "").replace(/\D/g, "");
+    if(phoneEl && digits.length !== 10){
+      phoneEl.focus();
+      return;
+    }
+
+    const emailValue = emailEl ? emailEl.value.trim() : "";
+    if(emailValue && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)){
+      emailEl.focus();
+      return;
+    }
+
+    const p = getPricing();
+    const lines = [
+      "Booking Request — SS Residency Grand",
+      "",
+      `Room: ${p.room}`,
+      `Guests: ${p.guests}`,
+      `Check-in: ${checkinEl ? checkinEl.value : ""} at ${(checkinTimeEl && checkinTimeEl.value) ? checkinTimeEl.value : "12:00"}`,
+      `Check-out: ${checkoutEl ? checkoutEl.value : ""}`,
+      `Nights: ${p.nights}`,
+      `Extra Bed: ${p.extraBed ? "Yes (₹200/night)" : "No"}`,
+      "",
+      `Rate: ${formatINR(p.nightlyRate)} / night`,
+      `Room Subtotal: ${formatINR(p.roomSubtotal)}`,
+      (p.extraBed ? `Extra Bed Fee: ${formatINR(p.extraBedTotal)}` : null),
+      `Online Discount: -${formatINR(p.discount)}`,
+      `Total: ${formatINR(p.total)}`,
+      "",
+      `Guest Name: ${nameEl ? nameEl.value.trim() : ""}`,
+      `Mobile: ${phoneEl ? phoneEl.value.trim() : ""}`,
+      (emailValue ? `Email: ${emailValue}` : null),
+      ((notesEl && notesEl.value.trim()) ? `Notes: ${notesEl.value.trim()}` : null),
+      "",
+      "Please confirm availability."
+    ].filter(Boolean);
+
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`;
+    window.open(url, "_blank");
+  }
+
+  window.openBooking = openBooking;
+  window.closeModal = closeModal;
+  window.syncFromForm = syncFromForm;
+  window.enforceDateRules = enforceDateRules;
+  window.fillTodayTomorrow = fillTodayTomorrow;
+  window.fillTomorrowNext = fillTomorrowNext;
+  window.sendWhatsApp = sendWhatsApp;
+
+  document.addEventListener("click", function(e){
+    const backdrop = $("backdrop");
+    if(backdrop && e.target === backdrop) closeModal();
   });
 
-  // Expose for any legacy calls
-  window.syncFromForm = syncFromForm;
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Escape") closeModal();
+  });
+
+  document.addEventListener("DOMContentLoaded", function(){
+    setDefaultDates(false);
+    enforceDateRules(true);
+    bindQuickDateButtons();
+    bindBookButtons();
+    syncFromForm();
+
+    const checkinEl = $("checkin");
+    const checkoutEl = $("checkout");
+    const roomTypeEl = $("roomType");
+    const guestsEl = $("guests");
+    const extraBedEl = $("extraBed");
+    const checkinTimeEl = $("checkinTime");
+    const backdrop = $("backdrop");
+    if(backdrop && !backdrop.style.display) backdrop.style.display = "none";
+
+    if(checkinEl){
+      checkinEl.addEventListener("change", function(){
+        // default checkout to next day whenever check-in changes
+        setDefaultDates(true);
+        enforceDateRules(false);
+        syncFromForm();
+      });
+    }
+    if(checkoutEl){
+      checkoutEl.addEventListener("change", function(){
+        enforceDateRules(true);
+        syncFromForm();
+      });
+    }
+    if(roomTypeEl) roomTypeEl.addEventListener("change", syncFromForm);
+    if(guestsEl) guestsEl.addEventListener("change", syncFromForm);
+    if(extraBedEl) extraBedEl.addEventListener("change", syncFromForm);
+    if(checkinTimeEl) checkinTimeEl.addEventListener("change", syncFromForm);
+  });
+
 })();
 </script>
 
