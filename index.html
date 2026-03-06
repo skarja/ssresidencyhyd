@@ -2604,6 +2604,43 @@ body.has-booking-strip{scroll-padding-top:150px;}
   justify-content:center;
 }
 
+
+/* ===== V9 clean modal action structure ===== */
+#bookingForm{
+  display:block;
+}
+#bookingForm .modal-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  padding:12px 14px;
+  border-top:1px solid var(--border);
+  background:#fff;
+  position:sticky;
+  bottom:0;
+  z-index:3;
+  margin-top:12px;
+}
+#bookingForm .actions-left,
+#bookingForm .actions-right{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+#bookingWhatsAppNativeBtn{
+  -webkit-appearance:none;
+  appearance:none;
+  border:none;
+  cursor:pointer;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
 </style>
   <meta name="theme-color" content="#0b3c5d"/>
   <link rel="icon" href="images/favicon.png"/>
@@ -3095,9 +3132,7 @@ body.has-booking-strip{scroll-padding-top:150px;}
       </div>
 
       <div class="form-note">We’ll confirm availability on WhatsApp. Your number is used only for this booking.</div>
-    </form>
-  </div>
-</div>
+    
 <div class="modal-actions">
 <div class="actions-left">
 <button class="btn ghost" onclick="fillTodayTomorrow()">Today → Tomorrow</button>
@@ -3106,16 +3141,19 @@ body.has-booking-strip{scroll-padding-top:150px;}
 <div class="actions-right">
 <button class="btn ghost" onclick="closeModal()">Cancel</button>
 
-<a id="bookingWhatsAppNativeBtn" class="btn wa" href="wa-booking-ios.html">
+<button id="bookingWhatsAppNativeBtn" class="btn wa" type="button" onclick="return goBookingWhatsApp(event)">
 <span style="display:inline-flex;align-items:center;gap:8px">
 <svg aria-hidden="true" class="wa-ic" style="width:18px;height:18px" viewBox="0 0 32 32">
 <path d="M19.11 17.46c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.64 1.11 2.82.14.18 1.93 2.95 4.67 4.13.65.28 1.15.45 1.54.58.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32Z" fill="#fff"></path>
 </svg>
 Send on WhatsApp
 </span>
-</a>
+</button>
 
 </div>
+</div>
+</form>
+  </div>
 </div>
 </div>
 </div>
@@ -4398,6 +4436,282 @@ footer p{margin:4px 0 !important;}
     ensureDates(false);
     updateSummary();
     bindForm();
+    const bd = $("backdrop");
+    if(bd && !bd.style.display) bd.style.display = "none";
+  });
+})();
+</script>
+
+
+<script>
+/* ===== V9 CLEAN PRODUCTION BOOKING ===== */
+(function(){
+  const WA_PHONE = "917842072725";
+  const ONLINE_DISCOUNT = 50;
+  const EXTRA_BED_FEE = 200;
+  const $ = (id) => document.getElementById(id);
+
+  const RATES = {
+    "Deluxe AC Room":       {1:1699,2:1799,3:1899, img:"images/deluxe-ac-1.jpg"},
+    "Deluxe Non-AC Room":   {1:1399,2:1499,3:1599, img:"images/deluxe-nonac-1.jpg"},
+    "Standard AC Room":     {1:1599,2:1699,3:1799, img:"images/standard-ac-1.jpg"},
+    "Standard Non-AC Room": {1:1299,2:1399,3:1499, img:"images/standard-nonac-1.jpg"}
+  };
+
+  function parseDate(v){
+    if(!v) return null;
+    const p = v.split("-").map(Number);
+    if(p.length !== 3 || !p[0] || !p[1] || !p[2]) return null;
+    return new Date(p[0], p[1]-1, p[2], 12, 0, 0, 0);
+  }
+  function isoDate(d){
+    const y = d.getFullYear();
+    const m = String(d.getMonth()+1).padStart(2,"0");
+    const day = String(d.getDate()).padStart(2,"0");
+    return `${y}-${m}-${day}`;
+  }
+  function addDays(d, n){
+    return new Date(d.getFullYear(), d.getMonth(), d.getDate()+n, 12, 0, 0, 0);
+  }
+  function nightsBetween(ci, co){
+    const a = parseDate(ci), b = parseDate(co);
+    if(!a || !b) return 1;
+    return Math.max(1, Math.round((b.getTime()-a.getTime())/86400000));
+  }
+  function fmt(n){
+    try { return "₹" + Number(n || 0).toLocaleString("en-IN"); }
+    catch(e){ return "₹" + (n || 0); }
+  }
+
+  function ensureDates(forceNextDay){
+    const checkin = $("checkin");
+    const checkout = $("checkout");
+    const checkinTime = $("checkinTime");
+    if(!checkin || !checkout) return;
+
+    const today = new Date();
+    if(!checkin.value){
+      const ci = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 12, 0, 0, 0);
+      checkin.value = isoDate(ci);
+    }
+    if(checkinTime && !checkinTime.value) checkinTime.value = "12:00";
+
+    const ci = parseDate(checkin.value);
+    const minCo = ci ? addDays(ci, 1) : addDays(today, 1);
+    checkout.min = isoDate(minCo);
+
+    const co = parseDate(checkout.value);
+    if(forceNextDay || !co || co < minCo){
+      checkout.value = isoDate(minCo);
+    }
+  }
+
+  function getPricing(){
+    ensureDates(false);
+    const room = ($("roomType") && $("roomType").value) || "Deluxe AC Room";
+    const guests = Math.min(3, Math.max(1, parseInt((($("guests") && $("guests").value) || "2"), 10) || 2));
+    const extraBed = ((($("extraBed") && $("extraBed").value) || "0") !== "0");
+    const nights = nightsBetween((($("checkin") && $("checkin").value) || ""), (($("checkout") && $("checkout").value) || ""));
+    const rr = RATES[room] || RATES["Deluxe AC Room"];
+    const nightlyRate = Number(rr[guests] || 0);
+    const roomSubtotal = nightlyRate * nights;
+    const extraBedTotal = extraBed ? (EXTRA_BED_FEE * nights) : 0;
+    const total = Math.max(0, roomSubtotal + extraBedTotal - ONLINE_DISCOUNT);
+    return {room, guests, extraBed, nights, nightlyRate, roomSubtotal, extraBedTotal, total, img: rr.img};
+  }
+
+  function updateSummary(){
+    const p = getPricing();
+    if($("rpName")) $("rpName").textContent = p.room;
+    if($("rpPrice")) $("rpPrice").textContent = `${fmt(p.nightlyRate)} / night · ${p.guests} guest${p.guests > 1 ? "s" : ""} · ${p.nights} night${p.nights > 1 ? "s" : ""}`;
+    if($("rpTotalLine")) $("rpTotalLine").textContent = fmt(p.total);
+    if($("rpDiscount")) $("rpDiscount").textContent = `Online Booking Discount: -${fmt(ONLINE_DISCOUNT)}`;
+    if($("rpImg") && p.img) $("rpImg").src = p.img;
+  }
+
+  function roomOptionExists(name){
+    const rt = $("roomType");
+    return !!rt && Array.from(rt.options || []).some(opt => opt.value === name);
+  }
+
+  function validateBooking(){
+    const name = ((($("name") && $("name").value) || "")).trim();
+    const phone = ((($("phone") && $("phone").value) || "")).trim();
+    const email = ((($("email") && $("email").value) || "")).trim();
+
+    if(!name){
+      alert("Please enter your full name.");
+      setTimeout(() => { if($("name")) $("name").focus(); }, 50);
+      return false;
+    }
+    const digits = phone.replace(/\D/g, "");
+    if(digits.length !== 10){
+      alert("Please enter a valid 10-digit mobile number.");
+      setTimeout(() => { if($("phone")) $("phone").focus(); }, 50);
+      return false;
+    }
+    if(email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+      alert("Please enter a valid email address.");
+      setTimeout(() => { if($("email")) $("email").focus(); }, 50);
+      return false;
+    }
+    return true;
+  }
+
+  function buildPayload(){
+    const p = getPricing();
+    return {
+      phone: WA_PHONE,
+      room: p.room,
+      guests: p.guests,
+      checkin: (($("checkin") && $("checkin").value) || ""),
+      checkout: (($("checkout") && $("checkout").value) || ""),
+      checkinTime: (($("checkinTime") && $("checkinTime").value) || "12:00"),
+      nights: p.nights,
+      extraBed: p.extraBed,
+      nightlyRate: p.nightlyRate,
+      roomSubtotal: p.roomSubtotal,
+      extraBedTotal: p.extraBedTotal,
+      discount: ONLINE_DISCOUNT,
+      total: p.total,
+      name: ((($("name") && $("name").value) || "")).trim(),
+      phoneInput: ((($("phone") && $("phone").value) || "")).trim(),
+      email: ((($("email") && $("email").value) || "")).trim(),
+      notes: ((($("notes") && $("notes").value) || "")).trim()
+    };
+  }
+
+  function savePayload(){
+    try { localStorage.setItem("ssr_booking_payload", JSON.stringify(buildPayload())); }
+    catch(e) {}
+  }
+
+  window.goBookingWhatsApp = function(event){
+    if(event){
+      event.preventDefault();
+      event.stopPropagation();
+      if(typeof event.stopImmediatePropagation === "function") event.stopImmediatePropagation();
+    }
+
+    if(document.activeElement && typeof document.activeElement.blur === "function"){
+      document.activeElement.blur();
+    }
+
+    setTimeout(function(){
+      if(!validateBooking()) return false;
+      savePayload();
+      window.location.href = "wa-booking-ios.html";
+    }, 180);
+
+    return false;
+  };
+
+  function fillTodayTomorrow(){
+    const today = new Date();
+    const ci = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 12, 0, 0, 0);
+    if($("checkin")) $("checkin").value = isoDate(ci);
+    if($("checkout")) $("checkout").value = isoDate(addDays(ci, 1));
+    updateSummary();
+    savePayload();
+  }
+
+  function fillTomorrowNext(){
+    const today = new Date();
+    const ci = addDays(new Date(today.getFullYear(), today.getMonth(), today.getDate(), 12, 0, 0, 0), 1);
+    if($("checkin")) $("checkin").value = isoDate(ci);
+    if($("checkout")) $("checkout").value = isoDate(addDays(ci, 1));
+    updateSummary();
+    savePayload();
+  }
+
+  function openBooking(roomName){
+    if(roomName && roomOptionExists(roomName) && $("roomType")){
+      $("roomType").value = roomName;
+    }
+    ensureDates(false);
+    updateSummary();
+    savePayload();
+    const bd = $("backdrop");
+    if(bd){
+      bd.style.display = "flex";
+      bd.setAttribute("aria-hidden", "false");
+    }
+    document.body.style.overflow = "hidden";
+    setTimeout(() => { if($("name")) $("name").focus(); }, 60);
+  }
+
+  function closeModal(){
+    const bd = $("backdrop");
+    if(bd){
+      bd.style.display = "none";
+      bd.setAttribute("aria-hidden", "true");
+    }
+    document.body.style.overflow = "";
+  }
+
+  function bindForm(){
+    const form = $("bookingForm");
+    if(form){
+      form.setAttribute("novalidate","novalidate");
+      form.onsubmit = function(e){
+        if(e){ e.preventDefault(); e.stopPropagation(); }
+        return false;
+      };
+    }
+
+    const btn = $("bookingWhatsAppNativeBtn");
+    if(btn){
+      btn.type = "button";
+      btn.onclick = function(e){ return window.goBookingWhatsApp(e); };
+    }
+
+    ["roomType","guests","extraBed","checkin","checkout","checkinTime","name","phone","email","notes"].forEach(function(id){
+      const el = $(id);
+      if(!el) return;
+      el.addEventListener("change", function(){
+        ensureDates(id === "checkin");
+        updateSummary();
+        savePayload();
+      });
+      el.addEventListener("input", function(){
+        updateSummary();
+        savePayload();
+      });
+    });
+
+    const buttons = Array.from(document.querySelectorAll(".modal-actions .btn"));
+    buttons.forEach(btn => {
+      const txt = (btn.textContent || "").replace(/\s+/g, " ").trim().toLowerCase();
+      if(txt.includes("today") && txt.includes("tomorrow")){
+        btn.type = "button";
+        btn.onclick = fillTodayTomorrow;
+      } else if(txt.includes("tomorrow") && txt.includes("next day")){
+        btn.type = "button";
+        btn.onclick = fillTomorrowNext;
+      }
+    });
+  }
+
+  window.openBooking = openBooking;
+  window.closeModal = closeModal;
+  window.syncFromForm = function(){ updateSummary(); savePayload(); };
+  window.enforceDateRules = function(){ ensureDates(false); };
+  window.fillTodayTomorrow = fillTodayTomorrow;
+  window.fillTomorrowNext = fillTomorrowNext;
+
+  document.addEventListener("click", function(e){
+    const bd = $("backdrop");
+    if(bd && e.target === bd) closeModal();
+  });
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Escape") closeModal();
+  });
+
+  document.addEventListener("DOMContentLoaded", function(){
+    ensureDates(false);
+    updateSummary();
+    bindForm();
+    savePayload();
     const bd = $("backdrop");
     if(bd && !bd.style.display) bd.style.display = "none";
   });
