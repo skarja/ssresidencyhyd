@@ -2557,6 +2557,44 @@ body.has-booking-strip{scroll-padding-top:150px;}
   margin-bottom:8px !important;
 }
 
+
+/* ===== V7 PREMIUM HEADER UPGRADE ===== */
+.site-title, .logo, header .brand, header h1{
+  font-weight:700 !important;
+  letter-spacing:1.5px;
+  font-size:22px !important;
+}
+@media (max-width:720px){
+  .site-title, .logo, header .brand, header h1{
+    font-size:18px !important;
+  }
+}
+
+/* subtle boutique divider */
+.premium-divider{
+  width:60px;
+  height:2px;
+  background:#c6a96b;
+  margin:6px auto 0;
+}
+
+/* sticky booking button */
+.sticky-book{
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#111;
+  color:#fff;
+  padding:12px 20px;
+  border-radius:30px;
+  font-weight:600;
+  font-size:14px;
+  box-shadow:0 10px 25px rgba(0,0,0,.25);
+  z-index:9999;
+}
+.sticky-book:hover{opacity:.9}
+
 </style>
   <meta name="theme-color" content="#0b3c5d"/>
   <link rel="icon" href="images/favicon.png"/>
@@ -2602,7 +2640,7 @@ body.has-booking-strip{scroll-padding-top:150px;}
 </svg>
           Call
         </a>
-<a aria-label="WhatsApp" class="util-link" href="https://wa.me/917842072725">
+<a aria-label="WhatsApp" class="util-link" href="https://api.whatsapp.com/send?phone=917842072725">
 <svg aria-hidden="true" class="util-ic" viewbox="0 0 24 24">
 <path d="M20.5 11.9a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 20.5 11.9Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path>
 <path d="M9.3 8.8c.2-.5.5-.5.7-.5h.6c.2 0 .4.1.5.4l.5 1.2c.1.3.1.6-.1.8l-.4.4c-.2.2-.2.4-.1.6.3.6 1 1.6 2 2.2.3.2.5.2.7 0l.5-.6c.2-.2.5-.3.8-.2l1.3.5c.3.1.4.3.4.6 0 .7-.3 1.2-.8 1.5-.6.4-1.4.6-2.4.3-2.1-.7-4.2-2.9-5-5.1-.3-1-.1-1.8.3-2.3.3-.5.6-.8.9-.9Z" fill="currentColor"></path>
@@ -2887,7 +2925,7 @@ body.has-booking-strip{scroll-padding-top:150px;}
 </svg>
             Copy
           </button>
-<a aria-label="Share location on WhatsApp" class="loc-btn" href="https://wa.me/917842072725" rel="noopener" target="_blank">
+<a aria-label="Share location on WhatsApp" class="loc-btn" href="https://api.whatsapp.com/send?phone=917842072725" rel="noopener" target="_blank">
 <svg aria-hidden="true" viewbox="0 0 24 24">
 <path d="M20.5 11.9a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 20.5 11.9Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path>
 <path d="M9.3 8.8c.2-.5.5-.5.7-.5h.6c.2 0 .4.1.5.4l.5 1.2c.1.3.1.6-.1.8l-.4.4c-.2.2-.2.4-.1.6.3.6 1 1.6 2 2.2.3.2.5.2.7 0l.5-.6c.2-.2.5-.3.8-.2l1.3.5c.3.1.4.3.4.6 0 .7-.3 1.2-.8 1.5-.6.4-1.4.6-2.4.3-2.1-.7-4.2-2.9-5-5.1-.3-1-.1-1.8.3-2.3.3-.5.6-.8.9-.9Z" fill="currentColor"></path>
@@ -2952,12 +2990,20 @@ body.has-booking-strip{scroll-padding-top:150px;}
 <footer>
 <div class="container">
 <p><b>SS Residency Grand · KPHB Colony, Hyderabad</b></p>
-<p>WhatsApp: <a href="https://wa.me/917842072725" style="text-decoration:underline">7842072725</a> · Call: <a href="tel:7842072724" style="text-decoration:underline">7842072724</a></p>
+<p>WhatsApp: <a href="https://api.whatsapp.com/send?phone=917842072725" style="text-decoration:underline">7842072725</a> · Call: <a href="tel:7842072724" style="text-decoration:underline">7842072724</a></p>
 </div>
+
+
+<section style="padding:30px 0;text-align:center">
+<h3 style="font-size:20px;margin-bottom:12px;">Find Us – Kukatpally</h3>
+<iframe 
+src="https://maps.google.com/maps?q=KPHB%20Colony%20Hyderabad&t=&z=15&ie=UTF8&iwloc=&output=embed"
+width="90%" height="320" style="border:0;border-radius:12px;"></iframe>
+</section>
 
 </footer>
 <!-- Floating WhatsApp -->
-<a aria-label="WhatsApp" class="whatsapp-float" href="https://wa.me/917842072725">CHAT</a>
+<a aria-label="WhatsApp" class="whatsapp-float" href="https://api.whatsapp.com/send?phone=917842072725">CHAT</a>
 <!-- Booking Modal -->
 
 <div aria-hidden="true" class="modal-backdrop" id="backdrop">
@@ -3655,7 +3701,7 @@ footer p{margin:4px 0 !important;}
 </div>
 <span>Call</span>
 </a>
-<a aria-label="Chat" class="ssfab ssfab-chat" href="https://wa.me/917842072725" rel="noopener" target="_blank" title="Chat">
+<a aria-label="Chat" class="ssfab ssfab-chat" href="https://api.whatsapp.com/send?phone=917842072725" rel="noopener" target="_blank" title="Chat">
 <div aria-hidden="true" class="ic">
 <svg viewbox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.9 7.3L3 20l1.3-5.1A8.5 8.5 0 1 1 21 11.5z"></path></svg>
 </div>
@@ -3999,8 +4045,13 @@ footer p{margin:4px 0 !important;}
       "Please confirm availability."
     ];
 
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`;
-    window.open(url, "_blank");
+    const url = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`;
+    var isiPhone = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    if (isiPhone) {
+      window.location.href = url;
+    } else {
+      window.open(url, "_blank");
+    }
     return false;
   }
 
@@ -4072,6 +4123,65 @@ footer p{margin:4px 0 !important;}
   document.addEventListener("keydown", function(e){
     if(e.key === "Escape") closeModal();
   });
+})();
+</script>
+
+
+<script>
+/* ===== iPhone Safari CTA Fix ===== */
+(function(){
+  function bindBookingCTA(){
+    var form = document.getElementById("bookingForm");
+    if(!form || form.dataset.iosFixed === "1") return;
+    form.dataset.iosFixed = "1";
+
+    var buttons = form.querySelectorAll('button, .btn, input[type="submit"]');
+    buttons.forEach(function(btn){
+      var txt = (btn.textContent || btn.value || "").toLowerCase();
+      if(txt.indexOf("whatsapp") === -1 && txt.indexOf("check availability") === -1 && txt.indexOf("send") === -1) return;
+
+      btn.setAttribute("type", "submit");
+
+      var handler = function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        if(typeof window.sendWhatsApp === "function"){
+          window.sendWhatsApp();
+        } else if(typeof sendWhatsApp === "function"){
+          sendWhatsApp();
+        }
+        return false;
+      };
+
+      btn.addEventListener("click", handler, {passive:false});
+      btn.addEventListener("touchend", handler, {passive:false});
+    });
+
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      if(typeof window.sendWhatsApp === "function"){
+        window.sendWhatsApp();
+      } else if(typeof sendWhatsApp === "function"){
+        sendWhatsApp();
+      }
+      return false;
+    });
+  }
+
+  if(document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", bindBookingCTA);
+  } else {
+    bindBookingCTA();
+  }
+
+  var originalOpen = window.openBooking;
+  if(typeof originalOpen === "function"){
+    window.openBooking = function(){
+      var result = originalOpen.apply(this, arguments);
+      setTimeout(bindBookingCTA, 80);
+      return result;
+    };
+  }
 })();
 </script>
 
