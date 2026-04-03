@@ -10,7 +10,7 @@
 <title>Hotel in Kukatpally KPHB Colony | Near JNTU Metro | SS Residency Grand Hyderabad</title>
 <meta name="description" content="SS Residency Grand is a hotel in Kukatpally, KPHB Colony, Hyderabad near JNTU Metro. Budget hotel rooms with AC and Non‑AC options, walkable distance to Metro and on National Highway."/>
 <meta content="SS Residency Grand | KPHB Colony, Hyderabad" property="og:title"/>
-<meta content="Clean, comfortable stays in KPHB Colony, Hyderabad. Book quickly via WhatsApp." property="og:description"/>
+<meta content="Clean, comfortable stays in KPHB Colony, Hyderabad. Book directly through our secure booking engine." property="og:description"/>
 <style>
     :root{
       --brand:#0b3c5d;
@@ -268,76 +268,6 @@
       z-index:120;
     }
 
-    /* Modal */
-    .modal-backdrop{
-      position:fixed;inset:0;background:rgba(2,8,23,.62);
-      display:none;align-items:flex-end;justify-content:center;
-      padding:10px;z-index:200;
-    }
-    .modal{
-      width:min(760px,100%);background:#fff;border-radius:20px 20px 0 0;overflow:hidden;
-      box-shadow:0 22px 54px rgba(0,0,0,.38);
-      border:1px solid rgba(255,255,255,.12);
-      max-height:92dvh;
-    }
-    .modal-head{
-      display:flex;gap:12px;align-items:center;justify-content:space-between;
-      padding:14px 14px 10px 14px;border-bottom:1px solid var(--border);
-      background:linear-gradient(180deg,#fff,#fbfdff);
-    }
-    .modal-title{display:flex;flex-direction:column;gap:2px}
-    .modal-title b{font-size:16px}
-    .close{
-      width:42px;height:42px;border-radius:14px;border:1px solid var(--border);
-      background:#fff;cursor:pointer;font-size:18px;font-weight:1000;
-    }
-    .modal-body{
-      padding:14px;
-      max-height:calc(92dvh - 136px);
-      overflow:auto;
-      -webkit-overflow-scrolling:touch;
-    }
-    .room-preview{
-      display:flex;gap:12px;align-items:center;margin:10px 0 10px 0;
-      padding:10px;border:1px solid var(--border);border-radius:16px;background:#f8fafc;
-    }
-    .room-preview img{width:92px;height:72px;border-radius:14px;object-fit:cover;border:1px solid var(--border)}
-    .room-preview .info{flex:1}
-    .rp-name{font-weight:1000}
-    .rp-price{color:var(--muted);font-size:13px;margin-top:2px}
-    .rp-total{font-weight:1000;margin-top:6px}
-    .hint{font-size:12px;color:var(--muted);margin-top:6px}
-
-    .modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .field label{font-size:12px;font-weight:1000;color:#334155}
-    .field input,.field select,.field textarea{
-      width:100%;padding:11px 12px;border:1px solid var(--border);border-radius:14px;margin-top:6px;
-      font-size:16px; /* iOS: prevent zoom */
-      outline:none;
-    }
-    .field input:focus,.field select:focus,.field textarea:focus{
-      border-color: rgba(11,60,93,.45);
-      box-shadow:0 0 0 3px rgba(11,60,93,.10);
-    }
-    .field textarea{min-height:92px;resize:vertical}
-    .discount-line{margin-top:6px;color:#16a34a;font-weight:1000;font-size:13px}
-
-    .modal-actions{
-      display:flex;gap:10px;flex-wrap:wrap;justify-content:space-between;
-      padding:12px 14px;border-top:1px solid var(--border);background:#fff;
-      position:sticky;bottom:0;z-index:2;
-    }
-    .actions-left{display:flex;gap:10px;flex-wrap:wrap}
-    .actions-right{display:flex;gap:10px;flex-wrap:wrap}
-
-    @media (max-width:720px){
-      .hero h2{font-size:22px}
-      .modal-grid{grid-template-columns:1fr}
-      .room-preview{flex-direction:column;align-items:flex-start}
-      .room-preview img{width:100%;height:160px}
-      .whatsapp-float{display:none}
-    }
-  
     /* Room discount ribbon */
     .discount-ribbon{
       position:absolute;
@@ -876,7 +806,7 @@ header.shrink .brand h1{
 }
 .hyatt-nav a:hover{ opacity:.65; }
 
-.hyatt-book{
+.hyatt-book, a.hyatt-book{
   border:none;
   cursor:pointer;
   padding:12px 20px;
@@ -889,12 +819,12 @@ header.shrink .brand h1{
   box-shadow:0 10px 20px rgba(2,8,23,.14);
   transition:transform .15s ease, box-shadow .15s ease, filter .15s ease;
 }
-.hyatt-book:hover{
+.hyatt-book:hover, a.hyatt-book:hover{
   transform:translateY(-1px);
   box-shadow:0 16px 28px rgba(2,8,23,.18);
   filter:brightness(1.02);
 }
-.hyatt-book:active{ transform:translateY(0); }
+.hyatt-book:active, a.hyatt-book:active{ transform:translateY(0); }
 
 .hyatt-mobile{
   border-top:1px solid #eef2f7;
@@ -1536,15 +1466,6 @@ header.shrink .brand h1{
   #rooms .rooms{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
 }
 
-/* ===== Visibility / Stack Hardening ===== */
-.fab-stack{ align-items:flex-end; }
-.fab-stack .fab{
-  display:flex !important;
-  visibility:visible !important;
-  opacity:1 !important;
-  flex:0 0 auto !important;
-}
-
 @media (max-width: 560px){
   #rooms .section-title{ font-size:32px; letter-spacing:.8px; }
   #rooms .rooms{ grid-template-columns:1fr; }
@@ -1726,8 +1647,6 @@ header.shrink .brand h1{
   text-transform: none !important;
 }
 
-
-
 /* Safety: hide any leftover quickview UI */
 .quickview,[class*="enq"],[class*="Enq"],[class*="inq"],[class*="Inq"]{display:none !important;}
 
@@ -1763,135 +1682,6 @@ header.shrink .brand h1{
   border-color: rgba(202,166,75,.95);
   box-shadow: 0 10px 26px rgba(202,166,75,.25);
 }
-
-
-/* ===== Booking Popup / Form (PRO POLISH PASS) ===== */
-.booking-wrap{max-width:1080px;margin:0 auto;}
-.booking-roomcard{
-  display:grid;
-  grid-template-columns: 200px 1fr;
-  gap:16px;
-  padding:16px;
-  border-radius:24px;
-  border:1px solid rgba(148,163,184,.35);
-  background:linear-gradient(180deg,#ffffff 0%, #fbfdff 100%);
-  box-shadow:0 22px 55px rgba(2,8,23,.10);
-  margin:10px 0 16px 0;
-}
-.booking-roommedia{position:relative;}
-.booking-roommedia img{
-  width:100%;
-  height:150px;
-  object-fit:cover;
-  border-radius:20px;
-  border:1px solid rgba(148,163,184,.35);
-  box-shadow:0 12px 30px rgba(2,8,23,.12);
-  background:#f8fafc;
-}
-.booking-badge{
-  position:absolute;top:10px;left:10px;
-  padding:7px 10px;border-radius:999px;
-  background:rgba(2,6,23,.84);color:#fff;
-  font-size:11px;font-weight:1000;letter-spacing:.35px;
-  box-shadow:0 12px 28px rgba(2,8,23,.22);
-}
-.booking-roomtitle{font-size:22px;font-weight:1000;color:#0f172a;line-height:1.15;margin-top:2px;}
-.booking-roommeta{font-size:16px;font-weight:850;color:#475569;margin-top:8px;}
-.booking-roomchips{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;}
-.chip{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:8px 12px;border-radius:999px;
-  font-size:13px;font-weight:1000;line-height:1;
-  border:1px solid rgba(148,163,184,.35);
-  background:rgba(248,250,252,.95);
-}
-.chip-green{color:#16a34a;border-color: rgba(22,163,74,.22);background: rgba(22,163,74,.10);}
-
-.booking-total{
-  display:flex;align-items:center;justify-content:space-between;gap:12px;
-  margin-top:12px;padding:12px 14px;border-radius:18px;
-  border:1px solid rgba(148,163,184,.35);
-  background:rgba(255,255,255,.78);
-  backdrop-filter:saturate(140%) blur(8px);
-  font-weight:1000;color:#0f172a;
-}
-.booking-total-amt{font-size:22px;}
-.booking-hint{font-size:13px;font-weight:800;color:#64748b;margin-top:8px;line-height:1.45;}
-
-.booking-form{padding:0;margin:0;}
-.form-section-title{
-  font-size:14px;font-weight:1000;letter-spacing:2.2px;
-  text-transform:uppercase;color:#64748b;
-  margin:16px 0 10px 0;
-}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 16px;align-items:end;}
-.field-full{grid-column:1/-1;}
-
-/* Titles and box text SAME size */
-.field label{
-  font-size:16px;
-  font-weight:900;
-  color:#0f172a;
-  margin-bottom:8px;
-  display:block;
-  letter-spacing:.2px;
-}
-.field input,.field select,.field textarea{
-  width:100%;
-  font-size:16px;
-  font-weight:650;
-  padding:14px 16px;
-  border-radius:18px;
-  border:1px solid rgba(148,163,184,.55);
-  background:#fff;
-  box-shadow:0 10px 22px rgba(2,8,23,.06);
-  transition:border-color .12s ease, box-shadow .12s ease, transform .12s ease;
-}
-.field input:focus,.field select:focus,.field textarea:focus{
-  outline:none;
-  border-color: rgba(202,166,75,.65);
-  box-shadow:0 0 0 4px rgba(202,166,75,.14), 0 16px 38px rgba(2,8,23,.10);
-  transform: translateY(-1px);
-}
-.field textarea{padding-top:12px;}
-
-/* Select arrow */
-.field select{
-  -webkit-appearance:none;appearance:none;
-  background-image:
-    linear-gradient(45deg, transparent 50%, rgba(15,23,42,.55) 50%),
-    linear-gradient(135deg, rgba(15,23,42,.55) 50%, transparent 50%),
-    linear-gradient(to right, transparent, transparent);
-  background-position: calc(100% - 22px) 55%, calc(100% - 16px) 55%, 0 0;
-  background-size:6px 6px, 6px 6px, 100% 100%;
-  background-repeat:no-repeat;
-  padding-right:44px;
-}
-
-.form-sep{
-  height:1px;
-  background:linear-gradient(90deg, rgba(202,166,75,.0), rgba(202,166,75,.55), rgba(202,166,75,.0));
-  margin:18px 0 10px 0;border-radius:999px;
-}
-.form-note{
-  margin-top:14px;
-  padding:12px 14px;
-  border-radius:18px;
-  border:1px solid rgba(148,163,184,.35);
-  background:rgba(248,250,252,.95);
-  font-size:13px;
-  font-weight:900;
-  color:#475569;
-  line-height:1.45;
-}
-
-/* Mobile */
-@media (max-width: 820px){
-  .booking-roomcard{grid-template-columns:1fr;}
-  .booking-roommedia img{height:190px;}
-  .form-grid{grid-template-columns:1fr;}
-}
-
 
 /* ===== V1 UPGRADE: 2x2 luxury rooms + premium popup ===== */
 #rooms .rooms{
@@ -1929,15 +1719,7 @@ header.shrink .brand h1{
 }
 
 /* Premium modal shell */
-.modal{
-  width:min(860px,100%) !important;
-  border-radius:28px 28px 0 0 !important;
-  box-shadow:0 28px 80px rgba(2,8,23,.24) !important;
-}
-.modal-body{
-  padding:18px !important;
-  background:linear-gradient(180deg,#ffffff 0%, #fbfdff 100%) !important;
-}
+
 .booking-wrap{max-width:100%; margin:0 auto;}
 .booking-roomcard{
   display:grid;
@@ -1995,31 +1777,7 @@ header.shrink .brand h1{
 }
 .form-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px 16px; align-items:end;}
 .field-full{grid-column:1/-1;}
-.field label{
-  font-size:16px !important;
-  font-weight:900 !important;
-  color:#0f172a !important;
-  margin-bottom:8px !important;
-  display:block;
-  letter-spacing:.2px;
-}
-.field input,.field select,.field textarea{
-  width:100%;
-  font-size:16px !important;
-  font-weight:650;
-  padding:14px 16px !important;
-  border-radius:18px !important;
-  border:1px solid rgba(148,163,184,.55) !important;
-  background:#fff;
-  box-shadow:0 10px 22px rgba(2,8,23,.06);
-  transition:border-color .12s ease, box-shadow .12s ease, transform .12s ease;
-}
-.field input:focus,.field select:focus,.field textarea:focus{
-  outline:none;
-  border-color:rgba(202,166,75,.65) !important;
-  box-shadow:0 0 0 4px rgba(202,166,75,.14), 0 16px 38px rgba(2,8,23,.10) !important;
-  transform:translateY(-1px);
-}
+
 .field select{
   -webkit-appearance:none; appearance:none;
   background-image:
@@ -2052,16 +1810,12 @@ header.shrink .brand h1{
   color:#475569;
   line-height:1.45;
 }
-.modal-actions{
-  background:rgba(255,255,255,.92) !important;
-  border-top:1px solid rgba(148,163,184,.35) !important;
-}
+
 @media (max-width: 820px){
   .booking-roomcard{grid-template-columns:1fr;}
   .booking-roommedia img{height:190px;}
   .form-grid{grid-template-columns:1fr;}
 }
-
 
 /* ===== V2 cleanup: hide stray old FAB icons, keep only .ssfab-stack ===== */
 .fab-stack,
@@ -2071,7 +1825,6 @@ header.shrink .brand h1{
 .fab-book{
   display:none !important;
 }
-
 
 /* ===== V3 BOUTIQUE PASS ===== */
 :root{
@@ -2153,14 +1906,7 @@ header.shrink .brand h1{
 #rooms .gal-dots{bottom:10px !important;}
 
 /* premium popup, tighter and cleaner */
-.modal{
-  width:min(820px,100%) !important;
-  border-radius:24px 24px 0 0 !important;
-  box-shadow:0 30px 72px rgba(2,8,23,.22) !important;
-}
-.modal-head{
-  padding:12px 14px 10px 14px !important;
-}
+
 .modal-title b{
   font-size:20px !important;
   line-height:1.15 !important;
@@ -2168,38 +1914,7 @@ header.shrink .brand h1{
 .modal-title small{
   font-size:12.5px !important;
 }
-.modal-body{
-  padding:14px !important;
-  background:linear-gradient(180deg,#ffffff 0%, #fbfdff 100%) !important;
-}
-.room-preview{
-  position:sticky !important;
-  top:62px !important;
-  display:grid !important;
-  grid-template-columns:180px 1fr !important;
-  gap:14px !important;
-  align-items:center !important;
-  margin:0 0 14px 0 !important;
-  padding:14px !important;
-  border-radius:18px !important;
-  box-shadow:var(--shadow-soft) !important;
-}
-.room-preview img{
-  width:100% !important;
-  height:126px !important;
-  border-radius:16px !important;
-  object-fit:cover !important;
-}
-.rp-name{
-  font-size:19px !important;
-  font-weight:1000 !important;
-  line-height:1.14 !important;
-  margin-bottom:2px !important;
-}
-.rp-price{
-  font-size:13.5px !important;
-  margin-bottom:6px !important;
-}
+
 .rp-total-line{
   margin:6px 0 8px 0 !important;
   padding:10px 12px !important;
@@ -2218,18 +1933,7 @@ header.shrink .brand h1{
   gap:12px !important;
 }
 .field{margin-bottom:10px !important;}
-.field label{
-  font-size:15px !important;
-  font-weight:900 !important;
-  margin-bottom:5px !important;
-}
-.field input,.field select,.field textarea{
-  font-size:15px !important;
-  padding:13px 14px !important;
-  border-radius:14px !important;
-  box-shadow:0 6px 14px rgba(2,8,23,.04) !important;
-}
-.field textarea{min-height:86px !important;}
+
 .field-note{
   font-size:12px !important;
   margin-top:5px !important;
@@ -2242,9 +1946,7 @@ header.shrink .brand h1{
   font-size:12px !important;
   line-height:1.45 !important;
 }
-.modal-actions{
-  padding:10px 14px !important;
-}
+
 .modal-actions .btn{
   padding:11px 14px !important;
   border-radius:14px !important;
@@ -2263,14 +1965,10 @@ footer p{margin:4px 0 !important;}
 @media (max-width:720px){
   .hero{padding:20px 0 16px 0 !important;}
   .hero h2{font-size:24px !important;}
-  .room-preview{
-    grid-template-columns:1fr !important;
-    top:0 !important;
-  }
-  .room-preview img{height:170px !important;}
+  
+  
   .form-grid{grid-template-columns:1fr !important;}
 }
-
 
 /* ===== V4 PREMIUM SAFE ENHANCEMENTS ===== */
 :root{
@@ -2322,13 +2020,9 @@ body{line-height:1.5;}
 #rooms .chips{gap:6px !important; margin-top:8px !important;}
 #rooms .wa-book{width:100% !important; justify-content:center !important; margin-top:12px !important;}
 
-.modal{box-shadow:0 30px 72px rgba(2,8,23,.22) !important;}
-.modal-body{padding:14px !important;}
-.room-preview{box-shadow:var(--shadow-soft) !important;}
 .form-grid{gap:12px !important;}
 .field{margin-bottom:10px !important;}
-.field label{font-size:15px !important; margin-bottom:5px !important;}
-.field input,.field select,.field textarea{font-size:15px !important; padding:13px 14px !important;}
+
 .form-note{margin-top:8px !important; padding:10px 12px !important;}
 
 .distance-highlights{
@@ -2350,7 +2044,6 @@ footer p{margin:4px 0 !important;}
   #rooms .card-gallery img{height:240px !important;}
 }
 
-
 /* ===== V4 MICRO POLISH ===== */
 .wa-book:hover,
 .btn:hover{
@@ -2370,14 +2063,12 @@ footer p{margin:4px 0 !important;}
   transform: scale(1.02);
 }
 
-
 .booking-strip-left{display:none;}
   .booking-strip .strip-btn{
     width:100%;
     padding:13px 14px;
   }
 }
-
 
 /* ===== V6 SEO FAQ ===== */
 #faq .faq-grid{
@@ -2408,7 +2099,6 @@ footer p{margin:4px 0 !important;}
   #faq .faq-grid{grid-template-columns:1fr;}
 }
 
-
 /* ===== FINAL SEO HEADING PATCH ===== */
 .hero h1{
   margin:0 0 8px 0;
@@ -2422,7 +2112,6 @@ footer p{margin:4px 0 !important;}
 @media (max-width:720px){
   .hero h1{font-size:22px;}
 }
-
 
 /* ===== CLEAN HERO SEO PASS ===== */
 .hero{
@@ -2460,7 +2149,6 @@ footer p{margin:4px 0 !important;}
   .hero p{font-size:14px;}
 }
 
-
 /* Hero title single-line optimization */
 .hero h1{
   font-size:22px !important;
@@ -2475,7 +2163,6 @@ footer p{margin:4px 0 !important;}
   }
 }
 
-
 /* Final cleanup pass */
 #location-summary{
   padding-top:18px !important;
@@ -2484,7 +2171,6 @@ footer p{margin:4px 0 !important;}
 #location-summary .section-head{
   margin-bottom:8px !important;
 }
-
 
 /* ===== V7 PREMIUM HEADER UPGRADE ===== */
 .site-title, .logo, header .brand, header h1{
@@ -2506,7 +2192,6 @@ footer p{margin:4px 0 !important;}
   margin:6px auto 0;
 }
 
-
 /* Trust note */
 .trust-note{
   font-size:13px;
@@ -2514,7 +2199,6 @@ footer p{margin:4px 0 !important;}
   font-weight:600;
   margin-top:4px;
 }
-
 
 /* ===== V8 BEAUTIFICATION PASS ===== */
 
@@ -2571,7 +2255,6 @@ section{
   transform:translateY(-2px) !important;
 }
 
-
 /* ===== Section header consistency fix ===== */
 .section-kicker,
 #rooms .section-kicker,
@@ -2620,7 +2303,6 @@ section{
   }
 }
 
-
 /* ===== FINAL ROOM CARD + LOCATION CARD POLISH ===== */
 .location-description{
   margin:10px 0 14px 0;
@@ -2659,7 +2341,6 @@ section{
   font-weight:700;
 }
 
-
 /* ===== Location card visible text + premium widget polish ===== */
 .location-description{
   margin:12px 0 14px 0 !important;
@@ -2679,15 +2360,104 @@ section{
   letter-spacing:2px !important;
 }
 
-
-/* ===== IPMS247 Book Now button integration ===== */
-#_resbookingbtnA{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
+/* ===== V13 clean floating quick actions ===== */
+.floating-cta{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  z-index:9999;
 }
-#_resbookingbtnContainer{
-  min-width:100px;
+.float-btn{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:16px 24px;
+  min-width:168px;
+  border-radius:22px;
+  color:#fff;
+  text-decoration:none !important;
+  font-weight:800;
+  letter-spacing:2px;
+  font-size:14px;
+  box-shadow:0 18px 40px rgba(2,8,23,.26);
+}
+.float-btn .icon{
+  width:44px;
+  height:44px;
+  border-radius:16px;
+  display:grid;
+  place-items:center;
+  font-size:22px;
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.18);
+}
+.float-btn.book{background:linear-gradient(135deg,#081224,#0b2750);border:1px solid rgba(202,166,75,.48);}
+.float-btn.call{background:linear-gradient(135deg,#0d3959,#0f527a);border:1px solid rgba(255,255,255,.12);}
+.float-btn.chat{background:linear-gradient(135deg,#0d5a3d,#148159);border:1px solid rgba(255,255,255,.12);}
+@media (max-width:720px){
+  .floating-cta{right:12px;bottom:12px;gap:10px;}
+  .float-btn{min-width:148px;padding:14px 18px;font-size:13px;letter-spacing:1.5px;}
+  .float-btn .icon{width:38px;height:38px;border-radius:14px;font-size:19px;}
+}
+
+
+/* ===== V13 floating buttons single-stack fix ===== */
+.fab-stack,
+.ssfab-stack,
+.fab,
+.fab-call,
+.fab-chat,
+.fab-book,
+.whatsapp-float{
+  display:none !important;
+  visibility:hidden !important;
+  opacity:0 !important;
+  pointer-events:none !important;
+}
+
+.floating-cta{
+  position:fixed !important;
+  right:20px !important;
+  bottom:20px !important;
+  display:flex !important;
+  flex-direction:column !important;
+  gap:12px !important;
+  z-index:2147483647 !important;
+}
+.floating-cta .float-btn{
+  display:flex !important;
+  align-items:center !important;
+  gap:14px !important;
+  padding:16px 24px !important;
+  min-width:170px !important;
+  border-radius:22px !important;
+  color:#fff !important;
+  text-decoration:none !important;
+  font-weight:800 !important;
+  letter-spacing:2px !important;
+  font-size:14px !important;
+  box-shadow:0 18px 40px rgba(2,8,23,.26) !important;
+}
+.floating-cta .float-btn .icon{
+  width:44px !important;
+  height:44px !important;
+  border-radius:16px !important;
+  display:grid !important;
+  place-items:center !important;
+  font-size:22px !important;
+  background:rgba(255,255,255,.12) !important;
+  border:1px solid rgba(255,255,255,.18) !important;
+}
+.floating-cta .float-btn.book{background:linear-gradient(135deg,#081224,#0b2750) !important;border:1px solid rgba(202,166,75,.48) !important;}
+.floating-cta .float-btn.call{background:linear-gradient(135deg,#0d3959,#0f527a) !important;border:1px solid rgba(255,255,255,.12) !important;}
+.floating-cta .float-btn.chat{background:linear-gradient(135deg,#0d5a3d,#148159) !important;border:1px solid rgba(255,255,255,.12) !important;}
+@media (max-width:720px){
+  .floating-cta{right:12px !important;bottom:12px !important;gap:10px !important;}
+  .floating-cta .float-btn{min-width:150px !important;padding:14px 18px !important;font-size:13px !important;letter-spacing:1.5px !important;}
+  .floating-cta .float-btn .icon{width:38px !important;height:38px !important;border-radius:14px !important;font-size:19px !important;}
 }
 
 </style>
@@ -2763,20 +2533,14 @@ section{
 <a href="#amenities">Amenities</a>
 <a href="#location">Location</a>
 </nav>
-
-<a href="https://live.ipms247.com/booking/book-rooms-hotelssresidency" id="_resbookingbtnA" target="_blank" style="text-decoration:none;">
-  <div id="_resbookingbtnContainer"></div>
-</a>
-
+<a class="hyatt-book" href="https://live.ipms247.com/booking/book-rooms-hotelssresidency" style="text-decoration:none;">Book Now</a>
 </div>
 </div>
 </div>
 </header>
 
   </div>
-  <button class="strip-btn" id="bookingStripBtn" type="button"></button>
 </div>
-
 
 <section class="hero">
   <div class="container">
@@ -2792,7 +2556,7 @@ section{
       <span>On National Highway</span>
       <span>Walkable distance to Metro</span>
       <span>₹50 Direct Booking Benefit</span>
-      <span>Instant WhatsApp Confirmation</span>
+      <span>Instant Booking Confirmation</span>
       <span>Pay at Property</span>
     </div>
   </div>
@@ -2806,7 +2570,7 @@ section{
 <h3 class="section-title">Rooms &amp; Photos</h3>
 
 </div>
-<div class="sub">Transparent pricing + quick booking through WhatsApp form.<br/><span class="rate-note" style="font-size:13px; opacity:0.75; font-weight:500; display:block; margin-top:6px;">Rates per night. Extra Person: ₹100 · Extra Bed: ₹200 </span><br/></div>
+<div class="sub">Transparent pricing + direct booking through our secure booking engine.<br/><span class="rate-note" style="font-size:13px; opacity:0.75; font-weight:500; display:block; margin-top:6px;">Rates per night. Extra Person: ₹100 · Extra Bed: ₹200 </span><br/></div>
 <div class="rooms">
 <!-- Deluxe AC -->
 <div class="room-card">
@@ -2821,7 +2585,6 @@ section{
 <svg aria-hidden="true" viewbox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
 </button>
 
-
 <div class="price-badge">₹1,699 / night</div>
 </div>
 <div class="content">
@@ -2832,13 +2595,7 @@ section{
 <span class="chip">AC</span><span class="chip">Wi-Fi</span><span class="chip">TV</span><span class="chip">Hot Water</span>
 </div>
 <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-<button class="wa-book" onclick="openBooking('Deluxe AC Room')">
-<svg aria-hidden="true" class="wa-ic" viewbox="0 0 32 32">
-<path d="M19.11 17.46c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.64 1.11 2.82.14.18 1.93 2.95 4.67 4.13.65.28 1.15.45 1.54.58.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32Z" fill="#fff"></path>
-</svg>
-<span>Book on WhatsApp<span class="wa-sub">Fill details &amp; send</span></span>
-</button>
-
+<a class="wa-book" href="https://live.ipms247.com/booking/book-rooms-hotelssresidency">Book Now</a>
 
 </div>
 </div>
@@ -2864,12 +2621,7 @@ section{
 <span class="chip">AC</span><span class="chip">Wi-Fi</span><span class="chip">Hot Water</span>
 </div>
 <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-<button class="wa-book" onclick="openBooking('Standard AC Room')">
-<svg aria-hidden="true" class="wa-ic" viewbox="0 0 32 32">
-<path d="M19.11 17.46c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34 -.02 -.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.64 1.11 2.82.14.18 1.93 2.95 4.67 4.13.65.28 1.15.45 1.54.58.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32Z" fill="#fff"></path>
-</svg>
-<span>Book on WhatsApp<span class="wa-sub">Fill details &amp; send</span></span>
-</button>
+<a class="wa-book" href="https://live.ipms247.com/booking/book-rooms-hotelssresidency">Book Now</a>
 
 </div>
 </div>
@@ -2895,12 +2647,7 @@ section{
 <span class="chip">Non-AC</span><span class="chip">Wi-Fi</span><span class="chip">TV</span><span class="chip">Hot Water</span>
 </div>
 <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-<button class="wa-book" onclick="openBooking('Deluxe Non-AC Room')">
-<svg aria-hidden="true" class="wa-ic" viewbox="0 0 32 32">
-<path d="M19.11 17.46c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34 -.02 -.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.64 1.11 2.82.14.18 1.93 2.95 4.67 4.13.65.28 1.15.45 1.54.58.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18 -.52 -.32Z" fill="#fff"></path>
-</svg>
-<span>Book on WhatsApp<span class="wa-sub">Fill details &amp; send</span></span>
-</button>
+<a class="wa-book" href="https://live.ipms247.com/booking/book-rooms-hotelssresidency">Book Now</a>
 
 </div>
 </div>
@@ -2926,12 +2673,7 @@ section{
 <span class="chip">Non-AC</span><span class="chip">Wi-Fi</span><span class="chip">Hot Water</span>
 </div>
 <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-<button class="wa-book" onclick="openBooking('Standard Non-AC Room')">
-<svg aria-hidden="true" class="wa-ic" viewbox="0 0 32 32">
-<path d="M19.11 17.46c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34 -.02 -.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73 .34-.25.27-.95.93-.95 2.27 0 1.34.98 2.64 1.11 2.82.14.18 1.93 2.95 4.67 4.13.65.28 1.15.45 1.54.58.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32Z" fill="#fff"></path>
-</svg>
-<span>Book on WhatsApp<span class="wa-sub">Fill details &amp; send</span></span>
-</button>
+<a class="wa-book" href="https://live.ipms247.com/booking/book-rooms-hotelssresidency">Book Now</a>
 
 </div>
 </div>
@@ -3064,7 +2806,7 @@ section{
     <div class="faq-grid">
       <div class="faq-item">
         <b>How can I book a room?</b>
-        <p>You can check availability and book directly through the WhatsApp booking form on this website.</p>
+        <p>You can book directly through our secure booking engine on this website.</p>
       </div>
       <div class="faq-item">
         <b>What room types are available?</b>
@@ -3072,7 +2814,7 @@ section{
       </div>
       <div class="faq-item">
         <b>What time are check-in and check-out?</b>
-        <p>Check-in time can be selected in the booking form. Check-out defaults to the next day and can be extended for longer stays.</p>
+        <p>Check-in and check-out details are handled in the booking engine. Check-out defaults to the next day and can be extended for longer stays.</p>
       </div>
     </div>
   </div>
@@ -3083,123 +2825,9 @@ section{
 <p>WhatsApp: <a href="https://api.whatsapp.com/send?phone=917842072725" style="text-decoration:underline">7842072725</a> · Call: <a href="tel:7842072724" style="text-decoration:underline">7842072724</a></p>
 </div>
 
-
 </footer>
 <!-- Floating WhatsApp -->
-<a aria-label="WhatsApp" class="whatsapp-float" href="https://api.whatsapp.com/send?phone=917842072725">CHAT</a>
 <!-- Booking Modal -->
-
-<div aria-hidden="true" class="modal-backdrop" id="backdrop">
-<div aria-label="Booking Form" aria-modal="true" class="modal" role="dialog">
-<div class="modal-head">
-<div class="modal-title">
-<b>Book on WhatsApp</b>
-<small class="muted">Fill details — we’ll confirm availability</small>
-</div>
-<button aria-label="Close" class="close" onclick="closeModal()">✕</button>
-</div>
-<div class="modal-body">
-  <div class="booking-wrap">
-    <div class="booking-roomcard">
-      <div class="booking-roommedia">
-        <div class="booking-badge">Most Booked</div>
-        <img loading="lazy" alt="Room preview" id="rpImg" src="images/deluxe-ac-1.jpg" alt="Deluxe AC Room at SS Residency Grand Hyderabad"/>
-      </div>
-      <div class="booking-roominfo">
-        <div class="booking-roomtitle" id="rpName">Deluxe AC Room</div>
-        <div class="booking-roommeta" id="rpPrice">₹1,699 / night · 2 guests · 1 night</div>
-        <div class="booking-roomchips">
-          <span class="chip chip-green" id="rpDiscount">Online Booking Discount: -₹50</span>
-        </div>
-        <div class="booking-total" id="rpTotalWrap">
-          <span>Estimated total</span>
-          <span class="booking-total-amt" id="rpTotalLine">₹0</span>
-        </div>
-        <div class="booking-hint">Total updates automatically based on selected room, guests, nights and extra bed.</div>
-      </div>
-    </div>
-
-    <form id="bookingForm" onsubmit="event.preventDefault(); sendWhatsApp();" class="booking-form">
-      <div class="form-section-title">Stay details</div>
-      <div class="form-grid">
-        <div class="field">
-          <label for="roomType">Room Type</label>
-          <select id="roomType" name="roomType" onchange="syncFromForm()">
-            <option>Deluxe AC Room</option>
-            <option>Standard AC Room</option>
-            <option>Deluxe Non-AC Room</option>
-            <option>Standard Non-AC Room</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="guests">Guests</label>
-          <select id="guests" name="guests" onchange="syncFromForm()"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option></select>
-        </div>
-        <div class="field">
-          <label for="checkin">Check-in Date</label>
-          <input id="checkin" name="checkin" type="date" required onchange="enforceDateRules(); syncFromForm()"/>
-        </div>
-        <div class="field">
-          <label for="checkinTime">Check-in Time</label>
-          <input id="checkinTime" name="checkinTime" type="time" value="12:00" required onchange="syncFromForm()"/>
-        </div>
-        <div class="field">
-          <label for="checkout">Check-out Date</label>
-          <input id="checkout" name="checkout" type="date" required onchange="enforceDateRules(); syncFromForm()"/>
-        </div>
-        <div class="field">
-          <label for="extraBed">Extra Bed</label>
-          <select id="extraBed" name="extraBed" onchange="syncFromForm()"><option value="0" selected>No</option><option value="1">Yes</option></select>
-        </div>
-      </div>
-
-      
-      <div class="form-section-title">Guest details</div>
-      <div class="form-grid">
-        <div class="field">
-          <label for="name">Full Name</label>
-          <input id="name" name="name" type="text" placeholder="Guest name" required/>
-        </div>
-        <div class="field">
-          <label for="phone">Mobile Number</label>
-          <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="10-digit mobile" required/>
-        </div>
-        <div class="field field-full">
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" placeholder="guest@email.com">
-      <div class="field-note">Booking confirmation will be sent to this email</div>
-</div>
-        <div class="field field-full">
-          <label for="notes">Notes (optional)</label>
-          <textarea id="notes" name="notes" placeholder="Any preference / early check-in / parking request?"></textarea>
-        </div>
-      </div>
-
-      <div class="form-note">We’ll confirm availability on WhatsApp. Your number is used only for this booking.</div>
-      <div class="form-note trust-note">✓ Pay at property • No advance payment required</div>
-    </form>
-  </div>
-</div>
-<div class="modal-actions">
-<div class="actions-left">
-<button class="btn ghost" onclick="fillTodayTomorrow()">Today → Tomorrow</button>
-<button class="btn ghost" onclick="fillTomorrowNext()">Tomorrow → Next Day</button>
-</div>
-<div class="actions-right">
-<button class="btn ghost" onclick="closeModal()">Cancel</button>
-<button class="btn wa" onclick="sendWhatsApp()">
-<span style="display:inline-flex;align-items:center;gap:8px">
-<svg aria-hidden="true" class="wa-ic" style="width:18px;height:18px" viewbox="0 0 32 32">
-<path d="M19.11 17.46c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.15-.42-2.19-1.35-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.41.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34 -.02 -.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47l-.52-.01c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.64 1.11 2.82.14.18 1.93 2.95 4.67 4.13.65.28 1.15.45 1.54.58.65.21 1.24.18 1.71.11.52-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18 -.52 -.32Z" fill="#fff"></path>
-</svg>
-            Send on WhatsApp
-          </span>
-</button>
-</div>
-</div>
-</div>
-</div>
-
 
 <!-- Photo Quick View Modal -->
 <style>
@@ -3255,134 +2883,6 @@ section{
   .ssfab .ic{ width:44px; height:44px; }
 }
 
-/* ===== Booking Popup / Form (PRO POLISH PASS) ===== */
-.booking-wrap{max-width:1080px;margin:0 auto;}
-.booking-roomcard{
-  display:grid;
-  grid-template-columns: 200px 1fr;
-  gap:16px;
-  padding:16px;
-  border-radius:24px;
-  border:1px solid rgba(148,163,184,.35);
-  background:linear-gradient(180deg,#ffffff 0%, #fbfdff 100%);
-  box-shadow:0 22px 55px rgba(2,8,23,.10);
-  margin:10px 0 16px 0;
-}
-.booking-roommedia{position:relative;}
-.booking-roommedia img{
-  width:100%;
-  height:150px;
-  object-fit:cover;
-  border-radius:20px;
-  border:1px solid rgba(148,163,184,.35);
-  box-shadow:0 12px 30px rgba(2,8,23,.12);
-  background:#f8fafc;
-}
-.booking-badge{
-  position:absolute;top:10px;left:10px;
-  padding:7px 10px;border-radius:999px;
-  background:rgba(2,6,23,.84);color:#fff;
-  font-size:11px;font-weight:1000;letter-spacing:.35px;
-  box-shadow:0 12px 28px rgba(2,8,23,.22);
-}
-.booking-roomtitle{font-size:22px;font-weight:1000;color:#0f172a;line-height:1.15;margin-top:2px;}
-.booking-roommeta{font-size:16px;font-weight:850;color:#475569;margin-top:8px;}
-.booking-roomchips{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;}
-.chip{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:8px 12px;border-radius:999px;
-  font-size:13px;font-weight:1000;line-height:1;
-  border:1px solid rgba(148,163,184,.35);
-  background:rgba(248,250,252,.95);
-}
-.chip-green{color:#16a34a;border-color: rgba(22,163,74,.22);background: rgba(22,163,74,.10);}
-
-.booking-total{
-  display:flex;align-items:center;justify-content:space-between;gap:12px;
-  margin-top:12px;padding:12px 14px;border-radius:18px;
-  border:1px solid rgba(148,163,184,.35);
-  background:rgba(255,255,255,.78);
-  backdrop-filter:saturate(140%) blur(8px);
-  font-weight:1000;color:#0f172a;
-}
-.booking-total-amt{font-size:22px;}
-.booking-hint{font-size:13px;font-weight:800;color:#64748b;margin-top:8px;line-height:1.45;}
-
-.booking-form{padding:0;margin:0;}
-.form-section-title{
-  font-size:14px;font-weight:1000;letter-spacing:2.2px;
-  text-transform:uppercase;color:#64748b;
-  margin:16px 0 10px 0;
-}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 16px;align-items:end;}
-.field-full{grid-column:1/-1;}
-
-/* Titles and box text SAME size */
-.field label{
-  font-size:16px;
-  font-weight:900;
-  color:#0f172a;
-  margin-bottom:8px;
-  display:block;
-  letter-spacing:.2px;
-}
-.field input,.field select,.field textarea{
-  width:100%;
-  font-size:16px;
-  font-weight:650;
-  padding:14px 16px;
-  border-radius:18px;
-  border:1px solid rgba(148,163,184,.55);
-  background:#fff;
-  box-shadow:0 10px 22px rgba(2,8,23,.06);
-  transition:border-color .12s ease, box-shadow .12s ease, transform .12s ease;
-}
-.field input:focus,.field select:focus,.field textarea:focus{
-  outline:none;
-  border-color: rgba(202,166,75,.65);
-  box-shadow:0 0 0 4px rgba(202,166,75,.14), 0 16px 38px rgba(2,8,23,.10);
-  transform: translateY(-1px);
-}
-.field textarea{padding-top:12px;}
-
-/* Select arrow */
-.field select{
-  -webkit-appearance:none;appearance:none;
-  background-image:
-    linear-gradient(45deg, transparent 50%, rgba(15,23,42,.55) 50%),
-    linear-gradient(135deg, rgba(15,23,42,.55) 50%, transparent 50%),
-    linear-gradient(to right, transparent, transparent);
-  background-position: calc(100% - 22px) 55%, calc(100% - 16px) 55%, 0 0;
-  background-size:6px 6px, 6px 6px, 100% 100%;
-  background-repeat:no-repeat;
-  padding-right:44px;
-}
-
-.form-sep{
-  height:1px;
-  background:linear-gradient(90deg, rgba(202,166,75,.0), rgba(202,166,75,.55), rgba(202,166,75,.0));
-  margin:18px 0 10px 0;border-radius:999px;
-}
-.form-note{
-  margin-top:14px;
-  padding:12px 14px;
-  border-radius:18px;
-  border:1px solid rgba(148,163,184,.35);
-  background:rgba(248,250,252,.95);
-  font-size:13px;
-  font-weight:900;
-  color:#475569;
-  line-height:1.45;
-}
-
-/* Mobile */
-@media (max-width: 820px){
-  .booking-roomcard{grid-template-columns:1fr;}
-  .booking-roommedia img{height:190px;}
-  .form-grid{grid-template-columns:1fr;}
-}
-
-
 /* ===== V1 UPGRADE: 2x2 luxury rooms + premium popup ===== */
 #rooms .rooms{
   display:grid !important;
@@ -3419,15 +2919,7 @@ section{
 }
 
 /* Premium modal shell */
-.modal{
-  width:min(860px,100%) !important;
-  border-radius:28px 28px 0 0 !important;
-  box-shadow:0 28px 80px rgba(2,8,23,.24) !important;
-}
-.modal-body{
-  padding:18px !important;
-  background:linear-gradient(180deg,#ffffff 0%, #fbfdff 100%) !important;
-}
+
 .booking-wrap{max-width:100%; margin:0 auto;}
 .booking-roomcard{
   display:grid;
@@ -3485,31 +2977,7 @@ section{
 }
 .form-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px 16px; align-items:end;}
 .field-full{grid-column:1/-1;}
-.field label{
-  font-size:16px !important;
-  font-weight:900 !important;
-  color:#0f172a !important;
-  margin-bottom:8px !important;
-  display:block;
-  letter-spacing:.2px;
-}
-.field input,.field select,.field textarea{
-  width:100%;
-  font-size:16px !important;
-  font-weight:650;
-  padding:14px 16px !important;
-  border-radius:18px !important;
-  border:1px solid rgba(148,163,184,.55) !important;
-  background:#fff;
-  box-shadow:0 10px 22px rgba(2,8,23,.06);
-  transition:border-color .12s ease, box-shadow .12s ease, transform .12s ease;
-}
-.field input:focus,.field select:focus,.field textarea:focus{
-  outline:none;
-  border-color:rgba(202,166,75,.65) !important;
-  box-shadow:0 0 0 4px rgba(202,166,75,.14), 0 16px 38px rgba(2,8,23,.10) !important;
-  transform:translateY(-1px);
-}
+
 .field select{
   -webkit-appearance:none; appearance:none;
   background-image:
@@ -3542,16 +3010,12 @@ section{
   color:#475569;
   line-height:1.45;
 }
-.modal-actions{
-  background:rgba(255,255,255,.92) !important;
-  border-top:1px solid rgba(148,163,184,.35) !important;
-}
+
 @media (max-width: 820px){
   .booking-roomcard{grid-template-columns:1fr;}
   .booking-roommedia img{height:190px;}
   .form-grid{grid-template-columns:1fr;}
 }
-
 
 /* ===== V3 BOUTIQUE PASS ===== */
 :root{
@@ -3633,14 +3097,7 @@ section{
 #rooms .gal-dots{bottom:10px !important;}
 
 /* premium popup, tighter and cleaner */
-.modal{
-  width:min(820px,100%) !important;
-  border-radius:24px 24px 0 0 !important;
-  box-shadow:0 30px 72px rgba(2,8,23,.22) !important;
-}
-.modal-head{
-  padding:12px 14px 10px 14px !important;
-}
+
 .modal-title b{
   font-size:20px !important;
   line-height:1.15 !important;
@@ -3648,38 +3105,7 @@ section{
 .modal-title small{
   font-size:12.5px !important;
 }
-.modal-body{
-  padding:14px !important;
-  background:linear-gradient(180deg,#ffffff 0%, #fbfdff 100%) !important;
-}
-.room-preview{
-  position:sticky !important;
-  top:62px !important;
-  display:grid !important;
-  grid-template-columns:180px 1fr !important;
-  gap:14px !important;
-  align-items:center !important;
-  margin:0 0 14px 0 !important;
-  padding:14px !important;
-  border-radius:18px !important;
-  box-shadow:var(--shadow-soft) !important;
-}
-.room-preview img{
-  width:100% !important;
-  height:126px !important;
-  border-radius:16px !important;
-  object-fit:cover !important;
-}
-.rp-name{
-  font-size:19px !important;
-  font-weight:1000 !important;
-  line-height:1.14 !important;
-  margin-bottom:2px !important;
-}
-.rp-price{
-  font-size:13.5px !important;
-  margin-bottom:6px !important;
-}
+
 .rp-total-line{
   margin:6px 0 8px 0 !important;
   padding:10px 12px !important;
@@ -3698,18 +3124,7 @@ section{
   gap:12px !important;
 }
 .field{margin-bottom:10px !important;}
-.field label{
-  font-size:15px !important;
-  font-weight:900 !important;
-  margin-bottom:5px !important;
-}
-.field input,.field select,.field textarea{
-  font-size:15px !important;
-  padding:13px 14px !important;
-  border-radius:14px !important;
-  box-shadow:0 6px 14px rgba(2,8,23,.04) !important;
-}
-.field textarea{min-height:86px !important;}
+
 .field-note{
   font-size:12px !important;
   margin-top:5px !important;
@@ -3722,9 +3137,7 @@ section{
   font-size:12px !important;
   line-height:1.45 !important;
 }
-.modal-actions{
-  padding:10px 14px !important;
-}
+
 .modal-actions .btn{
   padding:11px 14px !important;
   border-radius:14px !important;
@@ -3743,14 +3156,10 @@ footer p{margin:4px 0 !important;}
 @media (max-width:720px){
   .hero{padding:20px 0 16px 0 !important;}
   .hero h2{font-size:24px !important;}
-  .room-preview{
-    grid-template-columns:1fr !important;
-    top:0 !important;
-  }
-  .room-preview img{height:170px !important;}
+  
+  
   .form-grid{grid-template-columns:1fr !important;}
 }
-
 
 /* ===== V4 MICRO POLISH ===== */
 .wa-book:hover,
@@ -3792,13 +3201,6 @@ footer p{margin:4px 0 !important;}
 <span>Chat</span>
 </a>
 </div>
-
-
-
-
-
-
-
 
 <script>
 /* ===== ROOM GALLERY ROTATION FIX ===== */
@@ -3864,7 +3266,6 @@ footer p{margin:4px 0 !important;}
 })();
 </script>
 
-
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -3878,7 +3279,7 @@ footer p{margin:4px 0 !important;}
     {
       "@type":"Question",
       "name":"How can I book a room?",
-      "acceptedAnswer":{"@type":"Answer","text":"You can check availability and book directly through the WhatsApp booking form on this website."}
+      "acceptedAnswer":{"@type":"Answer","text":"You can book directly through our secure booking engine on this website."}
     },
     {
       "@type":"Question",
@@ -3888,343 +3289,26 @@ footer p{margin:4px 0 !important;}
     {
       "@type":"Question",
       "name":"What time are check-in and check-out?",
-      "acceptedAnswer":{"@type":"Answer","text":"Check-in time can be selected in the booking form. Check-out defaults to the next day and can be extended for longer stays."}
+      "acceptedAnswer":{"@type":"Answer","text":"Check-in and check-out details are handled in the booking engine. Check-out defaults to the next day and can be extended for longer stays."}
     }
   ]
 }
 </script>
 
-
-
-
-
-
-
-
-<script>
-/* ===== V7.1 AUTHORITATIVE BOOKING + iOS FIX ===== */
-(function(){
-  const WHATSAPP_NUMBER = "917842072725";
-  const ONLINE_DISCOUNT = 50;
-  const EXTRA_BED_FEE = 200;
-
-  const RATES = {
-    "Deluxe AC Room":       { 1: 1699, 2: 1799, 3: 1899, img: "images/deluxe-ac-1.jpg" },
-    "Deluxe Non-AC Room":   { 1: 1399, 2: 1499, 3: 1599, img: "images/deluxe-nonac-1.jpg" },
-    "Standard AC Room":     { 1: 1599, 2: 1699, 3: 1799, img: "images/standard-ac-1.jpg" },
-    "Standard Non-AC Room": { 1: 1299, 2: 1399, 3: 1499, img: "images/standard-nonac-1.jpg" }
-  };
-
-  const $ = (id) => document.getElementById(id);
-
-  function formatINR(n){
-    const safe = Number.isFinite(Number(n)) ? Number(n) : 0;
-    try { return "₹" + safe.toLocaleString("en-IN"); }
-    catch(e) { return "₹" + safe; }
-  }
-
-  function parseDate(v){
-    if(!v) return null;
-    const parts = v.split("-").map(Number);
-    if(parts.length !== 3) return null;
-    const [y,m,d] = parts;
-    if(!y || !m || !d) return null;
-    return new Date(y, m - 1, d, 12, 0, 0, 0);
-  }
-
-  function isoDate(d){
-    const y = d.getFullYear();
-    const m = String(d.getMonth() + 1).padStart(2, "0");
-    const day = String(d.getDate()).padStart(2, "0");
-    return `${y}-${m}-${day}`;
-  }
-
-  function addDays(d, days){
-    return new Date(d.getFullYear(), d.getMonth(), d.getDate() + days, 12, 0, 0, 0);
-  }
-
-  function nightsBetween(ci, co){
-    const a = parseDate(ci), b = parseDate(co);
-    if(!a || !b) return 1;
-    const diff = Math.round((b.getTime() - a.getTime()) / 86400000);
-    return Math.max(1, diff);
-  }
-
-  function ensureDates(forceCheckoutNextDay){
-    const checkinEl = $("checkin");
-    const checkoutEl = $("checkout");
-    const checkinTimeEl = $("checkinTime");
-    if(!checkinEl || !checkoutEl) return;
-
-    const today = new Date();
-    if(!checkinEl.value){
-      const ci = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 12, 0, 0, 0);
-      checkinEl.value = isoDate(ci);
-    }
-    if(checkinTimeEl && !checkinTimeEl.value){
-      checkinTimeEl.value = "12:00";
-    }
-
-    const ci = parseDate(checkinEl.value);
-    const minCo = ci ? addDays(ci, 1) : addDays(today, 1);
-    checkoutEl.min = isoDate(minCo);
-
-    const co = parseDate(checkoutEl.value);
-    if(forceCheckoutNextDay || !co || co < minCo){
-      checkoutEl.value = isoDate(minCo);
-    }
-  }
-
-  function getPricing(){
-    const room = ($("roomType") && $("roomType").value) ? $("roomType").value : "Deluxe AC Room";
-    const guests = Math.min(3, Math.max(1, parseInt(($("guests") && $("guests").value) || "2", 10) || 2));
-    const extraBed = parseInt(($("extraBed") && $("extraBed").value) || "0", 10) ? 1 : 0;
-    const nights = nightsBetween(($("checkin") && $("checkin").value) || "", ($("checkout") && $("checkout").value) || "");
-    const roomRates = RATES[room] || RATES["Deluxe AC Room"];
-    const nightlyRate = Number(roomRates[guests] || 0);
-    const roomSubtotal = nightlyRate * nights;
-    const extraBedTotal = extraBed ? (EXTRA_BED_FEE * nights) : 0;
-    const total = Math.max(0, roomSubtotal + extraBedTotal - ONLINE_DISCOUNT);
-    return { room, guests, nights, nightlyRate, roomSubtotal, extraBed, extraBedTotal, total };
-  }
-
-  function syncFromForm(){
-    ensureDates(false);
-    const p = getPricing();
-    const rpName = $("rpName"), rpPrice = $("rpPrice"), rpTotalLine = $("rpTotalLine"), rpDiscount = $("rpDiscount"), rpImg = $("rpImg");
-    if(rpName) rpName.textContent = p.room;
-    if(rpPrice) rpPrice.textContent = `${formatINR(p.nightlyRate)} / night · ${p.guests} guest${p.guests>1?"s":""} · ${p.nights} night${p.nights>1?"s":""}`;
-    if(rpTotalLine) rpTotalLine.textContent = `Estimated total: ${formatINR(p.total)}`;
-    if(rpDiscount) rpDiscount.textContent = `Online Booking Discount: -${formatINR(ONLINE_DISCOUNT)}`;
-    if(rpImg && RATES[p.room] && RATES[p.room].img) rpImg.src = RATES[p.room].img;
-  }
-
-  function roomOptionExists(name){
-    const roomTypeEl = $("roomType");
-    if(!roomTypeEl) return false;
-    return Array.from(roomTypeEl.options || []).some(opt => opt.value === name);
-  }
-
-  function openBooking(roomName){
-    const bd = $("backdrop");
-    if(roomName && $("roomType") && roomOptionExists(roomName)){
-      $("roomType").value = roomName;
-    }
-    ensureDates(false);
-    syncFromForm();
-    if(bd){
-      bd.style.display = "flex";
-      bd.setAttribute("aria-hidden","false");
-    }
-    document.body.style.overflow = "hidden";
-    setTimeout(function(){ if($("name")) $("name").focus(); }, 50);
-  }
-
-  function closeModal(){
-    const bd = $("backdrop");
-    if(bd){
-      bd.style.display = "none";
-      bd.setAttribute("aria-hidden","true");
-    }
-    document.body.style.overflow = "";
-  }
-
-  function fillTodayTomorrow(){
-    const today = new Date();
-    const ci = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 12, 0, 0, 0);
-    if($("checkin")) $("checkin").value = isoDate(ci);
-    if($("checkout")) $("checkout").value = isoDate(addDays(ci, 1));
-    syncFromForm();
-  }
-
-  function fillTomorrowNext(){
-    const today = new Date();
-    const ci = addDays(new Date(today.getFullYear(), today.getMonth(), today.getDate(), 12, 0, 0, 0), 1);
-    if($("checkin")) $("checkin").value = isoDate(ci);
-    if($("checkout")) $("checkout").value = isoDate(addDays(ci, 1));
-    syncFromForm();
-  }
-
-  function sendWhatsApp(){
-    ensureDates(false);
-
-    const name = ($("name") && $("name").value || "").trim();
-    const phone = ($("phone") && $("phone").value || "").trim();
-    const email = ($("email") && $("email").value || "").trim();
-    const notes = ($("notes") && $("notes").value || "").trim();
-
-    if(!name){
-      if($("name")) $("name").focus();
-      return false;
-    }
-
-    const digits = phone.replace(/\D/g, "");
-    if(digits.length !== 10){
-      if($("phone")) $("phone").focus();
-      return false;
-    }
-
-    if(email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
-      if($("email")) $("email").focus();
-      return false;
-    }
-
-    const p = getPricing();
-    const lines = [
-      "Booking Request — SS Residency Grand",
-      "",
-      `Room: ${p.room}`,
-      `Guests: ${p.guests}`,
-      `Check-in: ${($("checkin") && $("checkin").value) || ""} at ${($("checkinTime") && $("checkinTime").value) || "12:00"}`,
-      `Check-out: ${($("checkout") && $("checkout").value) || ""}`,
-      `Nights: ${p.nights}`,
-      `Extra Bed: ${p.extraBed ? "Yes (₹200/night)" : "No"}`,
-      "",
-      `Rate: ${formatINR(p.nightlyRate)} / night`,
-      `Room Subtotal: ${formatINR(p.roomSubtotal)}`,
-      ...(p.extraBed ? [`Extra Bed Fee: ${formatINR(p.extraBedTotal)}`] : []),
-      `Online Discount: -${formatINR(ONLINE_DISCOUNT)}`,
-      `Total: ${formatINR(p.total)}`,
-      "",
-      `Guest Name: ${name}`,
-      `Mobile: ${phone}`,
-      ...(email ? [`Email: ${email}`] : []),
-      ...(notes ? [`Notes: ${notes}`] : []),
-      "",
-      "Please confirm availability."
-    ];
-
-    const url = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(lines.join("\n"))}`;
-    const isiOS = /iPad|iPhone|iPod/i.test(navigator.userAgent);
-
-    // For iOS Safari, direct navigation works more reliably than window.open.
-    if(isiOS){
-      window.location.href = url;
-    } else {
-      window.open(url, "_blank");
-    }
-    return false;
-  }
-
-  window.sendWhatsApp = sendWhatsApp;
-  window.syncFromForm = syncFromForm;
-  window.openBooking = openBooking;
-  window.closeModal = closeModal;
-  window.fillTodayTomorrow = fillTodayTomorrow;
-  window.fillTomorrowNext = fillTomorrowNext;
-  window.enforceDateRules = function(){ ensureDates(false); };
-
-  document.addEventListener("DOMContentLoaded", function(){
-    ensureDates(false);
-    syncFromForm();
-
-    const form = $("bookingForm");
-    if(form){
-      form.setAttribute("onsubmit", "event.preventDefault(); return sendWhatsApp();");
-      form.addEventListener("submit", function(e){
-        e.preventDefault();
-        return sendWhatsApp();
-      }, {passive:false});
-    }
-
-    ["roomType","guests","extraBed","checkin","checkout","checkinTime"].forEach(function(id){
-      const el = $(id);
-      if(!el) return;
-      el.addEventListener("change", function(){
-        ensureDates(id === "checkin");
-        syncFromForm();
-      });
-    });
-
-    const buttons = Array.from(document.querySelectorAll(".modal-actions .btn"));
-    buttons.forEach(function(btn){
-      const txt = (btn.textContent || "").replace(/\s+/g, " ").trim().toLowerCase();
-      if(txt.includes("today") && txt.includes("tomorrow")){
-        btn.type = "button";
-        btn.onclick = fillTodayTomorrow;
-      } else if(txt.includes("tomorrow") && txt.includes("next day")){
-        btn.type = "button";
-        btn.onclick = fillTomorrowNext;
-      }
-    });
-
-    // Strong binding for iOS Safari on WhatsApp CTA
-    const ctaCandidates = Array.from(document.querySelectorAll("#bookingForm button, #bookingForm .btn, #bookingForm input[type='submit']"));
-    ctaCandidates.forEach(function(btn){
-      const txt = (btn.textContent || btn.value || "").replace(/\s+/g, " ").trim().toLowerCase();
-      if(!(txt.includes("whatsapp") || txt.includes("send") || txt.includes("check availability"))) return;
-      btn.type = "submit";
-      const handler = function(e){
-        e.preventDefault();
-        e.stopPropagation();
-        return sendWhatsApp();
-      };
-      btn.addEventListener("click", handler, {passive:false});
-      btn.addEventListener("touchend", handler, {passive:false});
-    });
-
-    const bookButtons = Array.from(document.querySelectorAll("button, a"));
-    bookButtons.forEach(function(el){
-      const txt = (el.textContent || "").replace(/\s+/g," ").trim().toLowerCase();
-      const onclickText = el.getAttribute("onclick") || "";
-      const isBook = txt.includes("book on whatsapp") || txt.includes("book now") || txt === "book" || onclickText.includes("openBooking(");
-      if(!isBook) return;
-      if(onclickText.includes("openBooking(")) return;
-      el.addEventListener("click", function(e){
-        e.preventDefault();
-        const roomName = (el.closest(".room-card") && el.closest(".room-card").querySelector("h4")) ? el.closest(".room-card").querySelector("h4").textContent.trim() : "Deluxe AC Room";
-        openBooking(roomName);
-      });
-    });
-
-    const bd = $("backdrop");
-    if(bd && !bd.style.display) bd.style.display = "none";
-  });
-
-  document.addEventListener("click", function(e){
-    const bd = $("backdrop");
-    if(bd && e.target === bd) closeModal();
-  });
-
-  document.addEventListener("keydown", function(e){
-    if(e.key === "Escape") closeModal();
-  });
-})();
-</script>
-
-
-<script src="https://live.ipms247.com/themes/reservation/js/jquery-a.g.a.min.js" type="text/javascript"></script>
-<script src="https://live.ipms247.com/themes/reservation/js/bookingbtn/resbookingbtn.js" type="text/javascript"></script>
-<script>
-jQuery("#_resbookingbtnContainer").resBookingBtn({
-btnContainer: "_resbookingbtnContainer",
-Gradiant1: "#16b2d9",
-Gradiant2: "#acd9e8",
-ShowBorder: true,
-BorderColor: "#2bd9e0",
-BorderWidth: 1,
-BorderType: "solid",
-ShowShadow: true,
-HShadow: "-2",
-VShadow: "1",
-BlurShadow: "3",
-SpreadShadow: "0",
-ShadowColor: "#000000",
-ShadowType: "inset",
-ShowCorner: true,
-CornerWidth: 4,
-FontFamily: "Arial, Helvetica, sans-serif",
-FontSize: "16",
-TextColor: "#FFFFFF",
-TextDecoration: "none",
-TextAlign: "center",
-TextCaption: "Book Now",
-btnEffect: "none",
-btnSpeed: 1000,
-btnHeight: 26,
-btnWidth: 100
-});
-</script>
+<div class="floating-cta" aria-label="Quick actions">
+  <a href="https://live.ipms247.com/booking/book-rooms-hotelssresidency" class="float-btn book">
+    <span class="icon" aria-hidden="true">📅</span>
+    <span>BOOK NOW</span>
+  </a>
+  <a href="tel:7842072724" class="float-btn call">
+    <span class="icon" aria-hidden="true">📞</span>
+    <span>CALL</span>
+  </a>
+  <a href="https://api.whatsapp.com/send?phone=917842072725" class="float-btn chat">
+    <span class="icon" aria-hidden="true">💬</span>
+    <span>CHAT</span>
+  </a>
+</div>
 
 </body>
 </html>
