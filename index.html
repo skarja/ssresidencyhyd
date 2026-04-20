@@ -2543,7 +2543,25 @@ section{
 <a href="#amenities">Amenities</a>
 <a href="#location">Location</a>
 </nav>
-<a class="hyatt-book" href="https://live.ipms247.com/booking/book-rooms-hotelssresidency" style="text-decoration:none;">Book Now</a>
+<a class="hyatt-book" href="https://live.ipms247.com/booking/book-rooms-hotelssresidency" style="text-decoration:none;">Book Now<<!-- Event snippet for Purchase conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18095398945/a5FNCM3Sm50cEKHAx7RD',
+      'transaction_id': '',
+      'event_callback': callback
+      // 'new_customer': true /* calculate dynamically, populate with true/false */,
+  });
+  return false;
+}
+</script>
+/a>
 </div>
 </div>
 </div>
