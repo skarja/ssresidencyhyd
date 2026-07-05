@@ -1,3324 +1,720 @@
 
-
-
-
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
-<title>Hotel in Kukatpally KPHB Colony | Near JNTU Metro | SS Residency Grand Hyderabad</title>
-<meta name="description" content="SS Residency Grand is a hotel in Kukatpally, KPHB Colony, Hyderabad near JNTU Metro. Budget hotel rooms with AC and Non‑AC options, walkable distance to Metro and on National Highway."/>
-<meta content="SS Residency Grand | KPHB Colony, Hyderabad" property="og:title"/>
-<meta content="Clean, comfortable stays in KPHB Colony, Hyderabad. Book directly through our secure booking engine." property="og:description"/>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18095398945">
-</script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-18095398945');
-</script>
-<style>
-    :root{
-      --brand:#0b3c5d;
-      --brand2:#0f4b73;
-      --wa:#25d366;
-      --bg:#f4f6f8;
-      --card:#ffffff;
-      --text:#0f172a;
-      --muted:#475569;
-      --border:#e2e8f0;
-      --shadow:0 14px 34px rgba(2,8,23,.12);
-      --radius:16px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);
-      line-height:1.55;
-      padding-bottom: calc(74px + env(safe-area-inset-bottom));
-    }
-    a{text-decoration:none;color:inherit}
-    .container{max-width:1100px;margin:0 auto;padding:0 18px}
-    .muted{color:var(--muted)}
-    .small{font-size:12px}
-
-    /* Header */
-    header{
-      background:linear-gradient(90deg,var(--brand),var(--brand2));
-      color:#fff;position:sticky;top:0;z-index:100;
-      border-bottom:1px solid rgba(255,255,255,.14);
-    }
-    .header-inner{
-      display:flex;align-items:center;justify-content:space-between;gap:12px;
-      padding:14px 0;
-    }
-    .brand h1{margin:0;font-size:20px;letter-spacing:.2px}
-    .brand small{opacity:.9;font-size:13px}
-
-    /* Buttons */
-    .cta{display:flex;gap:10px;flex-wrap:wrap}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:8px;
-      padding:10px 14px;border-radius:12px;font-weight:900;font-size:14px;
-      border:1px solid transparent;cursor:pointer;user-select:none;
-      transition:transform .05s ease, filter .12s ease;
-      white-space:nowrap;
-    }
-    .btn:active{transform:translateY(1px)}
-    .btn.primary{background:var(--brand);color:#fff}
-    .btn.wa{background:var(--wa);color:#fff}
-    .btn.call{background:#fff;color:var(--brand)}
-    .btn.ghost{background:#fff;border-color:var(--border);color:var(--text)}
-    .btn:hover{filter:brightness(.98)}
-
-    /* Hero */
-    .hero{
-      background:#fff;padding:34px 0 24px 0;
-      border-bottom:1px solid var(--border);
-    }
-    .hero h2{margin:0 0 8px 0;font-size:28px;text-align:center}
-    .hero p{margin:0 auto;max-width:900px;text-align:center;color:var(--muted)}
-    .hero .hero-cta{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:14px}
-
-    /* Sections */
-    .section{padding:34px 0}
-    .section h3{margin:0 0 14px 0;font-size:24px}
-    .section .sub{margin-top:-6px;color:var(--muted)}
-
-    /* Rooms */
-    .rooms{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:14px}
-    .room-card{
-      background:var(--card);border-radius:var(--radius);overflow:hidden;
-      box-shadow:var(--shadow);border:1px solid var(--border);
-      position:relative;
-    }
-    .room-card img{width:100%;height:200px;object-fit:cover;display:block}
-    .room-card .content{padding:14px 14px 16px 14px}
-    .room-card h4{margin:0 0 6px 0;font-size:18px}
-    .price{font-weight:1000;margin:8px 0}
-    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-    .chip{font-size:12px;padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:#fff;color:#334155}
-
-    
-    /* Room-tile primary CTA (match Book Now FAB styling) */
-    .wa-book{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:12px;
-      padding:14px 18px;
-      border-radius:16px;
-      text-decoration:none;
-      color:#ffffff !important;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      font-weight:900;
-      letter-spacing:1.1px;
-      text-transform:uppercase;
-      font-size:12.5px;
-
-      background:#0b1220;
-      border:1px solid rgba(202,166,75,.55);
-      box-shadow:0 18px 42px rgba(2,8,23,.22);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-
-      user-select:none;
-      -webkit-tap-highlight-color: transparent;
-      transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
-    }
-    .wa-book:hover{
-      transform: translateY(-2px);
-      box-shadow:0 26px 66px rgba(2,8,23,.28);
-      filter:brightness(1.02);
-    }
-    .wa-book:active{
-      transform: translateY(-1px) scale(.99);
-    }
-    .wa-book .ic{
-      width:36px;
-      height:36px;
-      border-radius:14px;
-      display:grid;
-      place-items:center;
-      background:linear-gradient(145deg, rgba(202,166,75,.22), rgba(255,255,255,.06));
-      border:1px solid rgba(202,166,75,.35);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.12);
-      flex:0 0 36px;
-    }
-    .wa-book svg{
-      width:18px;
-      height:18px;
-      stroke:#ffffff;
-      stroke-width:2;
-      fill:none;
-      opacity:.95;
-    }
-
-.wa-book:active{transform:translateY(1px)}
-    .wa-ic{width:22px;height:22px;display:inline-block;flex:0 0 22px}
-    .wa-sub{display:block;font-size:12px;font-weight:900;opacity:.92;margin-top:2px}
-
-    /* Premium Room Badges (Animated, Subtle) */
-    .room-badge{
-      position:absolute;
-      top:12px;
-      left:12px;
-      padding:7px 12px;
-      border-radius:999px;
-      font-size:12px;
-      font-weight:1000;
-      letter-spacing:.3px;
-      color:#fff;
-      box-shadow:0 10px 22px rgba(0,0,0,.26);
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      z-index:3;
-      overflow:hidden;
-      transform: translateZ(0);
-    }
-    .badge-premium{
-      background:linear-gradient(135deg,#0b3c5d,#1d6fa5);
-    }
-    .badge-budget{
-      background:linear-gradient(135deg,#ff7a18,#ffb347);
-    }
-    .badge-available{
-      left:auto;
-      right:12px;
-      background:linear-gradient(135deg,#16a34a,#22c55e);
-    }
-    .badge-premium::after{
-      content:"";
-      position:absolute;
-      inset:-40% -30%;
-      background:linear-gradient(120deg, rgba(255,255,255,0) 35%, rgba(255,255,255,.35) 50%, rgba(255,255,255,0) 65%);
-      transform:translateX(-120%) rotate(8deg);
-      animation: shimmer 3.8s ease-in-out infinite;
-    }
-    .badge-premium,
-    .badge-available{
-      animation: floaty 2.8s ease-in-out infinite;
-    }
-    .badge-budget{
-      animation: pulse 2.6s ease-in-out infinite;
-    }
-    @keyframes shimmer{
-      0%, 55% { transform:translateX(-120%) rotate(8deg); opacity:0; }
-      60%    { opacity:1; }
-      100%   { transform:translateX(120%) rotate(8deg); opacity:0; }
-    }
-    @keyframes floaty{
-      0%,100% { transform: translateY(0); }
-      50%     { transform: translateY(-2px); }
-    }
-    @keyframes pulse{
-      0%,100% { transform: scale(1); filter: brightness(1); }
-      50%     { transform: scale(1.02); filter: brightness(1.03); }
-    }
-    @media (prefers-reduced-motion: reduce){
-      .badge-premium::after,
-      .badge-premium,
-      .badge-budget,
-      .badge-available{
-        animation:none !important;
-      }
-    }
-
-    /* Amenities */
-    .amenity-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:12px}
-    .amenity-card{
-      background:#fff;border:1px solid var(--border);border-radius:18px;padding:14px;
-      box-shadow:0 10px 22px rgba(2,8,23,.08);
-      display:flex;gap:12px;align-items:flex-start;
-    }
-    .amenity-ic{
-      width:46px;height:46px;border-radius:16px;display:grid;place-items:center;
-      background:rgba(11,60,93,.08);border:1px solid rgba(11,60,93,.12);flex:0 0 46px
-    }
-    .amenity-ic svg{
-      width:22px;height:22px;stroke:var(--brand);stroke-width:2;fill:none;
-      stroke-linecap:round;stroke-linejoin:round
-    }
-    .amenity-text b{display:block;font-size:14px}
-    .amenity-text small{display:block;margin-top:2px;color:var(--muted);font-size:12px}
-
-    /* Gallery */
-    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
-    .gallery img{
-      width:100%;height:180px;object-fit:cover;border-radius:14px;
-      border:1px solid var(--border);background:#fff;
-    }
-
-    /* Location */
-    .loc-card{
-      background:#fff;border-radius:18px;padding:18px;
-      box-shadow:0 12px 30px rgba(0,0,0,.12);
-      border:1px solid var(--border)
-    }
-    .loc-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
-    .map-frame{border-radius:14px;overflow:hidden;border:1px solid var(--border);margin-top:12px}
-    iframe{display:block;width:100%;height:320px;border:0}
-
-    /* Footer */
-    footer{
-      background:linear-gradient(90deg,var(--brand),var(--brand2));
-      color:#fff;padding:26px 0;text-align:center
-    }
-    footer p{margin:6px 0}
-
-    /* Floating WhatsApp */
-    .whatsapp-float{
-      position:fixed;bottom:92px;right:18px;background:var(--wa);color:#fff;
-      padding:14px 18px;border-radius:999px;font-weight:1000;box-shadow:0 16px 34px rgba(0,0,0,.22);
-      z-index:120;
-    }
-
-    /* Room discount ribbon */
-    .discount-ribbon{
-      position:absolute;
-      top:56px;
-      left:12px;
-      z-index:4;
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:7px 12px;
-      border-radius:999px;
-      font-size:12px;
-      font-weight:1000;
-      letter-spacing:.2px;
-      color:#0b3c5d;
-      background:rgba(245,230,161,.92);
-      border:1px solid rgba(202,166,75,.55);
-      box-shadow:0 10px 22px rgba(0,0,0,.18);
-      backdrop-filter: blur(6px);
-    }
-    .discount-ribbon .pill{
-      background:linear-gradient(90deg,#caa64b,#f5e6a1,#b8932c,#f5e6a1);
-      color:#0b3c5d;
-      padding:2px 8px;
-      border-radius:999px;
-      font-size:11px;
-      font-weight:1000;
-      border:1px solid rgba(184,147,44,.45);
-    }
-
-    /* Quick view button */
-    .quickview{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      padding:10px 12px;
-      border-radius:14px;
-      border:1px solid var(--border);
-      background:rgba(255,255,255,.92);
-      font-weight:1000;
-      cursor:pointer;
-      box-shadow:0 10px 18px rgba(2,8,23,.06);
-    }
-    .quickview:hover{ filter:brightness(.99); }
-    .quickview:active{ transform:translateY(1px); }
-    .quickview-ic{ width:18px;height:18px; stroke:var(--brand); stroke-width:2; fill:none; stroke-linecap:round; stroke-linejoin:round; }
-
-    /* Photo Quick View Modal */
-    .photo-backdrop{
-      position:fixed; inset:0;
-      background:rgba(2,8,23,.70);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      padding:14px;
-      z-index:260;
-    }
-    .photo-modal{
-      width:min(980px,100%);
-      background:#fff;
-      border-radius:22px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.12);
-      box-shadow:0 26px 64px rgba(0,0,0,.42);
-      max-height:92dvh;
-      display:flex;
-      flex-direction:column;
-    }
-    .photo-head{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      padding:12px 14px;
-      background:linear-gradient(180deg,#fff,#fbfdff);
-      border-bottom:1px solid var(--border);
-    }
-    .photo-head b{ font-size:15px; }
-    .photo-body{
-      padding:14px;
-      overflow:auto;
-      -webkit-overflow-scrolling:touch;
-    }
-    .photo-stage{
-      position:relative;
-      border-radius:18px;
-      overflow:hidden;
-      border:1px solid var(--border);
-      background:#0b1220;
-    }
-    .photo-stage img{
-      width:100%;
-      height:min(56vh,520px);
-      object-fit:cover;
-      display:block;
-    }
-    .navbtn{
-      position:absolute;
-      top:50%;
-      transform:translateY(-50%);
-      width:44px;height:44px;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.22);
-      background:rgba(15,23,42,.45);
-      color:#fff;
-      font-weight:1000;
-      cursor:pointer;
-      display:grid;
-      place-items:center;
-      backdrop-filter: blur(6px);
-    }
-    .navbtn:hover{ background:rgba(15,23,42,.58); }
-    .navbtn:active{ transform:translateY(-50%) translateY(1px); }
-    .navbtn.prev{ left:12px; }
-    .navbtn.next{ right:12px; }
-    .thumbs{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:12px;
-      justify-content:center;
-    }
-    .thumb{
-      width:92px;
-      height:70px;
-      border-radius:14px;
-      overflow:hidden;
-      border:2px solid transparent;
-      cursor:pointer;
-      background:#fff;
-      box-shadow:0 10px 18px rgba(2,8,23,.08);
-    }
-    .thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
-    .thumb.active{ border-color: rgba(202,166,75,.85); }
-    @media (max-width:720px){
-      .discount-ribbon{ top:52px; }
-      .thumb{ width:76px; height:58px; }
-      .photo-stage img{ height:46vh; }
-    }
-
-/* ===== LIMITED TIME (ULTRA LUXURY) ===== */
-.limited-time{
-  position:relative;
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:6px 12px;
-  border-radius:999px;
-  background:linear-gradient(90deg,#caa64b 0%, #f5e6a1 35%, #b8932c 70%, #f5e6a1 100%);
-  color:#062235;
-  font-weight:1000;
-  letter-spacing:.35px;
-  border:1px solid rgba(255,255,255,.22);
-  box-shadow:0 2px 10px rgba(202,166,75,.25);
-  overflow:hidden;
-}
-.limited-time::after{
-  content:"";
-  position:absolute;
-  inset:-40% -60%;
-  background:linear-gradient(
-    120deg,
-    rgba(255,255,255,0) 44%,
-    rgba(255,255,255,.28) 50%,
-    rgba(255,255,255,0) 56%
-  );
-  transform:translateX(-120%) rotate(8deg);
-  opacity:0;
-  pointer-events:none;
-}
-header.shrink .limited-time{
-  box-shadow:
-    0 6px 18px rgba(202,166,75,.38),
-    0 0 0 1px rgba(245,230,161,.22);
-  animation: ltPulse 2.8s ease-in-out infinite;
-}
-header.shrink .limited-time::after{
-  opacity:1;
-  animation: ltShimmer 3.8s ease-in-out infinite;
-}
-@keyframes ltPulse{
-  0%,100%{ transform:translateY(0) scale(1); filter:saturate(1); }
-  50%{ transform:translateY(-1px) scale(1.03); filter:saturate(1.1); }
-}
-@keyframes ltShimmer{
-  0%,70%{ transform:translateX(-120%) rotate(8deg); }
-  100%{ transform:translateX(120%) rotate(8deg); }
-}
-@media (prefers-reduced-motion: reduce){
-  header.shrink .limited-time,
-  header.shrink .limited-time::after{ animation:none !important; }
-}
-
-/* ===== TAJ GOLD SHEEN EFFECT ===== */
-header::before{
-  content:"";
-  position:absolute;
-  inset:-40% -60%;
-  background:linear-gradient(
-    120deg,
-    rgba(255,255,255,0) 42%,
-    rgba(245,230,161,.18) 48%,
-    rgba(255,255,255,0) 56%
-  );
-  transform:translateX(-120%) rotate(6deg);
-  opacity:0;
-  pointer-events:none;
-  transition:opacity .4s ease;
-}
-
-/* Sheen activates when scrolling (header.shrink already exists) */
-header.shrink::before{
-  opacity:1;
-  animation:tajSheen 6s ease-in-out infinite;
-}
-
-@keyframes tajSheen{
-  0%,70%{ transform:translateX(-120%) rotate(6deg); }
-  100%{ transform:translateX(120%) rotate(6deg); }
-}
-
-/* ===== TAJ ULTRA-PREMIUM PRO (Overrides) ===== */
-header{
-  /* slightly richer depth */
-  box-shadow:
-    0 8px 26px rgba(0,0,0,.20),
-    0 2px 0 rgba(202,166,75,.38);
-}
-.header-inner{
-  padding:26px 18px; /* a touch more premium breathing room */
-}
-
-header.shrink{
-  /* glass effect on scroll */
-  background:linear-gradient(120deg, rgba(11,60,93,.92), rgba(15,75,115,.92));
-  backdrop-filter: blur(14px) saturate(1.15);
-  -webkit-backdrop-filter: blur(14px) saturate(1.15);
-  box-shadow:
-    0 14px 40px rgba(0,0,0,.28),
-    0 2px 0 rgba(245,230,161,.55),
-    0 0 0 1px rgba(255,255,255,.08) inset;
-}
-
-header.shrink::after{
-  /* stronger gold separator on scroll */
-  box-shadow:0 4px 14px rgba(202,166,75,.55);
-}
-
-.brand h1{
-  line-height:1.02;
-  letter-spacing:.7px;
-  text-rendering:optimizeLegibility;
-}
-
-header.shrink .brand h1{
-  letter-spacing:.55px;
-}
-
-.brand .meta{
-  opacity:.92;
-}
-
-/* Nav pills: more “pro” */
-.pill{
-  background:rgba(255,255,255,.10);
-  border:1px solid rgba(255,255,255,.22);
-}
-.pill:hover{
-  background:rgba(255,255,255,.16);
-}
-
-/* Icon buttons: tighter, cleaner */
-.icon-btn{
-  border:1px solid rgba(255,255,255,.22);
-  background:rgba(255,255,255,.10);
-}
-.icon-btn.wa{
-  background:rgba(37,211,102,.16);
-  border-color:rgba(37,211,102,.32);
-}
-.icon-btn:hover{
-  background:rgba(255,255,255,.15);
-}
-
-/* subtle title glow on scroll (very premium) */
-header.shrink .hotel-title,
-header.shrink .brand h1{
-  text-shadow:0 10px 28px rgba(0,0,0,.22);
-}
-
-/* reduce motion support */
-@media (prefers-reduced-motion: reduce){
-  header{ transition:none !important; }
-  .header-inner{ transition:none !important; }
-}
-
-/* ===== NAV BUTTON STYLE (Rooms/Amenities/Location) ===== */
-.nav-pills{ gap:12px; }
-.pill{
-  background:rgba(255,255,255,.16);
-  border:1px solid rgba(255,255,255,.26);
-  box-shadow:0 12px 22px rgba(2,8,23,.18);
-  padding:11px 16px;
-  border-radius:14px;
-}
-.pill:hover{
-  background:rgba(255,255,255,.22);
-  transform:translateY(-2px);
-}
-.pill:active{
-  transform:translateY(0);
-}
-
-    /* ===== Header Pro Overrides ===== */
-    .site-header{ position:sticky; top:0; z-index:999; }
-    .header-pro{ padding:18px 0 14px 0; align-items:flex-start; }
-    .hotel-title{ margin:0; font-size:44px; font-weight:1000; letter-spacing:.6px; line-height:1.05; }
-    .hotel-sub{ margin-top:8px; font-size:16px; font-weight:900; opacity:.92; }
-
-    .header-actions{
-      display:flex;
-      flex-direction:row;
-      align-items:center;
-      gap:16px;
-      flex-wrap:wrap;
-      padding-top:6px;
-    }
-
-    /* Bigger nav buttons */
-    .nav-pills{ display:flex; gap:12px; flex-wrap:wrap; }
-    .nav-pills .pill{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:13px 20px;
-      border-radius:16px;
-      font-size:16px;
-      font-weight:1000;
-      color:#fff;
-      background:rgba(255,255,255,.18);
-      border:1px solid rgba(255,255,255,.28);
-      box-shadow:0 14px 26px rgba(2,8,23,.18);
-      backdrop-filter: blur(8px);
-      transition:transform .15s ease, background .15s ease;
-    }
-    .nav-pills .pill:hover{ background:rgba(255,255,255,.24); transform:translateY(-2px); }
-    .nav-pills .pill:active{ transform:translateY(0); }
-
-    /* Icon buttons row below nav */
-    .icon-cta{ display:flex; gap:12px; align-items:center; }
-    .icon-btn{
-      width:46px; height:46px;
-      border-radius:16px;
-      display:grid; place-items:center;
-      border:1px solid rgba(255,255,255,.24);
-      background:rgba(255,255,255,.12);
-      color:#fff;
-      box-shadow:0 14px 26px rgba(2,8,23,.18);
-      transition:transform .15s ease, background .15s ease;
-      -webkit-tap-highlight-color: transparent;
-    }
-    .icon-btn svg{ width:20px; height:20px; }
-    .icon-btn:hover{ background:rgba(255,255,255,.18); transform:translateY(-2px); }
-    .icon-btn:active{ transform:translateY(0); }
-    .icon-btn.wa{ background:rgba(37,211,102,.18); border-color:rgba(37,211,102,.34); }
-    .icon-btn.wa:hover{ background:rgba(37,211,102,.24); }
-
-    /* Hide older header-links/cta if present elsewhere (safety) */
-    .header-links{ display:none !important; }
-
-    @media (max-width:820px){
-      .header-pro{ flex-direction:column; align-items:flex-start; gap:12px; }
-      .header-actions{
-      display:flex;
-      flex-direction:row;
-      align-items:center;
-      gap:16px;
-      flex-wrap:wrap;
-      padding-top:6px;
-    }
-      .hotel-title{ margin:0; font-size:44px; font-weight:1000; letter-spacing:.6px; line-height:1.05; }
-      .hotel-sub{ font-size:15px; }
-      .nav-pills .pill{ font-size:15px; padding:12px 18px; }
-    }
-
-@media (max-width:820px){
-  .header-pro{ flex-direction:column; align-items:flex-start; gap:10px; }
-  .header-actions{ flex-direction:row; flex-wrap:wrap; }
-  .hotel-title{ font-size:34px; }
-}
-
-/* ===== CENTER LUXURY HEADER ===== */
-.header-inner.header-pro{
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-}
-
-.header-actions{
-  justify-content:center;
-  width:100%;
-}
-
-.hotel-title{
-  text-align:center;
-}
-
-/* ===== GOLD HOVER EFFECT FOR BUTTONS ===== */
-.nav-pills .pill{
-  position:relative;
-  overflow:hidden;
-}
-
-.nav-pills .pill::after{
-  content:"";
-  position:absolute;
-  inset:-40% -30%;
-  background:linear-gradient(
-    120deg,
-    rgba(255,255,255,0) 40%,
-    rgba(245,230,161,.35) 50%,
-    rgba(255,255,255,0) 60%
-  );
-  transform:translateX(-120%) rotate(8deg);
-  opacity:0;
-  pointer-events:none;
-}
-
-.nav-pills .pill:hover::after{
-  opacity:1;
-  animation:goldHover 1.4s ease forwards;
-}
-
-@keyframes goldHover{
-  0%{ transform:translateX(-120%) rotate(8deg); }
-  100%{ transform:translateX(120%) rotate(8deg); }
-}
-
-/* Icon buttons gold hover */
-.icon-btn:hover{
-  box-shadow:
-    0 10px 24px rgba(0,0,0,.25),
-    0 0 0 1px rgba(245,230,161,.35);
-}
-
-/* ===== HYATT PRO (2-ROW LUXURY HEADER) ===== */
-.hyatt-pro{
-  position:sticky;
-  top:0;
-  z-index:999;
-  background:#fff;
-}
-.hyatt-utility{
-  background:#ffffff;
-  border-bottom:1px solid #eef2f7;
-}
-.hyatt-utility-inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:10px 0;
-  font-size:12px;
-  letter-spacing:.4px;
-  color:#475569;
-  gap:14px;
-}
-.util-left{ display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
-.util-item{ font-weight:800; }
-.util-sep{ opacity:.5; }
-.util-right{ display:flex; gap:14px; align-items:center; }
-.util-link{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  text-decoration:none;
-  color:#334155;
-  font-weight:900;
-  letter-spacing:.6px;
-  opacity:.92;
-}
-.util-link:hover{ opacity:.65; }
-.util-ic{ width:16px; height:16px; }
-
-.hyatt-main{
-  background:#ffffff;
-  border-bottom:1px solid #e5e7eb;
-  box-shadow:0 6px 18px rgba(0,0,0,.06);
-}
-.hyatt-main-inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:18px;
-  padding:14px 0;
-}
-.hyatt-menu{
-  width:44px;height:44px;
-  border:none;
-  background:transparent;
-  font-size:22px;
-  cursor:pointer;
-  color:#111827;
-}
-.hyatt-center{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  pointer-events:none;
-}
-.hyatt-wordmark{
-  font-weight:1000;
-  letter-spacing:5px;
-  color:#111827;
-  font-size:24px;
-}
-.hyatt-right{
-  display:flex;
-  align-items:center;
-  gap:18px;
-  flex-wrap:nowrap;
-}
-.hyatt-nav{
-  display:flex;
-  align-items:center;
-  gap:18px;
-  flex-wrap:nowrap;
-  white-space:nowrap;
-}
-.hyatt-nav a{
-  text-decoration:none;
-  color:#374151;
-  font-weight:900;
-  letter-spacing:.9px;
-  font-size:13px;
-  text-transform:uppercase;
-  opacity:.92;
-}
-.hyatt-nav a:hover{ opacity:.65; }
-
-.hyatt-book, a.hyatt-book{
-  border:none;
-  cursor:pointer;
-  padding:12px 20px;
-  border-radius:4px;
-  background:#0b3c5d;
-  color:#fff;
-  font-weight:1000;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  box-shadow:0 10px 20px rgba(2,8,23,.14);
-  transition:transform .15s ease, box-shadow .15s ease, filter .15s ease;
-}
-.hyatt-book:hover, a.hyatt-book:hover{
-  transform:translateY(-1px);
-  box-shadow:0 16px 28px rgba(2,8,23,.18);
-  filter:brightness(1.02);
-}
-.hyatt-book:active, a.hyatt-book:active{ transform:translateY(0); }
-
-.hyatt-mobile{
-  border-top:1px solid #eef2f7;
-  background:#ffffff;
-}
-.hyatt-mobile-inner{
-  padding:12px 0 18px 0;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-.hyatt-mobile-inner a{
-  text-decoration:none;
-  font-weight:900;
-  letter-spacing:.8px;
-  text-transform:uppercase;
-  color:#111827;
-  padding:10px 12px;
-  border-radius:10px;
-  background:#f8fafc;
-  border:1px solid #e5e7eb;
-}
-.hyatt-mobile-inner a:hover{ filter:brightness(.99); }
-.hyatt-mobile-cta{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top:6px;
-}
-.hyatt-mobile-cta .mbtn{
-  flex:1;
-  text-align:center;
-  background:#0b3c5d;
-  color:#fff !important;
-  border:1px solid rgba(11,60,93,.2);
-}
-
-@media (max-width: 900px){
-  .hyatt-nav{ display:none; }
-  .hyatt-main-inner{ grid-template-columns: 44px 1fr 120px; }
-  .hyatt-wordmark{ font-size:18px; letter-spacing:3px; }
-  .hyatt-book{ padding:11px 14px; letter-spacing:1.6px; }
-  .util-left{ display:none; }
-}
-@media (max-width: 520px){
-  .hyatt-main-inner{ grid-template-columns: 44px 1fr 104px; }
-  .hyatt-book{ padding:10px 12px; }
-}
-
-/* Hyatt-like utility casing */
-.util-link{
-  text-transform:uppercase;
-  font-size:11px;
-  letter-spacing:1px;
-}
-
-/* ===== HYATT LUXURY MAP SECTION ===== */
-.map-wrap{
-  margin-top:14px;
-  border-radius:22px;
-  overflow:hidden;
-  border:1px solid #e5e7eb;
-  box-shadow:0 18px 48px rgba(2,8,23,.14);
-  position:relative;
-  background:#fff;
-}
-.map-wrap::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  background:linear-gradient(180deg, rgba(2,8,23,.18) 0%, rgba(2,8,23,0) 22%, rgba(2,8,23,0) 78%, rgba(2,8,23,.14) 100%);
-}
-.map-iframe{ display:block; width:100%; height:min(54vh, 520px); border:0; }
-.map-cta{
-  position:absolute;
-  top:14px;
-  right:14px;
-  z-index:3;
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  padding:10px 14px;
-  border-radius:4px; /* Hyatt-like squared */
-  background:#0b3c5d;
-  color:#fff;
-  text-decoration:none;
-  font-weight:1000;
-  letter-spacing:1.4px;
-  text-transform:uppercase;
-  box-shadow:0 14px 26px rgba(2,8,23,.22);
-  border:1px solid rgba(255,255,255,.18);
-}
-.map-cta:hover{ filter:brightness(1.03); transform:translateY(-1px); }
-.map-cta:active{ transform:translateY(0); }
-.map-cta svg{ width:18px; height:18px; }
-
-/* Full-bleed option (Hyatt style) */
-.map-fullbleed{
-  margin-left:calc(50% - 50vw);
-  margin-right:calc(50% - 50vw);
-  width:100vw;
-  border-radius:0;
-}
-@media (max-width:720px){
-  .map-iframe{ display:block; width:100%; height:min(54vh, 520px); border:0; }
-  .map-cta{ top:12px; right:12px; padding:10px 12px; letter-spacing:1.1px; }
-}
-
-/* Hyatt-style map link */
-.hyatt-locline{ margin:8px 0 14px 0; }
-.hyatt-maplink{
-  color:#0b3c5d;
-  font-weight:1000;
-  text-decoration:none;
-  letter-spacing:.6px;
-  text-transform:uppercase;
-  font-size:12px;
-}
-.hyatt-maplink:hover{ opacity:.7; }
-
-/* ===== HYATT PREMIUM LOCATION SECTION ===== */
-.loc-premium{
-  margin-top:6px;
-}
-.loc-label{
-  display:inline-block;
-  font-size:12px;
-  font-weight:1000;
-  letter-spacing:2.2px;
-  color:#475569;
-  text-transform:uppercase;
-}
-.loc-title{
-  margin:10px 0 6px 0;
-  font-size:28px;
-  font-weight:1000;
-  letter-spacing:.6px;
-  color:#0f172a;
-}
-
-.loc-grid{
-  display:grid;
-  grid-template-columns: 1fr;
-  gap:14px;
-}
-.loc-card{
-  background:#fff;
-  border:1px solid #e5e7eb;
-  border-radius:18px;
-  padding:14px 14px;
-  box-shadow:0 14px 34px rgba(2,8,23,.10);
-}
-.loc-card .loc-name{
-  font-weight:1000;
-  letter-spacing:.6px;
-  text-transform:uppercase;
-  font-size: 18px;
-  color:#111827;
-}
-.loc-card .loc-addr{
-  margin-top:8px;
-  font-size:14px;
-  line-height:1.6;
-  color:#334155;
-  font-weight:700;
-}
-.loc-actions{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top:12px;
-}
-.loc-btn{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  padding:11px 14px;
-  border-radius:4px; /* Hyatt-like */
-  border:1px solid #e5e7eb;
-  background:#fff;
-  color:#0b3c5d;
-  font-weight:1000;
-  letter-spacing:1.2px;
-  text-transform:uppercase;
-  font-size:12px;
-  text-decoration:none;
-  box-shadow:0 10px 18px rgba(2,8,23,.08);
-  cursor:pointer;
-}
-.loc-btn.primary{
-  background:#0b3c5d;
-  color:#fff;
-  border-color:rgba(11,60,93,.22);
-}
-.loc-btn:hover{ filter:brightness(1.02); transform:translateY(-1px); }
-.loc-btn:active{ transform:translateY(0); }
-.loc-btn svg{ width:18px; height:18px; }
-.loc-hint{
-  margin-top:10px;
-  font-size:12px;
-  color:#64748b;
-  font-weight:700;
-}
-@media (min-width: 900px){
-  .loc-grid{ grid-template-columns: 420px 1fr; align-items:start; }
-  .loc-card{ position:sticky; top:92px; }
-}
-
-/* ===== MAP LOCK FIX (inside Location grid) ===== */
-.map-locked{
-  width:100%;
-  margin:0;
-  border-radius:22px;
-}
-.loc-grid > div:last-child{
-  min-width:0;
-}
-
-/* ===== HEADER LEFT ALIGN + SUBTITLE ===== */
-.hyatt-title-block{
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  justify-content:center;
-}
-.hyatt-title-main{
-  font-size:28px;
-  font-weight:1000;
-  letter-spacing:6px;
-  color:#111827;
-}
-.hyatt-title-sub{
-  margin-top:4px;
-  font-size:12px;
-  font-weight:700;
-  letter-spacing:1.6px;
-  color:#64748b;
-  text-transform:uppercase;
-}
-
-/* ===== HYATT LEFT TITLE FIX ===== */
-.hyatt-left{
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  justify-content:center;
-  min-width:320px;
-}
-.hyatt-title-main{
-  font-size:24px;
-  font-weight:1000;
-  letter-spacing:4px;
-  color:#111827;
-  line-height:1.05;
-  white-space:nowrap;
-}
-.hyatt-title-sub{
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:1.4px;
-  color:#64748b;
-  text-transform:uppercase;
-  margin-top:6px;
-  white-space:nowrap;
-}
-
-@media (max-width: 900px){
-  .hyatt-title-main{ font-size:18px; letter-spacing:2px; white-space:normal; }
-  .hyatt-title-sub{ font-size:11px; letter-spacing:1px; white-space:normal; }
-  .hyatt-left{ min-width:0; }
-}
-@media (max-width: 640px){
-  .hyatt-nav{ display:none; }
-}
-
-/* ===== HYATT LUXURY LOCATION TITLE ===== */
-.loc-card .loc-name{
-  font-size:20px !important;
-  font-weight:1000;
-  letter-spacing:2.4px;
-  text-transform:uppercase;
-  position:relative;
-  display:inline-block;
-  padding-bottom:8px;
-}
-
-/* Gold accent divider like Hyatt */
-.loc-card .loc-name::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:0;
-  width:68px;
-  height:2px;
-  border-radius:999px;
-  background:linear-gradient(90deg,#caa64b 0%,#f5e6a1 40%,#b8932c 75%,#f5e6a1 100%);
-}
-
-/* Soft luxury fade-in */
-.loc-card{
-  animation:locFadeUp .7s ease-out both;
-}
-
-@keyframes locFadeUp{
-  from{opacity:0; transform:translateY(14px);}
-  to{opacity:1; transform:translateY(0);}
-}
-
-/* ===== LOCATION ULTRA-LUXURY HYATT PRO ===== */
-#location .loc-grid{
-  gap:18px;
-}
-#location .map-wrap{
-  border-radius:26px;
-  box-shadow:0 24px 70px rgba(2,8,23,.18);
-}
-#location .map-wrap::after{
-  background:linear-gradient(180deg, rgba(2,8,23,.22) 0%, rgba(2,8,23,0) 24%, rgba(2,8,23,0) 76%, rgba(2,8,23,.18) 100%);
-}
-
-/* Float the location card over the map on desktop */
-@media (min-width: 980px){
-  #location .loc-grid{
-    grid-template-columns: 1fr;
-    position:relative;
-  }
-  #location .loc-grid > div:first-child{
-    position:absolute;
-    left:0;
-    top:28px;
-    z-index:5;
-    width:min(420px, 38vw);
-  }
-  #location .loc-grid > div:last-child{
-    padding-left:min(460px, 42vw);
-  }
-  #location .loc-card{
-    border-radius:22px;
-    box-shadow:0 28px 80px rgba(2,8,23,.20);
-    border:1px solid rgba(229,231,235,.9);
-  }
-}
-
-/* Add a soft gold edge glow to the card (very subtle) */
-#location .loc-card{
-  position:relative;
-}
-#location .loc-card::before{
-  content:"";
-  position:absolute;
-  inset:-1px;
-  border-radius:22px;
-  pointer-events:none;
-  background:linear-gradient(135deg, rgba(245,230,161,.22), rgba(202,166,75,.12), rgba(245,230,161,.20));
-  opacity:.55;
-  mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  padding:1px;
-  box-sizing:border-box;
-}
-
-/* Add gold sheen sweep on the location title */
-.loc-card .loc-name{
-  overflow:hidden;
-}
-.loc-card .loc-name::before{
-  content:"";
-  position:absolute;
-  inset:-50% -40%;
-  background:linear-gradient(120deg, rgba(255,255,255,0) 40%, rgba(245,230,161,.45) 50%, rgba(255,255,255,0) 60%);
-  transform:translateX(-140%) rotate(8deg);
-  opacity:.0;
-  pointer-events:none;
-}
-.loc-card:hover .loc-name::before{
-  opacity:1;
-  animation:locGoldSweep 1.8s ease forwards;
-}
-@keyframes locGoldSweep{
-  0%{ transform:translateX(-140%) rotate(8deg); }
-  100%{ transform:translateX(140%) rotate(8deg); }
-}
-
-/* Luxury spacing in Location section */
-#location .loc-title{
-  font-size:30px;
-  letter-spacing:.8px;
-}
-#location 
-
-/* ===== RATE NOTE (HYATT PREMIUM) ===== */
-.rate-note{
-  margin-top:12px;
-  padding-top:12px;
-  border-top:1px solid #e5e7eb;
-  position:relative;
-  font-size:12.5px;
-  letter-spacing:.8px;
-  text-transform:uppercase;
-  color:#64748b;
-  font-weight:800;
-  line-height:1.55;
-}
-
-/* subtle gold accent line */
-.rate-note::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:-1px;
-  width:68px;
-  height:2px;
-  border-radius:999px;
-  background:linear-gradient(90deg,#caa64b 0%,#f5e6a1 40%,#b8932c 75%,#f5e6a1 100%);
-}
-
-/* ===== AMENITIES (HYATT PREMIUM) ===== */
-#amenities h3{
-  font-size:28px;
-  font-weight:1000;
-  letter-spacing:.8px;
-  margin-bottom:8px;
-  color:#0f172a;
-}
-#amenities .sub{
-  font-size:13px;
-  letter-spacing:1.2px;
-  text-transform:uppercase;
-  color:#64748b;
-  font-weight:800;
-  margin-bottom:14px;
-}
-
-#amenities .amenity-grid{
-  display:grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap:14px;
-}
-
-#amenities .amenity-card{
-  background:#fff;
-  border:1px solid #e5e7eb;
-  border-radius:18px;
-  padding:14px 14px;
-  display:flex;
-  gap:12px;
-  align-items:flex-start;
-  box-shadow:0 14px 34px rgba(2,8,23,.10);
-  transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
-  position:relative;
-  overflow:hidden;
-}
-
-#amenities .amenity-card::after{
-  content:"";
-  position:absolute;
-  inset:-60% -60%;
-  background:linear-gradient(
-    120deg,
-    rgba(255,255,255,0) 42%,
-    rgba(245,230,161,.22) 50%,
-    rgba(255,255,255,0) 58%
-  );
-  transform:translateX(-140%) rotate(8deg);
-  opacity:0;
-  pointer-events:none;
-}
-
-#amenities .amenity-card:hover{
-  transform:translateY(-2px);
-  box-shadow:0 20px 48px rgba(2,8,23,.14);
-  border-color:rgba(202,166,75,.35);
-}
-#amenities .amenity-card:hover::after{
-  opacity:1;
-  animation:amenSheen 1.6s ease forwards;
-}
-@keyframes amenSheen{
-  0%{ transform:translateX(-140%) rotate(8deg); }
-  100%{ transform:translateX(140%) rotate(8deg); }
-}
-
-#amenities .amenity-ic{
-  width:44px;
-  height:44px;
-  border-radius:14px;
-  display:grid;
-  place-items:center;
-  background:#f8fafc;
-  border:1px solid #e5e7eb;
-  flex:0 0 44px;
-  box-shadow:0 10px 18px rgba(2,8,23,.06);
-}
-#amenities .amenity-ic svg{
-  width:22px;
-  height:22px;
-  stroke:#0b3c5d;
-  stroke-width:2;
-  fill:none;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-}
-
-#amenities .amenity-text b{
-  display:block;
-  font-size:12px;
-  font-weight:1000;
-  letter-spacing:1.2px;
-  text-transform:uppercase;
-  color:#111827;
-}
-#amenities .amenity-text small{
-  display:block;
-  margin-top:6px;
-  font-size:13px;
-  color:#475569;
-  font-weight:700;
-  line-height:1.45;
-}
-
-@media (max-width: 980px){
-  #amenities .amenity-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@media (max-width: 520px){
-  #amenities h3{ font-size:24px; }
-  #amenities .amenity-grid{ grid-template-columns: 1fr; }
-  #amenities .amenity-card{ padding:14px; }
-}
-
-/* ===== HYATT GOLD SECTION DIVIDERS ===== */
-.section-premium-divider{
-  width:84px;
-  height:2px;
-  border-radius:999px;
-  margin:10px 0 18px 0;
-  background:linear-gradient(90deg,#caa64b 0%,#f5e6a1 40%,#b8932c 75%,#f5e6a1 100%);
-}
-
-.section-accent-label{
-  font-size:12px;
-  font-weight:1000;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:#64748b;
-  margin-bottom:6px;
-}
-
-/* ===== SECTIONS ULTRA LUXURY (HYATT PRO) ===== */
-.section-head{
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-  margin-bottom:12px;
-}
-.section-kicker{
-  font-size:12px;
-  font-weight:1000;
-  letter-spacing:3px;
-  text-transform:uppercase;
-  color:#64748b;
-}
-.section-title{
-  font-size:32px;
-  font-weight:1000;
-  letter-spacing:.8px;
-  color:#0f172a;
-  margin:0;
-}
-.section-divider{
-  width:92px;
-  height:2px;
-  border-radius:999px;
-  background:linear-gradient(90deg,#caa64b 0%,#f5e6a1 40%,#b8932c 75%,#f5e6a1 100%);
-  position:relative;
-  overflow:hidden;
-}
-.section-divider::after{
-  content:"";
-  position:absolute;
-  inset:-60% -60%;
-  background:linear-gradient(120deg, rgba(255,255,255,0) 42%, rgba(245,230,161,.45) 50%, rgba(255,255,255,0) 58%);
-  transform:translateX(-140%) rotate(8deg);
-  opacity:0;
-}
-.section.is-visible .section-divider::after{
-  opacity:1;
-  animation:secSheen 2.2s ease forwards;
-}
-@keyframes secSheen{
-  0%{ transform:translateX(-140%) rotate(8deg); }
-  100%{ transform:translateX(140%) rotate(8deg); }
-}
-
-/* Scroll reveal */
-.section{ opacity:1; transform:none; }
-.section.is-visible{ }
-
-/* Reduce motion */
-@media (prefers-reduced-motion: reduce){
-  .section{ opacity:1; transform:none; transition:none; }
-  .section-divider::after{ animation:none !important; }
-}
-
-/* ===== ROOMS SECTION (HYATT ULTRA LUXURY) ===== */
-#rooms{
-  background:#f7f8fb;
-}
-#rooms .section-head{
-  max-width:1200px;
-  margin:0 auto 18px auto;
-}
-#rooms .section-kicker{
-  color:#64748b;
-}
-#rooms .section-title{
-  font-size:40px;
-  letter-spacing:1.2px;
-}
-#rooms .section-divider{
-  width:110px;
-  height:2px;
-}
-#rooms .sub{
-  max-width:1200px;
-  margin:0 auto 18px auto;
-  font-size:14px;
-  letter-spacing:1.1px;
-  text-transform:uppercase;
-  color:#64748b;
-  font-weight:800;
-}
-#rooms .rooms{
-  display:grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap:18px;
-}
-@media (max-width: 980px){
-  #rooms .rooms{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
-}
-
-@media (max-width: 560px){
-  #rooms .section-title{ font-size:32px; letter-spacing:.8px; }
-  #rooms .rooms{ grid-template-columns:1fr; }
-}
-
-/* Make room cards feel more Hyatt */
-#rooms .room-card{
-  border-radius:18px;
-  overflow:hidden;
-  border:1px solid rgba(229,231,235,.9);
-  box-shadow:0 18px 46px rgba(2,8,23,.10);
-}
-#rooms .room-card:hover{
-  transform:translateY(-2px);
-  box-shadow:0 26px 70px rgba(2,8,23,.14);
-}
-#rooms .room-card img{
-  height:220px;
-  width:100%;
-  object-fit:cover;
-  display:block;
-}
-
-/* ===== ROOMS HEADER COMPAT (in case markup differs) ===== */
-#rooms h2, #rooms h3{
-  color:#0f172a;
-  font-weight:1000;
-  letter-spacing:1.1px;
-}
-#rooms h2{
-  font-size:40px;
-  margin:0 0 10px 0;
-  position:relative;
-  padding-bottom:14px;
-}
-#rooms h2::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:0;
-  width:110px;
-  height:2px;
-  border-radius:999px;
-  background:linear-gradient(90deg,#caa64b 0%,#f5e6a1 40%,#b8932c 75%,#f5e6a1 100%);
-}
-#rooms p{
-  max-width:1200px;
-  margin:0 auto 18px auto;
-  font-size:14px;
-  letter-spacing:1.1px;
-  text-transform:uppercase;
-  color:#64748b;
-  font-weight:800;
-}
-
-/* ===== ROOM TILE MULTI-PHOTO GALLERY ===== */
-.card-gallery{
-  position:relative;
-  border-radius:18px 18px 0 0;
-  overflow:hidden;
-  background:#0b1220;
-}
-.card-gallery img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-  display:block;
-  transform:scale(1.001);
-}
-.gal-btn{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  width:40px;
-  height:40px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.22);
-  background:rgba(15,23,42,.45);
-  color:#fff;
-  display:grid;
-  place-items:center;
-  cursor:pointer;
-  z-index:3;
-  backdrop-filter: blur(8px);
-}
-.gal-btn:hover{ background:rgba(15,23,42,.62); }
-.gal-btn:active{ transform:translateY(-50%) scale(.98); }
-.gal-btn.prev{ left:10px; }
-.gal-btn.next{ right:10px; }
-.gal-btn svg{ width:18px; height:18px; }
-
-.gal-dots{
-  position:absolute;
-  left:12px;
-  right:12px;
-  bottom:10px;
-  display:flex;
-  gap:6px;
-  justify-content:center;
-  z-index:3;
-}
-.gal-dot{
-  width:7px;
-  height:7px;
-  border-radius:999px;
-  background:rgba(255,255,255,.45);
-  border:1px solid rgba(255,255,255,.22);
-  cursor:pointer;
-}
-.gal-dot.active{
-  background:linear-gradient(90deg,#caa64b,#f5e6a1,#b8932c);
-  border-color:rgba(245,230,161,.65);
-  box-shadow:0 8px 18px rgba(2,8,23,.18);
-}
-.gal-badge{
-  position:absolute;
-  top:12px;
-  left:12px;
-  z-index:3;
-  padding:7px 10px;
-  border-radius:999px;
-  font-size:11px;
-  font-weight:1000;
-  letter-spacing:1.3px;
-  text-transform:uppercase;
-  color:#fff;
-  background:rgba(2,8,23,.52);
-  border:1px solid rgba(255,255,255,.18);
-  backdrop-filter: blur(8px);
-}
-@media (max-width:560px){
-  .card-gallery img{ height:200px; }
-  .gal-btn{ width:36px; height:36px; }
-}
-
-/* ===== Swipe Fix ===== */
-.card-gallery{ touch-action: pan-y; }
-
-/* ===== Gallery Click Fix (Desktop) ===== */
-.discount-ribbon, .room-badge, .gal-badge{
-  pointer-events:none;
-}
-.gal-btn, .gal-dots, .gal-dot{
-  pointer-events:auto;
-}
-.gal-btn{
-  z-index:10;
-}
-.gal-dots{ z-index:10; }
-
-/* ===== Gold Accent (Match Find Us) ===== */
-.gold-accent{
-  width:72px;
-  height:2px;
-  background:linear-gradient(90deg,#caa64b 0%,#f5e6a1 40%,#b8932c 75%,#f5e6a1 100%);
-  border-radius:999px;
-  margin:10px 0 14px 0;
-}
-.section-head .section-title + .gold-accent{
-  margin-top:10px;
-}
-
-/* ===== Consistent Section Head Spacing ===== */
-.section-head{ padding: 28px 0 18px; }
-.kicker{ margin: 0 0 10px; }
-.section-title{ margin: 0; line-height: 1.06; }
-.section-head .section-title{ margin-bottom: 0; }
-.section-subtitle,
-.section-sub,
-.subtext,
-.helper-text{ margin: 12px 0 0; }
-.gold-accent{ margin: 12px 0 12px 0; } /* consistent under title */
-
-.rate-note{
-  font-size: 13px;
-  opacity: .72;
-  font-weight: 500;
-  letter-spacing: 0;
-  text-transform: none !important;
-}
-
-/* Safety: hide any leftover quickview UI */
-.quickview,[class*="enq"],[class*="Enq"],[class*="inq"],[class*="Inq"]{display:none !important;}
-
-/* ===== Gallery polish: fade + dots ===== */
-.card-gallery{ position:relative; }
-.card-gallery img{
-  transition: opacity .22s ease;
-  will-change: opacity;
-}
-.card-gallery img.is-fading{ opacity: .35; }
-
-.gallery-dots{
-  position:absolute;
-  left:0; right:0;
-  bottom:10px;
-  display:flex;
-  justify-content:center;
-  gap:7px;
-  pointer-events:auto;
-  z-index:3;
-}
-.gallery-dot{
-  width:8px; height:8px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.55);
-  background: rgba(15,26,44,.45);
-  box-shadow: 0 6px 18px rgba(0,0,0,.25);
-  cursor:pointer;
-  padding:0;
-}
-.gallery-dot.is-active{
-  background: rgba(202,166,75,.95);
-  border-color: rgba(202,166,75,.95);
-  box-shadow: 0 10px 26px rgba(202,166,75,.25);
-}
-
-/* ===== V1 UPGRADE: 2x2 luxury rooms + premium popup ===== */
-#rooms .rooms{
-  display:grid !important;
-  grid-template-columns:repeat(2, minmax(0, 1fr)) !important;
-  gap:24px !important;
-  align-items:stretch !important;
-}
-#rooms .room-card{
-  border-radius:22px !important;
-  border:1px solid rgba(226,232,240,.95) !important;
-  box-shadow:0 16px 38px rgba(2,8,23,.10) !important;
-  overflow:hidden !important;
-  background:#fff !important;
-  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease !important;
-}
-#rooms .room-card:hover{
-  transform:translateY(-3px) !important;
-  box-shadow:0 24px 58px rgba(2,8,23,.14) !important;
-  border-color:rgba(202,166,75,.34) !important;
-}
-#rooms .card-gallery{border-radius:22px 22px 0 0 !important;}
-#rooms .card-gallery img{height:280px !important; object-fit:cover !important;}
-#rooms .content{padding:18px 18px 20px 18px !important;}
-#rooms .content h4{font-size:20px !important; line-height:1.18 !important; margin:0 0 8px 0 !important;}
-#rooms .price{font-size:14px !important; line-height:1.55 !important; margin:0 0 10px 0 !important; color:#0f172a !important; font-weight:900 !important;}
-#rooms .chips{gap:8px !important; margin-top:10px !important;}
-#rooms .chip{font-size:11px !important; padding:6px 10px !important; background:#f8fafc !important; border:1px solid #dbe3ee !important; color:#475569 !important;}
-#rooms .wa-book{width:100% !important; justify-content:center !important; margin-top:14px !important;}
-#rooms .gal-btn{width:44px !important; height:44px !important;}
-#rooms .gal-dots{bottom:12px !important;}
-@media (max-width: 960px){
-  #rooms .rooms{grid-template-columns:1fr !important;}
-  #rooms .card-gallery img{height:240px !important;}
-}
-
-/* Premium modal shell */
-
-.booking-wrap{max-width:100%; margin:0 auto;}
-.booking-roomcard{
-  display:grid;
-  grid-template-columns:190px 1fr;
-  gap:18px;
-  padding:16px;
-  border-radius:24px;
-  border:1px solid rgba(148,163,184,.35);
-  background:linear-gradient(180deg,#ffffff 0%, #fbfdff 100%);
-  box-shadow:0 18px 46px rgba(2,8,23,.10);
-  margin:0 0 18px 0;
-}
-.booking-roommedia{position:relative;}
-.booking-roommedia img{
-  width:100%;
-  height:150px;
-  object-fit:cover;
-  border-radius:20px;
-  border:1px solid rgba(148,163,184,.35);
-  box-shadow:0 12px 30px rgba(2,8,23,.12);
-  background:#f8fafc;
-}
-.booking-badge{
-  position:absolute; top:10px; left:10px;
-  padding:7px 10px; border-radius:999px;
-  background:rgba(2,6,23,.86); color:#fff;
-  font-size:11px; font-weight:1000; letter-spacing:.35px;
-  box-shadow:0 12px 28px rgba(2,8,23,.22);
-}
-.booking-roomtitle{font-size:22px; font-weight:1000; color:#0f172a; line-height:1.15; margin-top:2px;}
-.booking-roommeta{font-size:15px; font-weight:850; color:#475569; margin-top:8px;}
-.booking-roomchips{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;}
-.booking-roomchips .chip{
-  display:inline-flex; align-items:center; gap:8px;
-  padding:8px 12px; border-radius:999px;
-  font-size:13px; font-weight:1000; line-height:1;
-}
-.chip-green{color:#16a34a; border-color:rgba(22,163,74,.22) !important; background:rgba(22,163,74,.10) !important;}
-.booking-total{
-  display:flex; align-items:center; justify-content:space-between; gap:12px;
-  margin-top:12px; padding:12px 14px; border-radius:18px;
-  border:1px solid rgba(148,163,184,.35);
-  background:rgba(255,255,255,.80);
-  backdrop-filter:saturate(140%) blur(8px);
-  font-weight:1000; color:#0f172a;
-}
-.booking-total-amt{font-size:22px;}
-.booking-hint{font-size:13px; font-weight:800; color:#64748b; margin-top:8px; line-height:1.45;}
-
-.booking-form{padding:0; margin:0;}
-.form-section-title{
-  font-size:14px; font-weight:1000; letter-spacing:2.2px;
-  text-transform:uppercase; color:#64748b;
-  margin:16px 0 10px 0;
-}
-.form-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px 16px; align-items:end;}
-.field-full{grid-column:1/-1;}
-
-.field select{
-  -webkit-appearance:none; appearance:none;
-  background-image:
-    linear-gradient(45deg, transparent 50%, rgba(15,23,42,.55) 50%),
-    linear-gradient(135deg, rgba(15,23,42,.55) 50%, transparent 50%);
-  background-position: calc(100% - 22px) 56%, calc(100% - 16px) 56%;
-  background-size:6px 6px, 6px 6px;
-  background-repeat:no-repeat;
-  padding-right:44px !important;
-}
-.form-sep{
-  height:1px;
-  background:linear-gradient(90deg, rgba(202,166,75,.0), rgba(202,166,75,.55), rgba(202,166,75,.0));
-  margin:18px 0 10px 0; border-radius:999px;
-}
-.field-note{
-  font-size:13px;
-  color:#64748b;
-  margin-top:6px;
-  font-weight:800;
-}
-.form-note{
-  margin-top:14px;
-  padding:12px 14px;
-  border-radius:18px;
-  border:1px solid rgba(148,163,184,.35);
-  background:rgba(248,250,252,.95);
-  font-size:13px;
-  font-weight:900;
-  color:#475569;
-  line-height:1.45;
-}
-
-@media (max-width: 820px){
-  .booking-roomcard{grid-template-columns:1fr;}
-  .booking-roommedia img{height:190px;}
-  .form-grid{grid-template-columns:1fr;}
-}
-
-/* ===== V2 cleanup: hide stray old FAB icons, keep only .ssfab-stack ===== */
-.fab-stack,
-.fab,
-.fab-call,
-.fab-chat,
-.fab-book{
-  display:none !important;
-}
-
-/* ===== V3 BOUTIQUE PASS ===== */
-:root{
-  --shadow-soft:0 10px 28px rgba(2,8,23,.08);
-  --shadow-card:0 18px 42px rgba(2,8,23,.10);
-  --shadow-card-hover:0 24px 52px rgba(2,8,23,.14);
-}
-
-/* tighter overall rhythm */
-.hero{padding:24px 0 18px 0 !important;}
-.hero h2{margin:0 0 6px 0 !important; font-size:30px !important; line-height:1.12 !important;}
-.hero p{max-width:760px !important; line-height:1.5 !important;}
-.section{padding:24px 0 !important;}
-.section-head{padding:12px 0 10px !important; margin-bottom:10px !important;}
-.gold-accent{margin:8px 0 10px 0 !important;}
-#rooms .sub{margin:0 auto 12px auto !important;}
-.container{max-width:1160px !important;}
-
-/* 2x2 room grid, tighter but premium */
-#rooms .rooms{
-  display:grid !important;
-  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
-  gap:18px !important;
-  align-items:stretch !important;
-}
-#rooms .room-card{
-  border-radius:20px !important;
-  border:1px solid rgba(226,232,240,.92) !important;
-  box-shadow:var(--shadow-card) !important;
-  overflow:hidden !important;
-  background:#fff !important;
-  transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease !important;
-}
-#rooms .room-card:hover{
-  transform:translateY(-3px) !important;
-  box-shadow:var(--shadow-card-hover) !important;
-  border-color:rgba(202,166,75,.36) !important;
-}
-#rooms .card-gallery img{
-  height:280px !important;
-  object-fit:cover !important;
-}
-#rooms .content{
-  padding:14px 14px 16px 14px !important;
-}
-#rooms .content h4{
-  font-size:18px !important;
-  line-height:1.18 !important;
-  margin:0 0 6px 0 !important;
-}
-#rooms .price{
-  margin:0 0 8px 0 !important;
-  font-size:13px !important;
-  line-height:1.45 !important;
-}
-#rooms .chips{
-  gap:6px !important;
-  margin-top:8px !important;
-}
-#rooms .chip{
-  font-size:11px !important;
-  padding:5px 9px !important;
-}
-#rooms .wa-book{
-  width:100% !important;
-  justify-content:center !important;
-  margin-top:12px !important;
-  padding:12px 14px !important;
-  font-size:11.5px !important;
-  border-radius:15px !important;
-  letter-spacing:.95px !important;
-}
-
-/* slightly larger scrolling controls */
-#rooms .gal-btn{
-  width:40px !important;
-  height:40px !important;
-}
-#rooms .gal-dots{bottom:10px !important;}
-
-/* premium popup, tighter and cleaner */
-
-.modal-title b{
-  font-size:20px !important;
-  line-height:1.15 !important;
-}
-.modal-title small{
-  font-size:12.5px !important;
-}
-
-.rp-total-line{
-  margin:6px 0 8px 0 !important;
-  padding:10px 12px !important;
-  font-size:14px !important;
-}
-.form-section-title{
-  margin:6px 0 2px 0 !important;
-  letter-spacing:1.8px !important;
-}
-.form-sep{
-  margin:10px 0 8px 0 !important;
-}
-.form-grid{
-  display:grid !important;
-  grid-template-columns:1fr 1fr !important;
-  gap:12px !important;
-}
-.field{margin-bottom:10px !important;}
-
-.field-note{
-  font-size:12px !important;
-  margin-top:5px !important;
-  color:#64748b !important;
-  font-weight:700 !important;
-}
-.form-note{
-  margin-top:8px !important;
-  padding:10px 12px !important;
-  font-size:12px !important;
-  line-height:1.45 !important;
-}
-
-.modal-actions .btn{
-  padding:11px 14px !important;
-  border-radius:14px !important;
-}
-
-/* location/footer tighten */
-#location .loc-title{margin:6px 0 6px 0 !important;}
-.loc-card{padding:14px !important;}
-footer{padding:22px 0 !important;}
-footer p{margin:4px 0 !important;}
-
-@media (max-width:900px){
-  #rooms .rooms{grid-template-columns:1fr !important;}
-  #rooms .card-gallery img{height:240px !important;}
-}
-@media (max-width:720px){
-  .hero{padding:20px 0 16px 0 !important;}
-  .hero h2{font-size:24px !important;}
-  
-  
-  .form-grid{grid-template-columns:1fr !important;}
-}
-
-/* ===== V4 PREMIUM SAFE ENHANCEMENTS ===== */
-:root{
-  --shadow-soft:0 10px 24px rgba(2,8,23,.08);
-  --shadow-premium:0 18px 42px rgba(2,8,23,.12);
-}
-body{line-height:1.5;}
-.hero{padding:20px 0 16px 0 !important;}
-.hero h2{font-size:32px !important; margin:0 0 6px 0 !important; line-height:1.1 !important;}
-.hero p{max-width:760px !important; margin:0 auto !important;}
-.direct-benefits{
-  display:flex; gap:10px; flex-wrap:wrap; justify-content:center;
-  margin:12px auto 6px auto;
-}
-.direct-benefits span{
-  display:inline-flex; align-items:center; justify-content:center;
-  padding:8px 12px; border-radius:999px;
-  background:#fff; border:1px solid #dbe3ee; box-shadow:var(--shadow-soft);
-  font-size:12px; font-weight:900; color:#0f172a; letter-spacing:.2px;
-}
-.micro-trust{display:flex; flex-direction:column; align-items:center; gap:4px; margin-top:8px;}
-.review-snippet{font-size:13px; font-weight:900; color:#0f172a;}
-.trust-copy{font-size:12px; color:#64748b; font-weight:700;}
-
-.section{padding:22px 0 !important;}
-.section-head{padding:12px 0 10px !important; margin-bottom:8px !important;}
-#rooms .sub{margin:0 auto 12px auto !important;}
-
-#rooms .rooms{
-  display:grid !important;
-  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
-  gap:18px !important;
-}
-#rooms .room-card{
-  border-radius:20px !important;
-  box-shadow:var(--shadow-premium) !important;
-  border:1px solid rgba(226,232,240,.95) !important;
-  transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease !important;
-}
-#rooms .room-card:hover{
-  transform:translateY(-4px) !important;
-  box-shadow:0 24px 56px rgba(2,8,23,.15) !important;
-  border-color:rgba(202,166,75,.38) !important;
-}
-#rooms .card-gallery img{height:280px !important;}
-#rooms .content{padding:14px 14px 16px 14px !important;}
-#rooms .content h4{font-size:18px !important; margin:0 0 6px 0 !important;}
-#rooms .price{font-size:13px !important; margin:0 0 8px 0 !important;}
-#rooms .chips{gap:6px !important; margin-top:8px !important;}
-#rooms .wa-book{width:100% !important; justify-content:center !important; margin-top:12px !important;}
-
-.form-grid{gap:12px !important;}
-.field{margin-bottom:10px !important;}
-
-.form-note{margin-top:8px !important; padding:10px 12px !important;}
-
-.distance-highlights{
-  display:flex; flex-wrap:wrap; gap:8px; margin:0 0 12px 0;
-}
-.distance-highlights span{
-  display:inline-flex; align-items:center;
-  padding:7px 10px; border-radius:999px;
-  font-size:12px; font-weight:800;
-  background:#fff; border:1px solid #dbe3ee; color:#334155;
-  box-shadow:var(--shadow-soft);
-}
-
-footer{padding:20px 0 !important;}
-footer p{margin:4px 0 !important;}
-
-@media (max-width:900px){
-  #rooms .rooms{grid-template-columns:1fr !important;}
-  #rooms .card-gallery img{height:240px !important;}
-}
-
-/* ===== V4 MICRO POLISH ===== */
-.wa-book:hover,
-.btn:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(0,0,0,.18);
-}
-
-.card-gallery img{
-  transition: opacity .35s ease, transform .35s ease;
-}
-
-.card-gallery img.is-fading{
-  opacity: .6;
-}
-
-.room-card:hover .card-gallery img{
-  transform: scale(1.02);
-}
-
-.booking-strip-left{display:none;}
-  .booking-strip .strip-btn{
-    width:100%;
-    padding:13px 14px;
-  }
-}
-
-/* ===== V6 SEO FAQ ===== */
-#faq .faq-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:14px;
-}
-#faq .faq-item{
-  background:#fff;
-  border:1px solid #e5e7eb;
-  border-radius:18px;
-  padding:14px;
-  box-shadow:0 10px 24px rgba(2,8,23,.06);
-}
-#faq .faq-item b{
-  display:block;
-  font-size:15px;
-  color:#0f172a;
-  margin-bottom:6px;
-}
-#faq .faq-item p{
-  margin:0;
-  font-size:14px;
-  color:#475569;
-  line-height:1.55;
-}
-@media (max-width:800px){
-  #faq .faq-grid{grid-template-columns:1fr;}
-}
-
-/* ===== FINAL SEO HEADING PATCH ===== */
-.hero h1{
-  margin:0 0 8px 0;
-  font-size:28px;
-  text-align:center;
-  line-height:1.15;
-  color:inherit;
-  font-weight:1000;
-  letter-spacing:.2px;
-}
-@media (max-width:720px){
-  .hero h1{font-size:22px;}
-}
-
-/* ===== CLEAN HERO SEO PASS ===== */
-.hero{
-  padding:24px 0 18px 0 !important;
-}
-.hero h1{
-  margin:0 0 10px 0;
-  font-size:28px;
-  text-align:center;
-  line-height:1.15;
-  color:inherit;
-  font-weight:1000;
-  letter-spacing:.2px;
-}
-.hero p{
-  max-width:760px !important;
-  margin:10px auto 0 auto !important;
-  text-align:center;
-  color:#475569;
-  font-size:15px;
-  line-height:1.55;
-}
-.signature-strip{
-  margin:12px auto 0;
-}
-.direct-benefits{
-  margin:12px auto 0 auto !important;
-  max-width:980px;
-}
-.direct-benefits span{
-  font-size:12px;
-}
-@media (max-width:720px){
-  .hero h1{font-size:22px;}
-  .hero p{font-size:14px;}
-}
-
-/* Hero title single-line optimization */
-.hero h1{
-  font-size:22px !important;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-@media (max-width:900px){
-  .hero h1{
-    font-size:20px !important;
-    white-space:normal;
-  }
-}
-
-/* Final cleanup pass */
-#location-summary{
-  padding-top:18px !important;
-  padding-bottom:20px !important;
-}
-#location-summary .section-head{
-  margin-bottom:8px !important;
-}
-
-/* ===== V7 PREMIUM HEADER UPGRADE ===== */
-.site-title, .logo, header .brand, header h1{
-  font-weight:700 !important;
-  letter-spacing:1.5px;
-  font-size:22px !important;
-}
-@media (max-width:720px){
-  .site-title, .logo, header .brand, header h1{
-    font-size:18px !important;
-  }
-}
-
-/* subtle boutique divider */
-.premium-divider{
-  width:60px;
-  height:2px;
-  background:#c6a96b;
-  margin:6px auto 0;
-}
-
-/* Trust note */
-.trust-note{
-  font-size:13px;
-  color:#1f7a3f;
-  font-weight:600;
-  margin-top:4px;
-}
-
-/* ===== V8 BEAUTIFICATION PASS ===== */
-
-/* 1) Luxury divider under hero title */
-.hero h1{
-  position:relative !important;
-  padding-bottom:14px !important;
-}
-.hero h1::after{
-  content:"";
-  display:block;
-  width:60px;
-  height:2px;
-  margin:14px auto 0;
-  background:#c8a96a;
-  border-radius:10px;
-}
-
-/* 2) Luxury room card shadows */
-#rooms .room-card{
-  box-shadow:0 22px 60px rgba(2,8,23,.12) !important;
-}
-#rooms .room-card:hover{
-  transform:translateY(-6px) !important;
-  box-shadow:0 32px 80px rgba(2,8,23,.18) !important;
-}
-
-/* 3) Smooth room image zoom */
-#rooms .card-gallery img{
-  transition:transform .6s ease, opacity .45s ease !important;
-}
-#rooms .room-card:hover .card-gallery img{
-  transform:scale(1.05) !important;
-}
-
-/* 4) Better section spacing */
-section{
-  padding:70px 0;
-}
-@media(max-width:720px){
-  section{
-    padding:48px 0;
-  }
-}
-
-/* 5) Premium WhatsApp CTA */
-.btn.wa,
-#bookingWhatsAppNativeBtn{
-  background:#25D366 !important;
-  box-shadow:0 10px 25px rgba(37,211,102,.35) !important;
-}
-.btn.wa:hover,
-#bookingWhatsAppNativeBtn:hover{
-  transform:translateY(-2px) !important;
-}
-
-/* ===== Section header consistency fix ===== */
-.section-kicker,
-#rooms .section-kicker,
-#amenities .section-kicker,
-#location .section-kicker,
-#faq .section-kicker{
-  font-size:12px !important;
-  font-weight:900 !important;
-  letter-spacing:2.2px !important;
-  text-transform:uppercase !important;
-  line-height:1.2 !important;
-}
-
-.section-title,
-#rooms .section-title,
-#amenities .section-title,
-#location .section-title,
-#faq .section-title{
-  font-size:30px !important;
-  font-weight:900 !important;
-  line-height:1.15 !important;
-  letter-spacing:.2px !important;
-  margin:6px 0 0 0 !important;
-}
-
-.section-head{
-  margin-bottom:14px !important;
-}
-
-@media (max-width:720px){
-  .section-kicker,
-  #rooms .section-kicker,
-  #amenities .section-kicker,
-  #location .section-kicker,
-  #faq .section-kicker{
-    font-size:11px !important;
-    letter-spacing:1.8px !important;
-  }
-
-  .section-title,
-  #rooms .section-title,
-  #amenities .section-title,
-  #location .section-title,
-  #faq .section-title{
-    font-size:24px !important;
-  }
-}
-
-/* ===== FINAL ROOM CARD + LOCATION CARD POLISH ===== */
-.location-description{
-  margin:10px 0 14px 0;
-  color:#475569;
-  line-height:1.6;
-  font-size:14px;
-  max-width:560px;
-}
-.card-gallery{
-  position:relative !important;
-}
-.price-badge{
-  position:absolute;
-  right:14px;
-  bottom:14px;
-  z-index:4;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:7px 12px;
-  border-radius:999px;
-  background:rgba(15,23,42,.78);
-  color:#fff;
-  font-size:13px;
-  font-weight:800;
-  letter-spacing:.2px;
-  backdrop-filter:blur(8px);
-  -webkit-backdrop-filter:blur(8px);
-  box-shadow:0 10px 24px rgba(2,8,23,.18);
-}
-.room-subline{
-  margin:4px 0 8px 0;
-  font-size:13px;
-  line-height:1.5;
-  color:#64748b;
-  font-weight:700;
-}
-
-/* ===== Location card visible text + premium widget polish ===== */
-.location-description{
-  margin:12px 0 14px 0 !important;
-  color:#5b6778 !important;
-  line-height:1.62 !important;
-  font-size:14px !important;
-  max-width:none !important;
-}
-.loc-card{
-  box-shadow:0 20px 48px rgba(2,8,23,.08) !important;
-  border:1px solid rgba(202,166,75,.18) !important;
-}
-.loc-btn{
-  box-shadow:0 8px 18px rgba(2,8,23,.06);
-}
-.loc-name{
-  letter-spacing:2px !important;
-}
-
-/* ===== V13 clean floating quick actions ===== */
-.floating-cta{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-  z-index:9999;
-}
-.float-btn{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  padding:16px 24px;
-  min-width:168px;
-  border-radius:22px;
-  color:#fff;
-  text-decoration:none !important;
-  font-weight:800;
-  letter-spacing:2px;
-  font-size:14px;
-  box-shadow:0 18px 40px rgba(2,8,23,.26);
-}
-.float-btn .icon{
-  width:44px;
-  height:44px;
-  border-radius:16px;
-  display:grid;
-  place-items:center;
-  font-size:22px;
-  background:rgba(255,255,255,.12);
-  border:1px solid rgba(255,255,255,.18);
-}
-.float-btn.book{background:linear-gradient(135deg,#081224,#0b2750);border:1px solid rgba(202,166,75,.48);}
-.float-btn.call{background:linear-gradient(135deg,#0d3959,#0f527a);border:1px solid rgba(255,255,255,.12);}
-.float-btn.chat{background:linear-gradient(135deg,#0d5a3d,#148159);border:1px solid rgba(255,255,255,.12);}
-@media (max-width:720px){
-  .floating-cta{right:12px;bottom:12px;gap:10px;}
-  .float-btn{min-width:148px;padding:14px 18px;font-size:13px;letter-spacing:1.5px;}
-  .float-btn .icon{width:38px;height:38px;border-radius:14px;font-size:19px;}
-}
-
-
-/* ===== V13 floating buttons single-stack fix ===== */
-.fab-stack,
-.ssfab-stack,
-.fab,
-.fab-call,
-.fab-chat,
-.fab-book,
-.whatsapp-float{
-  display:none !important;
-  visibility:hidden !important;
-  opacity:0 !important;
-  pointer-events:none !important;
-}
-
-.floating-cta{
-  position:fixed !important;
-  right:20px !important;
-  bottom:20px !important;
-  display:flex !important;
-  flex-direction:column !important;
-  gap:12px !important;
-  z-index:2147483647 !important;
-}
-.floating-cta .float-btn{
-  display:flex !important;
-  align-items:center !important;
-  gap:14px !important;
-  padding:16px 24px !important;
-  min-width:170px !important;
-  border-radius:22px !important;
-  color:#fff !important;
-  text-decoration:none !important;
-  font-weight:800 !important;
-  letter-spacing:2px !important;
-  font-size:14px !important;
-  box-shadow:0 18px 40px rgba(2,8,23,.26) !important;
-}
-.floating-cta .float-btn .icon{
-  width:44px !important;
-  height:44px !important;
-  border-radius:16px !important;
-  display:grid !important;
-  place-items:center !important;
-  font-size:22px !important;
-  background:rgba(255,255,255,.12) !important;
-  border:1px solid rgba(255,255,255,.18) !important;
-}
-.floating-cta .float-btn.book{background:linear-gradient(135deg,#081224,#0b2750) !important;border:1px solid rgba(202,166,75,.48) !important;}
-.floating-cta .float-btn.call{background:linear-gradient(135deg,#0d3959,#0f527a) !important;border:1px solid rgba(255,255,255,.12) !important;}
-.floating-cta .float-btn.chat{background:linear-gradient(135deg,#0d5a3d,#148159) !important;border:1px solid rgba(255,255,255,.12) !important;}
-@media (max-width:720px){
-  .floating-cta{right:12px !important;bottom:12px !important;gap:10px !important;}
-  .floating-cta .float-btn{min-width:150px !important;padding:14px 18px !important;font-size:13px !important;letter-spacing:1.5px !important;}
-  .floating-cta .float-btn .icon{width:38px !important;height:38px !important;border-radius:14px !important;font-size:19px !important;}
-}
-
-</style>
-  <meta name="theme-color" content="#0b3c5d"/>
-  <link rel="icon" href="images/favicon.png"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SS Residency Grand | Family-Friendly Budget Hotel in KPHB, Kukatpally, Hyderabad</title>
+<meta name="description" content="SS Residency Grand — an economy hotel in KPHB Colony, Kukatpally suited to solo travellers (price & proximity), business travellers (connectivity) and families (ease & safety). AC & Non-AC rooms from ₹1,299/night.">
+<meta name="keywords" content="family hotel KPHB, budget hotel KPHB, economy hotel Kukatpally, hotel near JNTU Hyderabad, SS Residency Grand, KPHB Colony hotel, cheap hotel Kukatpally">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://sshospitalitygroup.org/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SS Residency Grand">
+<meta property="og:title" content="SS Residency Grand | Family-Friendly Budget Hotel in KPHB, Kukatpally, Hyderabad">
+<meta property="og:description" content="Great for solo travellers, business travellers, and families alike. Clean rooms on the National Highway, walkable to the Metro. AC & Non-AC rooms from ₹1,299/night.">
+<meta property="og:image" content="https://sshospitalitygroup.org/ss-residency-logo.jpg">
+<meta property="og:url" content="https://sshospitalitygroup.org/">
+<meta property="og:locale" content="en_IN">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SS Residency Grand | Family-Friendly Budget Hotel in KPHB, Kukatpally, Hyderabad">
+<meta name="twitter:description" content="Great for solo travellers, business travellers, and families alike. AC & Non-AC rooms from ₹1,299/night.">
+<meta name="twitter:image" content="https://sshospitalitygroup.org/ss-residency-logo.jpg">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Hotel",
   "name": "SS Residency Grand",
-  "description": "Clean, comfortable stays in KPHB Colony, Hyderabad with direct WhatsApp booking.",
+  "image": "https://sshospitalitygroup.org/ss-residency-logo.jpg",
+  "description": "SS Residency Grand is an economy hotel in KPHB Colony, Kukatpally, Hyderabad, suited to solo travellers, business travellers, and families, offering AC and Non-AC rooms with free Wi-Fi, hot water, and 24/7 reception.",
+  "priceRange": "₹1,299 - ₹1,899",
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "KPHB Colony, Hyderabad",
+    "streetAddress": "Plot 30, Dharma Reddy Colony, Kukatpally Housing Board Colony, Phase 1",
+    "addressLocality": "Hyderabad",
     "addressRegion": "Telangana",
+    "postalCode": "500072",
     "addressCountry": "IN"
   },
-  "telephone": "+91-7842072725"
-}
-</script>
-
-  <meta name="robots" content="index,follow,max-image-preview:large"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:image" content="images/deluxe-ac-1.jpg"/>
-  <meta name="twitter:card" content="summary_large_image"/>
-
-<meta name="keywords" content="hotel in kukatpally, hotel kukatpally hyderabad, hotel in kphb colony, hotel near jntu metro, hotel near kukatpally metro, lodge in kukatpally, budget hotel kukatpally, rooms in kphb colony hyderabad, hotel near forum mall kukatpally, hotel near hitech city, stay in kukatpally hyderabad, hotel near national highway kukatpally, ac rooms kukatpally, non ac rooms kukatpally, hotel near jntu hyderabad, lodge near kphb metro"/>
-
-  <link rel="canonical" href="https://yourdomain.com/"/>
-</head>
-<body>
-<header class="hyatt-pro">
-<!-- Top utility row -->
-<div class="hyatt-utility">
-<div class="container hyatt-utility-inner">
-<div class="util-left">
-<span class="util-item">SS Residency Grand <span class="util-sep">•</span>
-<span class="util-item">KPHB Colony, Hyderabad</span>
-</span></div>
-<div class="util-right">
-<a aria-label="Call" class="util-link" href="tel:7842072724">
-<svg aria-hidden="true" class="util-ic" viewbox="0 0 24 24">
-<path d="M22 16.9v3a2 2 0 0 1-2.2 2c-9.2-.8-16.5-8.1-17.3-17.3A2 2 0 0 1 4.5 2h3a2 2 0 0 1 2 1.7l.6 2.7a2 2 0 0 1-.6 1.8l-1.3 1.3a14.5 14.5 0 0 0 6.3 6.3l1.3-1.3a2 2 0 0 1 1.8-.6l2.7.6a2 2 0 0 1 1.7 2Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-          Call
-        </a>
-<a aria-label="WhatsApp" class="util-link" href="https://api.whatsapp.com/send?phone=917842072725">
-<svg aria-hidden="true" class="util-ic" viewbox="0 0 24 24">
-<path d="M20.5 11.9a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 20.5 11.9Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path>
-<path d="M9.3 8.8c.2-.5.5-.5.7-.5h.6c.2 0 .4.1.5.4l.5 1.2c.1.3.1.6-.1.8l-.4.4c-.2.2-.2.4-.1.6.3.6 1 1.6 2 2.2.3.2.5.2.7 0l.5-.6c.2-.2.5-.3.8-.2l1.3.5c.3.1.4.3.4.6 0 .7-.3 1.2-.8 1.5-.6.4-1.4.6-2.4.3-2.1-.7-4.2-2.9-5-5.1-.3-1-.1-1.8.3-2.3.3-.5.6-.8.9-.9Z" fill="currentColor"></path>
-</svg>CHAT</a>
-<a aria-label="Directions" class="util-link" href="https://www.google.com/maps/place/SS+RESIDENCY+GRAND/@17.4949886,78.3965019,21z/data=!4m17!1m7!3m6!1s0x3bcb99daeaebd2c7:0x94ea9fb0ba260caa!2sF9WW%2B2H,+Hyderabad,+Telangana!3b1!8m2!3d17.4950625!4d78.3964375!3m8!1s0x3bcb91e74cbe9327:0xbb2d05ef68022276!5m2!4m1!1i2!8m2!3d17.4950638!4d78.3964849!16s%2Fg%2F11gy880hm2?entry=ttu&amp;g_ep=EgoyMDI2MDIwOS4wIKXMDSoASAFQAw%3D%3D" rel="noopener" target="_blank">
-<svg aria-hidden="true" class="util-ic" viewbox="0 0 24 24">
-<path d="M12 21s7-4.6 7-11a7 7 0 1 0-14 0c0 6.4 7 11 7 11Z" fill="none" stroke="currentColor" stroke-width="2"></path>
-<circle cx="12" cy="10" fill="none" r="2.5" stroke="currentColor" stroke-width="2"></circle>
-</svg>
-          Directions
-        </a>
-</div>
-</div>
-</div>
-<!-- Main header row -->
-<div class="hyatt-main">
-<div class="container hyatt-main-inner">
-<div class="hyatt-left">
-<div class="hyatt-title-main">SS RESIDENCY GRAND</div>
-<div class="hyatt-title-sub">A Unit of SS Hospitality Group</div>
-</div>
-<div class="hyatt-right">
-<nav aria-label="Primary" class="hyatt-nav">
-<a href="#rooms">Rooms</a>
-<a href="#amenities">Amenities</a>
-<a href="#location">Location</a>
-</nav>
-<a class="hyatt-book" href="https://live.ipms247.com/booking/book-rooms-hotelssresidency" style="text-decoration:none;">Book Now</a>
-</div>
-</div>
-</div>
-</header>
-
-  </div>
-</div>
-
-<section class="hero">
-  <div class="container">
-    <h1>Hotel in Kukatpally | KPHB Colony | Near KPHB Metro | JNTU | SS Residency Grand</h1>
-
-    
-
-    <p>
-      Clean AC &amp; Non-AC hotel rooms in KPHB Colony, Hyderabad with Free Wi-Fi, Lift, Parking and Room Service.
-    </p>
-
-    <div class="direct-benefits">
-      <span>On National Highway</span>
-      <span>Walkable distance to Metro</span>
-      <span>Use Promo Code "FLAT5" for 5% Discount on Book Now </span>
-      <span>Instant Booking Confirmation</span>
-    </div>
-  </div>
-</section>
-
-<!-- ROOMS -->
-<section class="section is-visible" id="rooms">
-<div class="container">
-<div class="section-head">
-<div class="section-kicker">ACCOMMODATIONS</div>
-<h3 class="section-title">Rooms &amp; Photos</h3>
-
-</div>
-<div class="sub">Transparent pricing + direct booking through our secure booking engine.<br/><span class="rate-note" style="font-size:13px; opacity:0.75; font-weight:500; display:block; margin-top:6px;">Rates per night. Extra Person: ₹100 · Extra Bed: ₹200 </span><br/></div>
-<div class="rooms">
-<!-- Deluxe AC -->
-<div class="room-card">
-<div class="room-badge badge-premium">⭐ Most Booked</div>
-<div class="room-badge badge-available">✅ Available Today</div>
-<div class="card-gallery" data-images="images/deluxe-ac-1.jpg,images/deluxe-ac-2.jpg,images/deluxe-ac-3.jpg">
-<img alt="Hotel room at SS Residency Grand Hyderabad" src="images/deluxe-ac-1.jpg" alt="Deluxe AC Room at SS Residency Grand Hyderabad"/ loading="lazy" decoding="async">
-<button aria-label="Previous photo" class="gal-btn prev" onclick="galleryPrev(this,event)" type="button">
-<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</button>
-<button aria-label="Next photo" class="gal-btn next" onclick="galleryNext(this,event)" type="button">
-<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</button>
-
-<div class="price-badge">₹1,699 / night</div>
-</div>
-<div class="content">
-<h4>Deluxe AC Room</h4>
-<div class="room-subline">Best Luxury for Families • AC • 2–3 guests</div>
-<div class="price">₹1,699 (1 Guest) · ₹1,799 (2 Guests) · ₹1,899 (3 Guests)</div>
-<div class="chips">
-<span class="chip">AC</span><span class="chip">Wi-Fi</span><span class="chip">TV</span><span class="chip">Hot Water</span>
-</div>
-<div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-<a class="wa-book" href="https://live.ipms247.com/booking/book-rooms-hotelssresidency">Book Now</a>
-
-</div>
-</div>
-</div>
-<!-- Standard AC -->
-<div class="room-card">
-<div class="room-badge badge-budget">💰 Budget Friendly</div>
-<div class="card-gallery" data-images="images/standard-ac-1.jpg">
-<img alt="Hotel room at SS Residency Grand Hyderabad" src="images/standard-ac-1.jpg" alt="Standard AC Room at SS Residency Grand Hyderabad"/ loading="lazy" decoding="async">
-<button aria-label="Previous photo" class="gal-btn prev" onclick="galleryPrev(this,event)" type="button">
-<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</button>
-<button aria-label="Next photo" class="gal-btn next" onclick="galleryNext(this,event)" type="button">
-<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</button>
-
-</div>
-<div class="content">
-<h4>Standard AC Room</h4>
-<div class="room-subline">Value comfort • AC • 1–3 guests</div>
-<div class="price">₹1,599 (1 Guest) · ₹1,699 (2 Guests) · ₹1,799 (3 Guests)</div>
-<div class="chips">
-<span class="chip">AC</span><span class="chip">Wi-Fi</span><span class="chip">Hot Water</span>
-</div>
-<div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-<a class="wa-book" href="https://live.ipms247.com/booking/book-rooms-hotelssresidency">Book Now</a>
-
-</div>
-</div>
-</div>
-<!-- Deluxe Non-AC -->
-<div class="room-card">
-<div class="room-badge badge-premium">🔥 Value Pick</div>
-<div class="card-gallery" data-images="images/deluxe-nonac-1.jpg,images/deluxe-nonac-2.jpg,images/deluxe-nonac-3.jpg">
-<img alt="Hotel room at SS Residency Grand Hyderabad" src="images/deluxe-nonac-1.jpg" alt="Deluxe Non-AC Room at SS Residency Grand Hyderabad"/ loading="lazy" decoding="async">
-<button aria-label="Previous photo" class="gal-btn prev" onclick="galleryPrev(this,event)" type="button">
-<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</button>
-<button aria-label="Next photo" class="gal-btn next" onclick="galleryNext(this,event)" type="button">
-<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</button>
-
-</div>
-<div class="content">
-<h4>Deluxe Non-AC Room</h4>
-<div class="room-subline">Budget stay • 2–3 guests • Spacious</div>
-<div class="price">₹1,399 (1 Guest) · ₹1,499 (2 Guests) · ₹1,599 (3 Guests)</div>
-<div class="chips">
-<span class="chip">Non-AC</span><span class="chip">Wi-Fi</span><span class="chip">TV</span><span class="chip">Hot Water</span>
-</div>
-<div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-<a class="wa-book" href="https://live.ipms247.com/booking/book-rooms-hotelssresidency">Book Now</a>
-
-</div>
-</div>
-</div>
-<!-- Standard Non-AC -->
-<div class="room-card">
-<div class="room-badge badge-budget">💰 Budget Friendly</div>
-<div class="card-gallery" data-images="images/standard-nonac-1.jpg,images/standard-nonac-2.jpg">
-<img alt="Hotel room at SS Residency Grand Hyderabad" src="images/standard-nonac-1.jpg" alt="Standard Non-AC Room at SS Residency Grand Hyderabad"/ loading="lazy" decoding="async">
-<button aria-label="Previous photo" class="gal-btn prev" onclick="galleryPrev(this,event)" type="button">
-<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</button>
-<button aria-label="Next photo" class="gal-btn next" onclick="galleryNext(this,event)" type="button">
-<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</button>
-
-</div>
-<div class="content">
-<h4>Standard Non-AC Room</h4>
-<div class="room-subline">Smart value • 1–3 guests • Clean stay</div>
-<div class="price">₹1,299 (1 Guest) · ₹1,399 (2 Guests) · ₹1,499 (3 Guests)</div>
-<div class="chips">
-<span class="chip">Non-AC</span><span class="chip">Wi-Fi</span><span class="chip">Hot Water</span>
-</div>
-<div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-<a class="wa-book" href="https://live.ipms247.com/booking/book-rooms-hotelssresidency">Book Now</a>
-
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- AMENITIES -->
-<section class="section is-visible" id="amenities">
-<div class="container">
-<div class="section-head">
-<div class="section-kicker">HOTEL AMENITIES</div>
-<h3 class="section-title">Amenities</h3>
-
-</div>
-<div class="sub">Premium essentials for a smooth stay.</div>
-<div class="amenity-grid">
-<div class="amenity-card">
-<div class="amenity-ic">
-<svg viewbox="0 0 24 24"><path d="M4 8h16M6 8v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg>
-</div>
-<div class="amenity-text"><b>24/7 Reception</b><small>Quick check-in &amp; support</small></div>
-</div>
-<div class="amenity-card">
-<div class="amenity-ic">
-<svg viewbox="0 0 24 24"><path d="M5 12a7 7 0 0 1 14 0"></path><path d="M8.5 12a3.5 3.5 0 0 1 7 0"></path><path d="M12 12v8"></path></svg>
-</div>
-<div class="amenity-text"><b>Free Wi-Fi</b><small>Work &amp; streaming friendly</small></div>
-</div>
-<div class="amenity-card">
-<div class="amenity-ic">
-<svg viewbox="0 0 24 24"><path d="M6 10h12"></path><path d="M8 10V7a4 4 0 0 1 8 0v3"></path><path d="M7 10v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-9"></path></svg>
-</div>
-<div class="amenity-text"><b>Hot Water</b><small>Comfortable bathrooms</small></div>
-</div>
-<div class="amenity-card">
-<div class="amenity-ic">
-<svg viewbox="0 0 24 24"><path d="M4 12h16"></path><path d="M7 12a5 5 0 0 1 10 0"></path><path d="M6 16h12"></path><path d="M8 20h8"></path></svg>
-</div>
-<div class="amenity-text"><b>Lift</b><small>Easy access for all floors</small></div>
-</div>
-<div class="amenity-card">
-<div class="amenity-ic">
-<svg viewbox="0 0 24 24"><path d="M3 11l9-7 9 7"></path><path d="M5 10v10h14V10"></path></svg>
-</div>
-<div class="amenity-text"><b>Parking</b><small>Subject to availability</small></div>
-</div>
-<div class="amenity-card">
-<div class="amenity-ic">
-<svg viewbox="0 0 24 24"><path d="M4 6h16"></path><path d="M6 6v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V6"></path></svg>
-</div>
-<div class="amenity-text"><b>Daily Housekeeping</b><small>Clean, fresh rooms</small></div>
-</div>
-<div class="amenity-card">
-<div class="amenity-ic">
-<svg viewbox="0 0 24 24"><path d="M7 7h10v10H7z"></path><path d="M7 12h10"></path></svg>
-</div>
-<div class="amenity-text"><b>Room Service</b><small>Help when you need it</small></div>
-</div>
-</div>
-</div>
-</section>
-<!-- GALLERY -->
-<!-- LOCATION -->
-<section class="section is-visible" id="location">
-<div class="container loc-premium">
-<span class="loc-label">Hotel location</span>
-<h2 class="loc-title">Find Us</h2>
-
-<div class="loc-grid">
-<div class="loc-card">
-<div class="loc-name">SS Residency Grand</div>
-<p class="location-description">
-  SS Residency Grand is located in KPHB Colony, Kukatpally, Hyderabad near JNTU Metro Station. The hotel offers clean AC and Non-AC rooms with easy access to Kukatpally, Hitech City, and other parts of Hyderabad.
-</p>
-<div class="loc-addr" id="hotelAddress">PLOT 30 DHARMA REDDY COLONY, Kukatpally Housing Board Colony, Phase 1, Hyderabad, Telangana 500072</div>
-
-<div class="distance-highlights">
-  <span>📍 Near KPHB Metro</span>
-  <span>📍 Quick access to Kukatpally</span>
-  <span>📍 Easy direct booking</span>
-</div>
-
-<div class="loc-actions">
-<a aria-label="Get directions" class="loc-btn primary" href="https://www.google.com/maps/place/SS+RESIDENCY+GRAND/@17.4949886,78.3965019,21z/data=!4m17!1m7!3m6!1s0x3bcb99daeaebd2c7:0x94ea9fb0ba260caa!2sF9WW%2B2H,+Hyderabad,+Telangana!3b1!8m2!3d17.4950625!4d78.3964375!3m8!1s0x3bcb91e74cbe9327:0xbb2d05ef68022276!5m2!4m1!1i2!8m2!3d17.4950638!4d78.3964849!16s%2Fg%2F11gy880hm2?entry=ttu&amp;g_ep=EgoyMDI2MDIwOS4wIKXMDSoASAFQAw%3D%3D" rel="noopener" target="_blank">
-<svg aria-hidden="true" viewbox="0 0 24 24">
-<path d="M12 21s7-4.6 7-11a7 7 0 1 0-14 0c0 6.4 7 11 7 11Z" fill="none" stroke="currentColor" stroke-width="2"></path>
-<circle cx="12" cy="10" fill="none" r="2.5" stroke="currentColor" stroke-width="2"></circle>
-</svg>
-            Directions
-          </a>
-<button aria-label="Copy address" class="loc-btn" onclick="copyAddress()" type="button">
-<svg aria-hidden="true" viewbox="0 0 24 24">
-<path d="M9 9h10v10H9z" fill="none" stroke="currentColor" stroke-width="2"></path>
-<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" fill="none" stroke="currentColor" stroke-width="2"></path>
-</svg>
-            Copy
-          </button>
-<a aria-label="Share location on WhatsApp" class="loc-btn" href="https://api.whatsapp.com/send?phone=917842072725" rel="noopener" target="_blank">
-<svg aria-hidden="true" viewbox="0 0 24 24">
-<path d="M20.5 11.9a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 20.5 11.9Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path>
-<path d="M9.3 8.8c.2-.5.5-.5.7-.5h.6c.2 0 .4.1.5.4l.5 1.2c.1.3.1.6-.1.8l-.4.4c-.2.2-.2.4-.1.6.3.6 1 1.6 2 2.2.3.2.5.2.7 0l.5-.6c.2-.2.5-.3.8-.2l1.3.5c.3.1.4.3.4.6 0 .7-.3 1.2-.8 1.5-.6.4-1.4.6-2.4.3-2.1-.7-4.2-2.9-5-5.1-.3-1-.1-1.8.3-2.3.3-.5.6-.8.9-.9Z" fill="currentColor"></path>
-</svg>CHAT</a>
-</div>
-<div class="loc-hint">Tip: Tap “Directions” for the exact Google Maps pin and live navigation.</div>
-</div>
-<div>
-<div class="map-wrap map-locked" id="hyattMap">
-<a aria-label="Get Directions" class="map-cta" href="https://www.google.com/maps/place/SS+RESIDENCY+GRAND/@17.4949886,78.3965019,21z/data=!4m17!1m7!3m6!1s0x3bcb99daeaebd2c7:0x94ea9fb0ba260caa!2sF9WW%2B2H,+Hyderabad,+Telangana!3b1!8m2!3d17.4950625!4d78.3964375!3m8!1s0x3bcb91e74cbe9327:0xbb2d05ef68022276!5m2!4m1!1i2!8m2!3d17.4950638!4d78.3964849!16s%2Fg%2F11gy880hm2?entry=ttu&amp;g_ep=EgoyMDI2MDIwOS4wIKXMDSoASAFQAw%3D%3D" rel="noopener" target="_blank">
-<svg aria-hidden="true" viewbox="0 0 24 24">
-<path d="M12 21s7-4.6 7-11a7 7 0 1 0-14 0c0 6.4 7 11 7 11Z" fill="none" stroke="currentColor" stroke-width="2"></path>
-<path d="M12 10l4 2-4 2-4-2 4-2Z" fill="currentColor"></path>
-</svg>
-    Directions
-  </a>
-<iframe allowfullscreen="" class="map-iframe" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d237.82889280674294!2d78.39650187303829!3d17.494988633930305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91e74cbe9327%3A0xbb2d05ef68022276!2sSS%20RESIDENCY%20GRAND!5e0!3m2!1sen!2sin!4v1770789306035!5m2!1sen!2sin"></iframe>
-</div>
-</div>
-</div>
-</div>
-</section>
-
-<section class="section" id="faq">
-  <div class="container">
-    <div class="section-head">
-      <div class="section-kicker">FAQs</div>
-      <h3 class="section-title">Hotel in Kukatpally – Frequently Asked Questions</h3>
-      
-    </div>
-    <div class="faq-grid">
-      <div class="faq-item">
-        <b>How can I book a room?</b>
-        <p>You can book directly through our secure booking engine on this website.</p>
-      </div>
-      <div class="faq-item">
-        <b>What room types are available?</b>
-        <p>We offer Deluxe AC, Deluxe Non-AC, Standard AC, and Standard Non-AC rooms.</p>
-      </div>
-      <div class="faq-item">
-        <b>What time are check-in and check-out?</b>
-        <p>Check-in and check-out details are handled in the booking engine. Check-out defaults to the next day and can be extended for longer stays.</p>
-      </div>
-    </div>
-  </div>
-</section>
-<footer>
-<div class="container">
-<p><b>SS Residency Grand · KPHB Colony, Hyderabad</b></p>
-<p>WhatsApp: <a href="https://api.whatsapp.com/send?phone=917842072725" style="text-decoration:underline">7842072725</a> · Call: <a href="tel:7842072724" style="text-decoration:underline">7842072724</a></p>
-</div>
-
-</footer>
-<!-- Floating WhatsApp -->
-<!-- Booking Modal -->
-
-<!-- Photo Quick View Modal -->
-<style>
-/* ===== SS FAB Stack (Isolated, Conflict-Free) ===== */
-.ssfab-stack{
-  position:fixed;
-  right:16px;
-  bottom:16px;
-  z-index:2147483647; /* above everything */
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-.ssfab{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  padding:12px 14px;
-  border-radius:16px;
-  text-decoration:none;
-  color:#ffffff !important;
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  font-weight:800;
-  letter-spacing:1.3px;
-  text-transform:uppercase;
-  font-size:12px;
-  box-shadow:0 18px 42px rgba(2,8,23,.22);
-  border:1px solid rgba(255,255,255,.16);
-  background:#0b1220;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  user-select:none;
-  -webkit-tap-highlight-color: transparent;
-}
-.ssfab:hover{ transform: translateY(-2px); box-shadow:0 26px 66px rgba(2,8,23,.28); }
-.ssfab:active{ transform: translateY(-1px) scale(.99); }
-.ssfab .ic{
-  width:38px; height:38px;
-  border-radius:14px;
-  display:grid; place-items:center;
-  background:rgba(255,255,255,.12);
-  border:1px solid rgba(255,255,255,.18);
-}
-.ssfab svg{ width:18px; height:18px; stroke:#fff; stroke-width:2; fill:none; stroke-linecap:round; stroke-linejoin:round; }
-.ssfab-book{ border-color:rgba(202,166,75,.35); background:linear-gradient(135deg,#0b1220,#111b2e,#0b1220); }
-.ssfab-book .ic{ background:rgba(202,166,75,.22); border-color:rgba(202,166,75,.35); }
-.ssfab-call{ background:linear-gradient(135deg,#0b3c5d,#0a2b44,#0b3c5d); }
-.ssfab-chat{ background:linear-gradient(135deg,#0f6a4b,#0b4e38,#0f6a4b); }
-
-@media (max-width:560px){
-  .ssfab{ width:58px; height:58px; padding:0; justify-content:center; }
-  .ssfab span{ display:none; }
-  .ssfab .ic{ width:44px; height:44px; }
-}
-
-/* ===== V1 UPGRADE: 2x2 luxury rooms + premium popup ===== */
-#rooms .rooms{
-  display:grid !important;
-  grid-template-columns:repeat(2, minmax(0, 1fr)) !important;
-  gap:24px !important;
-  align-items:stretch !important;
-}
-#rooms .room-card{
-  border-radius:22px !important;
-  border:1px solid rgba(226,232,240,.95) !important;
-  box-shadow:0 16px 38px rgba(2,8,23,.10) !important;
-  overflow:hidden !important;
-  background:#fff !important;
-  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease !important;
-}
-#rooms .room-card:hover{
-  transform:translateY(-3px) !important;
-  box-shadow:0 24px 58px rgba(2,8,23,.14) !important;
-  border-color:rgba(202,166,75,.34) !important;
-}
-#rooms .card-gallery{border-radius:22px 22px 0 0 !important;}
-#rooms .card-gallery img{height:280px !important; object-fit:cover !important;}
-#rooms .content{padding:18px 18px 20px 18px !important;}
-#rooms .content h4{font-size:20px !important; line-height:1.18 !important; margin:0 0 8px 0 !important;}
-#rooms .price{font-size:14px !important; line-height:1.55 !important; margin:0 0 10px 0 !important; color:#0f172a !important; font-weight:900 !important;}
-#rooms .chips{gap:8px !important; margin-top:10px !important;}
-#rooms .chip{font-size:11px !important; padding:6px 10px !important; background:#f8fafc !important; border:1px solid #dbe3ee !important; color:#475569 !important;}
-#rooms .wa-book{width:100% !important; justify-content:center !important; margin-top:14px !important;}
-#rooms .gal-btn{width:44px !important; height:44px !important;}
-#rooms .gal-dots{bottom:12px !important;}
-@media (max-width: 960px){
-  #rooms .rooms{grid-template-columns:1fr !important;}
-  #rooms .card-gallery img{height:240px !important;}
-}
-
-/* Premium modal shell */
-
-.booking-wrap{max-width:100%; margin:0 auto;}
-.booking-roomcard{
-  display:grid;
-  grid-template-columns:190px 1fr;
-  gap:18px;
-  padding:16px;
-  border-radius:24px;
-  border:1px solid rgba(148,163,184,.35);
-  background:linear-gradient(180deg,#ffffff 0%, #fbfdff 100%);
-  box-shadow:0 18px 46px rgba(2,8,23,.10);
-  margin:0 0 18px 0;
-}
-.booking-roommedia{position:relative;}
-.booking-roommedia img{
-  width:100%;
-  height:150px;
-  object-fit:cover;
-  border-radius:20px;
-  border:1px solid rgba(148,163,184,.35);
-  box-shadow:0 12px 30px rgba(2,8,23,.12);
-  background:#f8fafc;
-}
-.booking-badge{
-  position:absolute; top:10px; left:10px;
-  padding:7px 10px; border-radius:999px;
-  background:rgba(2,6,23,.86); color:#fff;
-  font-size:11px; font-weight:1000; letter-spacing:.35px;
-  box-shadow:0 12px 28px rgba(2,8,23,.22);
-}
-.booking-roomtitle{font-size:22px; font-weight:1000; color:#0f172a; line-height:1.15; margin-top:2px;}
-.booking-roommeta{font-size:15px; font-weight:850; color:#475569; margin-top:8px;}
-.booking-roomchips{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;}
-.booking-roomchips .chip{
-  display:inline-flex; align-items:center; gap:8px;
-  padding:8px 12px; border-radius:999px;
-  font-size:13px; font-weight:1000; line-height:1;
-}
-.chip-green{color:#16a34a; border-color:rgba(22,163,74,.22) !important; background:rgba(22,163,74,.10) !important;}
-.booking-total{
-  display:flex; align-items:center; justify-content:space-between; gap:12px;
-  margin-top:12px; padding:12px 14px; border-radius:18px;
-  border:1px solid rgba(148,163,184,.35);
-  background:rgba(255,255,255,.80);
-  backdrop-filter:saturate(140%) blur(8px);
-  font-weight:1000; color:#0f172a;
-}
-.booking-total-amt{font-size:22px;}
-.booking-hint{font-size:13px; font-weight:800; color:#64748b; margin-top:8px; line-height:1.45;}
-
-.booking-form{padding:0; margin:0;}
-.form-section-title{
-  font-size:14px; font-weight:1000; letter-spacing:2.2px;
-  text-transform:uppercase; color:#64748b;
-  margin:16px 0 10px 0;
-}
-.form-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px 16px; align-items:end;}
-.field-full{grid-column:1/-1;}
-
-.field select{
-  -webkit-appearance:none; appearance:none;
-  background-image:
-    linear-gradient(45deg, transparent 50%, rgba(15,23,42,.55) 50%),
-    linear-gradient(135deg, rgba(15,23,42,.55) 50%, transparent 50%);
-  background-position: calc(100% - 22px) 56%, calc(100% - 16px) 56%;
-  background-size:6px 6px, 6px 6px;
-  background-repeat:no-repeat;
-  padding-right:44px !important;
-}
-.form-sep{
-  height:1px;
-  background:linear-gradient(90deg, rgba(202,166,75,.0), rgba(202,166,75,.55), rgba(202,166,75,.0));
-  margin:18px 0 10px 0; border-radius:999px;
-}
-.field-note{
-  font-size:13px;
-  color:#64748b;
-  margin-top:6px;
-  font-weight:800;
-}
-.form-note{
-  margin-top:14px;
-  padding:12px 14px;
-  border-radius:18px;
-  border:1px solid rgba(148,163,184,.35);
-  background:rgba(248,250,252,.95);
-  font-size:13px;
-  font-weight:900;
-  color:#475569;
-  line-height:1.45;
-}
-
-@media (max-width: 820px){
-  .booking-roomcard{grid-template-columns:1fr;}
-  .booking-roommedia img{height:190px;}
-  .form-grid{grid-template-columns:1fr;}
-}
-
-/* ===== V3 BOUTIQUE PASS ===== */
-:root{
-  --shadow-soft:0 10px 28px rgba(2,8,23,.08);
-  --shadow-card:0 18px 42px rgba(2,8,23,.10);
-  --shadow-card-hover:0 24px 52px rgba(2,8,23,.14);
-}
-
-/* tighter overall rhythm */
-.hero{padding:24px 0 18px 0 !important;}
-.hero h2{margin:0 0 6px 0 !important; font-size:30px !important; line-height:1.12 !important;}
-.hero p{max-width:760px !important; line-height:1.5 !important;}
-.section{padding:24px 0 !important;}
-.section-head{padding:12px 0 10px !important; margin-bottom:10px !important;}
-.gold-accent{margin:8px 0 10px 0 !important;}
-#rooms .sub{margin:0 auto 12px auto !important;}
-.container{max-width:1160px !important;}
-
-/* 2x2 room grid, tighter but premium */
-#rooms .rooms{
-  display:grid !important;
-  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
-  gap:18px !important;
-  align-items:stretch !important;
-}
-#rooms .room-card{
-  border-radius:20px !important;
-  border:1px solid rgba(226,232,240,.92) !important;
-  box-shadow:var(--shadow-card) !important;
-  overflow:hidden !important;
-  background:#fff !important;
-  transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease !important;
-}
-#rooms .room-card:hover{
-  transform:translateY(-3px) !important;
-  box-shadow:var(--shadow-card-hover) !important;
-  border-color:rgba(202,166,75,.36) !important;
-}
-#rooms .card-gallery img{
-  height:280px !important;
-  object-fit:cover !important;
-}
-#rooms .content{
-  padding:14px 14px 16px 14px !important;
-}
-#rooms .content h4{
-  font-size:18px !important;
-  line-height:1.18 !important;
-  margin:0 0 6px 0 !important;
-}
-#rooms .price{
-  margin:0 0 8px 0 !important;
-  font-size:13px !important;
-  line-height:1.45 !important;
-}
-#rooms .chips{
-  gap:6px !important;
-  margin-top:8px !important;
-}
-#rooms .chip{
-  font-size:11px !important;
-  padding:5px 9px !important;
-}
-#rooms .wa-book{
-  width:100% !important;
-  justify-content:center !important;
-  margin-top:12px !important;
-  padding:12px 14px !important;
-  font-size:11.5px !important;
-  border-radius:15px !important;
-  letter-spacing:.95px !important;
-}
-
-/* slightly larger scrolling controls */
-#rooms .gal-btn{
-  width:40px !important;
-  height:40px !important;
-}
-#rooms .gal-dots{bottom:10px !important;}
-
-/* premium popup, tighter and cleaner */
-
-.modal-title b{
-  font-size:20px !important;
-  line-height:1.15 !important;
-}
-.modal-title small{
-  font-size:12.5px !important;
-}
-
-.rp-total-line{
-  margin:6px 0 8px 0 !important;
-  padding:10px 12px !important;
-  font-size:14px !important;
-}
-.form-section-title{
-  margin:6px 0 2px 0 !important;
-  letter-spacing:1.8px !important;
-}
-.form-sep{
-  margin:10px 0 8px 0 !important;
-}
-.form-grid{
-  display:grid !important;
-  grid-template-columns:1fr 1fr !important;
-  gap:12px !important;
-}
-.field{margin-bottom:10px !important;}
-
-.field-note{
-  font-size:12px !important;
-  margin-top:5px !important;
-  color:#64748b !important;
-  font-weight:700 !important;
-}
-.form-note{
-  margin-top:8px !important;
-  padding:10px 12px !important;
-  font-size:12px !important;
-  line-height:1.45 !important;
-}
-
-.modal-actions .btn{
-  padding:11px 14px !important;
-  border-radius:14px !important;
-}
-
-/* location/footer tighten */
-#location .loc-title{margin:6px 0 6px 0 !important;}
-.loc-card{padding:14px !important;}
-footer{padding:22px 0 !important;}
-footer p{margin:4px 0 !important;}
-
-@media (max-width:900px){
-  #rooms .rooms{grid-template-columns:1fr !important;}
-  #rooms .card-gallery img{height:240px !important;}
-}
-@media (max-width:720px){
-  .hero{padding:20px 0 16px 0 !important;}
-  .hero h2{font-size:24px !important;}
-  
-  
-  .form-grid{grid-template-columns:1fr !important;}
-}
-
-/* ===== V4 MICRO POLISH ===== */
-.wa-book:hover,
-.btn:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(0,0,0,.18);
-}
-
-.card-gallery img{
-  transition: opacity .35s ease, transform .35s ease;
-}
-
-.card-gallery img.is-fading{
-  opacity: .6;
-}
-
-.room-card:hover .card-gallery img{
-  transform: scale(1.02);
-}
-
-</style>
-<div aria-label="Quick actions" class="ssfab-stack">
-<a aria-label="Book Now" class="ssfab ssfab-book" href="#rooms" title="Book Now">
-<div aria-hidden="true" class="ic">
-<svg viewbox="0 0 24 24"><path d="M7 3v3M17 3v3M4 8h16M6 5h12a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"></path></svg>
-</div>
-<span>Book Now</span>
-</a>
-<a aria-label="Call" class="ssfab ssfab-call" href="tel:7842072725" title="Call">
-<div aria-hidden="true" class="ic">
-<svg viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.86.32 1.7.6 2.5a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.58-1.12a2 2 0 0 1 2.11-.45c.8.28 1.64.48 2.5.6A2 2 0 0 1 22 16.92z"></path></svg>
-</div>
-<span>Call</span>
-</a>
-<a aria-label="Chat" class="ssfab ssfab-chat" href="https://api.whatsapp.com/send?phone=917842072725" rel="noopener" target="_blank" title="Chat">
-<div aria-hidden="true" class="ic">
-<svg viewbox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.9 7.3L3 20l1.3-5.1A8.5 8.5 0 1 1 21 11.5z"></path></svg>
-</div>
-<span>Chat</span>
-</a>
-</div>
-
-<script>
-/* ===== ROOM GALLERY ROTATION FIX ===== */
-(function(){
-  const galleryTimers = new WeakMap();
-  function getImages(gallery){ return (gallery.getAttribute("data-images") || "").split(",").map(s => s.trim()).filter(Boolean); }
-  function ensureDots(gallery, images){
-    let dotsWrap = gallery.querySelector(".gal-dots");
-    if(!dotsWrap){
-      dotsWrap = document.createElement("div");
-      dotsWrap.className = "gal-dots";
-      gallery.appendChild(dotsWrap);
-    }
-    dotsWrap.innerHTML = "";
-    images.forEach((_, idx) => {
-      const dot = document.createElement("button");
-      dot.type = "button";
-      dot.className = "gal-dot" + (idx === 0 ? " active" : "");
-      dot.setAttribute("aria-label", `Show photo ${idx + 1}`);
-      dot.addEventListener("click", (e) => { e.preventDefault(); showImage(gallery, idx, true); });
-      dotsWrap.appendChild(dot);
-    });
-  }
-  function updateDots(gallery, index){ gallery.querySelectorAll(".gal-dot").forEach((d,i)=>d.classList.toggle("active", i===index)); }
-  function showImage(gallery, index, restart=false){
-    const images = getImages(gallery); if(!images.length) return;
-    const img = gallery.querySelector("img"); if(!img) return;
-    const safeIndex = ((index % images.length) + images.length) % images.length;
-    gallery.dataset.index = String(safeIndex);
-    img.classList.add("is-fading");
-    const nextSrc = images[safeIndex];
-    const loader = new Image();
-    loader.onload = function(){ img.src = nextSrc; img.classList.remove("is-fading"); };
-    loader.onerror = function(){ img.src = nextSrc; img.classList.remove("is-fading"); };
-    loader.src = nextSrc;
-    updateDots(gallery, safeIndex);
-    if(restart) restartAuto(gallery);
-  }
-  function nextImage(gallery, restart=false){ const current = parseInt(gallery.dataset.index || "0", 10) || 0; showImage(gallery, current + 1, restart); }
-  function prevImage(gallery, restart=false){ const current = parseInt(gallery.dataset.index || "0", 10) || 0; showImage(gallery, current - 1, restart); }
-  function stopAuto(gallery){ const timer = galleryTimers.get(gallery); if(timer){ clearInterval(timer); galleryTimers.delete(gallery); } }
-  function startAuto(gallery){ stopAuto(gallery); const images = getImages(gallery); if(images.length <= 1) return; const timer = setInterval(() => nextImage(gallery, false), 3500); galleryTimers.set(gallery, timer); }
-  function restartAuto(gallery){ startAuto(gallery); }
-  function setupGallery(gallery){
-    const images = getImages(gallery); if(!images.length) return;
-    const img = gallery.querySelector("img");
-    if(img && (!img.getAttribute("src") || img.getAttribute("src") !== images[0])) img.setAttribute("src", images[0]);
-    gallery.dataset.index = "0";
-    ensureDots(gallery, images); updateDots(gallery, 0);
-    const prevBtn = gallery.querySelector(".gal-btn.prev");
-    const nextBtn = gallery.querySelector(".gal-btn.next");
-    if(prevBtn && !prevBtn.dataset.bound){ prevBtn.dataset.bound = "1"; prevBtn.addEventListener("click", e=>{ e.preventDefault(); e.stopPropagation(); prevImage(gallery, true); }); }
-    if(nextBtn && !nextBtn.dataset.bound){ nextBtn.dataset.bound = "1"; nextBtn.addEventListener("click", e=>{ e.preventDefault(); e.stopPropagation(); nextImage(gallery, true); }); }
-    gallery.addEventListener("mouseenter", ()=>stopAuto(gallery));
-    gallery.addEventListener("mouseleave", ()=>startAuto(gallery));
-    gallery.addEventListener("touchstart", ()=>stopAuto(gallery), {passive:true});
-    gallery.addEventListener("touchend", ()=>startAuto(gallery), {passive:true});
-    startAuto(gallery);
-  }
-  window.galleryPrev = function(btn, event){ if(event){ event.preventDefault(); event.stopPropagation(); } const gallery = btn.closest(".card-gallery"); if(gallery) prevImage(gallery, true); };
-  window.galleryNext = function(btn, event){ if(event){ event.preventDefault(); event.stopPropagation(); } const gallery = btn.closest(".card-gallery"); if(gallery) nextImage(gallery, true); };
-  document.addEventListener("DOMContentLoaded", function(){ document.querySelectorAll(".card-gallery[data-images]").forEach(setupGallery); });
-})();
-</script>
-
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"FAQPage",
-  "mainEntity":[
-    {
-      "@type":"Question",
-      "name":"Where is SS Residency Grand located?",
-      "acceptedAnswer":{"@type":"Answer","text":"SS Residency Grand is in KPHB Colony, Hyderabad, on National Highway with walkable distance to Metro."}
-    },
-    {
-      "@type":"Question",
-      "name":"How can I book a room?",
-      "acceptedAnswer":{"@type":"Answer","text":"You can book directly through our secure booking engine on this website."}
-    },
-    {
-      "@type":"Question",
-      "name":"What room types are available?",
-      "acceptedAnswer":{"@type":"Answer","text":"We offer Deluxe AC, Deluxe Non-AC, Standard AC, and Standard Non-AC rooms."}
-    },
-    {
-      "@type":"Question",
-      "name":"What time are check-in and check-out?",
-      "acceptedAnswer":{"@type":"Answer","text":"Check-in and check-out details are handled in the booking engine. Check-out defaults to the next day and can be extended for longer stays."}
-    }
+  "telephone": "+91-7842072724",
+  "url": "https://sshospitalitygroup.org/",
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "Free Wi-Fi", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "24/7 Reception", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Hot Water", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Lift", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Parking", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Daily Housekeeping", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Room Service", "value": true }
   ]
 }
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="ss-residency-mark.svg">
+<style>
+  :root{
+    --navy-900:#0A1728;
+    --navy-800:#0F2038;
+    --navy-700:#1A3155;
+    --white:#FAF6ED;
+    --paper:#F0E9D8;
+    --gold:#C79A4E;
+    --gold-light:#EBCE8C;
+    --gold-deep:#8A6A2E;
+    --ink:#1A2130;
+    --grey:#666F7D;
+    --line: rgba(235,206,140,0.16);
+    --line-dark: rgba(10,23,40,0.10);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--white);
+    color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces',Georgia,serif;
+    font-optical-sizing:auto;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .mono{ font-family:'IBM Plex Mono', monospace; }
+  a{ color:inherit; text-decoration:none; }
+  img{max-width:100%;display:block;}
+  .wrap{ max-width:1120px; margin:0 auto; padding:0 28px; }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--gold);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px;height:1px;
+    background:var(--gold);
+    display:inline-block;
+  }
+  :focus-visible{ outline:2px solid var(--gold); outline-offset:3px; }
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+  }
 
-<div class="floating-cta" aria-label="Quick actions">
-  <a href="https://live.ipms247.com/booking/book-rooms-hotelssresidency" class="float-btn book">
-    <span class="icon" aria-hidden="true">📅</span>
-    <span>BOOK NOW</span>
-  </a>
-  <a href="tel:7842072724" class="float-btn call">
-    <span class="icon" aria-hidden="true">📞</span>
-    <span>CALL</span>
-  </a>
-  <a href="https://api.whatsapp.com/send?phone=917842072725" class="float-btn chat">
-    <span class="icon" aria-hidden="true">💬</span>
-    <span>CHAT</span>
-  </a>
-</div>
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky; top:0; z-index:40;
+    background:rgba(15,32,56,0.96);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav .wrap{ display:flex; align-items:center; justify-content:space-between; height:68px; }
+  .brand{ display:flex; align-items:center; gap:12px; color:var(--white); font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:16px; letter-spacing:0.03em; }
+  .brand img{ height:44px; width:auto; border-radius:50%; }
+  .brand span{ color:var(--gold-light); font-weight:500; font-size:11px; letter-spacing:0.16em; display:block; }
+  .nav-links{ display:flex; gap:30px; }
+  .nav-links a{ color:rgba(250,248,244,0.75); font-size:14px; font-weight:500; transition:color .15s; }
+  .nav-links a:hover{ color:var(--gold-light); }
+  .nav-cta{
+    background:var(--gold); color:var(--navy-900); font-weight:600; font-size:13.5px;
+    padding:10px 20px; border-radius:2px; letter-spacing:0.02em;
+    transition:background .15s;
+  }
+  .nav-cta:hover{ background:var(--gold-light); }
+  .nav-toggle{
+    display:none;
+    background:none; border:1px solid var(--line); border-radius:2px;
+    width:40px; height:36px; cursor:pointer;
+    align-items:center; justify-content:center;
+    flex-direction:column; gap:5px;
+  }
+  .nav-toggle span{ display:block; width:18px; height:2px; background:var(--gold-light); transition:transform .2s ease, opacity .2s ease; }
+  .nav-toggle.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2){ opacity:0; }
+  .nav-toggle.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu{
+    display:none;
+    background:var(--navy-900);
+    border-top:1px solid var(--line);
+    overflow:hidden;
+    max-height:0;
+    transition:max-height .25s ease;
+  }
+  .mobile-menu.open{ max-height:280px; }
+  .mobile-menu a{
+    display:block; padding:14px 28px;
+    color:rgba(250,248,244,0.85); font-size:15px; font-weight:500;
+    border-bottom:1px solid var(--line);
+  }
+  .mobile-menu a:last-child{ border-bottom:none; }
+  .mobile-menu a:hover{ color:var(--gold-light); }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:
+      radial-gradient(1100px 500px at 85% -10%, rgba(185,138,61,0.14), transparent 60%),
+      var(--navy-900);
+    color:var(--white);
+    padding:96px 0 0;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap:40px;
+    align-items:center;
+    padding-bottom:64px;
+  }
+  .hero h1{
+    font-size:clamp(34px, 4.4vw, 54px);
+    line-height:1.08;
+    font-weight:700;
+    margin:18px 0 20px;
+  }
+  .hero h1 em{ font-style:normal; color:var(--gold-light); }
+  .hero p.lede{
+    font-size:16.5px;
+    line-height:1.65;
+    color:rgba(250,248,244,0.78);
+    max-width:480px;
+    margin-bottom:32px;
+  }
+  .hero-ctas{ display:flex; gap:14px; flex-wrap:wrap; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:14px 26px; font-size:14.5px; font-weight:600;
+    border-radius:2px; letter-spacing:0.01em; cursor:pointer; border:none;
+    transition:transform .15s ease, background .15s ease, opacity .15s ease;
+  }
+  .btn:hover{ transform:translateY(-1px); }
+  .btn-primary{ background:var(--gold); color:var(--navy-900); }
+  .btn-primary:hover{ background:var(--gold-light); }
+  .btn-ghost{ background:transparent; border:1px solid var(--line); color:var(--white); }
+  .btn-ghost:hover{ border-color:var(--gold); color:var(--gold-light); }
+
+  .hero-card{
+    background:rgba(235,206,140,0.045);
+    border:1px solid var(--line);
+    border-top:2px solid var(--gold);
+    border-radius:2px;
+    padding:26px 26px 22px;
+    box-shadow:0 24px 60px -20px rgba(0,0,0,0.5);
+  }
+  .hero-card .mono{ font-size:11px; letter-spacing:0.14em; color:var(--gold-light); text-transform:uppercase; }
+  .hero-card .rate{ font-family:'Space Grotesk',sans-serif; font-size:38px; font-weight:700; margin:10px 0 2px; }
+  .hero-card .rate span{ font-size:14px; font-weight:500; color:rgba(250,248,244,0.6); }
+  .hero-card ul{ list-style:none; margin:18px 0 0; padding:0; display:grid; gap:9px; }
+  .hero-card li{ font-size:13.5px; color:rgba(250,248,244,0.75); display:flex; gap:9px; align-items:baseline; }
+  .hero-card li::before{ content:"—"; color:var(--gold); }
+
+  .hero-strip{
+    border-top:1px solid var(--line);
+    padding:16px 0;
+  }
+  .hero-strip .wrap{
+    display:flex; flex-wrap:wrap; row-gap:10px;
+    justify-content:center;
+    font-family:'IBM Plex Mono',monospace; font-size:12px;
+    color:rgba(250,248,244,0.55); letter-spacing:0.04em;
+  }
+  .hero-strip .wrap span{ white-space:nowrap; }
+  .hero-strip .wrap span:not(:last-child)::after{
+    content:"·"; color:rgba(250,248,244,0.3); margin:0 16px;
+  }
+  .hero-strip b{ color:var(--gold-light); font-weight:600; }
+
+  /* ---------- SECTION HEADERS ---------- */
+  section{ padding:88px 0; }
+  .sec-head{ max-width:640px; margin-bottom:48px; }
+  .sec-head h2{ font-size:clamp(26px,3vw,36px); margin-top:14px; font-weight:700; }
+  .sec-head p{ color:var(--grey); font-size:15.5px; margin-top:14px; line-height:1.6; }
+  .on-dark .sec-head p{ color:rgba(250,248,244,0.68); }
+
+  /* ---------- VALUE STRIP ---------- */
+  .values{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line-dark); border:1px solid var(--line-dark); }
+  .value-card{ background:var(--white); padding:34px 30px; }
+  .value-card .num{ font-family:'IBM Plex Mono',monospace; color:var(--gold); font-size:12px; letter-spacing:0.1em; }
+  .value-card h3{ font-size:19px; margin:14px 0 10px; }
+  .value-card p{ font-size:14px; color:var(--grey); line-height:1.6; margin:0; }
+
+  /* ---------- CONNECTIVITY BOARD (signature) ---------- */
+  .board-section{ background:var(--navy-800); color:var(--white); }
+  .board{
+    border:1px solid var(--line);
+    border-radius:4px;
+    overflow:hidden;
+    background:var(--navy-900);
+  }
+  .board-row{
+    display:grid;
+    grid-template-columns: 26px 1.4fr 0.7fr 0.9fr 0.8fr;
+    gap:14px;
+    align-items:center;
+    padding:16px 22px;
+    border-bottom:1px solid var(--line);
+    font-family:'IBM Plex Mono',monospace;
+  }
+  .board-row:last-child{ border-bottom:none; }
+  .board-row.head{
+    background:rgba(255,255,255,0.03);
+    font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(250,248,244,0.5);
+    padding-top:13px; padding-bottom:13px;
+  }
+  .board-row .dot{ width:6px;height:6px;border-radius:50%; background:var(--gold); }
+  .board-row .dest{ font-size:15px; font-weight:500; color:var(--white); }
+  .board-row .tag{ font-size:11px; color:rgba(250,248,244,0.45); }
+  .board-row .dist{ font-size:14px; color:var(--gold-light); }
+  .board-row .mode{ font-size:13px; color:rgba(250,248,244,0.65); }
+  .board-row .time{ font-size:14px; color:var(--white); font-weight:600; text-align:right; }
+  .board-note{ margin-top:18px; font-size:13px; color:rgba(250,248,244,0.5); }
+
+  /* ---------- ROOMS ---------- */
+  .rooms-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+  .room-card{ border:1px solid var(--line-dark); border-top:3px solid var(--gold); border-radius:3px; overflow:hidden; transition:box-shadow .2s ease, transform .2s ease; }
+  .room-card:hover{ box-shadow:0 18px 40px -18px rgba(10,23,40,0.28); transform:translateY(-2px); }
+  .room-swatch{ height:8px; background:linear-gradient(90deg,var(--navy-700),var(--gold)); }
+  .room-body{ padding:26px; }
+  .room-body h3{ font-size:20px; margin-bottom:6px; }
+  .room-body .price{ font-family:'Space Grotesk',sans-serif; font-size:15px; color:var(--gold); font-weight:600; margin-bottom:16px; }
+  .room-body .price span{ color:var(--grey); font-weight:400; font-size:12.5px; }
+  .room-body ul{ list-style:none; margin:0 0 22px; padding:0; display:grid; gap:8px; }
+  .room-body li{ font-size:13.5px; color:var(--grey); display:flex; gap:9px; }
+  .room-body li::before{ content:"·"; color:var(--gold); font-weight:700; }
+  .room-cta{ display:inline-block; font-size:13.5px; font-weight:600; color:var(--navy-900); border-bottom:1px solid var(--gold); padding-bottom:2px; }
+
+  /* ---------- WHAT TO EXPECT ---------- */
+  .expect{ background:var(--paper); }
+  .expect-grid{ display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--line-dark); border-radius:4px; overflow:hidden; }
+  .expect-col{ padding:34px 32px; }
+  .expect-col.yes{ background:var(--white); border-right:1px solid var(--line-dark); }
+  .expect-col.no{ background:var(--white); }
+  .expect-col .tag{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; }
+  .expect-col.yes .tag{ color:var(--gold); }
+  .expect-col.no .tag{ color:var(--grey); }
+  .expect-col ul{ list-style:none; margin:18px 0 0; padding:0; display:grid; gap:12px; }
+  .expect-col li{ font-size:14.5px; line-height:1.5; display:flex; gap:10px; }
+  .expect-col.yes li::before{ content:"✓"; color:var(--gold); font-weight:700; }
+  .expect-col.no li::before{ content:"–"; color:var(--grey); font-weight:700; }
+
+  /* ---------- NOTES / TRUST ---------- */
+  .notes{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+  .note-card{ padding:28px; border:1px solid var(--line-dark); border-radius:4px; position:relative; }
+  .note-card .mark{ font-family:'Space Grotesk',sans-serif; font-size:34px; color:var(--gold-light); line-height:1; margin-bottom:8px; }
+  .note-card p{ font-size:14.5px; color:var(--ink); line-height:1.6; margin:0 0 14px; }
+  .note-card .who{ font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--grey); }
+
+  /* ---------- LOCATION / CONTACT ---------- */
+  .contact{ background:var(--navy-900); color:var(--white); }
+  .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:50px; }
+  .contact-list{ display:grid; gap:22px; margin-top:26px; }
+  .contact-item .tag{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.12em; color:var(--gold); text-transform:uppercase; }
+  .contact-item p{ margin:6px 0 0; font-size:15px; color:rgba(250,248,244,0.85); }
+  .map-frame{ border:1px solid var(--line); border-radius:4px; min-height:280px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.03); }
+  .map-frame span{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:rgba(250,248,244,0.4); letter-spacing:0.08em; }
+
+  footer{ background:var(--navy-900); border-top:1px solid var(--line); padding:26px 0; }
+  footer .wrap{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; }
+  footer p{ margin:0; font-size:12.5px; color:rgba(250,248,244,0.45); }
+
+  /* ---------- FLOATING ACTION BUTTONS ---------- */
+  .fab-stack{
+    position:fixed; right:20px; bottom:20px; z-index:60;
+    display:flex; flex-direction:column; gap:12px; align-items:flex-end;
+  }
+  .fab{
+    display:flex; align-items:center; gap:10px;
+    background:var(--navy-900); color:var(--white);
+    border:1px solid var(--line);
+    padding:12px 16px; border-radius:30px;
+    font-size:13px; font-weight:600;
+    box-shadow:0 8px 24px rgba(15,32,56,0.35);
+    transition:transform .15s ease, background .15s ease;
+  }
+  .fab:hover{ transform:translateY(-2px); }
+  .fab.book{ background:var(--gold); color:var(--navy-900); border-color:var(--gold); }
+  .fab.book:hover{ background:var(--gold-light); }
+  .fab .ic{ width:16px; height:16px; display:inline-flex; }
+
+  .amenities-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px; }
+  @media (max-width: 860px){ .amenities-grid{ grid-template-columns:1fr 1fr; } }
+  @media (max-width: 520px){ .amenities-grid{ grid-template-columns:1fr; } }
+  @media (max-width: 860px){
+    .nav-links{ display:none; }
+    .nav-toggle{ display:flex; }
+    .mobile-menu{ display:block; }
+    .hero-grid{ grid-template-columns:1fr; padding-bottom:44px; }
+    .values{ grid-template-columns:1fr; }
+    .rooms-grid{ grid-template-columns:1fr; }
+    .expect-grid{ grid-template-columns:1fr; }
+    .expect-col.yes{ border-right:none; border-bottom:1px solid var(--line-dark); }
+    .notes{ grid-template-columns:1fr; }
+    .contact-grid{ grid-template-columns:1fr; }
+    .board-row{ grid-template-columns: 18px 1.3fr 0.9fr; }
+    .board-row .mode, .board-row .time{ display:none; }
+    section{ padding:60px 0; }
+    .fab span.fab-label{ display:none; }
+    .fab{ padding:14px; border-radius:50%; }
+  }
+</style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="wrap">
+      <a href="#" class="brand">
+        <img src="ss-residency-mark.svg" alt="SS Residency logo">
+        <span>SS RESIDENCY<br><span style="color:rgba(250,248,244,0.5); font-weight:400; letter-spacing:0.1em;">KPHB, Hyderabad</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="#connectivity">Location</a>
+        <a href="#rooms">Rooms</a>
+        <a href="#expect">What to Expect</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div style="display:flex; align-items:center; gap:12px;">
+        <a href="https://www.booking.com/hotel/in/ss-residency-grand.en-gb.html" class="nav-cta" target="_blank" rel="noopener">Book Now</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu" onclick="toggleMobileMenu()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#connectivity" onclick="closeMobileMenu()">Location</a>
+      <a href="#rooms" onclick="closeMobileMenu()">Rooms</a>
+      <a href="#expect" onclick="closeMobileMenu()">What to Expect</a>
+      <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+    </div>
+  </nav>
+
+  <script>
+    function toggleMobileMenu(){
+      const menu = document.getElementById('mobileMenu');
+      const btn = document.getElementById('navToggle');
+      const isOpen = menu.classList.toggle('open');
+      btn.classList.toggle('open', isOpen);
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+    function closeMobileMenu(){
+      document.getElementById('mobileMenu').classList.remove('open');
+      const btn = document.getElementById('navToggle');
+      btn.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+  </script>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">ECONOMY STAY · KPHB COLONY, KUKATPALLY</div>
+          <h1>Straightforward stays, done right.<br><em>Built for how you travel.</em></h1>
+          <p class="lede">A clean, well-located economy hotel in KPHB Colony — right on the National Highway and walkable to the Metro. Whether you're travelling solo, on business, or with family, you'll find a comfortable stay that fits.</p>
+          <div class="hero-ctas">
+            <a href="https://www.booking.com/hotel/in/ss-residency-grand.en-gb.html" class="btn btn-primary" target="_blank" rel="noopener">Book a Room</a>
+            <a href="tel:7842072724" class="btn btn-ghost">Call the Front Desk</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="mono">Starting From · Standard Non-AC Room</div>
+          <div class="rate">₹1,299 <span>/ night</span></div>
+          <ul>
+            <li>Free Wi-Fi, lift &amp; parking</li>
+            <li>AC and Non-AC options available</li>
+            <li>On National Highway, walkable to Metro</li>
+            <li>Safe, ID-verified stay — great for families</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="hero-strip">
+      <div class="wrap">
+        <span><b>Budget-Friendly</b> — honest pricing for solo stays</span>
+        <span><b>On NH65</b> — connectivity for business travel</span>
+        <span><b>Walkable</b> to KPHB Metro Station</span>
+        <span><b>Easy access</b> to Hitech City</span>
+        <span><b>Family Friendly</b> — safe &amp; welcoming stay</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+  <!-- ============ VALUE STRIP ============ -->
+  <section>
+    <div class="wrap">
+      <div class="sec-head" style="margin-bottom:34px;">
+        <div class="eyebrow">WHO STAYS WITH US</div>
+        <h2>Built for three kinds of travellers.</h2>
+      </div>
+      <div class="values">
+        <div class="value-card">
+          <div class="num">SOLO</div>
+          <h3>Solo Travellers</h3>
+          <p>Honest, low prices and a location right in the middle of KPHB — everything you need is a short walk away.</p>
+        </div>
+        <div class="value-card">
+          <div class="num">BUSINESS</div>
+          <h3>Business Travellers</h3>
+          <p>On the National Highway, walkable to the Metro, and a quick ride to Hitech City — connectivity built for a working trip.</p>
+        </div>
+        <div class="value-card">
+          <div class="num">FAMILY</div>
+          <h3>Family Travellers</h3>
+          <p>ID-verified check-in, extra beds for kids, and a calm, no-party environment — an easy, stress-free stay for the whole family.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONNECTIVITY BOARD (signature) ============ -->
+  <section class="board-section" id="connectivity">
+    <div class="wrap on-dark">
+      <div class="sec-head">
+        <div class="eyebrow">CONNECTIVITY</div>
+        <h2>Wherever you're headed, it's close.</h2>
+        <p>SS Residency Grand sits in KPHB Colony, Kukatpally — right on the National Highway and within walking distance of the Metro, with easy reach to the rest of Hyderabad.</p>
+      </div>
+      <div class="board">
+        <div class="board-row head">
+          <span></span><span>Destination</span><span>Distance</span><span>Mode</span><span style="text-align:right;">Notes</span>
+        </div>
+        <div class="board-row"><span class="dot"></span><span class="dest">KPHB Metro Station</span><span class="dist">Walkable</span><span class="mode">On foot</span><span class="time">Near JNTU line</span></div>
+        <div class="board-row"><span class="dot"></span><span class="dest">National Highway 65</span><span class="dist">Direct</span><span class="mode">Road</span><span class="time">Hotel frontage</span></div>
+        <div class="board-row"><span class="dot"></span><span class="dest">JNTU Hyderabad</span><span class="dist">Nearby</span><span class="mode">Auto</span><span class="time">Short ride</span></div>
+        <div class="board-row"><span class="dot"></span><span class="dest">Forum Sujana Mall</span><span class="dist">Nearby</span><span class="mode">Auto</span><span class="time">Short ride</span></div>
+        <div class="board-row"><span class="dot"></span><span class="dest">Hitech City</span><span class="dist">~7 km</span><span class="mode">Cab</span><span class="time">Quick drive</span></div>
+      </div>
+      <p class="board-note">Address: Plot 30, Dharma Reddy Colony, Kukatpally Housing Board Colony, Phase 1, Hyderabad, Telangana 500072. Tap "Directions" in the header for exact live navigation.</p>
+    </div>
+  </section>
+
+  <!-- ============ ROOMS ============ -->
+  <section id="rooms">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">ROOM TYPES</div>
+        <h2>Simple rooms, priced fairly.</h2>
+        <p>Four room types — AC and Non-AC — all built around the same idea: clean, functional, comfortable. Transparent pricing, direct booking, no hidden charges. Extra person ₹100 · Extra bed ₹200.</p>
+      </div>
+      <div class="rooms-grid">
+        <div class="room-card">
+          <img src="https://sshospitalitygroup.org/images/deluxe-ac-1.jpg" alt="Deluxe AC Room at SS Residency Grand" style="width:100%; aspect-ratio:4/3; object-fit:cover;" loading="lazy">
+          <div class="room-body">
+            <div class="eyebrow" style="margin-bottom:8px;">⭐ Most Booked</div>
+            <h3>Deluxe AC Room</h3>
+            <div class="price">₹1,699 <span>/ night, 1 guest</span></div>
+            <ul>
+              <li>₹1,799 for 2 guests · ₹1,899 for 3 guests</li>
+              <li>AC, Wi-Fi, TV, hot water</li>
+              <li>Best for families — spacious &amp; comfortable</li>
+            </ul>
+            <a href="https://www.booking.com/hotel/in/ss-residency-grand.en-gb.html" class="room-cta" target="_blank" rel="noopener">Book Now →</a>
+          </div>
+        </div>
+        <div class="room-card">
+          <img src="https://sshospitalitygroup.org/images/standard-ac-1.jpg" alt="Standard AC Room at SS Residency Grand" style="width:100%; aspect-ratio:4/3; object-fit:cover;" loading="lazy">
+          <div class="room-body">
+            <div class="eyebrow" style="margin-bottom:8px;">💰 Budget Friendly</div>
+            <h3>Standard AC Room</h3>
+            <div class="price">₹1,599 <span>/ night, 1 guest</span></div>
+            <ul>
+              <li>₹1,699 for 2 guests · ₹1,799 for 3 guests</li>
+              <li>AC, Wi-Fi, hot water</li>
+              <li>Value comfort for 1–3 guests</li>
+            </ul>
+            <a href="https://www.booking.com/hotel/in/ss-residency-grand.en-gb.html" class="room-cta" target="_blank" rel="noopener">Book Now →</a>
+          </div>
+        </div>
+        <div class="room-card">
+          <img src="https://sshospitalitygroup.org/images/deluxe-nonac-1.jpg" alt="Deluxe Non-AC Room at SS Residency Grand" style="width:100%; aspect-ratio:4/3; object-fit:cover;" loading="lazy">
+          <div class="room-body">
+            <div class="eyebrow" style="margin-bottom:8px;">🔥 Value Pick</div>
+            <h3>Deluxe Non-AC Room</h3>
+            <div class="price">₹1,399 <span>/ night, 1 guest</span></div>
+            <ul>
+              <li>₹1,499 for 2 guests · ₹1,599 for 3 guests</li>
+              <li>Non-AC, Wi-Fi, TV, hot water</li>
+              <li>Spacious budget stay for 2–3 guests</li>
+            </ul>
+            <a href="https://www.booking.com/hotel/in/ss-residency-grand.en-gb.html" class="room-cta" target="_blank" rel="noopener">Book Now →</a>
+          </div>
+        </div>
+        <div class="room-card">
+          <img src="https://sshospitalitygroup.org/images/standard-nonac-1.jpg" alt="Standard Non-AC Room at SS Residency Grand" style="width:100%; aspect-ratio:4/3; object-fit:cover;" loading="lazy">
+          <div class="room-body">
+            <div class="eyebrow" style="margin-bottom:8px;">💰 Budget Friendly</div>
+            <h3>Standard Non-AC Room</h3>
+            <div class="price">₹1,299 <span>/ night, 1 guest</span></div>
+            <ul>
+              <li>₹1,399 for 2 guests · ₹1,499 for 3 guests</li>
+              <li>Non-AC, Wi-Fi, hot water</li>
+              <li>Smart value for a clean, simple stay</li>
+            </ul>
+            <a href="https://www.booking.com/hotel/in/ss-residency-grand.en-gb.html" class="room-cta" target="_blank" rel="noopener">Book Now →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AMENITIES ============ -->
+  <section style="background:var(--paper);">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">HOTEL AMENITIES</div>
+        <h2>Premium essentials for a smooth stay.</h2>
+      </div>
+      <div class="amenities-grid">
+        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:16px;">24/7 Reception</h3><p>Quick check-in &amp; support</p></div>
+        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:16px;">Free Wi-Fi</h3><p>Work &amp; streaming friendly</p></div>
+        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:16px;">Hot Water</h3><p>Comfortable bathrooms</p></div>
+        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:16px;">Lift</h3><p>Easy access for all floors</p></div>
+        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:16px;">Parking</h3><p>Subject to availability</p></div>
+        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:16px;">Daily Housekeeping</h3><p>Clean, fresh rooms</p></div>
+        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:16px;">Room Service</h3><p>Help when you need it</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHAT TO EXPECT ============ -->
+  <section class="expect" id="expect">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">SET EXPECTATIONS</div>
+        <h2>We'd rather be clear upfront.</h2>
+        <p>SS Residency is an economy lodge, not a five-star hotel. Here's exactly what that means, so there are no surprises at check-in.</p>
+      </div>
+      <div class="expect-grid">
+        <div class="expect-col yes">
+          <div class="tag">What we are</div>
+          <ul>
+            <li>A clean, family-friendly hotel for short and business stays</li>
+            <li>Safe and welcoming — ID verification for every guest</li>
+            <li>Steps from KPHB's shops, food and transport</li>
+            <li>Straightforward — book, check in, stay, check out</li>
+            <li>Staffed to help with the essentials, promptly</li>
+          </ul>
+        </div>
+        <div class="expect-col no">
+          <div class="tag">What we're not</div>
+          <ul>
+            <li>A full-service or luxury hotel</li>
+            <li>A property with in-room dining or a restaurant on-site</li>
+            <li>A venue for parties, smoking indoors, or large gatherings</li>
+            <li>The right fit if you need five-star amenities</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GUEST NOTES ============ -->
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">GUEST NOTES</div>
+        <h2>What guests say once expectations are clear.</h2>
+      </div>
+      <div class="notes">
+        <div class="note-card">
+          <div class="mark">"</div>
+          <p>Straightforward stay, right where I needed to be — walking distance to everything in KPHB.</p>
+          <div class="who">Verified Guest, Business Stay</div>
+        </div>
+        <div class="note-card">
+          <div class="mark">"</div>
+          <p>Travelling alone, the price was right and everything I needed was within walking distance.</p>
+          <div class="who">Verified Guest, Solo Traveller</div>
+        </div>
+        <div class="note-card">
+          <div class="mark">"</div>
+          <p>Felt safe and comfortable travelling with my kids — ID check-in and quiet rooms made it easy.</p>
+          <div class="who">Verified Guest, Family Stay</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LOCATION / CONTACT ============ -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div>
+          <div class="eyebrow">GET IN TOUCH</div>
+          <h2 style="margin-top:14px;">Plan your stay.</h2>
+          <div class="contact-list">
+            <div class="contact-item">
+              <div class="tag">Address</div>
+              <p>Plot 30, Dharma Reddy Colony, Kukatpally Housing Board Colony, Phase 1, Hyderabad, Telangana 500072</p>
+            </div>
+            <div class="contact-item">
+              <div class="tag">Phone / WhatsApp</div>
+              <p>Call: 7842072724 · WhatsApp: 7842072725</p>
+            </div>
+            <div class="contact-item">
+              <div class="tag">Check-in / Check-out</div>
+              <p>Check-out defaults to next day; extend for longer stays during booking</p>
+            </div>
+          </div>
+          <div class="hero-ctas" style="margin-top:30px;">
+            <a href="https://www.booking.com/hotel/in/ss-residency-grand.en-gb.html" class="btn btn-primary" target="_blank" rel="noopener">Book Now</a>
+            <a href="tel:7842072724" class="btn btn-ghost">Call Us</a>
+          </div>
+        </div>
+        <div class="map-frame" style="padding:0; overflow:hidden;">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d237.82889280674294!2d78.39650187303829!3d17.494988633930305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91e74cbe9327%3A0xbb2d05ef68022276!2sSS%20RESIDENCY%20GRAND!5e0!3m2!1sen!2sin!4v1770789306035!5m2!1sen!2sin" width="100%" height="280" style="border:0; display:block;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <img src="ss-residency-mark.svg" alt="SS Residency logo" style="height:34px; width:34px; border-radius:50%;">
+        <p>© 2026 SS Residency Grand, a unit of SS Hospitality Group. All rights reserved.</p>
+      </div>
+      <p>KPHB Colony, Kukatpally, Hyderabad</p>
+    </div>
+  </footer>
+
+  <!-- ============ FLOATING ACTION BUTTONS ============ -->
+  <div class="fab-stack">
+    <a href="https://www.booking.com/hotel/in/ss-residency-grand.en-gb.html" class="fab book" target="_blank" rel="noopener">
+      <span class="ic">
+        <svg viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="1.6"/><path d="M8 2v4M16 2v4M4 10h16" stroke="currentColor" stroke-width="1.6"/></svg>
+      </span>
+      <span class="fab-label">Book Now</span>
+    </a>
+    <a href="tel:7842072724" class="fab">
+      <span class="ic">
+        <svg viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M6 3h3l2 5-2.5 1.5a11 11 0 0 0 5 5L15 12l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.5"/></svg>
+      </span>
+      <span class="fab-label">Call</span>
+    </a>
+    <a href="https://api.whatsapp.com/send?phone=917842072725" class="fab" target="_blank" rel="noopener">
+      <span class="ic">
+        <svg viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.4L4 20l1.1-4.4A8.5 8.5 0 1 1 21 11.5Z" stroke="currentColor" stroke-width="1.5"/></svg>
+      </span>
+      <span class="fab-label">Chat</span>
+    </a>
+  </div>
 
 </body>
 </html>
