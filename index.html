@@ -1,11 +1,12 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SS Residency Grand | Family-Friendly Budget Hotel in KPHB, Kukatpally, Hyderabad</title>
-<meta name="description" content="SS Residency Grand — an economy hotel in KPHB Colony, Kukatpally suited to solo travellers (price & proximity), business travellers (connectivity) and families (ease & safety). AC & Non-AC rooms from ₹1,299/night.">
+<meta name="description" content="SS Residency Grand: an economy hotel in KPHB Colony, Kukatpally suited to solo travellers (price & proximity), business travellers (connectivity) and families (ease & safety). AC & Non-AC rooms from ₹1,299/night.">
 <meta name="keywords" content="family hotel KPHB, budget hotel KPHB, economy hotel Kukatpally, hotel near JNTU Hyderabad, SS Residency Grand, KPHB Colony hotel, cheap hotel Kukatpally">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://sshospitalitygroup.org/">
@@ -56,21 +57,51 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="icon" href="ss-residency-logo-centered.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <style>
   :root{
+    /* ground */
+    --navy-950:#060D18;
     --navy-900:#0A1728;
     --navy-800:#0F2038;
     --navy-700:#1A3155;
-    --white:#FAF6ED;
+    /* accent */
+    --gold-300:#EBCE8C;
+    --gold-500:#C79A4E;
+    --gold-700:#8A6A2E;
+    /* neutral */
+    --white:#FBF8F1;
     --paper:#F0E9D8;
-    --gold:#C79A4E;
-    --gold-light:#EBCE8C;
-    --gold-deep:#8A6A2E;
+    --sand-200:#E4D9C0;
     --ink:#1A2130;
     --grey:#666F7D;
+    --slate-400:#8A93A0;
+    /* signal (booking states) */
+    --signal-go:#3F7D58;
+    --signal-go-tint:#E7F0EA;
+    --signal-limited:#A3671F;
+    --signal-limited-tint:#F5E9D6;
+    --signal-stop:#A23B3B;
+    --signal-stop-tint:#F5E1DF;
+    /* legacy aliases kept so existing rules below don't need a rewrite */
     --line: rgba(235,206,140,0.16);
     --line-dark: rgba(10,23,40,0.10);
+    --gold: var(--gold-500);
+    --gold-light: var(--gold-300);
+    --gold-deep: var(--gold-700);
+    /* type scale — 4 UI steps + fluid h1/h2; consolidates ~15 ad hoc sizes */
+    --text-xs: 12px;    /* eyebrows, mono tags, board meta */
+    --text-sm: 14px;    /* nav, buttons, footer, short fact-fragments */
+    --text-base: 16px;  /* reading prose (paragraphs, sentence-based list items) and any bold short label that needs full body-text weight */
+    --text-md: 19px;    /* card sub-headings (unified h3 role) */
+    --text-numeral-lg: 38px; /* hero rate — Space Grotesk display accent, not UI hierarchy */
+    --text-price: 15px;      /* room-card price — same numeral-accent role, smaller context */
+    /* section-rhythm scale — was a flat 88px everywhere; now varies by
+       relationship to neighboring content instead of one uniform beat */
+    --space-section-tight: 64px;  /* amenities: paired tightly with rooms above it */
+    --space-section-base: 88px;   /* standard section rhythm */
+    --space-section-loose: 104px; /* contact: final section, most emphasis before conversion */
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -79,6 +110,8 @@
     background:var(--white);
     color:var(--ink);
     font-family:'Inter',system-ui,sans-serif;
+    font-size:var(--text-base);
+    line-height:1.6;
     -webkit-font-smoothing:antialiased;
   }
   h1,h2,h3{
@@ -86,6 +119,7 @@
     font-optical-sizing:auto;
     margin:0;
     letter-spacing:-0.01em;
+    text-wrap:balance;
   }
   .mono{ font-family:'IBM Plex Mono', monospace; }
   a{ color:inherit; text-decoration:none; }
@@ -93,10 +127,10 @@
   .wrap{ max-width:1120px; margin:0 auto; padding:0 28px; }
   .eyebrow{
     font-family:'IBM Plex Mono',monospace;
-    font-size:12px;
+    font-size:var(--text-xs);
     letter-spacing:0.18em;
     text-transform:uppercase;
-    color:var(--gold);
+    color:var(--gold-deep);
     display:flex;
     align-items:center;
     gap:10px;
@@ -104,9 +138,11 @@
   .eyebrow::before{
     content:"";
     width:22px;height:1px;
-    background:var(--gold);
+    background:var(--gold-deep);
     display:inline-block;
   }
+  .hero .eyebrow, .board-section .eyebrow, .contact .eyebrow{ color:var(--gold-light); }
+  .hero .eyebrow::before, .board-section .eyebrow::before, .contact .eyebrow::before{ background:var(--gold-light); }
   :focus-visible{ outline:2px solid var(--gold); outline-offset:3px; }
   @media (prefers-reduced-motion: reduce){
     *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
@@ -122,12 +158,13 @@
   .nav .wrap{ display:flex; align-items:center; justify-content:space-between; height:68px; }
   .brand{ display:flex; align-items:center; gap:12px; color:var(--white); font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:20px; letter-spacing:0.03em; }
   .brand img{ height:44px; width:auto; border-radius:50%; }
-  .brand span{ color:var(--gold-light); font-weight:500; font-size:13px; letter-spacing:0.14em; display:block; }
+  .brand span{ color:var(--gold-light); font-weight:500; font-size:var(--text-xs); letter-spacing:0.14em; display:block; }
   .nav-links{ display:flex; gap:30px; }
-  .nav-links a{ color:rgba(250,248,244,0.75); font-size:14px; font-weight:500; transition:color .15s; }
+  .nav-links a{ color:rgba(250,248,244,0.75); font-size:var(--text-sm); font-weight:500; transition:color .15s; }
   .nav-links a:hover{ color:var(--gold-light); }
+  .nav-links a[aria-current], .mobile-menu-inner a[aria-current]{ color:var(--gold-light); }
   .nav-cta{
-    background:var(--gold); color:var(--navy-900); font-weight:600; font-size:13.5px;
+    background:var(--gold); color:var(--navy-900); font-weight:600; font-size:var(--text-sm);
     padding:10px 20px; border-radius:2px; letter-spacing:0.02em;
     transition:background .15s;
   }
@@ -135,7 +172,7 @@
   .nav-toggle{
     display:none;
     background:none; border:1px solid var(--line); border-radius:2px;
-    width:40px; height:36px; cursor:pointer;
+    width:44px; height:44px; cursor:pointer; flex-shrink:0;
     align-items:center; justify-content:center;
     flex-direction:column; gap:5px;
   }
@@ -146,25 +183,27 @@
 
   .mobile-menu{
     display:none;
+    grid-template-rows:0fr;
     background:var(--navy-900);
     border-top:1px solid var(--line);
-    overflow:hidden;
-    max-height:0;
-    transition:max-height .25s ease;
+    transition:grid-template-rows .25s ease;
   }
-  .mobile-menu.open{ max-height:280px; }
-  .mobile-menu a{
+  .mobile-menu.open{ grid-template-rows:1fr; }
+  .mobile-menu-inner{ overflow:hidden; min-height:0; }
+  .mobile-menu-inner a{
     display:block; padding:14px 28px;
-    color:rgba(250,248,244,0.85); font-size:15px; font-weight:500;
+    color:rgba(250,248,244,0.85); font-size:var(--text-sm); font-weight:500;
     border-bottom:1px solid var(--line);
   }
-  .mobile-menu a:last-child{ border-bottom:none; }
-  .mobile-menu a:hover{ color:var(--gold-light); }
+  .mobile-menu-inner a:last-child{ border-bottom:none; }
+  .mobile-menu-inner a:hover{ color:var(--gold-light); }
 
   /* ---------- HERO ---------- */
   .hero{
     background:
       radial-gradient(1100px 500px at 85% -10%, rgba(185,138,61,0.14), transparent 60%),
+      linear-gradient(100deg, rgba(10,23,40,0.97) 0%, rgba(10,23,40,0.90) 42%, rgba(10,23,40,0.62) 100%),
+      url('images/deluxe-ac-2.jpg') center right / cover no-repeat,
       var(--navy-900);
     color:var(--white);
     padding:96px 0 0;
@@ -186,7 +225,7 @@
   }
   .hero h1 em{ font-style:normal; color:var(--gold-light); }
   .hero p.lede{
-    font-size:16.5px;
+    font-size:var(--text-base);
     line-height:1.65;
     color:rgba(250,248,244,0.78);
     max-width:480px;
@@ -195,7 +234,7 @@
   .hero-ctas{ display:flex; gap:14px; flex-wrap:wrap; }
   .btn{
     display:inline-flex; align-items:center; gap:8px;
-    padding:14px 26px; font-size:14.5px; font-weight:600;
+    padding:14px 26px; font-size:var(--text-sm); font-weight:600;
     border-radius:2px; letter-spacing:0.01em; cursor:pointer; border:none;
     transition:transform .15s ease, background .15s ease, opacity .15s ease;
   }
@@ -213,11 +252,11 @@
     padding:26px 26px 22px;
     box-shadow:0 24px 60px -20px rgba(0,0,0,0.5);
   }
-  .hero-card .mono{ font-size:11px; letter-spacing:0.14em; color:var(--gold-light); text-transform:uppercase; }
-  .hero-card .rate{ font-family:'Space Grotesk',sans-serif; font-size:38px; font-weight:700; margin:10px 0 2px; }
-  .hero-card .rate span{ font-size:14px; font-weight:500; color:rgba(250,248,244,0.6); }
+  .hero-card .mono{ font-size:var(--text-xs); letter-spacing:0.14em; color:var(--gold-light); text-transform:uppercase; }
+  .hero-card .rate{ font-family:'Space Grotesk',sans-serif; font-size:var(--text-numeral-lg); font-weight:700; margin:10px 0 2px; font-variant-numeric:tabular-nums; }
+  .hero-card .rate span{ font-size:var(--text-sm); font-weight:500; color:rgba(250,248,244,0.6); }
   .hero-card ul{ list-style:none; margin:18px 0 0; padding:0; display:grid; gap:9px; }
-  .hero-card li{ font-size:13.5px; color:rgba(250,248,244,0.75); display:flex; gap:9px; align-items:baseline; }
+  .hero-card li{ font-size:var(--text-sm); color:rgba(250,248,244,0.75); display:flex; gap:9px; align-items:baseline; }
   .hero-card li::before{ content:"—"; color:var(--gold); }
 
   .hero-strip{
@@ -227,7 +266,7 @@
   .hero-strip .wrap{
     display:flex; flex-wrap:wrap; row-gap:10px;
     justify-content:center;
-    font-family:'IBM Plex Mono',monospace; font-size:12px;
+    font-family:'IBM Plex Mono',monospace; font-size:var(--text-xs);
     color:rgba(250,248,244,0.55); letter-spacing:0.04em;
   }
   .hero-strip .wrap span{ white-space:nowrap; }
@@ -237,18 +276,18 @@
   .hero-strip b{ color:var(--gold-light); font-weight:600; }
 
   /* ---------- SECTION HEADERS ---------- */
-  section{ padding:88px 0; }
-  .sec-head{ max-width:640px; margin-bottom:48px; }
+  section{ padding:var(--space-section-base) 0; }
+  .sec-head{ max-width:600px; margin-bottom:48px; }
   .sec-head h2{ font-size:clamp(26px,3vw,36px); margin-top:14px; font-weight:700; }
-  .sec-head p{ color:var(--grey); font-size:15.5px; margin-top:14px; line-height:1.6; }
+  .sec-head p{ color:var(--grey); font-size:var(--text-base); margin-top:14px; line-height:1.6; }
   .on-dark .sec-head p{ color:rgba(250,248,244,0.68); }
 
   /* ---------- VALUE STRIP ---------- */
   .values{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line-dark); border:1px solid var(--line-dark); }
   .value-card{ background:var(--white); padding:34px 30px; }
-  .value-card .num{ font-family:'IBM Plex Mono',monospace; color:var(--gold); font-size:12px; letter-spacing:0.1em; }
-  .value-card h3{ font-size:19px; margin:14px 0 10px; }
-  .value-card p{ font-size:14px; color:var(--grey); line-height:1.6; margin:0; }
+  .value-card .num{ font-family:'IBM Plex Mono',monospace; color:var(--gold-deep); font-size:var(--text-xs); letter-spacing:0.1em; }
+  .value-card h3{ font-size:var(--text-md); margin:14px 0 10px; }
+  .value-card p{ font-size:var(--text-base); color:var(--grey); line-height:1.6; margin:0; }
 
   /* ---------- CONNECTIVITY BOARD (signature) ---------- */
   .board-section{ background:var(--navy-800); color:var(--white); }
@@ -270,41 +309,47 @@
   .board-row:last-child{ border-bottom:none; }
   .board-row.head{
     background:rgba(255,255,255,0.03);
-    font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(250,248,244,0.5);
+    font-size:var(--text-xs); letter-spacing:0.14em; text-transform:uppercase; color:rgba(250,248,244,0.5);
     padding-top:13px; padding-bottom:13px;
   }
   .board-row .dot{ width:6px;height:6px;border-radius:50%; background:var(--gold); }
-  .board-row .dest{ font-size:15px; font-weight:500; color:var(--white); }
-  .board-row .tag{ font-size:11px; color:rgba(250,248,244,0.45); }
-  .board-row .dist{ font-size:14px; color:var(--gold-light); }
-  .board-row .mode{ font-size:13px; color:rgba(250,248,244,0.65); }
-  .board-row .time{ font-size:14px; color:var(--white); font-weight:600; text-align:right; }
-  .board-note{ margin-top:18px; font-size:13px; color:rgba(250,248,244,0.5); }
+  .board-row .dest{ font-size:var(--text-sm); font-weight:500; color:var(--white); }
+  .board-row .tag{ font-size:var(--text-xs); color:rgba(250,248,244,0.45); }
+  .board-row .dist{ font-size:var(--text-sm); color:var(--gold-light); }
+  .board-row .mode{ font-size:var(--text-sm); color:rgba(250,248,244,0.65); }
+  .board-row .time{ font-size:var(--text-sm); color:var(--white); font-weight:600; text-align:right; }
+  .board-note{ margin-top:18px; font-size:var(--text-sm); color:rgba(250,248,244,0.5); }
 
   /* ---------- ROOMS ---------- */
   .rooms-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:22px; }
-  .room-card{ border:1px solid var(--line-dark); border-top:3px solid var(--gold); border-radius:3px; overflow:hidden; transition:box-shadow .2s ease, transform .2s ease; }
+  .room-card{ border:1px solid var(--line-dark); border-top:3px solid var(--gold); border-radius:0 0 3px 3px; overflow:hidden; transition:box-shadow .2s ease, transform .2s ease; }
   .room-card:hover{ box-shadow:0 18px 40px -18px rgba(10,23,40,0.28); transform:translateY(-2px); }
+  .room-gallery{ position:relative; }
+  .room-photo{ width:100%; aspect-ratio:4/3; object-fit:cover; display:block; }
+  .room-thumbs{ display:flex; gap:6px; padding:8px; background:var(--white); }
+  .thumb{ width:44px; height:44px; border-radius:2px; border:2px solid transparent; background-size:cover; background-position:center; cursor:pointer; padding:0; flex:none; }
+  .thumb:hover{ border-color:var(--gold-light); }
+  .thumb.active{ border-color:var(--gold); }
   .room-body{ padding:26px; }
-  .room-body h3{ font-size:20px; margin-bottom:6px; }
-  .room-body .price{ font-family:'Space Grotesk',sans-serif; font-size:15px; color:var(--gold); font-weight:600; margin-bottom:16px; }
-  .room-body .price span{ color:var(--grey); font-weight:400; font-size:12.5px; }
+  .room-body h3{ font-size:var(--text-md); margin-bottom:6px; }
+  .room-body .price{ font-family:'Space Grotesk',sans-serif; font-size:var(--text-price); color:var(--gold); font-weight:600; margin-bottom:16px; font-variant-numeric:tabular-nums; }
+  .room-body .price span{ color:var(--grey); font-weight:400; font-size:var(--text-xs); }
   .room-body ul{ list-style:none; margin:0 0 22px; padding:0; display:grid; gap:8px; }
-  .room-body li{ font-size:13.5px; color:var(--grey); display:flex; gap:9px; }
+  .room-body li{ font-size:var(--text-sm); color:var(--grey); display:flex; gap:9px; }
   .room-body li::before{ content:"·"; color:var(--gold); font-weight:700; }
-  .room-cta{ display:inline-block; font-size:13.5px; font-weight:600; color:var(--navy-900); border-bottom:1px solid var(--gold); padding-bottom:2px; }
+  .room-cta{ display:inline-block; font-size:var(--text-sm); font-weight:600; color:var(--navy-900); border-bottom:1px solid var(--gold); padding-bottom:2px; }
 
   /* ---------- WHAT TO EXPECT ---------- */
-  .expect{ background:var(--paper); }
+  .expect{ background:var(--paper); border-top:1px solid var(--sand-200); }
   .expect-grid{ display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--line-dark); border-radius:4px; overflow:hidden; }
   .expect-col{ padding:34px 32px; }
   .expect-col.yes{ background:var(--white); border-right:1px solid var(--line-dark); }
   .expect-col.no{ background:var(--white); }
-  .expect-col .tag{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; }
+  .expect-col .tag{ font-family:'IBM Plex Mono',monospace; font-size:var(--text-xs); letter-spacing:0.12em; text-transform:uppercase; }
   .expect-col.yes .tag{ color:var(--gold); }
   .expect-col.no .tag{ color:var(--grey); }
   .expect-col ul{ list-style:none; margin:18px 0 0; padding:0; display:grid; gap:12px; }
-  .expect-col li{ font-size:14.5px; line-height:1.5; display:flex; gap:10px; }
+  .expect-col li{ font-size:var(--text-base); line-height:1.5; display:flex; gap:10px; }
   .expect-col.yes li::before{ content:"✓"; color:var(--gold); font-weight:700; }
   .expect-col.no li::before{ content:"–"; color:var(--grey); font-weight:700; }
 
@@ -312,21 +357,21 @@
   .notes{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
   .note-card{ padding:28px; border:1px solid var(--line-dark); border-radius:4px; position:relative; }
   .note-card .mark{ font-family:'Space Grotesk',sans-serif; font-size:34px; color:var(--gold-light); line-height:1; margin-bottom:8px; }
-  .note-card p{ font-size:14.5px; color:var(--ink); line-height:1.6; margin:0 0 14px; }
-  .note-card .who{ font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--grey); }
+  .note-card p{ font-size:var(--text-base); color:var(--ink); line-height:1.6; margin:0 0 14px; }
+  .note-card .who{ font-family:'IBM Plex Mono',monospace; font-size:var(--text-xs); color:var(--grey); }
 
   /* ---------- LOCATION / CONTACT ---------- */
   .contact{ background:var(--navy-900); color:var(--white); }
   .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:50px; }
   .contact-list{ display:grid; gap:22px; margin-top:26px; }
-  .contact-item .tag{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.12em; color:var(--gold); text-transform:uppercase; }
-  .contact-item p{ margin:6px 0 0; font-size:15px; color:rgba(250,248,244,0.85); }
+  .contact-item .tag{ font-family:'IBM Plex Mono',monospace; font-size:var(--text-xs); letter-spacing:0.12em; color:var(--gold); text-transform:uppercase; }
+  .contact-item p{ margin:6px 0 0; font-size:var(--text-base); color:rgba(250,248,244,0.85); }
   .map-frame{ border:1px solid var(--line); border-radius:4px; min-height:280px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.03); }
-  .map-frame span{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:rgba(250,248,244,0.4); letter-spacing:0.08em; }
+  .map-frame span{ font-family:'IBM Plex Mono',monospace; font-size:var(--text-xs); color:rgba(250,248,244,0.4); letter-spacing:0.08em; }
 
-  footer{ background:var(--navy-900); border-top:1px solid var(--line); padding:26px 0; }
+  footer{ background:var(--navy-950); border-top:1px solid var(--line); padding:26px 0; }
   footer .wrap{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; }
-  footer p{ margin:0; font-size:12.5px; color:rgba(250,248,244,0.45); }
+  footer p{ margin:0; font-size:var(--text-xs); color:rgba(250,248,244,0.45); }
 
   /* ---------- FLOATING ACTION BUTTONS ---------- */
   .fab-stack{
@@ -338,7 +383,7 @@
     background:var(--navy-900); color:var(--white);
     border:1px solid var(--line);
     padding:12px 16px; border-radius:30px;
-    font-size:13px; font-weight:600;
+    font-size:var(--text-sm); font-weight:600;
     box-shadow:0 8px 24px rgba(15,32,56,0.35);
     transition:transform .15s ease, background .15s ease;
   }
@@ -347,25 +392,41 @@
   .fab.book:hover{ background:var(--gold-light); }
   .fab .ic{ width:16px; height:16px; display:inline-flex; }
 
-  .amenities-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px; }
-  @media (max-width: 860px){ .amenities-grid{ grid-template-columns:1fr 1fr; } }
-  @media (max-width: 520px){ .amenities-grid{ grid-template-columns:1fr; } }
+  /* not a card grid on purpose — this is a feature list, not distinct
+     clickable units, so spacing + a dot marker carry it instead of boxes */
+  .amenities-list{ display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:22px 32px; }
+  .amenity-item{ display:flex; align-items:flex-start; gap:12px; }
+  .amenity-item .dot{ width:6px; height:6px; border-radius:50%; background:var(--gold); margin-top:9px; flex:none; }
+  .amenity-item strong{ display:block; font-weight:600; font-size:var(--text-base); color:var(--ink); }
+  .amenity-item span{ display:block; font-size:var(--text-sm); color:var(--grey); margin-top:2px; }
   @media (max-width: 860px){
     .nav-links{ display:none; }
     .nav-toggle{ display:flex; }
-    .mobile-menu{ display:block; }
+    .mobile-menu{ display:grid; }
     .hero-grid{ grid-template-columns:1fr; padding-bottom:44px; }
-    .values{ grid-template-columns:1fr; }
-    .rooms-grid{ grid-template-columns:1fr; }
+    .values{ grid-template-columns:1fr 1fr; }
+    .notes{ grid-template-columns:1fr 1fr; }
     .expect-grid{ grid-template-columns:1fr; }
     .expect-col.yes{ border-right:none; border-bottom:1px solid var(--line-dark); }
-    .notes{ grid-template-columns:1fr; }
     .contact-grid{ grid-template-columns:1fr; }
     .board-row{ grid-template-columns: 18px 1.3fr 0.9fr; }
     .board-row .mode, .board-row .time{ display:none; }
     section{ padding:60px 0; }
     .fab span.fab-label{ display:none; }
     .fab{ padding:14px; border-radius:50%; }
+  }
+  /* tablet (768px-ish) keeps room/value/note cards at 2-up above this point;
+     full single-column stack only kicks in for phones */
+  @media (max-width: 600px){
+    .values{ grid-template-columns:1fr; }
+    .rooms-grid{ grid-template-columns:1fr; }
+    .notes{ grid-template-columns:1fr; }
+  }
+  @media (max-width: 400px){
+    /* nav row is tight enough here that the "KPHB, Hyderabad" subtitle
+       wraps to its own line; drop it, the wordmark alone still identifies */
+    .brand span br + span{ display:none; }
+    .brand span br{ display:none; }
   }
 </style>
 </head>
@@ -374,7 +435,7 @@
   <nav class="nav">
     <div class="wrap">
       <a href="#" class="brand">
-        <img src="ss-residency-logo-centered.png" alt="SS Residency logo">
+        <img src="logo-nav.png" alt="SS Residency logo">
         <span>SS RESIDENCY<br><span style="color:rgba(250,248,244,0.5); font-weight:400; letter-spacing:0.1em;">KPHB, Hyderabad</span></span>
       </a>
       <div class="nav-links">
@@ -391,10 +452,12 @@
       </div>
     </div>
     <div class="mobile-menu" id="mobileMenu">
-      <a href="#connectivity" onclick="closeMobileMenu()">Location</a>
-      <a href="#rooms" onclick="closeMobileMenu()">Rooms</a>
-      <a href="#expect" onclick="closeMobileMenu()">What to Expect</a>
-      <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+      <div class="mobile-menu-inner">
+        <a href="#connectivity" onclick="closeMobileMenu()">Location</a>
+        <a href="#rooms" onclick="closeMobileMenu()">Rooms</a>
+        <a href="#expect" onclick="closeMobileMenu()">What to Expect</a>
+        <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+      </div>
     </div>
   </nav>
 
@@ -405,13 +468,40 @@
       const isOpen = menu.classList.toggle('open');
       btn.classList.toggle('open', isOpen);
       btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      btn.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
     }
     function closeMobileMenu(){
       document.getElementById('mobileMenu').classList.remove('open');
       const btn = document.getElementById('navToggle');
       btn.classList.remove('open');
       btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-label', 'Open menu');
     }
+    function switchRoomImage(btn, imgId, src, alt){
+      const img = document.getElementById(imgId);
+      img.src = src;
+      img.alt = alt;
+      const thumbs = btn.parentElement.querySelectorAll('.thumb');
+      thumbs.forEach(function(t){ t.classList.remove('active'); });
+      btn.classList.add('active');
+    }
+    document.addEventListener('DOMContentLoaded', function(){
+      const navSectionIds = ['connectivity','rooms','expect','contact'];
+      const sections = navSectionIds.map(id => document.getElementById(id)).filter(Boolean);
+      if (!sections.length || !('IntersectionObserver' in window)) return;
+      function setCurrent(id){
+        document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(function(a){
+          const isCurrent = a.getAttribute('href') === '#' + id;
+          if (isCurrent) a.setAttribute('aria-current', 'location');
+          else a.removeAttribute('aria-current');
+        });
+      }
+      const observer = new IntersectionObserver(function(entries){
+        const visible = entries.filter(function(e){ return e.isIntersecting; });
+        if (visible.length) setCurrent(visible[0].target.id);
+      }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+      sections.forEach(function(s){ observer.observe(s); });
+    });
   </script>
 
   <!-- ============ HERO ============ -->
@@ -421,7 +511,7 @@
         <div>
           <div class="eyebrow">ECONOMY STAY · KPHB COLONY, KUKATPALLY</div>
           <h1>Straightforward stays, done right.<br><em>Built for how you travel.</em></h1>
-          <p class="lede">A clean, well-located economy hotel in KPHB Colony — right on the National Highway and walkable to the Metro. Whether you're travelling solo, on business, or with family, you'll find a comfortable stay that fits.</p>
+          <p class="lede">A clean, well-located economy hotel in KPHB Colony. It's right on the National Highway and walkable to the Metro. Whether you're travelling solo, on business, or with family, you'll find a comfortable stay that fits.</p>
           <div class="hero-ctas">
             <a href="https://www.booking.com/hotel/in/ss-residency-grand.en-gb.html" class="btn btn-primary" target="_blank" rel="noopener">Book a Room</a>
             <a href="tel:7842072724" class="btn btn-ghost">Call the Front Desk</a>
@@ -463,12 +553,12 @@
         <div class="value-card">
           <div class="num">SOLO</div>
           <h3>Solo Travellers</h3>
-          <p>Honest, low prices and a location right in the middle of KPHB — everything you need is a short walk away.</p>
+          <p>Honest, low prices and a location right in the middle of KPHB. Everything you need is a short walk away.</p>
         </div>
         <div class="value-card">
           <div class="num">BUSINESS</div>
           <h3>Business Travellers</h3>
-          <p>On the National Highway, walkable to the Metro, and a quick ride to Hitech City — connectivity built for a working trip.</p>
+          <p>On the National Highway, walkable to the Metro, and a quick ride to Hitech City: connectivity built for a working trip.</p>
         </div>
         <div class="value-card">
           <div class="num">FAMILY</div>
@@ -485,7 +575,7 @@
       <div class="sec-head">
         <div class="eyebrow">CONNECTIVITY</div>
         <h2>Wherever you're headed, it's close.</h2>
-        <p>SS Residency Grand sits in KPHB Colony, Kukatpally — right on the National Highway and within walking distance of the Metro, with easy reach to the rest of Hyderabad.</p>
+        <p>SS Residency Grand sits in KPHB Colony, Kukatpally. It's right on the National Highway and within walking distance of the Metro, with easy reach to the rest of Hyderabad.</p>
       </div>
       <div class="board">
         <div class="board-row head">
@@ -497,7 +587,7 @@
         <div class="board-row"><span class="dot"></span><span class="dest">Forum Sujana Mall</span><span class="dist">Nearby</span><span class="mode">Auto</span><span class="time">Short ride</span></div>
         <div class="board-row"><span class="dot"></span><span class="dest">Hitech City</span><span class="dist">~7 km</span><span class="mode">Cab</span><span class="time">Quick drive</span></div>
       </div>
-      <p class="board-note">Address: Plot 30, Dharma Reddy Colony, Kukatpally Housing Board Colony, Phase 1, Hyderabad, Telangana 500072. Tap "Directions" in the header for exact live navigation.</p>
+      <p class="board-note">Address: Plot 30, Dharma Reddy Colony, Kukatpally Housing Board Colony, Phase 1, Hyderabad, Telangana 500072. See the map in the Contact section below, or use "Get Directions" for exact live navigation.</p>
     </div>
   </section>
 
@@ -507,13 +597,21 @@
       <div class="sec-head">
         <div class="eyebrow">ROOM TYPES</div>
         <h2>Simple rooms, priced fairly.</h2>
-        <p>Four room types — AC and Non-AC — all built around the same idea: clean, functional, comfortable. Transparent pricing, direct booking, no hidden charges. Extra person ₹100 · Extra bed ₹200.</p>
+        <p>Four room types, AC and Non-AC, all built around the same idea: clean, functional, comfortable. Transparent pricing, direct booking, no hidden charges. Extra person ₹100 · Extra bed ₹200.</p>
       </div>
       <div class="rooms-grid">
         <div class="room-card">
-          <img src="https://sshospitalitygroup.org/images/deluxe-ac-1.jpg" alt="Deluxe AC Room at SS Residency Grand" style="width:100%; aspect-ratio:4/3; object-fit:cover;" loading="lazy">
+          <div class="room-gallery">
+            <img id="img-deluxe-ac" class="room-photo" src="images/deluxe-ac-1.jpg" alt="Deluxe AC Room at SS Residency Grand" loading="lazy">
+            <div class="room-thumbs">
+              <button type="button" class="thumb active" style="background-image:url('images/deluxe-ac-1.jpg')" aria-label="View Deluxe AC Room photo 1" onclick="switchRoomImage(this,'img-deluxe-ac','images/deluxe-ac-1.jpg','Deluxe AC Room at SS Residency Grand')"></button>
+              <button type="button" class="thumb" style="background-image:url('images/deluxe-ac-2.jpg')" aria-label="View Deluxe AC Room photo 2" onclick="switchRoomImage(this,'img-deluxe-ac','images/deluxe-ac-2.jpg','Deluxe AC Room at SS Residency Grand, alternate view')"></button>
+              <button type="button" class="thumb" style="background-image:url('images/deluxe-ac-3.jpg')" aria-label="View Deluxe AC Room photo 3" onclick="switchRoomImage(this,'img-deluxe-ac','images/deluxe-ac-3.jpg','Deluxe AC Room at SS Residency Grand, alternate view')"></button>
+              <button type="button" class="thumb" style="background-image:url('images/bathroom.jpg')" aria-label="View bathroom photo" onclick="switchRoomImage(this,'img-deluxe-ac','images/bathroom.jpg','Bathroom at SS Residency Grand')"></button>
+            </div>
+          </div>
           <div class="room-body">
-            <div class="eyebrow" style="margin-bottom:8px;">⭐ Most Booked</div>
+            <div class="eyebrow" style="margin-bottom:8px;"><span aria-hidden="true">⭐</span> Most Booked</div>
             <h3>Deluxe AC Room</h3>
             <div class="price">₹1,699 <span>/ night, 1 guest</span></div>
             <ul>
@@ -525,9 +623,15 @@
           </div>
         </div>
         <div class="room-card">
-          <img src="https://sshospitalitygroup.org/images/standard-ac-1.jpg" alt="Standard AC Room at SS Residency Grand" style="width:100%; aspect-ratio:4/3; object-fit:cover;" loading="lazy">
+          <div class="room-gallery">
+            <img id="img-standard-ac" class="room-photo" src="images/standard-ac-1.jpg" alt="Standard AC Room at SS Residency Grand" loading="lazy">
+            <div class="room-thumbs">
+              <button type="button" class="thumb active" style="background-image:url('images/standard-ac-1.jpg')" aria-label="View Standard AC Room photo" onclick="switchRoomImage(this,'img-standard-ac','images/standard-ac-1.jpg','Standard AC Room at SS Residency Grand')"></button>
+              <button type="button" class="thumb" style="background-image:url('images/bathroom.jpg')" aria-label="View bathroom photo" onclick="switchRoomImage(this,'img-standard-ac','images/bathroom.jpg','Bathroom at SS Residency Grand')"></button>
+            </div>
+          </div>
           <div class="room-body">
-            <div class="eyebrow" style="margin-bottom:8px;">💰 Budget Friendly</div>
+            <div class="eyebrow" style="margin-bottom:8px;"><span aria-hidden="true">💰</span> Budget Friendly</div>
             <h3>Standard AC Room</h3>
             <div class="price">₹1,599 <span>/ night, 1 guest</span></div>
             <ul>
@@ -539,9 +643,17 @@
           </div>
         </div>
         <div class="room-card">
-          <img src="https://sshospitalitygroup.org/images/deluxe-nonac-1.jpg" alt="Deluxe Non-AC Room at SS Residency Grand" style="width:100%; aspect-ratio:4/3; object-fit:cover;" loading="lazy">
+          <div class="room-gallery">
+            <img id="img-deluxe-nonac" class="room-photo" src="images/deluxe-nonac-1.jpg" alt="Deluxe Non-AC Room at SS Residency Grand" loading="lazy">
+            <div class="room-thumbs">
+              <button type="button" class="thumb active" style="background-image:url('images/deluxe-nonac-1.jpg')" aria-label="View Deluxe Non-AC Room photo 1" onclick="switchRoomImage(this,'img-deluxe-nonac','images/deluxe-nonac-1.jpg','Deluxe Non-AC Room at SS Residency Grand')"></button>
+              <button type="button" class="thumb" style="background-image:url('images/deluxe-nonac-2.jpg')" aria-label="View Deluxe Non-AC Room photo 2" onclick="switchRoomImage(this,'img-deluxe-nonac','images/deluxe-nonac-2.jpg','Deluxe Non-AC Room at SS Residency Grand, alternate view')"></button>
+              <button type="button" class="thumb" style="background-image:url('images/deluxe-nonac-3.jpg')" aria-label="View Deluxe Non-AC Room photo 3" onclick="switchRoomImage(this,'img-deluxe-nonac','images/deluxe-nonac-3.jpg','Deluxe Non-AC Room at SS Residency Grand, alternate view')"></button>
+              <button type="button" class="thumb" style="background-image:url('images/bathroom.jpg')" aria-label="View bathroom photo" onclick="switchRoomImage(this,'img-deluxe-nonac','images/bathroom.jpg','Bathroom at SS Residency Grand')"></button>
+            </div>
+          </div>
           <div class="room-body">
-            <div class="eyebrow" style="margin-bottom:8px;">🔥 Value Pick</div>
+            <div class="eyebrow" style="margin-bottom:8px;"><span aria-hidden="true">🔥</span> Value Pick</div>
             <h3>Deluxe Non-AC Room</h3>
             <div class="price">₹1,399 <span>/ night, 1 guest</span></div>
             <ul>
@@ -553,9 +665,16 @@
           </div>
         </div>
         <div class="room-card">
-          <img src="https://sshospitalitygroup.org/images/standard-nonac-1.jpg" alt="Standard Non-AC Room at SS Residency Grand" style="width:100%; aspect-ratio:4/3; object-fit:cover;" loading="lazy">
+          <div class="room-gallery">
+            <img id="img-standard-nonac" class="room-photo" src="images/standard-nonac-1.jpg" alt="Standard Non-AC Room at SS Residency Grand" loading="lazy">
+            <div class="room-thumbs">
+              <button type="button" class="thumb active" style="background-image:url('images/standard-nonac-1.jpg')" aria-label="View Standard Non-AC Room photo 1" onclick="switchRoomImage(this,'img-standard-nonac','images/standard-nonac-1.jpg','Standard Non-AC Room at SS Residency Grand')"></button>
+              <button type="button" class="thumb" style="background-image:url('images/standard-nonac-2.jpg')" aria-label="View Standard Non-AC Room photo 2" onclick="switchRoomImage(this,'img-standard-nonac','images/standard-nonac-2.jpg','Standard Non-AC Room at SS Residency Grand, alternate view')"></button>
+              <button type="button" class="thumb" style="background-image:url('images/bathroom.jpg')" aria-label="View bathroom photo" onclick="switchRoomImage(this,'img-standard-nonac','images/bathroom.jpg','Bathroom at SS Residency Grand')"></button>
+            </div>
+          </div>
           <div class="room-body">
-            <div class="eyebrow" style="margin-bottom:8px;">💰 Budget Friendly</div>
+            <div class="eyebrow" style="margin-bottom:8px;"><span aria-hidden="true">💰</span> Budget Friendly</div>
             <h3>Standard Non-AC Room</h3>
             <div class="price">₹1,299 <span>/ night, 1 guest</span></div>
             <ul>
@@ -571,20 +690,20 @@
   </section>
 
   <!-- ============ AMENITIES ============ -->
-  <section style="background:var(--paper);">
+  <section style="background:var(--paper); padding:var(--space-section-tight) 0;">
     <div class="wrap">
-      <div class="sec-head">
+      <div class="sec-head" style="margin-bottom:36px;">
         <div class="eyebrow">HOTEL AMENITIES</div>
         <h2>Premium essentials for a smooth stay.</h2>
       </div>
-      <div class="amenities-grid">
-        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:16px;">24/7 Reception</h3><p>Quick check-in &amp; support</p></div>
-        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:16px;">Free Wi-Fi</h3><p>Work &amp; streaming friendly</p></div>
-        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:16px;">Hot Water</h3><p>Comfortable bathrooms</p></div>
-        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:16px;">Lift</h3><p>Easy access for all floors</p></div>
-        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:16px;">Parking</h3><p>Subject to availability</p></div>
-        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:16px;">Daily Housekeeping</h3><p>Clean, fresh rooms</p></div>
-        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:16px;">Room Service</h3><p>Help when you need it</p></div>
+      <div class="amenities-list">
+        <div class="amenity-item"><span class="dot"></span><div><strong>24/7 Reception</strong><span>Quick check-in &amp; support</span></div></div>
+        <div class="amenity-item"><span class="dot"></span><div><strong>Free Wi-Fi</strong><span>Work &amp; streaming friendly</span></div></div>
+        <div class="amenity-item"><span class="dot"></span><div><strong>Hot Water</strong><span>Comfortable bathrooms</span></div></div>
+        <div class="amenity-item"><span class="dot"></span><div><strong>Lift</strong><span>Easy access for all floors</span></div></div>
+        <div class="amenity-item"><span class="dot"></span><div><strong>Parking</strong><span>Subject to availability</span></div></div>
+        <div class="amenity-item"><span class="dot"></span><div><strong>Daily Housekeeping</strong><span>Clean, fresh rooms</span></div></div>
+        <div class="amenity-item"><span class="dot"></span><div><strong>Room Service</strong><span>Help when you need it</span></div></div>
       </div>
     </div>
   </section>
@@ -604,7 +723,7 @@
             <li>A clean, family-friendly hotel for short and business stays</li>
             <li>Safe and welcoming — ID verification for every guest</li>
             <li>Steps from KPHB's shops, food and transport</li>
-            <li>Straightforward — book, check in, stay, check out</li>
+            <li>Straightforward: book, check in, stay, check out</li>
             <li>Staffed to help with the essentials, promptly</li>
           </ul>
         </div>
@@ -645,16 +764,17 @@
           <div class="who">Verified Guest, Family Stay</div>
         </div>
       </div>
+      <a href="https://www.booking.com/hotel/in/ss-residency-grand.en-gb.html" target="_blank" rel="noopener" class="mono" style="display:inline-block; margin-top:26px; font-size:var(--text-sm); color:var(--gold-deep); border-bottom:1px solid var(--gold-deep); padding-bottom:2px;">Read verified guest reviews on Booking.com →</a>
     </div>
   </section>
 
   <!-- ============ LOCATION / CONTACT ============ -->
-  <section class="contact" id="contact">
+  <section class="contact" id="contact" style="padding:var(--space-section-loose) 0;">
     <div class="wrap">
       <div class="contact-grid">
         <div>
           <div class="eyebrow">GET IN TOUCH</div>
-          <h2 style="margin-top:14px;">Plan your stay.</h2>
+          <h2 style="margin-top:14px; font-size:clamp(26px,3vw,36px); font-weight:700;">Plan your stay.</h2>
           <div class="contact-list">
             <div class="contact-item">
               <div class="tag">Address</div>
@@ -662,7 +782,7 @@
             </div>
             <div class="contact-item">
               <div class="tag">Phone / WhatsApp</div>
-              <p>Call: 7842072724 · WhatsApp: 7842072725</p>
+              <p>Call: <a href="tel:7842072724" style="text-decoration:underline; text-decoration-color:var(--gold);">7842072724</a> · WhatsApp: <a href="https://wa.me/917842072725" target="_blank" rel="noopener" style="text-decoration:underline; text-decoration-color:var(--gold);">7842072725</a></p>
             </div>
             <div class="contact-item">
               <div class="tag">Check-in / Check-out</div>
@@ -674,8 +794,11 @@
             <a href="tel:7842072724" class="btn btn-ghost">Call Us</a>
           </div>
         </div>
-        <div class="map-frame" style="padding:0; overflow:hidden;">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d237.82889280674294!2d78.39650187303829!3d17.494988633930305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91e74cbe9327%3A0xbb2d05ef68022276!2sSS%20RESIDENCY%20GRAND!5e0!3m2!1sen!2sin!4v1770789306035!5m2!1sen!2sin" width="100%" height="280" style="border:0; display:block;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div>
+          <div class="map-frame" style="padding:0; overflow:hidden;">
+            <iframe title="Map showing SS Residency Grand location in KPHB Colony, Kukatpally" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d237.82889280674294!2d78.39650187303829!3d17.494988633930305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91e74cbe9327%3A0xbb2d05ef68022276!2sSS%20RESIDENCY%20GRAND!5e0!3m2!1sen!2sin!4v1770789306035!5m2!1sen!2sin" width="100%" height="280" style="border:0; display:block;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=17.494988633930305,78.39650187303829" target="_blank" rel="noopener" class="mono" style="display:inline-block; margin-top:14px; font-size:var(--text-sm); color:var(--gold-light); border-bottom:1px solid var(--gold-light); padding-bottom:2px;">Get Directions →</a>
         </div>
       </div>
     </div>
@@ -686,7 +809,7 @@
   <footer>
     <div class="wrap">
       <div style="display:flex; align-items:center; gap:12px;">
-        <img src="ss-residency-logo-centered.png" alt="SS Residency logo" style="height:34px; width:34px; border-radius:50%;">
+        <img src="logo-nav.png" alt="SS Residency logo" style="height:34px; width:34px; border-radius:50%;">
         <p>© 2026 SS Residency Grand, a unit of SS Hospitality Group. All rights reserved.</p>
       </div>
       <p>KPHB Colony, Kukatpally, Hyderabad</p>
@@ -696,19 +819,19 @@
   <!-- ============ FLOATING ACTION BUTTONS ============ -->
   <div class="fab-stack">
     <a href="https://www.booking.com/hotel/in/ss-residency-grand.en-gb.html" class="fab book" target="_blank" rel="noopener">
-      <span class="ic">
+      <span class="ic" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="1.6"/><path d="M8 2v4M16 2v4M4 10h16" stroke="currentColor" stroke-width="1.6"/></svg>
       </span>
       <span class="fab-label">Book Now</span>
     </a>
     <a href="tel:7842072724" class="fab">
-      <span class="ic">
+      <span class="ic" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M6 3h3l2 5-2.5 1.5a11 11 0 0 0 5 5L15 12l5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.5"/></svg>
       </span>
       <span class="fab-label">Call</span>
     </a>
     <a href="https://api.whatsapp.com/send?phone=917842072725" class="fab" target="_blank" rel="noopener">
-      <span class="ic">
+      <span class="ic" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" width="16" height="16"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.4L4 20l1.1-4.4A8.5 8.5 0 1 1 21 11.5Z" stroke="currentColor" stroke-width="1.5"/></svg>
       </span>
       <span class="fab-label">Chat</span>
