@@ -155,6 +155,7 @@
   .nav-links{ display:flex; gap:30px; }
   .nav-links a{ color:rgba(250,248,244,0.75); font-size:var(--text-sm); font-weight:500; transition:color .15s; }
   .nav-links a:hover{ color:var(--gold-light); }
+  .nav-links a[aria-current], .mobile-menu-inner a[aria-current]{ color:var(--gold-light); }
   .nav-cta{
     background:var(--gold); color:var(--navy-900); font-weight:600; font-size:var(--text-sm);
     padding:10px 20px; border-radius:2px; letter-spacing:0.02em;
@@ -164,7 +165,7 @@
   .nav-toggle{
     display:none;
     background:none; border:1px solid var(--line); border-radius:2px;
-    width:40px; height:36px; cursor:pointer;
+    width:44px; height:44px; cursor:pointer; flex-shrink:0;
     align-items:center; justify-content:center;
     flex-direction:column; gap:5px;
   }
@@ -175,20 +176,20 @@
 
   .mobile-menu{
     display:none;
+    grid-template-rows:0fr;
     background:var(--navy-900);
     border-top:1px solid var(--line);
-    overflow:hidden;
-    max-height:0;
-    transition:max-height .25s ease;
+    transition:grid-template-rows .25s ease;
   }
-  .mobile-menu.open{ max-height:280px; }
-  .mobile-menu a{
+  .mobile-menu.open{ grid-template-rows:1fr; }
+  .mobile-menu-inner{ overflow:hidden; min-height:0; }
+  .mobile-menu-inner a{
     display:block; padding:14px 28px;
     color:rgba(250,248,244,0.85); font-size:var(--text-sm); font-weight:500;
     border-bottom:1px solid var(--line);
   }
-  .mobile-menu a:last-child{ border-bottom:none; }
-  .mobile-menu a:hover{ color:var(--gold-light); }
+  .mobile-menu-inner a:last-child{ border-bottom:none; }
+  .mobile-menu-inner a:hover{ color:var(--gold-light); }
 
   /* ---------- HERO ---------- */
   .hero{
@@ -319,7 +320,7 @@
   .room-gallery{ position:relative; }
   .room-photo{ width:100%; aspect-ratio:4/3; object-fit:cover; display:block; }
   .room-thumbs{ display:flex; gap:6px; padding:8px; background:var(--white); }
-  .thumb{ width:40px; height:40px; border-radius:2px; border:2px solid transparent; background-size:cover; background-position:center; cursor:pointer; padding:0; flex:none; }
+  .thumb{ width:44px; height:44px; border-radius:2px; border:2px solid transparent; background-size:cover; background-position:center; cursor:pointer; padding:0; flex:none; }
   .thumb:hover{ border-color:var(--gold-light); }
   .thumb.active{ border-color:var(--gold); }
   .room-body{ padding:26px; }
@@ -390,19 +391,25 @@
   @media (max-width: 860px){
     .nav-links{ display:none; }
     .nav-toggle{ display:flex; }
-    .mobile-menu{ display:block; }
+    .mobile-menu{ display:grid; }
     .hero-grid{ grid-template-columns:1fr; padding-bottom:44px; }
-    .values{ grid-template-columns:1fr; }
-    .rooms-grid{ grid-template-columns:1fr; }
+    .values{ grid-template-columns:1fr 1fr; }
+    .notes{ grid-template-columns:1fr 1fr; }
     .expect-grid{ grid-template-columns:1fr; }
     .expect-col.yes{ border-right:none; border-bottom:1px solid var(--line-dark); }
-    .notes{ grid-template-columns:1fr; }
     .contact-grid{ grid-template-columns:1fr; }
     .board-row{ grid-template-columns: 18px 1.3fr 0.9fr; }
     .board-row .mode, .board-row .time{ display:none; }
     section{ padding:60px 0; }
     .fab span.fab-label{ display:none; }
     .fab{ padding:14px; border-radius:50%; }
+  }
+  /* tablet (768px-ish) keeps room/value/note cards at 2-up above this point;
+     full single-column stack only kicks in for phones */
+  @media (max-width: 600px){
+    .values{ grid-template-columns:1fr; }
+    .rooms-grid{ grid-template-columns:1fr; }
+    .notes{ grid-template-columns:1fr; }
   }
 </style>
 </head>
@@ -428,10 +435,12 @@
       </div>
     </div>
     <div class="mobile-menu" id="mobileMenu">
-      <a href="#connectivity" onclick="closeMobileMenu()">Location</a>
-      <a href="#rooms" onclick="closeMobileMenu()">Rooms</a>
-      <a href="#expect" onclick="closeMobileMenu()">What to Expect</a>
-      <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+      <div class="mobile-menu-inner">
+        <a href="#connectivity" onclick="closeMobileMenu()">Location</a>
+        <a href="#rooms" onclick="closeMobileMenu()">Rooms</a>
+        <a href="#expect" onclick="closeMobileMenu()">What to Expect</a>
+        <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+      </div>
     </div>
   </nav>
 
@@ -459,6 +468,23 @@
       thumbs.forEach(function(t){ t.classList.remove('active'); });
       btn.classList.add('active');
     }
+    document.addEventListener('DOMContentLoaded', function(){
+      const navSectionIds = ['connectivity','rooms','expect','contact'];
+      const sections = navSectionIds.map(id => document.getElementById(id)).filter(Boolean);
+      if (!sections.length || !('IntersectionObserver' in window)) return;
+      function setCurrent(id){
+        document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(function(a){
+          const isCurrent = a.getAttribute('href') === '#' + id;
+          if (isCurrent) a.setAttribute('aria-current', 'location');
+          else a.removeAttribute('aria-current');
+        });
+      }
+      const observer = new IntersectionObserver(function(entries){
+        const visible = entries.filter(function(e){ return e.isIntersecting; });
+        if (visible.length) setCurrent(visible[0].target.id);
+      }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+      sections.forEach(function(s){ observer.observe(s); });
+    });
   </script>
 
   <!-- ============ HERO ============ -->
