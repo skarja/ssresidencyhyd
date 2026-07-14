@@ -95,6 +95,11 @@
     --text-md: 19px;    /* card sub-headings (unified h3 role) */
     --text-numeral-lg: 38px; /* hero rate — Space Grotesk display accent, not UI hierarchy */
     --text-price: 15px;      /* room-card price — same numeral-accent role, smaller context */
+    /* section-rhythm scale — was a flat 88px everywhere; now varies by
+       relationship to neighboring content instead of one uniform beat */
+    --space-section-tight: 64px;  /* amenities: paired tightly with rooms above it */
+    --space-section-base: 88px;   /* standard section rhythm */
+    --space-section-loose: 104px; /* contact: final section, most emphasis before conversion */
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -269,7 +274,7 @@
   .hero-strip b{ color:var(--gold-light); font-weight:600; }
 
   /* ---------- SECTION HEADERS ---------- */
-  section{ padding:88px 0; }
+  section{ padding:var(--space-section-base) 0; }
   .sec-head{ max-width:600px; margin-bottom:48px; }
   .sec-head h2{ font-size:clamp(26px,3vw,36px); margin-top:14px; font-weight:700; }
   .sec-head p{ color:var(--grey); font-size:var(--text-base); margin-top:14px; line-height:1.6; }
@@ -315,7 +320,7 @@
 
   /* ---------- ROOMS ---------- */
   .rooms-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:22px; }
-  .room-card{ border:1px solid var(--line-dark); border-top:3px solid var(--gold); border-radius:3px; overflow:hidden; transition:box-shadow .2s ease, transform .2s ease; }
+  .room-card{ border:1px solid var(--line-dark); border-top:3px solid var(--gold); border-radius:0 0 3px 3px; overflow:hidden; transition:box-shadow .2s ease, transform .2s ease; }
   .room-card:hover{ box-shadow:0 18px 40px -18px rgba(10,23,40,0.28); transform:translateY(-2px); }
   .room-gallery{ position:relative; }
   .room-photo{ width:100%; aspect-ratio:4/3; object-fit:cover; display:block; }
@@ -333,7 +338,7 @@
   .room-cta{ display:inline-block; font-size:var(--text-sm); font-weight:600; color:var(--navy-900); border-bottom:1px solid var(--gold); padding-bottom:2px; }
 
   /* ---------- WHAT TO EXPECT ---------- */
-  .expect{ background:var(--paper); }
+  .expect{ background:var(--paper); border-top:1px solid var(--sand-200); }
   .expect-grid{ display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--line-dark); border-radius:4px; overflow:hidden; }
   .expect-col{ padding:34px 32px; }
   .expect-col.yes{ background:var(--white); border-right:1px solid var(--line-dark); }
@@ -385,9 +390,13 @@
   .fab.book:hover{ background:var(--gold-light); }
   .fab .ic{ width:16px; height:16px; display:inline-flex; }
 
-  .amenities-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:22px; }
-  @media (max-width: 860px){ .amenities-grid{ grid-template-columns:1fr 1fr; } }
-  @media (max-width: 520px){ .amenities-grid{ grid-template-columns:1fr; } }
+  /* not a card grid on purpose — this is a feature list, not distinct
+     clickable units, so spacing + a dot marker carry it instead of boxes */
+  .amenities-list{ display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:22px 32px; }
+  .amenity-item{ display:flex; align-items:flex-start; gap:12px; }
+  .amenity-item .dot{ width:6px; height:6px; border-radius:50%; background:var(--gold); margin-top:9px; flex:none; }
+  .amenity-item strong{ display:block; font-weight:600; font-size:var(--text-base); color:var(--ink); }
+  .amenity-item span{ display:block; font-size:var(--text-sm); color:var(--grey); margin-top:2px; }
   @media (max-width: 860px){
     .nav-links{ display:none; }
     .nav-toggle{ display:flex; }
@@ -673,20 +682,20 @@
   </section>
 
   <!-- ============ AMENITIES ============ -->
-  <section style="background:var(--paper);">
+  <section style="background:var(--paper); padding:var(--space-section-tight) 0;">
     <div class="wrap">
-      <div class="sec-head">
+      <div class="sec-head" style="margin-bottom:36px;">
         <div class="eyebrow">HOTEL AMENITIES</div>
         <h2>Premium essentials for a smooth stay.</h2>
       </div>
-      <div class="amenities-grid">
-        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:var(--text-md);">24/7 Reception</h3><p>Quick check-in &amp; support</p></div>
-        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:var(--text-md);">Free Wi-Fi</h3><p>Work &amp; streaming friendly</p></div>
-        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:var(--text-md);">Hot Water</h3><p>Comfortable bathrooms</p></div>
-        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:var(--text-md);">Lift</h3><p>Easy access for all floors</p></div>
-        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:var(--text-md);">Parking</h3><p>Subject to availability</p></div>
-        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:var(--text-md);">Daily Housekeeping</h3><p>Clean, fresh rooms</p></div>
-        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:var(--text-md);">Room Service</h3><p>Help when you need it</p></div>
+      <div class="amenities-list">
+        <div class="amenity-item"><span class="dot"></span><div><strong>24/7 Reception</strong><span>Quick check-in &amp; support</span></div></div>
+        <div class="amenity-item"><span class="dot"></span><div><strong>Free Wi-Fi</strong><span>Work &amp; streaming friendly</span></div></div>
+        <div class="amenity-item"><span class="dot"></span><div><strong>Hot Water</strong><span>Comfortable bathrooms</span></div></div>
+        <div class="amenity-item"><span class="dot"></span><div><strong>Lift</strong><span>Easy access for all floors</span></div></div>
+        <div class="amenity-item"><span class="dot"></span><div><strong>Parking</strong><span>Subject to availability</span></div></div>
+        <div class="amenity-item"><span class="dot"></span><div><strong>Daily Housekeeping</strong><span>Clean, fresh rooms</span></div></div>
+        <div class="amenity-item"><span class="dot"></span><div><strong>Room Service</strong><span>Help when you need it</span></div></div>
       </div>
     </div>
   </section>
@@ -752,7 +761,7 @@
   </section>
 
   <!-- ============ LOCATION / CONTACT ============ -->
-  <section class="contact" id="contact">
+  <section class="contact" id="contact" style="padding:var(--space-section-loose) 0;">
     <div class="wrap">
       <div class="contact-grid">
         <div>
