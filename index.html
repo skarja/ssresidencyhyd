@@ -88,6 +88,13 @@
     --gold: var(--gold-500);
     --gold-light: var(--gold-300);
     --gold-deep: var(--gold-700);
+    /* type scale — 4 UI steps + fluid h1/h2; consolidates ~15 ad hoc sizes */
+    --text-xs: 12px;    /* eyebrows, mono tags, board meta */
+    --text-sm: 14px;    /* nav, buttons, footer, short fact-fragments */
+    --text-base: 16px;  /* reading prose — paragraphs, sentence-based list items */
+    --text-md: 19px;    /* card sub-headings (unified h3 role) */
+    --text-numeral-lg: 38px; /* hero rate — Space Grotesk display accent, not UI hierarchy */
+    --text-price: 15px;      /* room-card price — same numeral-accent role, smaller context */
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -96,6 +103,8 @@
     background:var(--white);
     color:var(--ink);
     font-family:'Inter',system-ui,sans-serif;
+    font-size:var(--text-base);
+    line-height:1.6;
     -webkit-font-smoothing:antialiased;
   }
   h1,h2,h3{
@@ -103,6 +112,7 @@
     font-optical-sizing:auto;
     margin:0;
     letter-spacing:-0.01em;
+    text-wrap:balance;
   }
   .mono{ font-family:'IBM Plex Mono', monospace; }
   a{ color:inherit; text-decoration:none; }
@@ -110,7 +120,7 @@
   .wrap{ max-width:1120px; margin:0 auto; padding:0 28px; }
   .eyebrow{
     font-family:'IBM Plex Mono',monospace;
-    font-size:12px;
+    font-size:var(--text-xs);
     letter-spacing:0.18em;
     text-transform:uppercase;
     color:var(--gold-deep);
@@ -141,12 +151,12 @@
   .nav .wrap{ display:flex; align-items:center; justify-content:space-between; height:68px; }
   .brand{ display:flex; align-items:center; gap:12px; color:var(--white); font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:20px; letter-spacing:0.03em; }
   .brand img{ height:44px; width:auto; border-radius:50%; }
-  .brand span{ color:var(--gold-light); font-weight:500; font-size:13px; letter-spacing:0.14em; display:block; }
+  .brand span{ color:var(--gold-light); font-weight:500; font-size:var(--text-xs); letter-spacing:0.14em; display:block; }
   .nav-links{ display:flex; gap:30px; }
-  .nav-links a{ color:rgba(250,248,244,0.75); font-size:14px; font-weight:500; transition:color .15s; }
+  .nav-links a{ color:rgba(250,248,244,0.75); font-size:var(--text-sm); font-weight:500; transition:color .15s; }
   .nav-links a:hover{ color:var(--gold-light); }
   .nav-cta{
-    background:var(--gold); color:var(--navy-900); font-weight:600; font-size:13.5px;
+    background:var(--gold); color:var(--navy-900); font-weight:600; font-size:var(--text-sm);
     padding:10px 20px; border-radius:2px; letter-spacing:0.02em;
     transition:background .15s;
   }
@@ -174,7 +184,7 @@
   .mobile-menu.open{ max-height:280px; }
   .mobile-menu a{
     display:block; padding:14px 28px;
-    color:rgba(250,248,244,0.85); font-size:15px; font-weight:500;
+    color:rgba(250,248,244,0.85); font-size:var(--text-sm); font-weight:500;
     border-bottom:1px solid var(--line);
   }
   .mobile-menu a:last-child{ border-bottom:none; }
@@ -207,7 +217,7 @@
   }
   .hero h1 em{ font-style:normal; color:var(--gold-light); }
   .hero p.lede{
-    font-size:16.5px;
+    font-size:var(--text-base);
     line-height:1.65;
     color:rgba(250,248,244,0.78);
     max-width:480px;
@@ -216,7 +226,7 @@
   .hero-ctas{ display:flex; gap:14px; flex-wrap:wrap; }
   .btn{
     display:inline-flex; align-items:center; gap:8px;
-    padding:14px 26px; font-size:14.5px; font-weight:600;
+    padding:14px 26px; font-size:var(--text-sm); font-weight:600;
     border-radius:2px; letter-spacing:0.01em; cursor:pointer; border:none;
     transition:transform .15s ease, background .15s ease, opacity .15s ease;
   }
@@ -234,11 +244,11 @@
     padding:26px 26px 22px;
     box-shadow:0 24px 60px -20px rgba(0,0,0,0.5);
   }
-  .hero-card .mono{ font-size:11px; letter-spacing:0.14em; color:var(--gold-light); text-transform:uppercase; }
-  .hero-card .rate{ font-family:'Space Grotesk',sans-serif; font-size:38px; font-weight:700; margin:10px 0 2px; font-variant-numeric:tabular-nums; }
-  .hero-card .rate span{ font-size:14px; font-weight:500; color:rgba(250,248,244,0.6); }
+  .hero-card .mono{ font-size:var(--text-xs); letter-spacing:0.14em; color:var(--gold-light); text-transform:uppercase; }
+  .hero-card .rate{ font-family:'Space Grotesk',sans-serif; font-size:var(--text-numeral-lg); font-weight:700; margin:10px 0 2px; font-variant-numeric:tabular-nums; }
+  .hero-card .rate span{ font-size:var(--text-sm); font-weight:500; color:rgba(250,248,244,0.6); }
   .hero-card ul{ list-style:none; margin:18px 0 0; padding:0; display:grid; gap:9px; }
-  .hero-card li{ font-size:13.5px; color:rgba(250,248,244,0.75); display:flex; gap:9px; align-items:baseline; }
+  .hero-card li{ font-size:var(--text-sm); color:rgba(250,248,244,0.75); display:flex; gap:9px; align-items:baseline; }
   .hero-card li::before{ content:"—"; color:var(--gold); }
 
   .hero-strip{
@@ -248,7 +258,7 @@
   .hero-strip .wrap{
     display:flex; flex-wrap:wrap; row-gap:10px;
     justify-content:center;
-    font-family:'IBM Plex Mono',monospace; font-size:12px;
+    font-family:'IBM Plex Mono',monospace; font-size:var(--text-xs);
     color:rgba(250,248,244,0.55); letter-spacing:0.04em;
   }
   .hero-strip .wrap span{ white-space:nowrap; }
@@ -259,17 +269,17 @@
 
   /* ---------- SECTION HEADERS ---------- */
   section{ padding:88px 0; }
-  .sec-head{ max-width:640px; margin-bottom:48px; }
+  .sec-head{ max-width:600px; margin-bottom:48px; }
   .sec-head h2{ font-size:clamp(26px,3vw,36px); margin-top:14px; font-weight:700; }
-  .sec-head p{ color:var(--grey); font-size:15.5px; margin-top:14px; line-height:1.6; }
+  .sec-head p{ color:var(--grey); font-size:var(--text-base); margin-top:14px; line-height:1.6; }
   .on-dark .sec-head p{ color:rgba(250,248,244,0.68); }
 
   /* ---------- VALUE STRIP ---------- */
   .values{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line-dark); border:1px solid var(--line-dark); }
   .value-card{ background:var(--white); padding:34px 30px; }
-  .value-card .num{ font-family:'IBM Plex Mono',monospace; color:var(--gold-deep); font-size:12px; letter-spacing:0.1em; }
-  .value-card h3{ font-size:19px; margin:14px 0 10px; }
-  .value-card p{ font-size:14px; color:var(--grey); line-height:1.6; margin:0; }
+  .value-card .num{ font-family:'IBM Plex Mono',monospace; color:var(--gold-deep); font-size:var(--text-xs); letter-spacing:0.1em; }
+  .value-card h3{ font-size:var(--text-md); margin:14px 0 10px; }
+  .value-card p{ font-size:var(--text-base); color:var(--grey); line-height:1.6; margin:0; }
 
   /* ---------- CONNECTIVITY BOARD (signature) ---------- */
   .board-section{ background:var(--navy-800); color:var(--white); }
@@ -291,16 +301,16 @@
   .board-row:last-child{ border-bottom:none; }
   .board-row.head{
     background:rgba(255,255,255,0.03);
-    font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(250,248,244,0.5);
+    font-size:var(--text-xs); letter-spacing:0.14em; text-transform:uppercase; color:rgba(250,248,244,0.5);
     padding-top:13px; padding-bottom:13px;
   }
   .board-row .dot{ width:6px;height:6px;border-radius:50%; background:var(--gold); }
-  .board-row .dest{ font-size:15px; font-weight:500; color:var(--white); }
-  .board-row .tag{ font-size:11px; color:rgba(250,248,244,0.45); }
-  .board-row .dist{ font-size:14px; color:var(--gold-light); }
-  .board-row .mode{ font-size:13px; color:rgba(250,248,244,0.65); }
-  .board-row .time{ font-size:14px; color:var(--white); font-weight:600; text-align:right; }
-  .board-note{ margin-top:18px; font-size:13px; color:rgba(250,248,244,0.5); }
+  .board-row .dest{ font-size:var(--text-sm); font-weight:500; color:var(--white); }
+  .board-row .tag{ font-size:var(--text-xs); color:rgba(250,248,244,0.45); }
+  .board-row .dist{ font-size:var(--text-sm); color:var(--gold-light); }
+  .board-row .mode{ font-size:var(--text-sm); color:rgba(250,248,244,0.65); }
+  .board-row .time{ font-size:var(--text-sm); color:var(--white); font-weight:600; text-align:right; }
+  .board-note{ margin-top:18px; font-size:var(--text-sm); color:rgba(250,248,244,0.5); }
 
   /* ---------- ROOMS ---------- */
   .rooms-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:22px; }
@@ -313,13 +323,13 @@
   .thumb:hover{ border-color:var(--gold-light); }
   .thumb.active{ border-color:var(--gold); }
   .room-body{ padding:26px; }
-  .room-body h3{ font-size:20px; margin-bottom:6px; }
-  .room-body .price{ font-family:'Space Grotesk',sans-serif; font-size:15px; color:var(--gold); font-weight:600; margin-bottom:16px; font-variant-numeric:tabular-nums; }
-  .room-body .price span{ color:var(--grey); font-weight:400; font-size:12.5px; }
+  .room-body h3{ font-size:var(--text-md); margin-bottom:6px; }
+  .room-body .price{ font-family:'Space Grotesk',sans-serif; font-size:var(--text-price); color:var(--gold); font-weight:600; margin-bottom:16px; font-variant-numeric:tabular-nums; }
+  .room-body .price span{ color:var(--grey); font-weight:400; font-size:var(--text-xs); }
   .room-body ul{ list-style:none; margin:0 0 22px; padding:0; display:grid; gap:8px; }
-  .room-body li{ font-size:13.5px; color:var(--grey); display:flex; gap:9px; }
+  .room-body li{ font-size:var(--text-sm); color:var(--grey); display:flex; gap:9px; }
   .room-body li::before{ content:"·"; color:var(--gold); font-weight:700; }
-  .room-cta{ display:inline-block; font-size:13.5px; font-weight:600; color:var(--navy-900); border-bottom:1px solid var(--gold); padding-bottom:2px; }
+  .room-cta{ display:inline-block; font-size:var(--text-sm); font-weight:600; color:var(--navy-900); border-bottom:1px solid var(--gold); padding-bottom:2px; }
 
   /* ---------- WHAT TO EXPECT ---------- */
   .expect{ background:var(--paper); }
@@ -327,11 +337,11 @@
   .expect-col{ padding:34px 32px; }
   .expect-col.yes{ background:var(--white); border-right:1px solid var(--line-dark); }
   .expect-col.no{ background:var(--white); }
-  .expect-col .tag{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; }
+  .expect-col .tag{ font-family:'IBM Plex Mono',monospace; font-size:var(--text-xs); letter-spacing:0.12em; text-transform:uppercase; }
   .expect-col.yes .tag{ color:var(--gold); }
   .expect-col.no .tag{ color:var(--grey); }
   .expect-col ul{ list-style:none; margin:18px 0 0; padding:0; display:grid; gap:12px; }
-  .expect-col li{ font-size:14.5px; line-height:1.5; display:flex; gap:10px; }
+  .expect-col li{ font-size:var(--text-base); line-height:1.5; display:flex; gap:10px; }
   .expect-col.yes li::before{ content:"✓"; color:var(--gold); font-weight:700; }
   .expect-col.no li::before{ content:"–"; color:var(--grey); font-weight:700; }
 
@@ -339,21 +349,21 @@
   .notes{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
   .note-card{ padding:28px; border:1px solid var(--line-dark); border-radius:4px; position:relative; }
   .note-card .mark{ font-family:'Space Grotesk',sans-serif; font-size:34px; color:var(--gold-light); line-height:1; margin-bottom:8px; }
-  .note-card p{ font-size:14.5px; color:var(--ink); line-height:1.6; margin:0 0 14px; }
-  .note-card .who{ font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--grey); }
+  .note-card p{ font-size:var(--text-base); color:var(--ink); line-height:1.6; margin:0 0 14px; }
+  .note-card .who{ font-family:'IBM Plex Mono',monospace; font-size:var(--text-xs); color:var(--grey); }
 
   /* ---------- LOCATION / CONTACT ---------- */
   .contact{ background:var(--navy-900); color:var(--white); }
   .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:50px; }
   .contact-list{ display:grid; gap:22px; margin-top:26px; }
-  .contact-item .tag{ font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.12em; color:var(--gold); text-transform:uppercase; }
-  .contact-item p{ margin:6px 0 0; font-size:15px; color:rgba(250,248,244,0.85); }
+  .contact-item .tag{ font-family:'IBM Plex Mono',monospace; font-size:var(--text-xs); letter-spacing:0.12em; color:var(--gold); text-transform:uppercase; }
+  .contact-item p{ margin:6px 0 0; font-size:var(--text-base); color:rgba(250,248,244,0.85); }
   .map-frame{ border:1px solid var(--line); border-radius:4px; min-height:280px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.03); }
-  .map-frame span{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:rgba(250,248,244,0.4); letter-spacing:0.08em; }
+  .map-frame span{ font-family:'IBM Plex Mono',monospace; font-size:var(--text-xs); color:rgba(250,248,244,0.4); letter-spacing:0.08em; }
 
   footer{ background:var(--navy-950); border-top:1px solid var(--line); padding:26px 0; }
   footer .wrap{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; }
-  footer p{ margin:0; font-size:12.5px; color:rgba(250,248,244,0.45); }
+  footer p{ margin:0; font-size:var(--text-xs); color:rgba(250,248,244,0.45); }
 
   /* ---------- FLOATING ACTION BUTTONS ---------- */
   .fab-stack{
@@ -365,7 +375,7 @@
     background:var(--navy-900); color:var(--white);
     border:1px solid var(--line);
     padding:12px 16px; border-radius:30px;
-    font-size:13px; font-weight:600;
+    font-size:var(--text-sm); font-weight:600;
     box-shadow:0 8px 24px rgba(15,32,56,0.35);
     transition:transform .15s ease, background .15s ease;
   }
@@ -644,13 +654,13 @@
         <h2>Premium essentials for a smooth stay.</h2>
       </div>
       <div class="amenities-grid">
-        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:16px;">24/7 Reception</h3><p>Quick check-in &amp; support</p></div>
-        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:16px;">Free Wi-Fi</h3><p>Work &amp; streaming friendly</p></div>
-        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:16px;">Hot Water</h3><p>Comfortable bathrooms</p></div>
-        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:16px;">Lift</h3><p>Easy access for all floors</p></div>
-        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:16px;">Parking</h3><p>Subject to availability</p></div>
-        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:16px;">Daily Housekeeping</h3><p>Clean, fresh rooms</p></div>
-        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:16px;">Room Service</h3><p>Help when you need it</p></div>
+        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:var(--text-md);">24/7 Reception</h3><p>Quick check-in &amp; support</p></div>
+        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:var(--text-md);">Free Wi-Fi</h3><p>Work &amp; streaming friendly</p></div>
+        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:var(--text-md);">Hot Water</h3><p>Comfortable bathrooms</p></div>
+        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:var(--text-md);">Lift</h3><p>Easy access for all floors</p></div>
+        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:var(--text-md);">Parking</h3><p>Subject to availability</p></div>
+        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:var(--text-md);">Daily Housekeeping</h3><p>Clean, fresh rooms</p></div>
+        <div class="value-card" style="border:1px solid var(--line-dark); border-radius:4px;"><h3 style="font-size:var(--text-md);">Room Service</h3><p>Help when you need it</p></div>
       </div>
     </div>
   </section>
@@ -711,7 +721,7 @@
           <div class="who">Verified Guest, Family Stay</div>
         </div>
       </div>
-      <a href="https://www.booking.com/hotel/in/ss-residency-grand.en-gb.html" target="_blank" rel="noopener" class="mono" style="display:inline-block; margin-top:26px; font-size:13px; color:var(--gold-deep); border-bottom:1px solid var(--gold-deep); padding-bottom:2px;">Read verified guest reviews on Booking.com →</a>
+      <a href="https://www.booking.com/hotel/in/ss-residency-grand.en-gb.html" target="_blank" rel="noopener" class="mono" style="display:inline-block; margin-top:26px; font-size:var(--text-sm); color:var(--gold-deep); border-bottom:1px solid var(--gold-deep); padding-bottom:2px;">Read verified guest reviews on Booking.com →</a>
     </div>
   </section>
 
@@ -721,7 +731,7 @@
       <div class="contact-grid">
         <div>
           <div class="eyebrow">GET IN TOUCH</div>
-          <h2 style="margin-top:14px;">Plan your stay.</h2>
+          <h2 style="margin-top:14px; font-size:clamp(26px,3vw,36px); font-weight:700;">Plan your stay.</h2>
           <div class="contact-list">
             <div class="contact-item">
               <div class="tag">Address</div>
@@ -745,7 +755,7 @@
           <div class="map-frame" style="padding:0; overflow:hidden;">
             <iframe title="Map showing SS Residency Grand location in KPHB Colony, Kukatpally" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d237.82889280674294!2d78.39650187303829!3d17.494988633930305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91e74cbe9327%3A0xbb2d05ef68022276!2sSS%20RESIDENCY%20GRAND!5e0!3m2!1sen!2sin!4v1770789306035!5m2!1sen!2sin" width="100%" height="280" style="border:0; display:block;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
-          <a href="https://www.google.com/maps/dir/?api=1&destination=17.494988633930305,78.39650187303829" target="_blank" rel="noopener" class="mono" style="display:inline-block; margin-top:14px; font-size:13px; color:var(--gold-light); border-bottom:1px solid var(--gold-light); padding-bottom:2px;">Get Directions →</a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=17.494988633930305,78.39650187303829" target="_blank" rel="noopener" class="mono" style="display:inline-block; margin-top:14px; font-size:var(--text-sm); color:var(--gold-light); border-bottom:1px solid var(--gold-light); padding-bottom:2px;">Get Directions →</a>
         </div>
       </div>
     </div>
