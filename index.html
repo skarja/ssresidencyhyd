@@ -92,7 +92,7 @@
     /* type scale — 4 UI steps + fluid h1/h2; consolidates ~15 ad hoc sizes */
     --text-xs: 12px;    /* eyebrows, mono tags, board meta */
     --text-sm: 14px;    /* nav, buttons, footer, short fact-fragments */
-    --text-base: 16px;  /* reading prose — paragraphs, sentence-based list items */
+    --text-base: 16px;  /* reading prose (paragraphs, sentence-based list items) and any bold short label that needs full body-text weight */
     --text-md: 19px;    /* card sub-headings (unified h3 role) */
     --text-numeral-lg: 38px; /* hero rate — Space Grotesk display accent, not UI hierarchy */
     --text-price: 15px;      /* room-card price — same numeral-accent role, smaller context */
@@ -420,6 +420,12 @@
     .values{ grid-template-columns:1fr; }
     .rooms-grid{ grid-template-columns:1fr; }
     .notes{ grid-template-columns:1fr; }
+  }
+  @media (max-width: 400px){
+    /* nav row is tight enough here that the "KPHB, Hyderabad" subtitle
+       wraps to its own line; drop it, the wordmark alone still identifies */
+    .brand span br + span{ display:none; }
+    .brand span br{ display:none; }
   }
 </style>
 </head>
