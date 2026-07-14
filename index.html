@@ -59,18 +59,35 @@
 <link rel="icon" href="ss-residency-logo-centered.png">
 <style>
   :root{
+    /* ground */
+    --navy-950:#060D18;
     --navy-900:#0A1728;
     --navy-800:#0F2038;
     --navy-700:#1A3155;
-    --white:#FAF6ED;
+    /* accent */
+    --gold-300:#EBCE8C;
+    --gold-500:#C79A4E;
+    --gold-700:#8A6A2E;
+    /* neutral */
+    --white:#FBF8F1;
     --paper:#F0E9D8;
-    --gold:#C79A4E;
-    --gold-light:#EBCE8C;
-    --gold-deep:#8A6A2E;
+    --sand-200:#E4D9C0;
     --ink:#1A2130;
     --grey:#666F7D;
+    --slate-400:#8A93A0;
+    /* signal (booking states) */
+    --signal-go:#3F7D58;
+    --signal-go-tint:#E7F0EA;
+    --signal-limited:#A3671F;
+    --signal-limited-tint:#F5E9D6;
+    --signal-stop:#A23B3B;
+    --signal-stop-tint:#F5E1DF;
+    /* legacy aliases kept so existing rules below don't need a rewrite */
     --line: rgba(235,206,140,0.16);
     --line-dark: rgba(10,23,40,0.10);
+    --gold: var(--gold-500);
+    --gold-light: var(--gold-300);
+    --gold-deep: var(--gold-700);
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -218,7 +235,7 @@
     box-shadow:0 24px 60px -20px rgba(0,0,0,0.5);
   }
   .hero-card .mono{ font-size:11px; letter-spacing:0.14em; color:var(--gold-light); text-transform:uppercase; }
-  .hero-card .rate{ font-family:'Space Grotesk',sans-serif; font-size:38px; font-weight:700; margin:10px 0 2px; }
+  .hero-card .rate{ font-family:'Space Grotesk',sans-serif; font-size:38px; font-weight:700; margin:10px 0 2px; font-variant-numeric:tabular-nums; }
   .hero-card .rate span{ font-size:14px; font-weight:500; color:rgba(250,248,244,0.6); }
   .hero-card ul{ list-style:none; margin:18px 0 0; padding:0; display:grid; gap:9px; }
   .hero-card li{ font-size:13.5px; color:rgba(250,248,244,0.75); display:flex; gap:9px; align-items:baseline; }
@@ -297,7 +314,7 @@
   .thumb.active{ border-color:var(--gold); }
   .room-body{ padding:26px; }
   .room-body h3{ font-size:20px; margin-bottom:6px; }
-  .room-body .price{ font-family:'Space Grotesk',sans-serif; font-size:15px; color:var(--gold); font-weight:600; margin-bottom:16px; }
+  .room-body .price{ font-family:'Space Grotesk',sans-serif; font-size:15px; color:var(--gold); font-weight:600; margin-bottom:16px; font-variant-numeric:tabular-nums; }
   .room-body .price span{ color:var(--grey); font-weight:400; font-size:12.5px; }
   .room-body ul{ list-style:none; margin:0 0 22px; padding:0; display:grid; gap:8px; }
   .room-body li{ font-size:13.5px; color:var(--grey); display:flex; gap:9px; }
@@ -334,7 +351,7 @@
   .map-frame{ border:1px solid var(--line); border-radius:4px; min-height:280px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.03); }
   .map-frame span{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:rgba(250,248,244,0.4); letter-spacing:0.08em; }
 
-  footer{ background:var(--navy-900); border-top:1px solid var(--line); padding:26px 0; }
+  footer{ background:var(--navy-950); border-top:1px solid var(--line); padding:26px 0; }
   footer .wrap{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; }
   footer p{ margin:0; font-size:12.5px; color:rgba(250,248,244,0.45); }
 
