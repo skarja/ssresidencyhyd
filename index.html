@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -204,6 +203,11 @@
       radial-gradient(1100px 500px at 85% -10%, rgba(185,138,61,0.14), transparent 60%),
       linear-gradient(100deg, rgba(10,23,40,0.97) 0%, rgba(10,23,40,0.90) 42%, rgba(10,23,40,0.62) 100%),
       url('images/deluxe-ac-2.jpg') center right / cover no-repeat,
+      var(--navy-900);
+    background:
+      radial-gradient(1100px 500px at 85% -10%, rgba(185,138,61,0.14), transparent 60%),
+      linear-gradient(100deg, rgba(10,23,40,0.97) 0%, rgba(10,23,40,0.90) 42%, rgba(10,23,40,0.62) 100%),
+      image-set(url('images/deluxe-ac-2.webp') type('image/webp'), url('images/deluxe-ac-2.jpg') type('image/jpeg')) center right / cover no-repeat,
       var(--navy-900);
     color:var(--white);
     padding:96px 0 0;
@@ -481,6 +485,8 @@
       const img = document.getElementById(imgId);
       img.src = src;
       img.alt = alt;
+      const source = document.getElementById(imgId.replace('img-', 'src-'));
+      if(source){ source.srcset = src.replace(/\.jpg$/, '.webp'); }
       const thumbs = btn.parentElement.querySelectorAll('.thumb');
       thumbs.forEach(function(t){ t.classList.remove('active'); });
       btn.classList.add('active');
@@ -602,12 +608,15 @@
       <div class="rooms-grid">
         <div class="room-card">
           <div class="room-gallery">
-            <img id="img-deluxe-ac" class="room-photo" src="images/deluxe-ac-1.jpg" alt="Deluxe AC Room at SS Residency Grand" loading="lazy">
+            <picture>
+              <source id="src-deluxe-ac" type="image/webp" srcset="images/deluxe-ac-1.webp">
+              <img id="img-deluxe-ac" class="room-photo" src="images/deluxe-ac-1.jpg" alt="Deluxe AC Room at SS Residency Grand" loading="lazy">
+            </picture>
             <div class="room-thumbs">
-              <button type="button" class="thumb active" style="background-image:url('images/deluxe-ac-1.jpg')" aria-label="View Deluxe AC Room photo 1" onclick="switchRoomImage(this,'img-deluxe-ac','images/deluxe-ac-1.jpg','Deluxe AC Room at SS Residency Grand')"></button>
-              <button type="button" class="thumb" style="background-image:url('images/deluxe-ac-2.jpg')" aria-label="View Deluxe AC Room photo 2" onclick="switchRoomImage(this,'img-deluxe-ac','images/deluxe-ac-2.jpg','Deluxe AC Room at SS Residency Grand, alternate view')"></button>
-              <button type="button" class="thumb" style="background-image:url('images/deluxe-ac-3.jpg')" aria-label="View Deluxe AC Room photo 3" onclick="switchRoomImage(this,'img-deluxe-ac','images/deluxe-ac-3.jpg','Deluxe AC Room at SS Residency Grand, alternate view')"></button>
-              <button type="button" class="thumb" style="background-image:url('images/bathroom.jpg')" aria-label="View bathroom photo" onclick="switchRoomImage(this,'img-deluxe-ac','images/bathroom.jpg','Bathroom at SS Residency Grand')"></button>
+              <button type="button" class="thumb active" style="background-image:url('images/deluxe-ac-1.jpg');background-image:image-set(url('images/deluxe-ac-1.webp') type('image/webp'), url('images/deluxe-ac-1.jpg') type('image/jpeg'))" aria-label="View Deluxe AC Room photo 1" onclick="switchRoomImage(this,'img-deluxe-ac','images/deluxe-ac-1.jpg','Deluxe AC Room at SS Residency Grand')"></button>
+              <button type="button" class="thumb" style="background-image:url('images/deluxe-ac-2.jpg');background-image:image-set(url('images/deluxe-ac-2.webp') type('image/webp'), url('images/deluxe-ac-2.jpg') type('image/jpeg'))" aria-label="View Deluxe AC Room photo 2" onclick="switchRoomImage(this,'img-deluxe-ac','images/deluxe-ac-2.jpg','Deluxe AC Room at SS Residency Grand, alternate view')"></button>
+              <button type="button" class="thumb" style="background-image:url('images/deluxe-ac-3.jpg');background-image:image-set(url('images/deluxe-ac-3.webp') type('image/webp'), url('images/deluxe-ac-3.jpg') type('image/jpeg'))" aria-label="View Deluxe AC Room photo 3" onclick="switchRoomImage(this,'img-deluxe-ac','images/deluxe-ac-3.jpg','Deluxe AC Room at SS Residency Grand, alternate view')"></button>
+              <button type="button" class="thumb" style="background-image:url('images/bathroom.jpg');background-image:image-set(url('images/bathroom.webp') type('image/webp'), url('images/bathroom.jpg') type('image/jpeg'))" aria-label="View bathroom photo" onclick="switchRoomImage(this,'img-deluxe-ac','images/bathroom.jpg','Bathroom at SS Residency Grand')"></button>
             </div>
           </div>
           <div class="room-body">
@@ -624,10 +633,13 @@
         </div>
         <div class="room-card">
           <div class="room-gallery">
-            <img id="img-standard-ac" class="room-photo" src="images/standard-ac-1.jpg" alt="Standard AC Room at SS Residency Grand" loading="lazy">
+            <picture>
+              <source id="src-standard-ac" type="image/webp" srcset="images/standard-ac-1.webp">
+              <img id="img-standard-ac" class="room-photo" src="images/standard-ac-1.jpg" alt="Standard AC Room at SS Residency Grand" loading="lazy">
+            </picture>
             <div class="room-thumbs">
-              <button type="button" class="thumb active" style="background-image:url('images/standard-ac-1.jpg')" aria-label="View Standard AC Room photo" onclick="switchRoomImage(this,'img-standard-ac','images/standard-ac-1.jpg','Standard AC Room at SS Residency Grand')"></button>
-              <button type="button" class="thumb" style="background-image:url('images/bathroom.jpg')" aria-label="View bathroom photo" onclick="switchRoomImage(this,'img-standard-ac','images/bathroom.jpg','Bathroom at SS Residency Grand')"></button>
+              <button type="button" class="thumb active" style="background-image:url('images/standard-ac-1.jpg');background-image:image-set(url('images/standard-ac-1.webp') type('image/webp'), url('images/standard-ac-1.jpg') type('image/jpeg'))" aria-label="View Standard AC Room photo" onclick="switchRoomImage(this,'img-standard-ac','images/standard-ac-1.jpg','Standard AC Room at SS Residency Grand')"></button>
+              <button type="button" class="thumb" style="background-image:url('images/bathroom.jpg');background-image:image-set(url('images/bathroom.webp') type('image/webp'), url('images/bathroom.jpg') type('image/jpeg'))" aria-label="View bathroom photo" onclick="switchRoomImage(this,'img-standard-ac','images/bathroom.jpg','Bathroom at SS Residency Grand')"></button>
             </div>
           </div>
           <div class="room-body">
@@ -644,12 +656,15 @@
         </div>
         <div class="room-card">
           <div class="room-gallery">
-            <img id="img-deluxe-nonac" class="room-photo" src="images/deluxe-nonac-1.jpg" alt="Deluxe Non-AC Room at SS Residency Grand" loading="lazy">
+            <picture>
+              <source id="src-deluxe-nonac" type="image/webp" srcset="images/deluxe-nonac-1.webp">
+              <img id="img-deluxe-nonac" class="room-photo" src="images/deluxe-nonac-1.jpg" alt="Deluxe Non-AC Room at SS Residency Grand" loading="lazy">
+            </picture>
             <div class="room-thumbs">
-              <button type="button" class="thumb active" style="background-image:url('images/deluxe-nonac-1.jpg')" aria-label="View Deluxe Non-AC Room photo 1" onclick="switchRoomImage(this,'img-deluxe-nonac','images/deluxe-nonac-1.jpg','Deluxe Non-AC Room at SS Residency Grand')"></button>
-              <button type="button" class="thumb" style="background-image:url('images/deluxe-nonac-2.jpg')" aria-label="View Deluxe Non-AC Room photo 2" onclick="switchRoomImage(this,'img-deluxe-nonac','images/deluxe-nonac-2.jpg','Deluxe Non-AC Room at SS Residency Grand, alternate view')"></button>
-              <button type="button" class="thumb" style="background-image:url('images/deluxe-nonac-3.jpg')" aria-label="View Deluxe Non-AC Room photo 3" onclick="switchRoomImage(this,'img-deluxe-nonac','images/deluxe-nonac-3.jpg','Deluxe Non-AC Room at SS Residency Grand, alternate view')"></button>
-              <button type="button" class="thumb" style="background-image:url('images/bathroom.jpg')" aria-label="View bathroom photo" onclick="switchRoomImage(this,'img-deluxe-nonac','images/bathroom.jpg','Bathroom at SS Residency Grand')"></button>
+              <button type="button" class="thumb active" style="background-image:url('images/deluxe-nonac-1.jpg');background-image:image-set(url('images/deluxe-nonac-1.webp') type('image/webp'), url('images/deluxe-nonac-1.jpg') type('image/jpeg'))" aria-label="View Deluxe Non-AC Room photo 1" onclick="switchRoomImage(this,'img-deluxe-nonac','images/deluxe-nonac-1.jpg','Deluxe Non-AC Room at SS Residency Grand')"></button>
+              <button type="button" class="thumb" style="background-image:url('images/deluxe-nonac-2.jpg');background-image:image-set(url('images/deluxe-nonac-2.webp') type('image/webp'), url('images/deluxe-nonac-2.jpg') type('image/jpeg'))" aria-label="View Deluxe Non-AC Room photo 2" onclick="switchRoomImage(this,'img-deluxe-nonac','images/deluxe-nonac-2.jpg','Deluxe Non-AC Room at SS Residency Grand, alternate view')"></button>
+              <button type="button" class="thumb" style="background-image:url('images/deluxe-nonac-3.jpg');background-image:image-set(url('images/deluxe-nonac-3.webp') type('image/webp'), url('images/deluxe-nonac-3.jpg') type('image/jpeg'))" aria-label="View Deluxe Non-AC Room photo 3" onclick="switchRoomImage(this,'img-deluxe-nonac','images/deluxe-nonac-3.jpg','Deluxe Non-AC Room at SS Residency Grand, alternate view')"></button>
+              <button type="button" class="thumb" style="background-image:url('images/bathroom.jpg');background-image:image-set(url('images/bathroom.webp') type('image/webp'), url('images/bathroom.jpg') type('image/jpeg'))" aria-label="View bathroom photo" onclick="switchRoomImage(this,'img-deluxe-nonac','images/bathroom.jpg','Bathroom at SS Residency Grand')"></button>
             </div>
           </div>
           <div class="room-body">
@@ -666,11 +681,14 @@
         </div>
         <div class="room-card">
           <div class="room-gallery">
-            <img id="img-standard-nonac" class="room-photo" src="images/standard-nonac-1.jpg" alt="Standard Non-AC Room at SS Residency Grand" loading="lazy">
+            <picture>
+              <source id="src-standard-nonac" type="image/webp" srcset="images/standard-nonac-1.webp">
+              <img id="img-standard-nonac" class="room-photo" src="images/standard-nonac-1.jpg" alt="Standard Non-AC Room at SS Residency Grand" loading="lazy">
+            </picture>
             <div class="room-thumbs">
-              <button type="button" class="thumb active" style="background-image:url('images/standard-nonac-1.jpg')" aria-label="View Standard Non-AC Room photo 1" onclick="switchRoomImage(this,'img-standard-nonac','images/standard-nonac-1.jpg','Standard Non-AC Room at SS Residency Grand')"></button>
-              <button type="button" class="thumb" style="background-image:url('images/standard-nonac-2.jpg')" aria-label="View Standard Non-AC Room photo 2" onclick="switchRoomImage(this,'img-standard-nonac','images/standard-nonac-2.jpg','Standard Non-AC Room at SS Residency Grand, alternate view')"></button>
-              <button type="button" class="thumb" style="background-image:url('images/bathroom.jpg')" aria-label="View bathroom photo" onclick="switchRoomImage(this,'img-standard-nonac','images/bathroom.jpg','Bathroom at SS Residency Grand')"></button>
+              <button type="button" class="thumb active" style="background-image:url('images/standard-nonac-1.jpg');background-image:image-set(url('images/standard-nonac-1.webp') type('image/webp'), url('images/standard-nonac-1.jpg') type('image/jpeg'))" aria-label="View Standard Non-AC Room photo 1" onclick="switchRoomImage(this,'img-standard-nonac','images/standard-nonac-1.jpg','Standard Non-AC Room at SS Residency Grand')"></button>
+              <button type="button" class="thumb" style="background-image:url('images/standard-nonac-2.jpg');background-image:image-set(url('images/standard-nonac-2.webp') type('image/webp'), url('images/standard-nonac-2.jpg') type('image/jpeg'))" aria-label="View Standard Non-AC Room photo 2" onclick="switchRoomImage(this,'img-standard-nonac','images/standard-nonac-2.jpg','Standard Non-AC Room at SS Residency Grand, alternate view')"></button>
+              <button type="button" class="thumb" style="background-image:url('images/bathroom.jpg');background-image:image-set(url('images/bathroom.webp') type('image/webp'), url('images/bathroom.jpg') type('image/jpeg'))" aria-label="View bathroom photo" onclick="switchRoomImage(this,'img-standard-nonac','images/bathroom.jpg','Bathroom at SS Residency Grand')"></button>
             </div>
           </div>
           <div class="room-body">
